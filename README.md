@@ -1,34 +1,36 @@
-# Switchboard website
+# Switchboard
 
-Public marketing + download site for [Switchboard](https://github.com/azzuwayed/switchboard-website/releases). The application source code lives in a separate private repo during the unsigned-beta phase.
+**Native macOS service manager for developers.** One menu-bar app for Homebrew services, Docker containers, launchd agents, HTTP endpoints, and dev-server commands.
 
-## Contents
+[**Download for macOS →**](https://azzuwayed.github.io/switchboard-website/) · [Changelog](https://github.com/azzuwayed/switchboard-website/releases) · [Support](https://github.com/azzuwayed/switchboard-website/issues)
 
-- `index.html`, `style.css` — single-page landing site.
-- `assets/` — screenshots and icon.
-- `updates.json` — manifest the running app fetches to detect new versions.
-- GitHub Releases — host the `.dmg`, `.zip`, and `.sha256` artifacts.
+---
 
-## Hosting
+## Why Switchboard
 
-Served via GitHub Pages from `main`, root directory.
+- **One tray for everything you run locally.** Start, stop, restart, and inspect Postgres, Redis, MySQL, MongoDB, Docker containers, your dev servers, and launchd agents from a single menu-bar icon.
+- **Risk-aware actions.** Every command is allowlisted and explicitly approved before it runs. No arbitrary shell from the UI.
+- **Local-only.** No cloud account. No telemetry. No background HTTP server. Your config and logs live in `~/Library/Application Support/`.
+- **Templates that actually work.** Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx, and more — reviewed and ready out of the box.
 
-URL: `https://azzuwayed.github.io/switchboard-website/`
-Manifest: `https://azzuwayed.github.io/switchboard-website/updates.json`
+## What's inside
 
-## Issues
+- Service dashboard with running, degraded, stopped, and unknown states across every service kind.
+- Health checks for Homebrew, Docker, HTTP, and command-backed services with live polling.
+- Port inspector with conflict detection and service linking — no more `lsof`.
+- Live log viewer for file and command-backed logs.
+- Markdown docs viewer for your local runbooks.
+- First-run onboarding that detects what's already running on your machine.
 
-Bug reports and feature requests welcome here. The source repo is private; triaged issues that need code changes get mirrored internally.
+## System requirements
 
-## How releases reach this repo
+macOS 12 (Monterey) or later, Apple Silicon (arm64).
 
-The private Switchboard repo's release workflow pushes each tagged release to this repo:
+## Get it
 
-1. Tag `v1.0.0-beta.N` in the private repo.
-2. Private workflow builds `.dmg` + `.zip` + `.sha256` files.
-3. After uploading to the private repo's GitHub Release, the workflow uses a fine-grained PAT (`WEBSITE_PUBLISH_TOKEN`) to:
-   - Create a matching release on this repo with the same assets.
-   - Commit an updated `updates.json` to `main`.
-4. GitHub Pages picks up the new manifest within ~1 minute.
+→ [**azzuwayed.github.io/switchboard-website**](https://azzuwayed.github.io/switchboard-website/)
 
-The PAT is fine-grained, scoped to `Contents: read+write` on this repo only, with a 1-year expiry.
+## Stay in the loop
+
+- **Releases** — [Changelog](https://github.com/azzuwayed/switchboard-website/releases). The app also checks once a day and shows an in-app banner when a new release is available.
+- **Bugs and ideas** — [Issues](https://github.com/azzuwayed/switchboard-website/issues).

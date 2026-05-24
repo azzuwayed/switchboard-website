@@ -91,8 +91,61 @@
               server.
             </p>
           </div>
-          <div class="hero-art hero-placeholder" aria-hidden="true">
-            <span>Screenshot coming soon</span>
+          <div class="hero-art" aria-hidden="true">
+            <div class="mock-window">
+              <div class="mock-titlebar">
+                <span class="mock-dot mock-dot-red"></span>
+                <span class="mock-dot mock-dot-yellow"></span>
+                <span class="mock-dot mock-dot-green"></span>
+                <span class="mock-title">Switchboard</span>
+              </div>
+              <div class="mock-body">
+                <aside class="mock-sidebar">
+                  <div class="mock-nav-item mock-active">Services</div>
+                  <div class="mock-nav-item">Templates</div>
+                  <div class="mock-nav-item">Ports</div>
+                  <div class="mock-nav-item">Activity</div>
+                  <div class="mock-nav-item">Docs</div>
+                  <div class="mock-nav-item">Settings</div>
+                </aside>
+                <div class="mock-content">
+                  <div class="mock-service">
+                    <span class="mock-status mock-status-running"></span>
+                    <div>
+                      <div class="mock-service-name">postgresql</div>
+                      <div class="mock-service-meta">
+                        port 5432 · brew services
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mock-service">
+                    <span class="mock-status mock-status-running"></span>
+                    <div>
+                      <div class="mock-service-name">redis</div>
+                      <div class="mock-service-meta">
+                        port 6379 · brew services
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mock-service">
+                    <span class="mock-status mock-status-degraded"></span>
+                    <div>
+                      <div class="mock-service-name">nginx</div>
+                      <div class="mock-service-meta">
+                        port 8080 · brew services
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mock-service">
+                    <span class="mock-status mock-status-stopped"></span>
+                    <div>
+                      <div class="mock-service-name">ollama</div>
+                      <div class="mock-service-meta">port 11434 · launchd</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -102,6 +155,21 @@
           <h2>What it does</h2>
           <div class="feature-grid">
             <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                </svg>
+              </span>
               <h3>Service dashboard</h3>
               <p>
                 Running, degraded, stopped, and unknown states across every
@@ -109,6 +177,19 @@
               </p>
             </article>
             <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </span>
               <h3>Risk-aware actions</h3>
               <p>
                 Start, stop, restart, update — every command is allowlisted,
@@ -116,6 +197,20 @@
               </p>
             </article>
             <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3 2 8l10 5 10-5-10-5z" />
+                  <path d="m2 17 10 5 10-5" />
+                  <path d="m2 12 10 5 10-5" />
+                </svg>
+              </span>
               <h3>Templates</h3>
               <p>
                 Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx,
@@ -123,6 +218,21 @@
               </p>
             </article>
             <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M9 2v6" />
+                  <path d="M15 2v6" />
+                  <path d="M6 8h12v3a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8z" />
+                  <path d="M12 17v5" />
+                </svg>
+              </span>
               <h3>Port inspector</h3>
               <p>
                 See every listening port, link processes to services, and
@@ -130,6 +240,18 @@
               </p>
             </article>
             <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+              </span>
               <h3>Health checks</h3>
               <p>
                 Homebrew, Docker, HTTP, and command-backed health probes with
@@ -137,6 +259,20 @@
               </p>
             </article>
             <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="16" rx="2" />
+                  <path d="M3 10h18" />
+                  <circle cx="7" cy="7" r="0.5" fill="currentColor" />
+                </svg>
+              </span>
               <h3>Local-only</h3>
               <p>
                 No telemetry, no analytics, no background server. Config and
