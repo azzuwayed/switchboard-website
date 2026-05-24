@@ -1,0 +1,61 @@
+name: Version stylesheet for cache-busting
+
+# Keeps the ?v=<hash> query string on the CSS link in index.html in sync with
+# the actual style.css content. Without this, browsers happily cache an old
+# style.css for hours/days even after we push a new one.
+#
+# Runs on push to main when index.html or style.css changes. Pushes from this
+# workflow use GITHUB_TOKEN so they DON'T re-trigger workflows (no infinite
+# loop). If style.css content hasn't actually changed, the job is a no-op.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "style.css"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: version-css-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Compute style.css content hash
+        id: hash
+        run: echo "value=$(shasum -a 256 style.css | cut -c1-10)" >> "$GITHUB_OUTPUT"
+
+      - name: Rewrite ?v= in index.html if needed
+        id: bump
+        env:
+          NEW: ${{ steps.hash.outputs.value }}
+        run: |
+          set -euo pipefail
+          if grep -q "style.css?v=${NEW}" index.html; then
+            echo "already at v=${NEW} — nothing to do"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          sed -i -E 's|(style\.css\?v=)[^"]*|\1'"${NEW}"'|' index.html
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push
+        if: steps.bump.outputs.changed == 'true'
+        env:
+          NEW: ${{ steps.hash.outputs.value }}
+        run: |
+          set -euo pipefail
+          git -c user.email=ci@switchboard.local \
+              -c user.name="Switchboard release bot" \
+              commit -am "chore: bump style.css cache-bust to ${NEW}"
+          git push
