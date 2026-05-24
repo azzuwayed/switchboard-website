@@ -8,6 +8,41 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 `1.0.0-beta.<n>`.
 
+## [1.0.0-beta.5] - 2026-05-25
+
+### Changed
+
+- **In-place updates.** The update banner now installs new versions
+  directly: click Install and Switchboard downloads the new build,
+  verifies its signature, swaps the bundle, and restarts. The previous
+  "open the download page" path stays as a fallback. macOS Gatekeeper
+  will still prompt you to confirm a freshly-installed build the first
+  time you open it, until the app gets Apple Developer ID signing +
+  notarization (post-1.0).
+
+  **Note for existing users:** this is the first release that can
+  update in place, so v1.0.0-beta.4 installs need to download and
+  install this `.dmg` once manually. Every release after this can
+  update from the banner.
+
+### Added
+
+- **About panel.** Reachable three ways: the tray menu
+  ("About Switchboard"), Settings → About, and the standard macOS app
+  menu ("Switchboard → About Switchboard…", which opens Apple's native
+  panel). Shows the app version, build SHA + date, your macOS version
+  and architecture, the underlying Tauri / React / TypeScript versions,
+  and link buttons for GitHub, the issue tracker, the public docs, and
+  the MIT license. Includes a "Check for updates" button.
+- **Standard macOS menu bar.** Switchboard now registers the usual
+  Switchboard / Edit / Window menus so the keyboard shortcuts you
+  expect (Cmd-Q, Cmd-H, Cmd-W, undo/redo/cut/copy/paste/select-all,
+  minimize/close) work consistently.
+- **Snooze the update banner.** A new "Later" dropdown on the banner
+  defers the notice for a day, three days, or a week. Snooze is tied
+  to a specific version, so a newer release during the snooze window
+  still surfaces. Dismissing the banner clears any active snooze.
+
 ## [1.0.0-beta.4] - 2026-05-24
 
 ### Security
@@ -72,5 +107,6 @@ First public release.
 
 macOS 12 (Monterey) or later, Apple Silicon (arm64).
 
+[1.0.0-beta.5]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.5
 [1.0.0-beta.4]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.4
 [1.0.0-beta.3]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.3
