@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Switchboard — Native macOS service manager</title>
+    <meta
+      name="description"
+      content="Switchboard is a native macOS menu-bar app for managing local services from one place: Homebrew services, Docker containers, launchd agents, HTTP endpoints, and command-backed dev servers."
+    />
+    <meta property="og:title" content="Switchboard" />
+    <meta
+      property="og:description"
+      content="Native macOS menu-bar app for managing local services."
+    />
+    <meta property="og:type" content="website" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235b8def'/%3E%3Cpath d='M9 12h14M9 16h10M9 20h14' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./">
+          <span
+            class="brand-mark"
+            aria-hidden="true"
+            style="
+              width: 28px;
+              height: 28px;
+              border-radius: 7px;
+              background: var(--accent);
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-family: var(--font-mono);
+              font-weight: 600;
+              font-size: 14px;
+            "
+            >S</span
+          >
+          <span>Switchboard</span>
+        </a>
+        <nav class="site-nav">
+          <a href="#features">Features</a>
+          <a href="#trust">Trust model</a>
+          <a
+            href="https://github.com/azzuwayed/switchboard-website/releases"
+            rel="noopener"
+            target="_blank"
+            >Changelog</a
+          >
+          <a
+            href="https://github.com/azzuwayed/switchboard-website/issues"
+            rel="noopener"
+            target="_blank"
+            >Support</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">macOS · Apple Silicon</p>
+            <h1>Manage every local service from one tray.</h1>
+            <p class="lede">
+              Homebrew services, Docker containers, launchd agents, HTTP
+              endpoints, and dev-server commands. Start, stop, restart, inspect
+              ports, view logs — without leaving your menu bar.
+            </p>
+            <div class="cta-row">
+              <a
+                class="btn btn-primary"
+                id="download-btn"
+                href="https://github.com/azzuwayed/switchboard-website/releases/latest"
+                rel="noopener"
+                >Download for macOS
+                <span class="version-chip" id="version-chip">Latest</span></a
+              >
+              <a class="btn btn-ghost" href="#features">See features</a>
+            </div>
+            <p class="micro">
+              Runs entirely on your Mac. No cloud account. No background HTTP
+              server.
+            </p>
+          </div>
+          <div class="hero-art hero-placeholder" aria-hidden="true">
+            <span>Screenshot coming soon</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="features">
+        <div class="container">
+          <h2>What it does</h2>
+          <div class="feature-grid">
+            <article class="feature">
+              <h3>Service dashboard</h3>
+              <p>
+                Running, degraded, stopped, and unknown states across every
+                service kind in a single view.
+              </p>
+            </article>
+            <article class="feature">
+              <h3>Risk-aware actions</h3>
+              <p>
+                Start, stop, restart, update — every command is allowlisted,
+                approved, and runs without a shell.
+              </p>
+            </article>
+            <article class="feature">
+              <h3>Templates</h3>
+              <p>
+                Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx,
+                generic HTTP + command — all reviewed and ready.
+              </p>
+            </article>
+            <article class="feature">
+              <h3>Port inspector</h3>
+              <p>
+                See every listening port, link processes to services, and
+                resolve conflicts without lsof.
+              </p>
+            </article>
+            <article class="feature">
+              <h3>Health checks</h3>
+              <p>
+                Homebrew, Docker, HTTP, and command-backed health probes with
+                live polling.
+              </p>
+            </article>
+            <article class="feature">
+              <h3>Local-only</h3>
+              <p>
+                No telemetry, no analytics, no background server. Config and
+                logs live in your Application Support folder.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="trust" class="trust">
+        <div class="container">
+          <h2>Trust model</h2>
+          <p>
+            Switchboard is designed to be useful without becoming a
+            shell-in-a-webview.
+          </p>
+          <ul class="trust-list">
+            <li>Runs entirely on your Mac.</li>
+            <li>No cloud account.</li>
+            <li>No background HTTP server.</li>
+            <li>No arbitrary shell from the UI.</li>
+            <li>
+              The webview sends only <code>serviceId</code>,
+              <code>action</code>, and explicit confirmation state.
+            </li>
+            <li>
+              Rust maps actions to exact allowlisted <code>cmd</code> +
+              <code>args</code> definitions.
+            </li>
+            <li>
+              Commands run through <code>tokio::process::Command</code>, never
+              <code>sh -c</code>.
+            </li>
+            <li>
+              Imported commands are previewed command-by-command before they can
+              run.
+            </li>
+            <li>
+              New or changed imported commands stay unapproved until reviewed.
+            </li>
+            <li>
+              Command output is bounded; secret redaction defaults to
+              <strong>on</strong>.
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Abdullah Alzuwayed. All rights reserved.</p>
+        <nav class="footer-nav">
+          <a
+            href="https://github.com/azzuwayed/switchboard-website/releases"
+            rel="noopener"
+            target="_blank"
+            >Changelog</a
+          >
+          <a
+            href="https://github.com/azzuwayed/switchboard-website/issues"
+            rel="noopener"
+            target="_blank"
+            >Support</a
+          >
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      // Auto-populate the hero download button with the latest .dmg URL and
+      // version from updates.json. Falls back to /releases/latest if JS is
+      // disabled or the fetch fails.
+      (async () => {
+        try {
+          const response = await fetch("updates.json", { cache: "no-cache" });
+          if (!response.ok) return;
+          const manifest = await response.json();
+          const dmgUrl = manifest?.macos?.arm64?.dmg?.url;
+          const latest = manifest?.latest;
+          const btn = document.getElementById("download-btn");
+          const chip = document.getElementById("version-chip");
+          if (btn && dmgUrl) btn.href = dmgUrl;
+          if (chip && latest) chip.textContent = "v" + latest;
+        } catch {
+          // Silent — the static href on #download-btn still points at the
+          // /releases/latest page.
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "latest": "1.0.0-beta.1",
+  "releasedAt": "2026-05-24T12:09:11Z",
+  "minimumSystemVersion": "12.0",
+  "channel": "beta",
+  "macos": {
+    "arm64": {
+      "dmg": {
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.1/Switchboard-v1.0.0-beta.1-macos-arm64.dmg",
+        "sha256": "1d2f861cf7e6f27348bba56b66aa0e9ddeb5731ab81755ede82fc1e143224628",
+        "sizeBytes": 7016651
+      },
+      "zip": {
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.1/Switchboard-v1.0.0-beta.1-macos-arm64.zip",
+        "sha256": "12e9bd9407b5c256ae1f102079d18a8ec2f2e9c52987d55ca8620815045aaf33",
+        "sizeBytes": 6928433
+      }
+    }
+  },
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.1",
+  "downloadPageUrl": "https://azzuwayed.github.io/switchboard-website/"
+}
