@@ -845,6 +845,31 @@ h2 {
   }
 }
 
+/* Promote the "Why I built this app" eyebrow — the default .eyebrow at
+   12px/--fg-dim renders almost invisibly against the dark surface for a
+   section that needs to introduce itself. Bumped size, accent color,
+   bolder weight, and an inline accent bar to make the label assertive
+   without competing with the H2. */
+.story-copy .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  margin: 0 0 18px;
+}
+
+.story-copy .eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
 .story-copy h2 {
   font-size: clamp(26px, 4vw, 36px);
   line-height: 1.2;
