@@ -8,6 +8,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 `1.0.0-beta.<n>`.
 
+## [1.0.0-beta.9] - 2026-05-25
+
+No user-facing app changes. This release modernizes the entire core stack — Vite 8
+(new Rolldown/Oxc bundler), TypeScript 6, ESLint 10, lucide-react 1, plus the
+Rust side's `gray_matter` 0.3, `toml` 1.x, `reqwest` 0.13 (now using the
+`aws-lc-rs` TLS provider with `rustls-platform-verifier` for system roots), and
+`sha2` 0.11. SHA-256 fingerprints on command approvals are byte-identical across
+the `sha2` bump, so existing `approvals.json` files on user machines remain
+valid and no migration runs. Behavior, UI, and on-disk data are unchanged from
+beta.8.
+
 ## [1.0.0-beta.8] - 2026-05-25
 
 No user-facing app changes. This release rolls up internal refactors, developer
