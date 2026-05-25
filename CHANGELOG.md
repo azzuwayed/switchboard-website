@@ -8,6 +8,41 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 `1.0.0-beta.<n>`.
 
+## [1.0.0-beta.10] - 2026-05-25
+
+### Changed
+
+- **Redesigned About window.** The About window is now a tabbed dialog with
+  three tabs: **About** (version, build, system, update check, and a single
+  "Check for updates automatically" toggle), **What's New** (release notes for
+  the running build, rendered offline), and **Privacy** (summary + link to the
+  full privacy statement on the website). The previous separate "Open About…"
+  and "Updates" rows in **Settings** are gone — both now live in this one
+  place.
+- **No more in-window toast.** Clicking "Check for updates" used to fire a
+  toast that rendered _inside_ the About window. Update feedback is now an
+  inline status row right under the button (up to date / version X.Y.Z is
+  available + Install / downloading / error + retry).
+- **About auto-opens after an update or on first launch.** When you install an
+  in-place update, the next launch opens the About window on the **What's New**
+  tab so you can see what changed. A fresh install opens it on the **About**
+  tab. After that, it stays out of your way unless you ask for it.
+
+### Added
+
+- **Privacy & trust page** on the website at
+  [`/privacy.html`](https://azzuwayed.github.io/switchboard-website/privacy.html),
+  linked from the new **Privacy** tab in the About dialog and from the website's
+  primary nav. The page documents that the app does not collect telemetry, does
+  not have a cloud account, and has exactly one outbound network request (the
+  update-manifest check, which the new in-About toggle can disable).
+
+### Notes
+
+- macOS Gatekeeper may still prompt on the first launch of an OTA-installed
+  build until Apple Developer ID signing and notarization land. The update flow
+  itself is unchanged from beta.9 — the new About window just wraps it.
+
 ## [1.0.0-beta.9] - 2026-05-25
 
 No user-facing app changes. This release modernizes the entire core stack — Vite 8
