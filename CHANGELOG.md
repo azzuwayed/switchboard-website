@@ -8,6 +8,13 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 `1.0.0-beta.<n>`.
 
+## [1.0.0-beta.8] - 2026-05-25
+
+No user-facing app changes. This release rolls up internal refactors, developer
+tooling, and dependency bumps (React 19.2.6, i18next 26, react-markdown 10,
+Tailwind 4.3, and patch-level updates across linting and formatting). Behavior,
+UI, and on-disk data are unchanged from beta.7.
+
 ## [1.0.0-beta.7] - 2026-05-25
 
 ### Added
