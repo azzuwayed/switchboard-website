@@ -823,3 +823,98 @@ h2 {
     transition: none;
   }
 }
+
+/* Why I built this — origin-story section, prose-first with a side panel. */
+
+.story {
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 880px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.story-copy h2 {
+  font-size: clamp(26px, 4vw, 36px);
+  line-height: 1.2;
+  margin: 8px 0 20px;
+  max-width: 22ch;
+}
+
+.story-lede {
+  margin: 0 0 16px;
+  color: var(--fg-muted);
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 60ch;
+}
+
+.story-lede:last-child {
+  margin-bottom: 0;
+}
+
+.story-lede code {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.9em;
+}
+
+.story-side {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+
+.story-side h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fg-muted);
+  margin: 0 0 14px;
+}
+
+.story-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.story-list li {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 10px;
+  align-items: start;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--fg-muted);
+}
+
+.story-list li strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.story-list-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-top: 7px;
+  border-radius: 999px;
+  background: var(--accent);
+}

@@ -29,7 +29,7 @@
     />
     <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
     <meta property="og:image" content="assets/icon-256.png" />
-    <link rel="stylesheet" href="style.css?v=d194b00379" />
+    <link rel="stylesheet" href="style.css?v=1bdb373b18" />
   </head>
   <body>
     <header class="site-header">
@@ -47,6 +47,7 @@
         </a>
         <nav class="site-nav" aria-label="Primary">
           <a href="#features">Features</a>
+          <a href="#story">Why</a>
           <a href="#install">Install</a>
           <a href="privacy.html">Privacy</a>
           <a href="#faq">FAQ</a>
@@ -368,6 +369,79 @@
               </p>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section id="story" class="story">
+        <div class="container story-grid">
+          <div class="story-copy">
+            <p class="eyebrow">Why I built this app</p>
+            <h2>I kept losing track of the things I'd started.</h2>
+            <p class="story-lede">
+              A dev server here, a database there, a tunnel for some experiment
+              — half of them still running days later, none of them stopped, all
+              of them quietly using CPU and battery I didn't have to spare.
+              macOS doesn't tell you about this. Activity Monitor will list the
+              processes if you go looking, but it won't connect
+              <code>node</code> to <em>the dev server I started last week</em>.
+            </p>
+            <p class="story-lede">
+              The problem got worse when I started building with AI coding
+              agents. Agents are great at spinning up dev servers; they're not
+              always great at stopping the previous one before starting the
+              next. Sometimes the agent is smart enough to free the port it
+              needs — sometimes it just walks to the next available one. After a
+              few hours of iteration you can end up with six copies of the same
+              Vite server competing for memory, the laptop running hot, the
+              battery draining fast, and nothing in macOS surfacing any of it.
+            </p>
+            <p class="story-lede">
+              Switchboard is the thing I wanted: one place where every local
+              service shows up, every forgotten process gets surfaced, and every
+              port flood gets named with its actual cause. The OS won't tell
+              you. The dev tools won't tell you. This will.
+            </p>
+          </div>
+          <aside
+            class="story-side"
+            aria-label="What Switchboard catches that the OS doesn't"
+          >
+            <h3>What it catches</h3>
+            <ul class="story-list">
+              <li>
+                <span class="story-list-dot" aria-hidden="true"></span>
+                <span
+                  ><strong>Forgotten services</strong> still running days after
+                  you stopped paying attention.</span
+                >
+              </li>
+              <li>
+                <span class="story-list-dot" aria-hidden="true"></span>
+                <span
+                  ><strong>Port-fighting dev servers</strong> — multiple copies
+                  of the same tool on consecutive ports, competing for
+                  resources.</span
+                >
+              </li>
+              <li>
+                <span class="story-list-dot" aria-hidden="true"></span>
+                <span
+                  ><strong>Resource spikes</strong> macOS doesn't alarm about:
+                  heat, fan, battery drain attributed to nothing specific.</span
+                >
+              </li>
+              <li>
+                <span class="story-list-dot" aria-hidden="true"></span>
+                <span
+                  ><strong
+                    >Orphans that survive sleep, IDE quits, and terminal
+                    closes</strong
+                  >
+                  — processes you have no easy way to find again.</span
+                >
+              </li>
+            </ul>
+          </aside>
         </div>
       </section>
 
