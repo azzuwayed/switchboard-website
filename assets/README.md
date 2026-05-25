@@ -1,17 +1,31 @@
 # Assets
 
-The landing page currently uses an inline SVG favicon and a CSS placeholder for the hero image, so you can ship the page before adding screenshots. When you have screenshots, replace the placeholders.
+## App icon
 
-## Screenshots
+The brand mark in the page header and the browser favicon both use the
+Switchboard app icon — a dark squircle with two toggles connected by a blue
+"S"-shaped cable. Source artwork lives in
+[`src-tauri/icons/`](https://github.com/azzuwayed/switchboard/tree/main/src-tauri/icons)
+in the app repo. Regenerate from a 1024×1024 source by the pipeline in
+[`docs/icons.md`](https://github.com/azzuwayed/switchboard/blob/main/docs/icons.md).
 
-Capture these from a running build via `pnpm tauri:dev`. Use `Cmd+Shift+4` then space then click the window. Recommended size: 1800×1200 (will scale down).
+| File           | Source                                  | Use                            |
+| -------------- | --------------------------------------- | ------------------------------ |
+| `icon-32.png`  | `src-tauri/icons/32x32.png` (32×32)     | classic browser favicon        |
+| `icon-128.png` | `src-tauri/icons/128x128.png` (128²)    | favicon hi-dpi + brand mark 1x |
+| `icon-256.png` | `src-tauri/icons/128x128@2x.png` (256²) | brand mark 2x, apple-touch, OG |
 
-- `screenshot-dashboard.png` — Switchboard dashboard with a few services running.
-- `screenshot-templates.png` — templates browser.
-- `screenshot-ports.png` — port inspector.
+Refresh after an icon revision by re-copying from `src-tauri/icons/`:
 
-To wire `screenshot-dashboard.png` into the hero: in `index.html`, replace the `<div class="hero-art hero-placeholder">` block with the original `<img>` tag pattern.
+```sh
+cp ../switchboard/src-tauri/icons/32x32.png      assets/icon-32.png
+cp ../switchboard/src-tauri/icons/128x128.png    assets/icon-128.png
+cp ../switchboard/src-tauri/icons/128x128@2x.png assets/icon-256.png
+```
 
-## Favicon
+## Screenshots (not yet shipped)
 
-A blue rounded-square "S" SVG is inlined into `index.html` via a data URI. To use a custom PNG instead, drop it at `assets/icon.png` and change the `<link rel="icon">` tag back to `href="assets/icon.png" type="image/png"`.
+The hero currently uses a pure-CSS mock window in `index.html`. To swap in a
+real screenshot, capture from `pnpm tauri:dev` with `Cmd+Shift+4` → space →
+click the window (~1800×1200), drop it at `assets/screenshot-dashboard.png`,
+and replace the `.mock-window` block in `index.html` with an `<img>`.

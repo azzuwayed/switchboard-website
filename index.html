@@ -1,53 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Switchboard — Native macOS service manager</title>
     <meta
       name="description"
       content="Switchboard is a native macOS menu-bar app for managing local services from one place: Homebrew services, Docker containers, launchd agents, HTTP endpoints, and command-backed dev servers."
-    />
-    <meta property="og:title" content="Switchboard" />
+    >
+    <meta property="og:title" content="Switchboard">
     <meta
       property="og:description"
       content="Native macOS menu-bar app for managing local services."
-    />
-    <meta property="og:type" content="website" />
+    >
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
     <link
       rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235b8def'/%3E%3Cpath d='M9 12h14M9 16h10M9 20h14' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E"
-    />
-    <link rel="stylesheet" href="style.css?v=6a27ce42ea" />
+      type="image/png"
+      sizes="128x128"
+      href="assets/icon-128.png"
+    >
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="256x256"
+      href="assets/icon-256.png"
+    >
+    <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png">
+    <meta property="og:image" content="assets/icon-256.png">
+    <link rel="stylesheet" href="style.css?v=d194b00379">
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="./">
-          <span
+          <img
             class="brand-mark"
-            aria-hidden="true"
-            style="
-              width: 28px;
-              height: 28px;
-              border-radius: 7px;
-              background: var(--accent);
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              color: white;
-              font-family: var(--font-mono);
-              font-weight: 600;
-              font-size: 14px;
-            "
-            >S</span
+            src="assets/icon-256.png"
+            srcset="assets/icon-128.png 1x, assets/icon-256.png 2x"
+            alt=""
+            width="28"
+            height="28"
           >
           <span>Switchboard</span>
         </a>
-        <nav class="site-nav">
+        <nav class="site-nav" aria-label="Primary">
           <a href="#features">Features</a>
+          <a href="#install">Install</a>
           <a href="#trust">Trust model</a>
+          <a href="#faq">FAQ</a>
           <a
             href="https://github.com/azzuwayed/switchboard-website/releases"
             rel="noopener"
@@ -86,10 +88,20 @@
               >
               <a class="btn btn-ghost" href="#features">See features</a>
             </div>
-            <p class="micro">
-              Runs entirely on your Mac. No cloud account. No background HTTP
-              server.
-            </p>
+            <ul class="trust-strip">
+              <li>
+                <span class="trust-chip-dot" aria-hidden="true"></span>Free
+                forever in beta
+              </li>
+              <li>
+                <span class="trust-chip-dot" aria-hidden="true"></span>No
+                signup, no license
+              </li>
+              <li>
+                <span class="trust-chip-dot" aria-hidden="true"></span>100%
+                local — no cloud, no telemetry
+              </li>
+            </ul>
           </div>
           <div class="hero-art" aria-hidden="true">
             <div class="mock-window">
@@ -147,6 +159,77 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="install" class="install">
+        <div class="container">
+          <h2>First-time install</h2>
+          <p class="install-lead">
+            Switchboard is still an unsigned beta, so the first launch can be
+            blocked by macOS Gatekeeper. On newer macOS releases you may see
+            <em
+              >"Switchboard.app is damaged and can't be opened. You should move
+              it to the Trash."</em
+            >. On other systems you may see
+            <em
+              >"cannot be opened because Apple cannot check it for malicious
+              software"</em
+            >
+            dialog. Apple Developer ID signing and notarization land later —
+            until then the one-liner below clears it. You only do this once per
+            machine; future OTA updates inherit the trust.
+          </p>
+          <ol class="install-steps">
+            <li class="install-step">
+              <h3>
+                The one-line fix <span class="install-pill">Recommended</span>
+              </h3>
+              <p>
+                After dragging <code>Switchboard.app</code> into
+                <code>/Applications</code>, open Terminal and run:
+              </p>
+              <div class="copy-block">
+                <code id="quarantine-cmd">xattr -dr com.apple.quarantine /Applications/Switchboard.app</code>
+                <button
+                  type="button"
+                  class="copy-btn"
+                  data-copy-target="quarantine-cmd"
+                  aria-label="Copy command"
+                >
+                  Copy
+                </button>
+              </div>
+              <p class="install-foot">
+                This removes the quarantine attribute Safari added to the
+                download. Launch Switchboard normally afterwards. Works on every
+                supported macOS version.
+              </p>
+            </li>
+            <li class="install-step">
+              <h3>
+                Open Anyway
+                <span class="install-pill install-pill-muted">when offered</span>
+              </h3>
+              <p>
+                After the first blocked launch, open System Settings →
+                <strong>Privacy &amp; Security</strong>, scroll to Security, and
+                click <strong>Open Anyway</strong> for Switchboard if macOS shows
+                that option.
+              </p>
+              <p class="install-foot">
+                Apple only shows this override temporarily and not for every
+                blocked-app dialog. If you do not see it, use the one-line fix
+                above instead.
+              </p>
+            </li>
+          </ol>
+          <p class="install-note">
+            Why is this needed? Apple Developer ID signing costs $99/year and
+            notarization adds release friction. The beta is unsigned to keep it
+            free and fast to ship. See the
+            <a href="#faq">FAQ</a> for more.
+          </p>
         </div>
       </section>
 
@@ -321,12 +404,182 @@
           </ul>
         </div>
       </section>
+
+      <section id="faq" class="faq">
+        <div class="container">
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details open>
+              <summary>
+                macOS says the app is "damaged" or "can't be checked" — what do
+                I do?
+              </summary>
+              <div class="faq-body">
+                <p>
+                  Both messages are Gatekeeper launch blocks you can hit before
+                  Switchboard has Apple Developer ID signing and notarization.
+                  Newer macOS releases may show
+                  <em
+                    >"Switchboard.app is damaged and can't be opened. You should
+                    move it to the Trash."</em
+                  >. Other systems may show
+                  <em
+                    >"cannot be opened because Apple cannot check it for
+                    malicious software."</em
+                  >
+                </p>
+                <p>
+                  The app is not actually damaged. Run the one-line
+                  <code>xattr</code> command in the
+                  <a href="#install">First-time install</a> section to clear the
+                  quarantine flag — it works on every supported macOS version.
+                  If System Settings shows an <strong>Open Anyway</strong>
+                  override after the first blocked launch, that also works.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Is Switchboard really free? What's the catch?</summary>
+              <div class="faq-body">
+                <p>
+                  Yes. The entire beta is free with no license key, no signup,
+                  no trial countdown, and no ads. No upsell prompts inside the
+                  app.
+                </p>
+                <p>
+                  After the 1.0 release there may be a paid edition with extra
+                  features for power users, but everything that ships in the
+                  beta today will remain free.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Do I need an account or license key?</summary>
+              <div class="faq-body">
+                <p>
+                  No. Download the <code>.dmg</code>, drag
+                  <code>Switchboard.app</code> into <code>/Applications</code>,
+                  and launch it. There's nothing to sign up for and nothing to
+                  enter.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>What data does Switchboard collect or send?</summary>
+              <div class="faq-body">
+                <p>
+                  None. No telemetry, no analytics, no crash reporter, no
+                  background HTTP server. The app does not listen on any network
+                  port.
+                </p>
+                <p>
+                  Everything stays on your Mac under
+                  <code
+                    >~/Library/Application
+                    Support/io.github.azzuwayed.switchboard/</code
+                  >. The only outbound request the app makes is a once-a-day
+                  check to the public updates manifest to see whether a newer
+                  release is available — and that can be disabled in Settings.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Does it work on Intel Macs?</summary>
+              <div class="faq-body">
+                <p>
+                  Not currently. Switchboard ships as Apple Silicon (arm64) only
+                  during the beta. An Intel build is not planned before 1.0.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>What macOS versions are supported?</summary>
+              <div class="faq-body">
+                <p>macOS 12 (Monterey) or newer, Apple Silicon only.</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>How do updates work?</summary>
+              <div class="faq-body">
+                <p>
+                  The app checks the public updates manifest once a day and
+                  shows a non-intrusive banner in the app shell when a new
+                  release is available. One click installs the update in place —
+                  the new bundle's minisign signature is verified against the
+                  public key compiled into the running app before it swaps.
+                </p>
+                <p>
+                  Prefer to install manually? Disable
+                  <em>Check for updates automatically</em> in Settings and grab
+                  the <code>.dmg</code> from the
+                  <a
+                    href="https://github.com/azzuwayed/switchboard-website/releases"
+                    rel="noopener"
+                    target="_blank"
+                    >releases page</a
+                  >
+                  on your own schedule.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>How do I uninstall?</summary>
+              <div class="faq-body">
+                <p>
+                  Quit Switchboard from the menu bar, drag
+                  <code>Switchboard.app</code> to the Trash, and — if you also
+                  want to delete your services configuration — remove
+                  <code
+                    >~/Library/Application
+                    Support/io.github.azzuwayed.switchboard/</code
+                  >. No system-wide installer to undo.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Is the source available?</summary>
+              <div class="faq-body">
+                <p>
+                  The source repository is private during the beta. Whether it
+                  goes public has not been decided yet.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Where do I report bugs or request features?</summary>
+              <div class="faq-body">
+                <p>
+                  Open an issue on
+                  <a
+                    href="https://github.com/azzuwayed/switchboard-website/issues"
+                    rel="noopener"
+                    target="_blank"
+                    >GitHub Issues</a
+                  >. Include the build version (Help → About) and a short
+                  reproduction when you can.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
         <p>© 2026 Abdullah Alzuwayed. All rights reserved.</p>
-        <nav class="footer-nav">
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#install">Install</a>
+          <a href="#faq">FAQ</a>
           <a
             href="https://github.com/azzuwayed/switchboard-website/releases"
             rel="noopener"
@@ -363,6 +616,35 @@
           // /releases/latest page.
         }
       })();
+
+      // Wire copy buttons inside the Install section to the Clipboard API.
+      // Falls back gracefully: if writeText fails or is unavailable, the
+      // command text remains selectable in the page.
+      document.querySelectorAll(".copy-btn").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const targetId = btn.getAttribute("data-copy-target");
+          const target = targetId && document.getElementById(targetId);
+          if (!target) return;
+          const text = target.textContent.trim().replace(/\s+/g, " ");
+          const original = btn.textContent;
+          try {
+            await navigator.clipboard.writeText(text);
+            btn.textContent = "Copied";
+            btn.classList.add("is-copied");
+          } catch {
+            btn.textContent = "Press ⌘C";
+            const range = document.createRange();
+            range.selectNodeContents(target);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+          }
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove("is-copied");
+          }, 1600);
+        });
+      });
     </script>
   </body>
 </html>
