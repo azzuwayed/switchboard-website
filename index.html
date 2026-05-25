@@ -1,35 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Switchboard — Native macOS service manager</title>
     <meta
       name="description"
       content="Switchboard is a native macOS menu-bar app for managing local services from one place: Homebrew services, Docker containers, launchd agents, HTTP endpoints, and command-backed dev servers."
-    >
-    <meta property="og:title" content="Switchboard">
+    />
+    <meta property="og:title" content="Switchboard" />
     <meta
       property="og:description"
       content="Native macOS menu-bar app for managing local services."
-    >
-    <meta property="og:type" content="website">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
     <link
       rel="icon"
       type="image/png"
       sizes="128x128"
       href="assets/icon-128.png"
-    >
+    />
     <link
       rel="icon"
       type="image/png"
       sizes="256x256"
       href="assets/icon-256.png"
-    >
-    <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png">
-    <meta property="og:image" content="assets/icon-256.png">
-    <link rel="stylesheet" href="style.css?v=d194b00379">
+    />
+    <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
+    <meta property="og:image" content="assets/icon-256.png" />
+    <link rel="stylesheet" href="style.css?v=d194b00379" />
   </head>
   <body>
     <header class="site-header">
@@ -42,13 +42,13 @@
             alt=""
             width="28"
             height="28"
-          >
+          />
           <span>Switchboard</span>
         </a>
         <nav class="site-nav" aria-label="Primary">
           <a href="#features">Features</a>
           <a href="#install">Install</a>
-          <a href="#trust">Trust model</a>
+          <a href="privacy.html">Privacy</a>
           <a href="#faq">FAQ</a>
           <a
             href="https://github.com/azzuwayed/switchboard-website/releases"
@@ -190,7 +190,10 @@
                 <code>/Applications</code>, open Terminal and run:
               </p>
               <div class="copy-block">
-                <code id="quarantine-cmd">xattr -dr com.apple.quarantine /Applications/Switchboard.app</code>
+                <code id="quarantine-cmd"
+                  >xattr -dr com.apple.quarantine
+                  /Applications/Switchboard.app</code
+                >
                 <button
                   type="button"
                   class="copy-btn"
@@ -209,13 +212,15 @@
             <li class="install-step">
               <h3>
                 Open Anyway
-                <span class="install-pill install-pill-muted">when offered</span>
+                <span class="install-pill install-pill-muted"
+                  >when offered</span
+                >
               </h3>
               <p>
                 After the first blocked launch, open System Settings →
                 <strong>Privacy &amp; Security</strong>, scroll to Security, and
-                click <strong>Open Anyway</strong> for Switchboard if macOS shows
-                that option.
+                click <strong>Open Anyway</strong> for Switchboard if macOS
+                shows that option.
               </p>
               <p class="install-foot">
                 Apple only shows this override temporarily and not for every
@@ -402,6 +407,11 @@
               <strong>on</strong>.
             </li>
           </ul>
+          <p class="install-foot" style="margin-top: 24px">
+            <a href="privacy.html"
+              >Read the full privacy &amp; trust statement →</a
+            >
+          </p>
         </div>
       </section>
 
@@ -579,6 +589,7 @@
         <p>© 2026 Abdullah Alzuwayed. All rights reserved.</p>
         <nav class="footer-nav" aria-label="Footer">
           <a href="#install">Install</a>
+          <a href="privacy.html">Privacy</a>
           <a href="#faq">FAQ</a>
           <a
             href="https://github.com/azzuwayed/switchboard-website/releases"
