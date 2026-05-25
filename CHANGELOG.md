@@ -8,6 +8,32 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 `1.0.0-beta.<n>`.
 
+## [1.0.0-beta.7] - 2026-05-25
+
+### Added
+
+- **New app icon.** Switchboard now uses the switch-cable wordmark across the
+  app bundle, installer, and generated platform icons.
+
+### Changed
+
+- **Richer About experience.** The About window now includes public website,
+  support, changelog, and trust links; the tray command center also links there.
+  The standard macOS "About Switchboard" menu item now opens the same rich
+  Switchboard About window.
+
+### Fixed
+
+- **Template health and log commands.** Adding templates now correctly remaps
+  health-check and log command IDs when they collide with existing commands, so
+  imported templates keep their health and log actions wired to the right
+  command.
+- **Approval review coverage.** Command-backed health checks and command-backed
+  logs now participate in the approval review flow before they execute.
+- **Safer backup restores.** Restoring from backup now stops if Switchboard
+  cannot create the pre-restore safety backup, avoiding partial or unsafe
+  restore attempts.
+
 ## [1.0.0-beta.5] - 2026-05-25
 
 ### Changed
@@ -107,6 +133,7 @@ First public release.
 
 macOS 12 (Monterey) or later, Apple Silicon (arm64).
 
+[1.0.0-beta.7]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.7
 [1.0.0-beta.5]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.5
 [1.0.0-beta.4]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.4
 [1.0.0-beta.3]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.3
