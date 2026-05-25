@@ -34,6 +34,11 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
   cannot create the pre-restore safety backup, avoiding partial or unsafe
   restore attempts.
 
+## [1.0.0-beta.6] - 2026-05-25
+
+No user-facing app changes. This release corrected the beta release pipeline
+after the first OTA-capable build and kept the app behavior from beta.5 intact.
+
 ## [1.0.0-beta.5] - 2026-05-25
 
 ### Changed
@@ -134,6 +139,7 @@ First public release.
 macOS 12 (Monterey) or later, Apple Silicon (arm64).
 
 [1.0.0-beta.7]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.7
+[1.0.0-beta.6]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.6
 [1.0.0-beta.5]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.5
 [1.0.0-beta.4]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.4
 [1.0.0-beta.3]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.3
