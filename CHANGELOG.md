@@ -8,6 +8,71 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 `1.0.0-beta.<n>`.
 
+## [1.0.0-beta.12] - 2026-05-26
+
+### Added
+
+- **Stale-process nudge.** Dev servers and other temporary listeners that
+  have been alive for over 24 hours with measurable CPU now visibly escalate
+  in the Observer inbox — the card gains a "Forgotten" badge, an inline
+  "Started X ago. Still wanted?" prompt, and a native macOS notification
+  titled "Forgotten local service" (localized in Arabic too). The
+  escalation latches once set, so a brief lull in CPU doesn't reset the
+  marker; only Adopt, Dismiss, Stop, or the process actually exiting clears
+  it. Aimed at the AI-coding-agent failure mode where dev servers walk to
+  the next available port and stack up four or five copies of the same
+  thing, plus the classic "I forgot I started this last week."
+- **Stop action on forgotten listeners.** A destructive Stop button appears
+  on every forgotten temporary observation that has a live PID. It revalidates
+  the PID is still bound to one of the observed ports (so a recycled PID
+  doesn't get killed), sends SIGTERM, waits a few seconds, and escalates to
+  SIGKILL only if the process hangs. The observation transitions to Resolved
+  on success. You no longer need to flip to Activity Monitor or a terminal
+  to clean up a forgotten dev server.
+- **Observer activity timeline.** The Activity view now records observer
+  lifecycle events — new finding, resolved, snoozed, dismissed, adopted,
+  revealed — with filtering, search, and proper localized labels. You can
+  trace "when did this finding first show up" and "why did it disappear"
+  without leaving the app.
+- **Compact / Comfortable density** toggle for the Observer inbox. The
+  Standard / Advanced mode control also moved into the Observer surface
+  itself so the view options live where you use them.
+
+### Changed
+
+- **Onboarding leads with Detect running services.** A fresh install now
+  starts by scanning what's already on your machine before walking through
+  templates or custom service entry — bigger payoff up front than the empty
+  state was giving.
+- **Observer ordering and clarity.** Active findings sort oldest-first so
+  new discoveries append below existing rows rather than shuffling them.
+  Skipped-source notices (e.g. "Docker Desktop is closed; container
+  discovery is paused.") stay pinned long enough to read and clear on a
+  healthy manual refresh instead of vanishing on the next scan tick.
+- **Port stop confirmation copy.** The dialog now spells out that
+  Switchboard re-checks the PID and port before sending SIGTERM, and that
+  stopping a process doesn't delete service definitions or uninstall
+  anything.
+- **Switchboard's own dev listener no longer shows up in the inbox.** If
+  you're running `pnpm tauri dev`, the Observer used to flag your own dev
+  server as a finding. It doesn't anymore.
+
+### Fixed
+
+- **Process titles in the Observer inbox now show the real name.** macOS
+  truncates the executable column it reports to 16 characters, so
+  `/usr/libexec/duetexpertd` was showing up as "High CPU: **due**" and
+  `corespotlightd` (under `/System/Library/...`) was showing up as "High
+  CPU: **Library**". Switchboard now uses the full command path that `ps`
+  also reports and renders the actual binary name.
+- **Empty "/" pill next to "Resources".** System daemons that run at cwd
+  "/" used to render a stray "/" evidence pill on the card; that pill is
+  now suppressed for root and system paths.
+- **`Select` dropdowns** no longer show always-visible scroll chevrons.
+- **Internal observer and port action names** are humanized in the Activity
+  filter and row labels (e.g. "Stop port process" instead of
+  `stop-port-process`).
+
 ## [1.0.0-beta.11] - 2026-05-26
 
 ### Added
