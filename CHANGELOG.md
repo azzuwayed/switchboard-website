@@ -8,6 +8,83 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 `1.0.0-beta.<n>`.
 
+## [1.0.0-beta.11] - 2026-05-26
+
+### Added
+
+- **Unified Logs screen.** A new **Logs** view in the sidebar streams every
+  configured log source — services with a `logs:` block, manual files you add,
+  and Switchboard's own activity log — into one scrolling timeline. Sidebar
+  multi-select picks which sources contribute; the toolbar adds pause/resume,
+  free-text search, and a follow-tail toggle that disengages on manual scroll.
+  Newest line stays at the top. Configurable from Settings → Logs (ring size,
+  poll interval, include-activity toggle). Built for triaging live issues, not
+  browsing history — bump the ring size if you need more scrollback.
+- **Action-failure notifications.** When a Start / Stop / Restart / Update
+  action you trigger fails (non-zero exit, timeout, or a runner error),
+  Switchboard now sends a native macOS notification with the service name and
+  the reason. Fires for both the in-app dashboard and the tray menu, so a
+  tray-resident user with the main window hidden actually notices. Approval
+  prompts and "service is busy" errors do not notify (those surface inline
+  inside the app). Honors the same Settings → Monitoring → "Notify on service
+  transitions" toggle.
+- **Notification permission visibility.** Settings → Monitoring now warns
+  inline if macOS has denied notification permission for Switchboard, with a
+  link to System Settings → Notifications. Toggling notifications on triggers
+  the macOS prompt instead of failing silently. The warning clears
+  automatically the moment you grant permission and return to the app.
+- **Onboarding.** A fresh install now lands on a guided setup flow instead of
+  the empty dashboard. Pick monitored services, set defaults
+  (Launch at login / notifications / redact output), and the next launch opens
+  the What's New tab so you see what shipped in this version.
+
+### Changed
+
+- **Fixed the laptop overheating during normal use.** Out of the box,
+  Switchboard no longer runs the optional observer scans (discovery + resource
+  monitoring) — both are off by default; opt in from Settings → Monitoring.
+  When they are on, scans run on the longer cadence the system needs (10 min
+  discovery, 1 min resource sampling). Frontend animations and timers pause
+  while the window is hidden. The tray icon and menu skip redundant macOS
+  redraws. Net effect: near-zero idle CPU with the window hidden, and a much
+  lighter foreground footprint when monitoring is enabled.
+- **Notification text follows the app language.** Service-down / recovered
+  notifications, observer alerts ("New local service", "Process needs
+  attention", "Port conflict detected"), and action-failure notifications are
+  all now translated into Arabic when the app is set to Arabic. (Observer
+  summary bodies remain English for now — a future release.)
+- **Notifications use the service's friendly name.** "API Gateway is running
+  again" instead of "api-gw is running again".
+- **Tray command center.** A new attention-focused tray panel groups the
+  services that need a look (degraded, stopped, blocked actions) with one-click
+  Restart / Start / Review actions. The previous flat per-service tray menu is
+  still there as a fallback.
+- **About window.** A refreshed brand-forward About tab plus a structured
+  What's New renderer that reads the bundled release notes for the running
+  build.
+
+### Fixed
+
+- **Observer notifications no longer get lost while the toggle is off.**
+  Toggling observer notifications off used to silently consume any
+  observations that crossed their debounce threshold during that window —
+  toggling them back on never recovered those. Fixed.
+- **System-notification dispatch failures now log to the activity log**
+  instead of failing silently, so "I turned notifications on and nothing
+  happens" is diagnosable.
+- **What's New shows after onboarding and after an OTA install** — the
+  trigger no longer pre-empties on About-window mount.
+- **Skipping onboarding** no longer drops the settings you toggled, and the
+  Launch-at-login LaunchAgent is now registered / unregistered in sync.
+- 24h background update checks no longer re-emit for versions you already
+  dismissed.
+
+### Notes
+
+- macOS Gatekeeper may still prompt on the first launch of an OTA-installed
+  build until Apple Developer ID signing and notarization land. The update
+  flow itself is unchanged.
+
 ## [1.0.0-beta.10] - 2026-05-25
 
 ### Changed
