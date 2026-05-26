@@ -8,6 +8,72 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 `1.0.0-beta.<n>`.
 
+## [1.0.0-beta.13] - 2026-05-26
+
+### Added
+
+- **Settings: backups list and one-click restore.** Switchboard already saved a
+  backup of every config file before overwriting it or running a reset, but you
+  had to dig into Finder to find them. The new **Backups** section in Settings
+  lists every backup grouped by source file with its creation time, a Reveal in
+  Finder action, and a per-row Restore. Restoring `settings.yaml` also re-syncs
+  the OS Launch-at-Login registration so the toggle matches reality. Reset now
+  also refreshes the section so the pre-reset backups appear immediately.
+- **Settings: a real Continuous observer master toggle.** Previously the
+  "Continuous observer" label was attached to the discovery toggle. There is
+  now a real master switch above the observer settings that pauses both
+  discovery and resource sampling at once; the discovery toggle is renamed to
+  **Service discovery** so the two are no longer confused. When the master is
+  off, every observer setting below it visibly grays out and refuses
+  interaction (helper text spells out how to turn them back on).
+- **Settings: resource anomaly sensitivity.** Two new controls under "Resource
+  anomaly checks" — **CPU sensitivity** and **Memory sensitivity**, each
+  Low / Normal / High. The row description swaps in the concrete threshold for
+  the selected level (e.g. "Normal: alert when CPU stays above 90%"), so you
+  can tune what counts as a runaway process for your machine without guessing.
+- **Settings: section navigation rail.** Settings is now a two-pane layout
+  with a sticky left rail listing every section (General, Monitoring, Logs,
+  Security, Docs, Config, Backups, Danger zone). Click to jump; the active
+  row updates as you scroll. End of the long-scroll-only Settings page.
+- **Settings: gear icon in the title bar.** Quick visual signal that you're
+  in Settings.
+
+### Changed
+
+- **Settings: unified interval pickers.** The four "how often" controls
+  (service status, discovery, resource sampling, logs refresh) now share one
+  widget with friendly labels — "5 sec", "1 min", "15 min". No more
+  millisecond numbers in dropdowns and no more two different "Poll interval"
+  controls with mismatched units.
+- **Settings: Logs line cap is now a dropdown.** "Maximum lines kept in
+  memory" used to be a number stepper that took 4,500 clicks to go from 500
+  to 5,000. Pick from 200 / 500 / 1,000 / 5,000 / 10,000 instead.
+- **Settings: display scale steps are 100% / 125% / 150%.** Cleaner spacing
+  than the old 100/110/125/140 set. If you had 110 or 140 saved, the app
+  picks the nearest supported step automatically on next launch — no manual
+  intervention.
+- **Settings: clearer notification toggles.**
+  - "Notify on service transitions" → **Service state changes** ("Native
+    macOS notification when a managed service starts, stops, or fails.").
+  - "Observer notifications" → **New finding alerts** ("Notify when the
+    observer detects a forgotten service, port conflict, or runaway process.
+    Only fires after the same finding is seen twice.").
+- **Settings: copy and label cleanup.** "Show Switchboard activity by
+  default" → "Show Switchboard activity". The Copy diagnostics description
+  now spells out that it excludes raw command output and approval
+  fingerprints. The Reset all app data description enumerates every cleared
+  file and points you at the Backups section for recovery.
+- **Settings: visual polish.** Stronger contrast on the active option in
+  segmented controls (Theme, Display scale, Sensitivity) — they were barely
+  distinguishable from the inactive ones in dark mode. Docs folder paths
+  collapse `$HOME` to `~` so they fit at a glance. The Indexed folders list
+  now has a clear subheading separating it from the description. Import
+  appears before Export, matching the "Import / export" heading.
+- **All toggles now show their state by shape, not color alone.** Every
+  switch in Settings (and elsewhere in the app) renders a small check or X
+  glyph inside the thumb in addition to the existing green/dark color.
+  Helps in light mode and for anyone who has trouble seeing the color shift.
+
 ## [1.0.0-beta.12] - 2026-05-26
 
 ### Added
