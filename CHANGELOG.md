@@ -8,6 +8,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
 Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 `1.0.0-beta.<n>`.
 
+## [Unreleased]
+
+### Added
+
+- **Arabic translation of the website.** The landing page and privacy
+  statement are now available in Arabic with a right-to-left layout. A
+  language toggle in the header switches between English and Arabic; deep
+  links to sections (`#features`, `#install`, `#faq`, ...) work in both
+  locales.
+
 ## [1.0.0-beta.13] - 2026-05-26
 
 ### Added

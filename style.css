@@ -943,3 +943,56 @@ h2 {
   border-radius: 999px;
   background: var(--accent);
 }
+
+/* RTL — overrides for the Arabic mirror under /ar/. The English layout is
+   left untouched; rules below only apply when <html dir="rtl"> is set.
+   Keep code/pre/URLs/version strings LTR even inside RTL paragraphs so the
+   xattr command, file paths, and version chips remain readable and
+   copyable. */
+
+[dir="rtl"] code,
+[dir="rtl"] pre,
+[dir="rtl"] kbd,
+[dir="rtl"] samp,
+[dir="rtl"] .version-chip {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+[dir="rtl"] .mock-sidebar {
+  border-right: 0;
+  border-left: 1px solid var(--border);
+}
+
+[dir="rtl"] .doc-section ul {
+  padding-left: 0;
+  padding-right: 20px;
+}
+
+[dir="rtl"] .trust-list {
+  padding-left: 0;
+  padding-right: 20px;
+}
+
+[dir="rtl"] .install-step::before {
+  right: auto;
+  left: 20px;
+}
+
+[dir="rtl"] .install-step h3 {
+  padding-right: 0;
+  padding-left: 28px;
+}
+
+[dir="rtl"] .copy-block {
+  padding: 10px 14px 10px 10px;
+}
+
+[dir="rtl"] .faq summary {
+  padding: 16px 20px 16px 48px;
+}
+
+[dir="rtl"] .faq summary::after {
+  right: auto;
+  left: 20px;
+}

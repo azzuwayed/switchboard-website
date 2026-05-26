@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Switchboard — مدير الخدمات المحلية الأصلي لـ macOS</title>
+    <meta
+      name="description"
+      content="Switchboard تطبيق macOS أصلي في شريط القائمة لإدارة الخدمات المحلية من مكان واحد: خدمات Homebrew، حاويات Docker، وكلاء launchd، نقاط نهاية HTTP، وأوامر خوادم التطوير."
+    />
+    <meta property="og:title" content="Switchboard" />
+    <meta
+      property="og:description"
+      content="تطبيق macOS أصلي في شريط القائمة لإدارة الخدمات المحلية."
+    />
+    <meta property="og:type" content="website" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/icon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="128x128"
+      href="../assets/icon-128.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="256x256"
+      href="../assets/icon-256.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="256x256"
+      href="../assets/icon-256.png"
+    />
+    <meta property="og:image" content="../assets/icon-256.png" />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://azzuwayed.github.io/switchboard-website/"
+    />
+    <link
+      rel="alternate"
+      hreflang="ar"
+      href="https://azzuwayed.github.io/switchboard-website/ar/"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://azzuwayed.github.io/switchboard-website/"
+    />
+    <link rel="stylesheet" href="../style.css?v=b765b0650c" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./">
+          <img
+            class="brand-mark"
+            src="../assets/icon-256.png"
+            srcset="../assets/icon-128.png 1x, ../assets/icon-256.png 2x"
+            alt=""
+            width="28"
+            height="28"
+          />
+          <span>Switchboard</span>
+        </a>
+        <nav class="site-nav" aria-label="التنقل الرئيسي">
+          <a href="#features">الميزات</a>
+          <a href="#story">لماذا</a>
+          <a href="#install">التثبيت</a>
+          <a href="privacy.html">الخصوصية</a>
+          <a href="#faq">الأسئلة الشائعة</a>
+          <a
+            href="https://github.com/azzuwayed/switchboard-website/releases"
+            rel="noopener"
+            target="_blank"
+            >سجل التغييرات</a
+          >
+          <a
+            href="https://github.com/azzuwayed/switchboard-website/issues"
+            rel="noopener"
+            target="_blank"
+            >الدعم</a
+          >
+          <a class="lang-switch" href="../" hreflang="en" lang="en">English</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">macOS · Apple Silicon</p>
+            <h1>أَدِر كل خدمة محلية من شريط واحد.</h1>
+            <p class="lede">
+              خدمات Homebrew، حاويات Docker، وكلاء launchd، نقاط نهاية HTTP،
+              وأوامر خوادم التطوير. شغّل، أوقف، أعد التشغيل، افحص المنافذ، اعرض
+              السجلات — دون مغادرة شريط القائمة.
+            </p>
+            <div class="cta-row">
+              <a
+                class="btn btn-primary"
+                id="download-btn"
+                href="https://github.com/azzuwayed/switchboard-website/releases/latest"
+                rel="noopener"
+                >تحميل لـ macOS
+                <span class="version-chip" id="version-chip">Latest</span></a
+              >
+              <a class="btn btn-ghost" href="#features">اطّلع على الميزات</a>
+            </div>
+            <ul class="trust-strip">
+              <li>
+                <span class="trust-chip-dot" aria-hidden="true"></span>مجاني
+                دائماً في النسخة التجريبية
+              </li>
+              <li>
+                <span class="trust-chip-dot" aria-hidden="true"></span>بدون
+                تسجيل، بدون ترخيص
+              </li>
+              <li>
+                <span class="trust-chip-dot" aria-hidden="true"></span>محلي ١٠٠٪
+                — بدون سحابة، بدون قياس عن بُعد
+              </li>
+            </ul>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="mock-window">
+              <div class="mock-titlebar">
+                <span class="mock-dot mock-dot-red"></span>
+                <span class="mock-dot mock-dot-yellow"></span>
+                <span class="mock-dot mock-dot-green"></span>
+                <span class="mock-title">Switchboard</span>
+              </div>
+              <div class="mock-body">
+                <aside class="mock-sidebar">
+                  <div class="mock-nav-item mock-active">الخدمات</div>
+                  <div class="mock-nav-item">القوالب</div>
+                  <div class="mock-nav-item">المنافذ</div>
+                  <div class="mock-nav-item">النشاط</div>
+                  <div class="mock-nav-item">المستندات</div>
+                  <div class="mock-nav-item">الإعدادات</div>
+                </aside>
+                <div class="mock-content">
+                  <div class="mock-service">
+                    <span class="mock-status mock-status-running"></span>
+                    <div>
+                      <div class="mock-service-name">postgresql</div>
+                      <div class="mock-service-meta">
+                        port 5432 · brew services
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mock-service">
+                    <span class="mock-status mock-status-running"></span>
+                    <div>
+                      <div class="mock-service-name">redis</div>
+                      <div class="mock-service-meta">
+                        port 6379 · brew services
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mock-service">
+                    <span class="mock-status mock-status-degraded"></span>
+                    <div>
+                      <div class="mock-service-name">nginx</div>
+                      <div class="mock-service-meta">
+                        port 8080 · brew services
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mock-service">
+                    <span class="mock-status mock-status-stopped"></span>
+                    <div>
+                      <div class="mock-service-name">ollama</div>
+                      <div class="mock-service-meta">port 11434 · launchd</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="install" class="install">
+        <div class="container">
+          <h2>التثبيت لأول مرة</h2>
+          <p class="install-lead">
+            Switchboard لا يزال نسخة تجريبية غير موقّعة، لذا قد يحظر macOS
+            Gatekeeper التشغيل الأول. على إصدارات macOS الأحدث قد تظهر لك
+            <em
+              >"Switchboard.app is damaged and can't be opened. You should move
+              it to the Trash."</em
+            >. على أنظمة أخرى قد ترى مربع
+            <em
+              >"cannot be opened because Apple cannot check it for malicious
+              software"</em
+            >. سيصل توقيع Apple Developer ID والتوثيق لاحقاً — حتى ذلك الحين،
+            السطر الواحد أدناه يحلّ المشكلة. تفعل ذلك مرة واحدة فقط لكل جهاز؛
+            التحديثات اللاحقة عبر OTA ترث الثقة.
+          </p>
+          <ol class="install-steps">
+            <li class="install-step">
+              <h3>الحل بسطر واحد <span class="install-pill">موصى به</span></h3>
+              <p>
+                بعد سحب <code>Switchboard.app</code> إلى
+                <code>/Applications</code>، افتح Terminal وشغّل:
+              </p>
+              <div class="copy-block">
+                <code id="quarantine-cmd"
+                  >xattr -dr com.apple.quarantine
+                  /Applications/Switchboard.app</code
+                >
+                <button
+                  type="button"
+                  class="copy-btn"
+                  data-copy-target="quarantine-cmd"
+                  aria-label="نسخ الأمر"
+                >
+                  نسخ
+                </button>
+              </div>
+              <p class="install-foot">
+                هذا يزيل صفة الحَجر التي أضافها Safari للتنزيل. شغّل Switchboard
+                بشكل طبيعي بعد ذلك. يعمل على كل إصدار مدعوم من macOS.
+              </p>
+            </li>
+            <li class="install-step">
+              <h3>
+                افتح على أي حال
+                <span class="install-pill install-pill-muted"
+                  >عند توفّر الخيار</span
+                >
+              </h3>
+              <p>
+                بعد محاولة التشغيل المحظورة الأولى، افتح إعدادات النظام ←
+                <strong>الخصوصية والأمان</strong>، مرّر إلى قسم الأمان، ثم اضغط
+                <strong>افتح على أي حال</strong> لـ Switchboard إذا أظهر macOS
+                هذا الخيار.
+              </p>
+              <p class="install-foot">
+                Apple تعرض هذا الخيار مؤقتاً فقط، وليس لكل حوار حظر تطبيق. إذا
+                لم تره، استخدم حل السطر الواحد أعلاه بدلاً منه.
+              </p>
+            </li>
+          </ol>
+          <p class="install-note">
+            لماذا هذا ضروري؟ توقيع Apple Developer ID يكلّف ٩٩ دولاراً سنوياً
+            والتوثيق يضيف احتكاكاً عند الإصدار. النسخة التجريبية غير موقّعة
+            لإبقائها مجانية وسريعة الإصدار. اطّلع على
+            <a href="#faq">الأسئلة الشائعة</a> لمزيد من التفاصيل.
+          </p>
+        </div>
+      </section>
+
+      <section id="features" class="features">
+        <div class="container">
+          <h2>ماذا يفعل</h2>
+          <div class="feature-grid">
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                </svg>
+              </span>
+              <h3>لوحة الخدمات</h3>
+              <p>
+                حالات تعمل، متراجعة، متوقفة، وغير معروفة عبر كل نوع من الخدمات
+                في عرض واحد.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </span>
+              <h3>إجراءات واعية بالمخاطر</h3>
+              <p>
+                تشغيل، إيقاف، إعادة تشغيل، تحديث — كل أمر مُدرَج في القائمة
+                البيضاء، معتمد، ويعمل دون قشرة.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3 2 8l10 5 10-5-10-5z" />
+                  <path d="m2 17 10 5 10-5" />
+                  <path d="m2 12 10 5 10-5" />
+                </svg>
+              </span>
+              <h3>القوالب</h3>
+              <p>
+                Postgres، MySQL، MongoDB، Redis، Docker Compose، Ollama، nginx،
+                HTTP عام + أمر — كلها مُراجَعة وجاهزة.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M9 2v6" />
+                  <path d="M15 2v6" />
+                  <path d="M6 8h12v3a6 6 0 0 1-6 6 6 6 0 0 1-6-6V8z" />
+                  <path d="M12 17v5" />
+                </svg>
+              </span>
+              <h3>مفتّش المنافذ</h3>
+              <p>
+                اطّلع على كل منفذ مستمع، اربط العمليات بالخدمات، وحلّ التعارضات
+                دون <code>lsof</code>.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                </svg>
+              </span>
+              <h3>فحوصات الصحة</h3>
+              <p>
+                فحوصات صحة Homebrew، Docker، HTTP، والمدعومة بأوامر مع استطلاع
+                مباشر.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="16" rx="2" />
+                  <path d="M3 10h18" />
+                  <circle cx="7" cy="7" r="0.5" fill="currentColor" />
+                </svg>
+              </span>
+              <h3>محلي فقط</h3>
+              <p>
+                بدون قياس عن بُعد، بدون تحليلات، بدون خادم خلفي. الإعدادات
+                والسجلات تعيش في مجلد Application Support الخاص بك.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="story" class="story">
+        <div class="container story-grid">
+          <div class="story-copy">
+            <p class="eyebrow">لماذا بنيت هذا التطبيق</p>
+            <h2>كنت أفقد تتبّع الأشياء التي بدأت تشغيلها.</h2>
+            <p class="story-lede">
+              خادم تطوير هنا، قاعدة بيانات هناك، نفق لتجربة ما — نصفها لا يزال
+              يعمل بعد أيام، لا شيء منها أُوقف، وكلها تستهلك بهدوء المعالج
+              والبطارية التي لا أملك ما أتنازل عنه. macOS لا يخبرك بهذا. مراقب
+              النشاط سيعرض العمليات إن ذهبت للبحث عنها، لكنه لن يربط
+              <code>node</code> بـ
+              <em>خادم التطوير الذي شغّلته الأسبوع الماضي</em>.
+            </p>
+            <p class="story-lede">
+              تفاقمت المشكلة عندما بدأت أبني باستخدام وكلاء الذكاء الاصطناعي.
+              الوكلاء بارعون في تشغيل خوادم التطوير؛ ليسوا دائماً بارعين في
+              إيقاف السابق قبل بدء التالي. أحياناً يكون الوكيل ذكياً بما يكفي
+              لتحرير المنفذ الذي يحتاجه — وأحياناً يكتفي بالانتقال إلى المنفذ
+              التالي المتاح. بعد ساعات من التكرار قد ينتهي بك المطاف بستّ نسخ من
+              خادم Vite نفسه تتنافس على الذاكرة، اللابتوب يسخن، البطارية تستنزف
+              بسرعة، ولا شيء في macOS يكشف عن أيٍ من هذا.
+            </p>
+            <p class="story-lede">
+              Switchboard هو ما كنت أريده: مكان واحد تظهر فيه كل خدمة محلية، كل
+              عملية منسية يتم إبرازها، وكل تدفّق منافذ يُسمَّى بسببه الفعلي.
+              النظام لن يخبرك. أدوات التطوير لن تخبرك. هذا سيفعل.
+            </p>
+          </div>
+          <aside
+            class="story-side"
+            aria-label="ما يكشفه Switchboard ولا يكشفه النظام"
+          >
+            <h3>ما الذي يكشفه</h3>
+            <ul class="story-list">
+              <li>
+                <span class="story-list-dot" aria-hidden="true"></span>
+                <span
+                  ><strong>خدمات منسية</strong> لا تزال تعمل بعد أيام من توقفك
+                  عن متابعتها.</span
+                >
+              </li>
+              <li>
+                <span class="story-list-dot" aria-hidden="true"></span>
+                <span
+                  ><strong>خوادم تطوير متنافسة على المنافذ</strong> — نسخ متعددة
+                  من الأداة نفسها على منافذ متتالية، تتنافس على الموارد.</span
+                >
+              </li>
+              <li>
+                <span class="story-list-dot" aria-hidden="true"></span>
+                <span
+                  ><strong>ارتفاعات استهلاك الموارد</strong> التي لا ينبّه عنها
+                  macOS: حرارة، مروحة، استنزاف بطارية دون نسبتها إلى شيء
+                  محدد.</span
+                >
+              </li>
+              <li>
+                <span class="story-list-dot" aria-hidden="true"></span>
+                <span
+                  ><strong
+                    >أيتام تنجو من النوم وإغلاق بيئة التطوير وإغلاق
+                    Terminal</strong
+                  >
+                  — عمليات لا تملك طريقة سهلة لإيجادها مرة أخرى.</span
+                >
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="trust" class="trust">
+        <div class="container">
+          <h2>نموذج الثقة</h2>
+          <p>
+            Switchboard مصمَّم ليكون مفيداً دون أن يتحوّل إلى قشرة داخل webview.
+          </p>
+          <ul class="trust-list">
+            <li>يعمل بالكامل على جهاز Mac الخاص بك.</li>
+            <li>بدون حساب سحابي.</li>
+            <li>بدون خادم HTTP خلفي.</li>
+            <li>بدون قشرة عشوائية من الواجهة.</li>
+            <li>
+              الـ webview يرسل فقط <code>serviceId</code>، <code>action</code>،
+              وحالة التأكيد الصريحة.
+            </li>
+            <li>
+              Rust يربط الإجراءات بتعريفات <code>cmd</code> +
+              <code>args</code> محددة من قائمة بيضاء.
+            </li>
+            <li>
+              الأوامر تُشغَّل عبر <code>tokio::process::Command</code>، وليس عبر
+              <code>sh -c</code>.
+            </li>
+            <li>
+              الأوامر المستوردة تتم معاينتها أمراً أمراً قبل أن تستطيع التشغيل.
+            </li>
+            <li>
+              الأوامر المستوردة الجديدة أو المعدّلة تبقى غير معتمدة حتى تتم
+              مراجعتها.
+            </li>
+            <li>
+              مخرجات الأوامر محدودة؛ تنقيح الأسرار مفعّل
+              <strong>افتراضياً</strong>.
+            </li>
+          </ul>
+          <p class="install-foot" style="margin-top: 24px">
+            <a href="privacy.html">اقرأ بيان الخصوصية والثقة الكامل ←</a>
+          </p>
+        </div>
+      </section>
+
+      <section id="faq" class="faq">
+        <div class="container">
+          <h2>الأسئلة الشائعة</h2>
+          <div class="faq-list">
+            <details open>
+              <summary>
+                macOS يقول إن التطبيق "تالف" أو "لا يمكن التحقق منه" — ماذا
+                أفعل؟
+              </summary>
+              <div class="faq-body">
+                <p>
+                  كلا الرسالتين هي حظر تشغيل من Gatekeeper يمكن أن تصادفه قبل أن
+                  يحصل Switchboard على توقيع Apple Developer ID والتوثيق.
+                  إصدارات macOS الأحدث قد تظهر
+                  <em
+                    >"Switchboard.app is damaged and can't be opened. You should
+                    move it to the Trash."</em
+                  >. أنظمة أخرى قد تُظهر
+                  <em
+                    >"cannot be opened because Apple cannot check it for
+                    malicious software."</em
+                  >
+                </p>
+                <p>
+                  التطبيق ليس تالفاً فعلياً. شغّل أمر <code>xattr</code> بسطر
+                  واحد في قسم <a href="#install">التثبيت لأول مرة</a> لإزالة علم
+                  الحَجر — يعمل على كل إصدار مدعوم من macOS. إذا أظهرت إعدادات
+                  النظام خيار <strong>افتح على أي حال</strong> بعد المحاولة
+                  المحظورة الأولى، فذلك يعمل أيضاً.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>هل Switchboard مجاني فعلاً؟ ما الحيلة؟</summary>
+              <div class="faq-body">
+                <p>
+                  نعم. النسخة التجريبية بالكامل مجانية بلا مفتاح ترخيص، بلا
+                  تسجيل، بلا عدّاد تجريبي، وبلا إعلانات. لا توجد مطالبات
+                  بالترقية داخل التطبيق.
+                </p>
+                <p>
+                  بعد إصدار 1.0 قد يكون هناك إصدار مدفوع بميزات إضافية
+                  للمستخدمين المتقدمين، لكن كل ما يصدر في النسخة التجريبية اليوم
+                  سيبقى مجانياً.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>هل أحتاج حساباً أو مفتاح ترخيص؟</summary>
+              <div class="faq-body">
+                <p>
+                  لا. حمّل ملف <code>.dmg</code>، اسحب
+                  <code>Switchboard.app</code> إلى <code>/Applications</code>،
+                  ثم شغّله. لا يوجد شيء للتسجيل ولا شيء لإدخاله.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>ما البيانات التي يجمعها Switchboard أو يرسلها؟</summary>
+              <div class="faq-body">
+                <p>
+                  لا شيء. بدون قياس عن بُعد، بدون تحليلات، بدون مُبلِّغ أعطال،
+                  بدون خادم HTTP خلفي. التطبيق لا يستمع على أي منفذ شبكة.
+                </p>
+                <p>
+                  كل شيء يبقى على جهاز Mac الخاص بك تحت
+                  <code
+                    >~/Library/Application
+                    Support/io.github.azzuwayed.switchboard/</code
+                  >. الطلب الخارجي الوحيد الذي يقوم به التطبيق هو فحص مرة في
+                  اليوم لبيان التحديثات العام للتحقق من توفّر إصدار جديد — ويمكن
+                  تعطيله من الإعدادات.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>هل يعمل على أجهزة Intel Mac؟</summary>
+              <div class="faq-body">
+                <p>
+                  ليس حالياً. Switchboard يصدر بصيغة Apple Silicon (arm64) فقط
+                  خلال النسخة التجريبية. لا توجد خطة لإصدار Intel قبل 1.0.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>ما إصدارات macOS المدعومة؟</summary>
+              <div class="faq-body">
+                <p>macOS 12 (Monterey) أو أحدث، Apple Silicon فقط.</p>
+              </div>
+            </details>
+
+            <details>
+              <summary>كيف تعمل التحديثات؟</summary>
+              <div class="faq-body">
+                <p>
+                  التطبيق يفحص بيان التحديثات العام مرة في اليوم ويعرض شريطاً
+                  غير مزعج في واجهته عند توفّر إصدار جديد. ضغطة واحدة تثبّت
+                  التحديث في مكانه — يتم التحقق من توقيع minisign للحزمة الجديدة
+                  مقابل المفتاح العام المُدمج في التطبيق العامل قبل الاستبدال.
+                </p>
+                <p>
+                  تفضّل التثبيت يدوياً؟ عطّل
+                  <em>التحقق من التحديثات تلقائياً</em> في الإعدادات وحمّل ملف
+                  <code>.dmg</code> من
+                  <a
+                    href="https://github.com/azzuwayed/switchboard-website/releases"
+                    rel="noopener"
+                    target="_blank"
+                    >صفحة الإصدارات</a
+                  >
+                  حسب جدولك.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>كيف أزيل التثبيت؟</summary>
+              <div class="faq-body">
+                <p>
+                  أنهِ Switchboard من شريط القائمة، اسحب
+                  <code>Switchboard.app</code> إلى المهملات، و — إن كنت تريد
+                  أيضاً حذف إعدادات الخدمات — أزل
+                  <code
+                    >~/Library/Application
+                    Support/io.github.azzuwayed.switchboard/</code
+                  >. لا يوجد مثبّت على مستوى النظام للتراجع عنه.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>هل المصدر متاح؟</summary>
+              <div class="faq-body">
+                <p>
+                  مستودع المصدر خاص خلال النسخة التجريبية. ما إذا كان سيصبح
+                  عاماً لم يُقرَّر بعد.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>أين أبلغ عن الأخطاء أو أطلب الميزات؟</summary>
+              <div class="faq-body">
+                <p>
+                  افتح قضية على
+                  <a
+                    href="https://github.com/azzuwayed/switchboard-website/issues"
+                    rel="noopener"
+                    target="_blank"
+                    >GitHub Issues</a
+                  >. أرفق إصدار البناء (Help → About) وخطوات إعادة إنتاج مختصرة
+                  قدر الإمكان.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 عبدالله الزويد. جميع الحقوق محفوظة.</p>
+        <nav class="footer-nav" aria-label="تذييل">
+          <a href="#install">التثبيت</a>
+          <a href="privacy.html">الخصوصية</a>
+          <a href="#faq">الأسئلة الشائعة</a>
+          <a
+            href="https://github.com/azzuwayed/switchboard-website/releases"
+            rel="noopener"
+            target="_blank"
+            >سجل التغييرات</a
+          >
+          <a
+            href="https://github.com/azzuwayed/switchboard-website/issues"
+            rel="noopener"
+            target="_blank"
+            >الدعم</a
+          >
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      // يعبّئ زر التنزيل في الـ hero بأحدث رابط .dmg والإصدار من updates.json.
+      // يرجع إلى /releases/latest إن كان JS معطّلاً أو فشل الجلب.
+      (async () => {
+        try {
+          const response = await fetch("../updates.json", {
+            cache: "no-cache",
+          });
+          if (!response.ok) return;
+          const manifest = await response.json();
+          const dmgUrl = manifest?.macos?.arm64?.dmg?.url;
+          const latest = manifest?.latest;
+          const btn = document.getElementById("download-btn");
+          const chip = document.getElementById("version-chip");
+          if (btn && dmgUrl) btn.href = dmgUrl;
+          if (chip && latest) chip.textContent = "v" + latest;
+        } catch {
+          // صامت — الرابط الثابت على #download-btn ما زال يشير إلى /releases/latest.
+        }
+      })();
+
+      // ربط أزرار النسخ داخل قسم التثبيت بـ Clipboard API.
+      // الرجوع التدريجي: إن فشل writeText أو لم يكن متاحاً، يبقى نص الأمر قابلاً للتحديد.
+      document.querySelectorAll(".copy-btn").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const targetId = btn.getAttribute("data-copy-target");
+          const target = targetId && document.getElementById(targetId);
+          if (!target) return;
+          const text = target.textContent.trim().replace(/\s+/g, " ");
+          const original = btn.textContent;
+          try {
+            await navigator.clipboard.writeText(text);
+            btn.textContent = "تم النسخ";
+            btn.classList.add("is-copied");
+          } catch {
+            btn.textContent = "اضغط ⌘C";
+            const range = document.createRange();
+            range.selectNodeContents(target);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+          }
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove("is-copied");
+          }, 1600);
+        });
+      });
+    </script>
+  </body>
+</html>

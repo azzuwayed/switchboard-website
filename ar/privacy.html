@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>الخصوصية والثقة — Switchboard</title>
+    <meta
+      name="description"
+      content="ما يفعله Switchboard وما لا يفعله ببياناتك. بدون قياس عن بُعد، بدون تحليلات، بدون حساب سحابي. طلب خارجي واحد قابل للتعطيل لفحص التحديث."
+    />
+    <meta property="og:title" content="الخصوصية والثقة — Switchboard" />
+    <meta
+      property="og:description"
+      content="ما يفعله Switchboard وما لا يفعله ببياناتك."
+    />
+    <meta property="og:type" content="website" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/icon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="128x128"
+      href="../assets/icon-128.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="256x256"
+      href="../assets/icon-256.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="256x256"
+      href="../assets/icon-256.png"
+    />
+    <meta property="og:image" content="../assets/icon-256.png" />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://azzuwayed.github.io/switchboard-website/privacy.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="ar"
+      href="https://azzuwayed.github.io/switchboard-website/ar/privacy.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://azzuwayed.github.io/switchboard-website/privacy.html"
+    />
+    <link rel="stylesheet" href="../style.css?v=b765b0650c" />
+    <style>
+      .doc-hero {
+        padding: 64px 0 32px;
+        border-bottom: 1px solid var(--border);
+      }
+      .doc-hero h1 {
+        margin: 8px 0 12px;
+      }
+      .doc-hero p.lede {
+        max-width: 38em;
+      }
+      .doc-meta {
+        margin-top: 16px;
+        color: var(--fg-muted);
+        font-size: 0.92rem;
+      }
+      .doc-section {
+        padding: 32px 0;
+        border-top: 1px solid var(--border);
+      }
+      .doc-section:first-of-type {
+        border-top: 0;
+      }
+      .doc-section h2 {
+        margin-top: 0;
+      }
+      .doc-section p,
+      .doc-section li {
+        color: var(--fg-muted);
+        max-width: 42em;
+      }
+      .doc-section code {
+        color: var(--fg);
+      }
+      .doc-section ul {
+        padding-left: 20px;
+      }
+      .doc-section ul li {
+        margin-bottom: 8px;
+      }
+      .doc-section .doc-callout {
+        margin: 16px 0 0;
+        padding: 14px 16px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--surface);
+        color: var(--fg);
+        max-width: 42em;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./">
+          <img
+            class="brand-mark"
+            src="../assets/icon-256.png"
+            srcset="../assets/icon-128.png 1x, ../assets/icon-256.png 2x"
+            alt=""
+            width="28"
+            height="28"
+          />
+          <span>Switchboard</span>
+        </a>
+        <nav class="site-nav" aria-label="التنقل الرئيسي">
+          <a href="./#features">الميزات</a>
+          <a href="./#install">التثبيت</a>
+          <a href="./privacy.html" aria-current="page">الخصوصية</a>
+          <a href="./#faq">الأسئلة الشائعة</a>
+          <a
+            href="https://github.com/azzuwayed/switchboard-website/releases"
+            rel="noopener"
+            target="_blank"
+            >سجل التغييرات</a
+          >
+          <a
+            href="https://github.com/azzuwayed/switchboard-website/issues"
+            rel="noopener"
+            target="_blank"
+            >الدعم</a
+          >
+          <a class="lang-switch" href="../privacy.html" hreflang="en" lang="en"
+            >English</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="doc-hero">
+        <div class="container">
+          <p class="eyebrow">الخصوصية والثقة</p>
+          <h1>Switchboard يعمل على جهاز Mac الخاص بك، وليس على خادم.</h1>
+          <p class="lede">
+            Switchboard أداة macOS محلية فقط. لا تملك حساباً سحابياً، ولا خط
+            قياس عن بُعد، ولا خادم HTTP خلفي. تصف هذه الصفحة بدقة ما يقرأه
+            التطبيق ويكتبه ويرسله — وما يمتنع عمداً عن فعله.
+          </p>
+          <p class="doc-meta">آخر تحديث: 2026-05-25.</p>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <div class="container">
+          <h2>ملخّص</h2>
+          <ul>
+            <li>بدون قياس عن بُعد، بدون تحليلات، بدون تقارير أعطال.</li>
+            <li>بدون حساب مستخدم، بدون مفتاح ترخيص، بدون تسجيل.</li>
+            <li>بدون خادم خلفي، بدون منفذ شبكة مستمع.</li>
+            <li>
+              الطلب الخارجي الوحيد الذي يقوم به التطبيق هو فحص مرة في اليوم
+              مقابل بيان التحديثات العام. مفعّل افتراضياً ويمكنك تعطيله.
+            </li>
+            <li>
+              كل الإعدادات والسجلات وحالة الاعتماد تُخزَّن على جهاز Mac الخاص بك
+              تحت مجلد المستخدم.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <div class="container">
+          <h2>ما لا يفعله التطبيق</h2>
+          <ul>
+            <li>
+              <strong>بدون قياس عن بُعد أو تحليلات.</strong> Switchboard لا يتصل
+              بنقطة نهاية لتتبّع الاستخدام، أو مُبلِّغ أعطال، أو خدمة نسب، أو أي
+              SDK تحليلات تابع لطرف ثالث. لا توجد عملية تجميع &ldquo;بيانات
+              استخدام مجهولة الهوية&rdquo;.
+            </li>
+            <li>
+              <strong>بدون حساب سحابي.</strong> لا يوجد شيء للتسجيل فيه. التطبيق
+              لا يملك مكوّناً على جانب الخادم.
+            </li>
+            <li>
+              <strong>بدون خادم HTTP خلفي.</strong> التطبيق لا يستمع على أي منفذ
+              شبكة. لا تستطيع العمليات الأخرى الاتصال بـ Switchboard.
+            </li>
+            <li>
+              <strong>بدون وصول قشرة عشوائي من الواجهة.</strong> الـ webview لا
+              يستطيع تشغيل أوامر قشرة تكتبها. اطّلع على
+              <a href="#command-security">أمان الأوامر</a> أدناه.
+            </li>
+            <li>
+              <strong>بدون قراءة لملفات غير ذات صلة.</strong> Switchboard يقرأ
+              ويكتب مجلد إعداداته الخاص، وعند إضافة مجلد مستندات، فقط المجلدات
+              التي توجّهه إليها صراحةً. لا يفحص مجلدك الشخصي أو مشاريعك من تلقاء
+              نفسه.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <div class="container">
+          <h2>ما يبقى على جهاز Mac الخاص بك</h2>
+          <p>
+            كل ما يتذكره Switchboard بين عمليات التشغيل يعيش في مجلد Application
+            Support الخاص بك:
+          </p>
+          <p>
+            <code
+              >~/Library/Application
+              Support/io.github.azzuwayed.switchboard/</code
+            >
+          </p>
+          <p>هذا المجلد يحتوي على:</p>
+          <ul>
+            <li><code>services.yaml</code> — الخدمات التي قمت بإعدادها.</li>
+            <li>
+              <code>commands.yaml</code> — تعريفات الأوامر (القائمة البيضاء) خلف
+              كل إجراء خدمة.
+            </li>
+            <li>
+              <code>settings.yaml</code> — تفضيلات التطبيق (المظهر، اللغة، مفتاح
+              فحص التحديث، فترات الاستطلاع، التشغيل عند تسجيل الدخول، إلخ).
+            </li>
+            <li>
+              <code>approvals.json</code> — بصمات الأوامر التي وافقت على
+              تشغيلها.
+            </li>
+            <li>
+              <code>observer-state.json</code> — الخدمات المكتشفة التي تذكّرها
+              المراقب.
+            </li>
+            <li>
+              <code>activity.log</code> — سجل الإجراءات المحلي (تشغيل، إيقاف،
+              إعادة تشغيل، تغييرات الاعتماد).
+            </li>
+            <li><code>backups/</code> — نسخ احتياطية لما سبق قبل الكتابة.</li>
+          </ul>
+          <p>
+            لا شيء من هذا يغادر جهاز Mac الخاص بك. لا يوجد إعداد &ldquo;مزامنة
+            سحابية&rdquo; لأنه لا توجد سحابة.
+          </p>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <div class="container">
+          <h2>الطلب الخارجي الوحيد</h2>
+          <p>
+            مع تفعيل <em>التحقق من التحديثات تلقائياً</em> (الإعداد الافتراضي)،
+            يجلب التطبيق هذا الملف العام عند البدء، ثم تقريباً مرة في اليوم بعد
+            ذلك:
+          </p>
+          <p>
+            <code
+              >https://azzuwayed.github.io/switchboard-website/updates.json</code
+            >
+          </p>
+          <p>
+            الملف عبارة عن بيان JSON ثابت يحتوي على رقم الإصدار الأحدث وتاريخ
+            الإصدار وروابط التنزيل. الطلب نفسه يرسل فقط الترويسات القياسية التي
+            يرسلها أي عميل HTTP؛ التطبيق لا يرفق مُعرِّف مستخدم، ولا مُعرِّف
+            جهاز، ولا أي رمز تثبيت. الموقع خلف البيان هو GitHub Pages، والذي
+            يستقبل سجلات الوصول القياسية الخاصة به من أي زائر؛ التطبيق لا
+            يثريها.
+          </p>
+          <p>
+            إيقاف <em>التحقق من التحديثات تلقائياً</em> في نافذة About داخل
+            التطبيق يوقف هذا الطلب نهائياً. زر <em>التحقق من التحديثات</em> في
+            النافذة نفسها لا يزال يعمل كجلب يدوي لمرة واحدة عند الضغط عليه.
+          </p>
+        </div>
+      </section>
+
+      <section class="doc-section" id="command-security">
+        <div class="container">
+          <h2>أمان الأوامر</h2>
+          <p>
+            Switchboard يدير الخدمات المحلية بتشغيل أوامر نظام التشغيل الفعلية
+            (Homebrew، Docker، launchctl، إلخ). للحفاظ على فائدة هذا دون أن
+            تتحوّل الواجهة إلى قشرة بعيدة، الحدّ بين الـ webview ونظام التشغيل
+            ضيّق عمداً.
+          </p>
+          <ul>
+            <li>
+              الـ webview يرسل فقط <code>serviceId</code>، <code>action</code>،
+              وحالة التأكيد الصريحة.
+            </li>
+            <li>
+              يربط الـ backend المكتوب بـ Rust الإجراء بتعريف
+              <code>cmd</code> + <code>args</code> محدد من قائمة بيضاء. لا
+              يستطيع الـ webview تمرير مسار قابل للتنفيذ، أو سلسلة أمر، أو متغير
+              بيئة، أو جزء قشرة.
+            </li>
+            <li>
+              كل أمر يعمل عبر
+              <code>tokio::process::Command</code> ببيئة منقّحة و
+              <code>PATH</code> ثابت — وليس عبر <code>sh -c</code>.
+            </li>
+            <li>
+              كل أمر يحمل مستوى مخاطر (آمن، عادي، تدميري، متميّز، تثبيت من
+              الشبكة). أي شيء أعلى من <em>آمن</em> يتطلب بصمة اعتماد، يتم فحصها
+              مقابل <code>approvals.json</code> قبل تشغيل الأمر.
+            </li>
+            <li>
+              القوالب المستوردة وتعريفات الأوامر تتم معاينتها أمراً أمراً قبل أن
+              تستطيع التشغيل. التعريفات الجديدة أو المعدّلة تبقى
+              <em>غير معتمدة</em> حتى تراجعها.
+            </li>
+            <li>
+              مخرجات الأوامر محدودة؛ تنقيح الأسرار مفعّل
+              <strong>افتراضياً</strong>.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <div class="container">
+          <h2>التحديثات والتوقيع</h2>
+          <p>
+            عندما يبلّغ بيان التحديث عن بناء أحدث، يقوم المُحدِّث داخل التطبيق
+            بتنزيل حزمة <code>.app.tar.gz</code> الجديدة وملف
+            <code>.sig</code> المرافق لها من GitHub Release لذلك الإصدار. قبل فك
+            ضغط الحزمة، يتم التحقق من توقيع
+            <a
+              href="https://jedisct1.github.io/minisign/"
+              rel="noopener"
+              target="_blank"
+              >minisign</a
+            >
+            مقابل المفتاح العام المُدمج في التطبيق العامل حالياً. إذا فشل
+            التحقق، يُرفض التحديث ولا يُستبدل أي شيء على القرص.
+          </p>
+          <p>
+            المفتاح الخاص للتوقيع لا يغادر مفتاحاً (keychain) محلياً ومخزن أسرار
+            CI. حتى يصل توقيع Apple Developer ID والتوثيق، قد لا يزال macOS
+            Gatekeeper يطلب منك السماح بتحديث مُثبَّت حديثاً عند فتحه للمرة
+            الأولى؛ المُحدِّث داخل التطبيق يستطيع استبدال الحزمة لكنه لا يستطيع
+            تجاوز ذلك الطلب.
+          </p>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <div class="container">
+          <h2>أذونات macOS</h2>
+          <p>
+            Switchboard لا يطلب Full Disk Access أو Accessibility أو Screen
+            Recording. لا يحتاجها لإدارة الخدمات. إذا أضفت مجلد مستندات تحت
+            <em>الإعدادات ← المستندات</em>، قد يُظهر macOS طلب الوصول القياسي
+            للملفات لذلك المجلد؛ التطبيق يقرأه لكنه لا ينقل محتواه إلى أي مكان.
+          </p>
+          <p>
+            يستخدم التطبيق عنصر تسجيل دخول launchd فقط عند الاشتراك عبر
+            <em>التشغيل عند تسجيل الدخول</em> في الإعدادات.
+          </p>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <div class="container">
+          <h2>المصدر والترخيص</h2>
+          <p>
+            مستودع المصدر خاص خلال النسخة التجريبية. ما إذا كان سيصبح عاماً بعد
+            1.0 لم يُقرَّر بعد. التطبيق نفسه
+            <em>&copy; 2026 عبدالله الزويد. جميع الحقوق محفوظة.</em> اتفاقية
+            ترخيص رسمية سترافق إصدار 1.0.
+          </p>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <div class="container">
+          <h2>التغييرات على هذا البيان</h2>
+          <p>
+            إذا أضاف إصدار مستقبلي طلباً خارجياً جديداً، أو عنصراً جديداً على
+            القرص، أو إذناً جديداً، يتم تحديث هذه الصفحة في الإصدار نفسه. سجل
+            التغييرات العام للإصدار يبرز التغيير. لا يوجد بريد إلكتروني منفصل
+            &ldquo;لتحديث سياسة الخصوصية&rdquo; لأن التطبيق لا يملك بريدك
+            الإلكتروني.
+          </p>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <div class="container">
+          <h2>التواصل</h2>
+          <p>
+            أسئلة أو مخاوف حول أي شيء في هذه الصفحة؟ افتح قضية على
+            <a
+              href="https://github.com/azzuwayed/switchboard-website/issues"
+              rel="noopener"
+              target="_blank"
+              >GitHub Issues</a
+            >.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; 2026 عبدالله الزويد. جميع الحقوق محفوظة.</p>
+        <nav class="footer-nav" aria-label="تذييل">
+          <a href="./#install">التثبيت</a>
+          <a href="./privacy.html">الخصوصية</a>
+          <a href="./#faq">الأسئلة الشائعة</a>
+          <a
+            href="https://github.com/azzuwayed/switchboard-website/releases"
+            rel="noopener"
+            target="_blank"
+            >سجل التغييرات</a
+          >
+          <a
+            href="https://github.com/azzuwayed/switchboard-website/issues"
+            rel="noopener"
+            target="_blank"
+            >الدعم</a
+          >
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
