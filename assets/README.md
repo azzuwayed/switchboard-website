@@ -7,7 +7,7 @@ Switchboard app icon — a dark squircle with two toggles connected by a blue
 "S"-shaped cable. Source artwork lives in
 [`src-tauri/icons/`](https://github.com/azzuwayed/switchboard/tree/main/src-tauri/icons)
 in the app repo. Regenerate from a 1024×1024 source by the pipeline in
-[`docs/icons.md`](https://github.com/azzuwayed/switchboard/blob/main/docs/icons.md).
+[`docs/reference/icons.md`](https://github.com/azzuwayed/switchboard/blob/main/docs/reference/icons.md).
 
 | File           | Source                                  | Use                            |
 | -------------- | --------------------------------------- | ------------------------------ |

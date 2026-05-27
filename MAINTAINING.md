@@ -92,5 +92,5 @@ Both paths:
   public URL.
 
 The full procedure lives in the source repo's
-[`docs/release.md`](https://github.com/azzuwayed/switchboard/blob/main/docs/release.md).
+[`docs/release/process.md`](https://github.com/azzuwayed/switchboard/blob/main/docs/release/process.md).
 Don't try to reproduce that flow from this repo alone.
