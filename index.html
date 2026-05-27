@@ -3,15 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Switchboard — Native macOS service manager</title>
+    <title>Switchboard — Find forgotten local services on your Mac</title>
     <meta
       name="description"
-      content="Switchboard is a native macOS menu-bar app for managing local services from one place: Homebrew services, Docker containers, launchd agents, HTTP endpoints, and command-backed dev servers."
+      content="Find local services running on your Mac, spot what may be draining battery, and stop the ones you forgot. Works whether you started them yourself, your scripts did, or your AI coding assistant did. Native macOS, no telemetry, free during beta."
     />
-    <meta property="og:title" content="Switchboard" />
+    <meta
+      property="og:title"
+      content="Switchboard — Find forgotten local services on your Mac"
+    />
     <meta
       property="og:description"
-      content="Native macOS menu-bar app for managing local services."
+      content="One menu-bar app that surfaces forgotten local services on your Mac, names what's eating CPU, and helps you stop the ones you don't need. For developers and people building with AI coding tools."
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
@@ -44,7 +47,7 @@
       hreflang="x-default"
       href="https://azzuwayed.github.io/switchboard-website/"
     />
-    <link rel="stylesheet" href="style.css?v=b765b0650c" />
+    <link rel="stylesheet" href="style.css?v=42e6ed15b7" />
   </head>
   <body>
     <header class="site-header">
@@ -87,12 +90,13 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">macOS · Apple Silicon</p>
-            <h1>Manage every local service from one tray.</h1>
+            <p class="eyebrow">macOS · Apple Silicon · Free during beta</p>
+            <h1>Your Mac is hosting more than you remember.</h1>
             <p class="lede">
-              Homebrew services, Docker containers, launchd agents, HTTP
-              endpoints, and dev-server commands. Start, stop, restart, inspect
-              ports, view logs — without leaving your menu bar.
+              Switchboard surfaces local services running on your Mac, flags
+              what may be draining battery, and gives you a clear stop flow for
+              the ones you forgot. Whether you started them yourself, your
+              scripts did, or your AI coding assistant did.
             </p>
             <div class="cta-row">
               <a
@@ -103,12 +107,12 @@
                 >Download for macOS
                 <span class="version-chip" id="version-chip">Latest</span></a
               >
-              <a class="btn btn-ghost" href="#features">See features</a>
+              <a class="btn btn-ghost" href="#story">Why you'd want it</a>
             </div>
             <ul class="trust-strip">
               <li>
                 <span class="trust-chip-dot" aria-hidden="true"></span>Free
-                forever in beta
+                during beta
               </li>
               <li>
                 <span class="trust-chip-dot" aria-hidden="true"></span>No
@@ -257,8 +261,55 @@
 
       <section id="features" class="features">
         <div class="container">
-          <h2>What it does</h2>
+          <h2>What you actually get</h2>
+          <p class="features-lede">
+            Built to answer specific questions: what's running right now, what
+            may be eating the battery, and what can I stop deliberately?
+          </p>
           <div class="feature-grid">
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.5-3.5" />
+                </svg>
+              </span>
+              <h3>It finds the things you forgot</h3>
+              <p>
+                Switchboard auto-detects dev servers (port observation),
+                Homebrew services, Docker containers, and launchd jobs — and
+                tags them <em>Discovered</em> so you can tell them apart from
+                services you set up by hand.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="5" y="5" width="14" height="14" rx="2" />
+                </svg>
+              </span>
+              <h3>A safer stop flow for orphan processes</h3>
+              <p>
+                When Switchboard finds a dev server still listening on a port
+                you forgot about, the detail panel shows a Stop button right
+                there. Confirm, and it sends <code>SIGTERM</code> to the right
+                PID. No <code>lsof</code>, no <code>kill -9</code> guessing.
+              </p>
+            </article>
             <article class="feature">
               <span class="feature-icon" aria-hidden="true">
                 <svg
@@ -275,51 +326,12 @@
                   <rect x="14" y="14" width="7" height="7" rx="1.5" />
                 </svg>
               </span>
-              <h3>Service dashboard</h3>
+              <h3>One dashboard for every service kind</h3>
               <p>
-                Running, degraded, stopped, and unknown states across every
-                service kind in a single view.
-              </p>
-            </article>
-            <article class="feature">
-              <span class="feature-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z" />
-                  <path d="m9 12 2 2 4-4" />
-                </svg>
-              </span>
-              <h3>Risk-aware actions</h3>
-              <p>
-                Start, stop, restart, update — every command is allowlisted,
-                approved, and runs without a shell.
-              </p>
-            </article>
-            <article class="feature">
-              <span class="feature-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M12 3 2 8l10 5 10-5-10-5z" />
-                  <path d="m2 17 10 5 10-5" />
-                  <path d="m2 12 10 5 10-5" />
-                </svg>
-              </span>
-              <h3>Templates</h3>
-              <p>
-                Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx,
-                generic HTTP + command — all reviewed and ready.
+                Running, degraded, stopped, and unknown — the same status
+                vocabulary whether it's Postgres under Homebrew, a dev server on
+                port 5173, a launchd agent, or a Docker container. No
+                tab-switching between four different tools.
               </p>
             </article>
             <article class="feature">
@@ -338,10 +350,11 @@
                   <path d="M12 17v5" />
                 </svg>
               </span>
-              <h3>Port inspector</h3>
+              <h3>Port inspector that names the process</h3>
               <p>
-                See every listening port, link processes to services, and
-                resolve conflicts without lsof.
+                Every listening port, with the actual process and project name
+                attached — not just <code>node 41327</code>. Conflicts are
+                flagged where two things claim the same port.
               </p>
             </article>
             <article class="feature">
@@ -357,10 +370,83 @@
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                 </svg>
               </span>
-              <h3>Health checks</h3>
+              <h3>Live health checks per service</h3>
               <p>
-                Homebrew, Docker, HTTP, and command-backed health probes with
-                live polling.
+                Homebrew, Docker, HTTP, or any command you trust. Switchboard
+                polls each one on its own cadence and shows you the rolling
+                stopped / degraded / unknown breakdown — not a single misleading
+                "100% errors" number.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <path d="M14 2v6h6" />
+                  <path d="M8 13h8" />
+                  <path d="M8 17h6" />
+                </svg>
+              </span>
+              <h3>Logs without three Terminal tabs</h3>
+              <p>
+                Launchd plist <code>StandardOutPath</code> /
+                <code>StandardErrorPath</code>, Docker logs, file-tailing for
+                anything that writes to disk — Switchboard surfaces them in the
+                Logs tab next to the service they belong to.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3 2 8l10 5 10-5-10-5z" />
+                  <path d="m2 17 10 5 10-5" />
+                  <path d="m2 12 10 5 10-5" />
+                </svg>
+              </span>
+              <h3>Templates for the usual suspects</h3>
+              <p>
+                Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx,
+                generic HTTP + command. Every preset's commands are reviewed and
+                approved — no shell magic, no surprises.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </span>
+              <h3>Safe by construction</h3>
+              <p>
+                Switchboard never executes a shell string from the UI. Every
+                action maps to an exact allowlisted <code>cmd</code> +
+                <code>args</code>. Destructive ones (delete, force-stop, install
+                from network) require an explicit per-command approval the first
+                time.
               </p>
             </article>
             <article class="feature">
@@ -378,10 +464,13 @@
                   <circle cx="7" cy="7" r="0.5" fill="currentColor" />
                 </svg>
               </span>
-              <h3>Local-only</h3>
+              <h3>Local-only, no account, no telemetry</h3>
               <p>
-                No telemetry, no analytics, no background server. Config and
-                logs live in your Application Support folder.
+                No cloud. No background HTTP server. No analytics. Your config
+                and logs live under
+                <code>~/Library/Application Support/</code>. The only outbound
+                request is the daily check for an app update — and that's a
+                Settings toggle away from off.
               </p>
             </article>
           </div>
@@ -391,7 +480,7 @@
       <section id="story" class="story">
         <div class="container story-grid">
           <div class="story-copy">
-            <p class="eyebrow">Why I built this app</p>
+            <p class="eyebrow">Why this exists</p>
             <h2>I kept losing track of the things I'd started.</h2>
             <p class="story-lede">
               A dev server here, a database there, a tunnel for some experiment
@@ -402,14 +491,22 @@
               <code>node</code> to <em>the dev server I started last week</em>.
             </p>
             <p class="story-lede">
-              The problem got worse when I started building with AI coding
-              agents. Agents are great at spinning up dev servers; they're not
-              always great at stopping the previous one before starting the
-              next. Sometimes the agent is smart enough to free the port it
-              needs — sometimes it just walks to the next available one. After a
-              few hours of iteration you can end up with six copies of the same
-              Vite server competing for memory, the laptop running hot, the
-              battery draining fast, and nothing in macOS surfacing any of it.
+              The problem got worse when I started building with AI coding tools
+              — Cursor, Claude Code, Windsurf, Cline, the whole crowd. They're
+              great at spinning up dev servers; they're not always great at
+              stopping the previous one before starting the next. Sometimes the
+              agent is smart enough to free the port it needs — sometimes it
+              just walks to the next available one. After a few hours of
+              iteration you can end up with six copies of the same Vite server
+              competing for memory, the laptop running hot, the battery draining
+              fast, and nothing in macOS surfacing any of it.
+            </p>
+            <p class="story-lede">
+              You don't have to be a developer to need this. If you build things
+              with AI now — apps, scripts, whatever — your Mac is hosting more
+              than you think. You don't need to know what
+              <code>launchd</code> is to know the fan is loud and the battery is
+              draining and you're not sure why.
             </p>
             <p class="story-lede">
               Switchboard is the thing I wanted: one place where every local
@@ -429,6 +526,14 @@
                 <span
                   ><strong>Forgotten services</strong> still running days after
                   you stopped paying attention.</span
+                >
+              </li>
+              <li>
+                <span class="story-list-dot" aria-hidden="true"></span>
+                <span
+                  ><strong>AI-spawned dev servers</strong> your coding agent
+                  started and never shut down. Switchboard finds the PID and
+                  gives you a clear stop flow.</span
                 >
               </li>
               <li>
@@ -551,6 +656,44 @@
                   After the 1.0 release there may be a paid edition with extra
                   features for power users, but everything that ships in the
                   beta today will remain free.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>Do I need to be a developer to use this?</summary>
+              <div class="faq-body">
+                <p>
+                  No. If you build things with AI tools and your fan keeps
+                  spinning up, Switchboard is for you. The dashboard shows you
+                  local services with human-readable names — you don't need to
+                  know the difference between a launchd agent and a Homebrew
+                  service to click <em>Stop</em> on the one that's draining your
+                  battery.
+                </p>
+                <p>
+                  You will hit a developer-flavored moment during install
+                  (running <code>xattr</code> in Terminal to clear macOS
+                  Gatekeeper's quarantine flag — one line, copy-pasted from the
+                  install section above). Past that, the rest of the app is
+                  point-and-click.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                Does it work with Cursor, Claude Code, Windsurf, Cline, …?
+              </summary>
+              <div class="faq-body">
+                <p>
+                  Yes — Switchboard is agnostic about what started a process. It
+                  watches ports and processes directly, so when your AI coding
+                  tool spawns a Vite dev server (or a FastAPI server, or
+                  anything else listening locally), Switchboard auto-detects it,
+                  tags it <em>Discovered</em>, and gives you a Stop button with
+                  confirmation. Doesn't matter which agent or which editor
+                  started it.
                 </p>
               </div>
             </details>

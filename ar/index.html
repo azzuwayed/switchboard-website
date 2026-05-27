@@ -3,15 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Switchboard — مدير الخدمات المحلية الأصلي لـ macOS</title>
+    <title>Switchboard — اعثر على الخدمات المحلية المنسية على جهاز Mac</title>
     <meta
       name="description"
-      content="Switchboard تطبيق macOS أصلي في شريط القائمة لإدارة الخدمات المحلية من مكان واحد: خدمات Homebrew، حاويات Docker، وكلاء launchd، نقاط نهاية HTTP، وأوامر خوادم التطوير."
+      content="اعثر على الخدمات المحلية التي تعمل على جهاز Mac، واكتشف ما قد يستنزف البطارية، وأوقف الخدمات التي نسيتها. سواء بدأتها بنفسك، أو بدأتها سكربتاتك، أو بدأها مساعدك للبرمجة بالذكاء الاصطناعي. أصلي لـ macOS، بلا قياس عن بُعد، مجاني خلال النسخة التجريبية."
     />
-    <meta property="og:title" content="Switchboard" />
+    <meta
+      property="og:title"
+      content="Switchboard — اعثر على الخدمات المحلية المنسية على جهاز Mac"
+    />
     <meta
       property="og:description"
-      content="تطبيق macOS أصلي في شريط القائمة لإدارة الخدمات المحلية."
+      content="تطبيق واحد في شريط القائمة يكشف الخدمات المحلية المنسية على جهاز Mac، يوضح ما يستهلك المعالج، ويساعدك على إيقاف ما لا تحتاجه. للمطوّرين ولكل من يبني بأدوات الذكاء الاصطناعي."
     />
     <meta property="og:type" content="website" />
     <link
@@ -53,7 +56,7 @@
       hreflang="x-default"
       href="https://azzuwayed.github.io/switchboard-website/"
     />
-    <link rel="stylesheet" href="../style.css?v=b765b0650c" />
+    <link rel="stylesheet" href="../style.css?v=42e6ed15b7" />
   </head>
   <body>
     <header class="site-header">
@@ -96,12 +99,15 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">macOS · Apple Silicon</p>
-            <h1>أَدِر كل خدمة محلية من شريط واحد.</h1>
+            <p class="eyebrow">
+              macOS · Apple Silicon · مجاني خلال النسخة التجريبية
+            </p>
+            <h1>جهاز Mac يستضيف أكثر مما تتذكّر.</h1>
             <p class="lede">
-              خدمات Homebrew، حاويات Docker، وكلاء launchd، نقاط نهاية HTTP،
-              وأوامر خوادم التطوير. شغّل، أوقف، أعد التشغيل، افحص المنافذ، اعرض
-              السجلات — دون مغادرة شريط القائمة.
+              Switchboard يكشف الخدمات المحلية التي تعمل على جهاز Mac، ويوضح لك
+              ما قد يستنزف البطارية، ويعطيك مسار إيقاف واضح للخدمات التي نسيتها.
+              سواء بدأتها بنفسك، أو بدأتها سكربتاتك، أو بدأها مساعدك للبرمجة
+              بالذكاء الاصطناعي.
             </p>
             <div class="cta-row">
               <a
@@ -112,12 +118,12 @@
                 >تحميل لـ macOS
                 <span class="version-chip" id="version-chip">Latest</span></a
               >
-              <a class="btn btn-ghost" href="#features">اطّلع على الميزات</a>
+              <a class="btn btn-ghost" href="#story">لماذا قد تريده</a>
             </div>
             <ul class="trust-strip">
               <li>
                 <span class="trust-chip-dot" aria-hidden="true"></span>مجاني
-                دائماً في النسخة التجريبية
+                خلال النسخة التجريبية
               </li>
               <li>
                 <span class="trust-chip-dot" aria-hidden="true"></span>بدون
@@ -261,8 +267,55 @@
 
       <section id="features" class="features">
         <div class="container">
-          <h2>ماذا يفعل</h2>
+          <h2>ماذا تحصل عليه فعلاً</h2>
+          <p class="features-lede">
+            مصمَّم للإجابة على أسئلة محددة: ما الذي يعمل الآن، ما الذي قد يستنزف
+            البطارية، وماذا أستطيع إيقافه بثقة؟
+          </p>
           <div class="feature-grid">
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.5-3.5" />
+                </svg>
+              </span>
+              <h3>يعثر على الأشياء التي نسيتها</h3>
+              <p>
+                Switchboard يكتشف تلقائياً خوادم التطوير (عبر مراقبة المنافذ)،
+                خدمات Homebrew، حاويات Docker، ومهام launchd — ويصنّفها على أنها
+                <em>مُكتشَفة</em> حتى تستطيع تمييزها عن الخدمات التي أعددتها
+                يدوياً.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="5" y="5" width="14" height="14" rx="2" />
+                </svg>
+              </span>
+              <h3>إيقاف أوضح وأكثر أماناً للعمليات اليتيمة</h3>
+              <p>
+                عندما يعثر Switchboard على خادم تطوير لا يزال يستمع على منفذ
+                نسيت أمره، يعرض لك زر إيقاف هناك في لوحة التفاصيل. أكّد، فيُرسل
+                <code>SIGTERM</code> للـ PID الصحيح. بلا <code>lsof</code>، بلا
+                تخمين مع <code>kill -9</code>.
+              </p>
+            </article>
             <article class="feature">
               <span class="feature-icon" aria-hidden="true">
                 <svg
@@ -279,51 +332,11 @@
                   <rect x="14" y="14" width="7" height="7" rx="1.5" />
                 </svg>
               </span>
-              <h3>لوحة الخدمات</h3>
+              <h3>لوحة واحدة لكل نوع خدمة</h3>
               <p>
-                حالات تعمل، متراجعة، متوقفة، وغير معروفة عبر كل نوع من الخدمات
-                في عرض واحد.
-              </p>
-            </article>
-            <article class="feature">
-              <span class="feature-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z" />
-                  <path d="m9 12 2 2 4-4" />
-                </svg>
-              </span>
-              <h3>إجراءات واعية بالمخاطر</h3>
-              <p>
-                تشغيل، إيقاف، إعادة تشغيل، تحديث — كل أمر مُدرَج في القائمة
-                البيضاء، معتمد، ويعمل دون قشرة.
-              </p>
-            </article>
-            <article class="feature">
-              <span class="feature-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M12 3 2 8l10 5 10-5-10-5z" />
-                  <path d="m2 17 10 5 10-5" />
-                  <path d="m2 12 10 5 10-5" />
-                </svg>
-              </span>
-              <h3>القوالب</h3>
-              <p>
-                Postgres، MySQL، MongoDB، Redis، Docker Compose، Ollama، nginx،
-                HTTP عام + أمر — كلها مُراجَعة وجاهزة.
+                تعمل، متراجعة، متوقفة، وغير معروفة — مفردات الحالة نفسها سواء
+                كانت Postgres تحت Homebrew، خادم تطوير على المنفذ ٥١٧٣، وكيل
+                launchd، أو حاوية Docker. بلا تنقّل بين أربع أدوات مختلفة.
               </p>
             </article>
             <article class="feature">
@@ -342,10 +355,11 @@
                   <path d="M12 17v5" />
                 </svg>
               </span>
-              <h3>مفتّش المنافذ</h3>
+              <h3>مفتّش منافذ يُسمّي العملية</h3>
               <p>
-                اطّلع على كل منفذ مستمع، اربط العمليات بالخدمات، وحلّ التعارضات
-                دون <code>lsof</code>.
+                كل منفذ مستمع، مع اسم العملية الفعلية واسم المشروع — وليس مجرد
+                <code>node 41327</code>. تُبرَز التعارضات حين يدّعي اثنان المنفذ
+                نفسه.
               </p>
             </article>
             <article class="feature">
@@ -361,10 +375,82 @@
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                 </svg>
               </span>
-              <h3>فحوصات الصحة</h3>
+              <h3>فحوصات صحة مباشرة لكل خدمة</h3>
               <p>
-                فحوصات صحة Homebrew، Docker، HTTP، والمدعومة بأوامر مع استطلاع
-                مباشر.
+                Homebrew، Docker، HTTP، أو أي أمر تثق به. Switchboard يستطلع
+                كلاً منها بإيقاعه الخاص ويُريك التحليل المتدرّج: متوقف / متراجع
+                / غير معروف — وليس رقماً واحداً مضلِّلاً بصيغة «أخطاء بنسبة
+                ١٠٠٪».
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <path d="M14 2v6h6" />
+                  <path d="M8 13h8" />
+                  <path d="M8 17h6" />
+                </svg>
+              </span>
+              <h3>سجلات بلا ثلاث نوافذ Terminal</h3>
+              <p>
+                <code>StandardOutPath</code> / <code>StandardErrorPath</code>
+                من plist الخاص بـ launchd، سجلات Docker، وتتبّع الملفات لأي شيء
+                يكتب إلى القرص — Switchboard يعرضها في علامة تبويب السجلات بجانب
+                الخدمة التي تنتمي إليها.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 3 2 8l10 5 10-5-10-5z" />
+                  <path d="m2 17 10 5 10-5" />
+                  <path d="m2 12 10 5 10-5" />
+                </svg>
+              </span>
+              <h3>قوالب للأدوات والخدمات المعتادة</h3>
+              <p>
+                Postgres، MySQL، MongoDB، Redis، Docker Compose، Ollama، nginx،
+                HTTP عام + أمر. أوامر كل إعداد مسبق مُراجَعة ومعتمدة — بلا أوامر
+                shell مخفية، بلا مفاجآت.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </span>
+              <h3>آمن بالتصميم</h3>
+              <p>
+                Switchboard لا يُنفّذ أبداً أمر shell عشوائياً من الواجهة. كل
+                إجراء يُربط بـ <code>cmd</code> + <code>args</code> محدَّدَين من
+                قائمة بيضاء. المدمِّرة منها (الحذف، الإيقاف القسري، التثبيت من
+                الشبكة) تتطلب موافقة صريحة لكل أمر في المرة الأولى.
               </p>
             </article>
             <article class="feature">
@@ -382,10 +468,12 @@
                   <circle cx="7" cy="7" r="0.5" fill="currentColor" />
                 </svg>
               </span>
-              <h3>محلي فقط</h3>
+              <h3>محلي فقط، بلا حساب، بلا قياس عن بُعد</h3>
               <p>
-                بدون قياس عن بُعد، بدون تحليلات، بدون خادم خلفي. الإعدادات
-                والسجلات تعيش في مجلد Application Support الخاص بك.
+                بلا سحابة. بلا خادم HTTP خلفي. بلا تحليلات. إعداداتك وسجلاتك
+                تعيش تحت <code>~/Library/Application Support/</code>. الطلب
+                الخارجي الوحيد هو الفحص اليومي لتحديث التطبيق — وذلك على بُعد
+                مفتاح واحد في الإعدادات.
               </p>
             </article>
           </div>
@@ -395,7 +483,7 @@
       <section id="story" class="story">
         <div class="container story-grid">
           <div class="story-copy">
-            <p class="eyebrow">لماذا بنيت هذا التطبيق</p>
+            <p class="eyebrow">لماذا يوجد هذا</p>
             <h2>كنت أفقد تتبّع الأشياء التي بدأت تشغيلها.</h2>
             <p class="story-lede">
               خادم تطوير هنا، قاعدة بيانات هناك، نفق لتجربة ما — نصفها لا يزال
@@ -406,13 +494,20 @@
               <em>خادم التطوير الذي شغّلته الأسبوع الماضي</em>.
             </p>
             <p class="story-lede">
-              تفاقمت المشكلة عندما بدأت أبني باستخدام وكلاء الذكاء الاصطناعي.
-              الوكلاء بارعون في تشغيل خوادم التطوير؛ ليسوا دائماً بارعين في
-              إيقاف السابق قبل بدء التالي. أحياناً يكون الوكيل ذكياً بما يكفي
-              لتحرير المنفذ الذي يحتاجه — وأحياناً يكتفي بالانتقال إلى المنفذ
-              التالي المتاح. بعد ساعات من التكرار قد ينتهي بك المطاف بستّ نسخ من
-              خادم Vite نفسه تتنافس على الذاكرة، اللابتوب يسخن، البطارية تستنزف
+              تفاقمت المشكلة عندما بدأت أبني باستخدام أدوات البرمجة بالذكاء
+              الاصطناعي — Cursor، Claude Code، Windsurf، Cline، الجماعة كلها.
+              إنها بارعة في تشغيل خوادم التطوير؛ ليست دائماً بارعة في إيقاف
+              السابق قبل بدء التالي. أحياناً يكون الوكيل ذكياً بما يكفي لتحرير
+              المنفذ الذي يحتاجه — وأحياناً يكتفي بالانتقال إلى المنفذ التالي
+              المتاح. بعد ساعات من التكرار قد ينتهي بك المطاف بستّ نسخ من خادم
+              Vite نفسه تتنافس على الذاكرة، اللابتوب يسخن، البطارية تستنزف
               بسرعة، ولا شيء في macOS يكشف عن أيٍ من هذا.
+            </p>
+            <p class="story-lede">
+              لست بحاجة لأن تكون مطوّراً لكي تحتاج هذا. إن كنت تبني أشياء
+              بالذكاء الاصطناعي الآن — تطبيقات، سكربتات، أيّاً كان — جهاز Mac
+              يستضيف أكثر مما تظن. لست بحاجة لمعرفة ما هو <code>launchd</code>
+              لكي تعرف أن المروحة عالية والبطارية تستنزف وأنت لست متأكداً لماذا.
             </p>
             <p class="story-lede">
               Switchboard هو ما كنت أريده: مكان واحد تظهر فيه كل خدمة محلية، كل
@@ -431,6 +526,14 @@
                 <span
                   ><strong>خدمات منسية</strong> لا تزال تعمل بعد أيام من توقفك
                   عن متابعتها.</span
+                >
+              </li>
+              <li>
+                <span class="story-list-dot" aria-hidden="true"></span>
+                <span
+                  ><strong>خوادم تطوير شغّلتها أدوات الذكاء الاصطناعي</strong>
+                  بدأها وكيلك البرمجي ولم يوقفها. Switchboard يعثر على المعرّف
+                  الرقمي (PID) ويعطيك مسار إيقاف واضحاً.</span
                 >
               </li>
               <li>
@@ -467,13 +570,14 @@
         <div class="container">
           <h2>نموذج الثقة</h2>
           <p>
-            Switchboard مصمَّم ليكون مفيداً دون أن يتحوّل إلى قشرة داخل webview.
+            Switchboard مصمَّم ليكون مفيداً دون أن يتحوّل إلى سطر أوامر داخل
+            الواجهة.
           </p>
           <ul class="trust-list">
             <li>يعمل بالكامل على جهاز Mac الخاص بك.</li>
             <li>بدون حساب سحابي.</li>
             <li>بدون خادم HTTP خلفي.</li>
-            <li>بدون قشرة عشوائية من الواجهة.</li>
+            <li>بدون أوامر shell عشوائية من الواجهة.</li>
             <li>
               الـ webview يرسل فقط <code>serviceId</code>، <code>action</code>،
               وحالة التأكيد الصريحة.
@@ -487,7 +591,7 @@
               <code>sh -c</code>.
             </li>
             <li>
-              الأوامر المستوردة تتم معاينتها أمراً أمراً قبل أن تستطيع التشغيل.
+              الأوامر المستوردة تتم معاينتها أمراً أمراً قبل السماح بتشغيلها.
             </li>
             <li>
               الأوامر المستوردة الجديدة أو المعدّلة تبقى غير معتمدة حتى تتم
@@ -549,6 +653,40 @@
                   بعد إصدار 1.0 قد يكون هناك إصدار مدفوع بميزات إضافية
                   للمستخدمين المتقدمين، لكن كل ما يصدر في النسخة التجريبية اليوم
                   سيبقى مجانياً.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>هل أحتاج لأن أكون مطوّراً لاستخدامه؟</summary>
+              <div class="faq-body">
+                <p>
+                  لا. إن كنت تبني أشياء بأدوات الذكاء الاصطناعي ومروحة جهازك
+                  تواصل الدوران، فـ Switchboard لك. اللوحة تعرض الخدمات المحلية
+                  بأسماء مفهومة — لست بحاجة لمعرفة الفرق بين وكيل launchd
+                  وخدمة Homebrew لتضغط <em>إيقاف</em> على التي تستنزف بطاريتك.
+                </p>
+                <p>
+                  ستصادف لحظة بنكهة المطوّر أثناء التثبيت (تشغيل
+                  <code>xattr</code> في Terminal لإزالة علم الحَجر من macOS
+                  Gatekeeper — سطر واحد، انسخه والصقه من قسم التثبيت أعلاه). بعد
+                  ذلك، بقية التطبيق نقر بالماوس.
+                </p>
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                هل يعمل مع Cursor، Claude Code، Windsurf، Cline، …؟
+              </summary>
+              <div class="faq-body">
+                <p>
+                  نعم — Switchboard لا يهتم بمن بدأ العملية. يراقب المنافذ
+                  والعمليات مباشرة، لذا عندما تُولّد أداة البرمجة بالذكاء
+                  الاصطناعي خادم Vite (أو خادم FastAPI، أو أي شيء آخر يستمع
+                  محلياً)، يكتشفه Switchboard تلقائياً، ويصنّفه على أنه
+                  <em>مُكتشَف</em>، ويعطيك زر إيقاف مع تأكيد. لا فرق أي وكيل أو
+                  أي محرّر بدأه.
                 </p>
               </div>
             </details>

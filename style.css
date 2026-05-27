@@ -418,6 +418,14 @@ h1 {
   border-top: 1px solid var(--border);
 }
 
+.features-lede {
+  color: var(--fg-muted);
+  max-width: 56em;
+  margin: -8px 0 32px;
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+
 h2 {
   font-size: clamp(24px, 3.5vw, 32px);
   letter-spacing: -0.01em;
