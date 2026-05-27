@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "latest": "1.0.0-beta.15",
-  "releasedAt": "2026-05-27T11:21:45.362Z",
+  "latest": "1.0.0-beta.16",
+  "releasedAt": "2026-05-27T20:34:15.254Z",
   "minimumSystemVersion": "12.0",
   "channel": "beta",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.15/Switchboard-v1.0.0-beta.15-macos-arm64.dmg",
-        "sha256": "85cc4065946104cdcaf34380e489e58687d618a3ce4e87511a25015da6254a01",
-        "sizeBytes": 9740340
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.16/Switchboard-v1.0.0-beta.16-macos-arm64.dmg",
+        "sha256": "516ceca7b10bab22ec23e608d708ad44611faac2e2121ca2625f2053b7b957f1",
+        "sizeBytes": 9798275
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.15",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.16",
   "downloadPageUrl": "https://azzuwayed.github.io/switchboard-website/",
-  "version": "1.0.0-beta.15",
-  "notes": "Switchboard 1.0.0-beta.15 — see release notes for details.",
-  "pub_date": "2026-05-27T11:21:45.362Z",
+  "version": "1.0.0-beta.16",
+  "notes": "Switchboard 1.0.0-beta.16 — see release notes for details.",
+  "pub_date": "2026-05-27T20:34:15.254Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UThWVlNpcUpvRCttVldCUDZYM0dVM2JDNmJXcXdOTk5QRHhhdmVhRlllWEtZMVVGZTFHc3ZUdXE2VVV5RldtbGJnNktZSVJVVENZN2Y1SzhCTi92endNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc5ODgwODkyCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpmb05wdVQwTjhvUm90bUFTWkwyanJhcFQvRmdwTkxMbnRSUkFLcDEyUno5WVVkWThOU2dhaFcyRlpYR0thY0VOOTYrR1RXQWFkc2tNLy8rR09NaHpEQT09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.15/Switchboard-v1.0.0-beta.15-macos-arm64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTlzTkpjcGljVU5mN1ArSG9QVzFsanVibGxHY3RlRXdZenBZZ0haN1lKbzU5eGUwcXV0RUk2QkdLUkI4Mk54Y3JvZTExVk9XTHhwQVpCSmgrYVFoTGd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc5OTE0MDM0CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpzMjRNOGoxNHU1byttT09IRnozWmtJMStMWWdJRnZ3WWJSMjdIR0FnbTF0ZTFPMDJHVkhtV2VZSUNhWEpOSUl0SXI1cXhBaVNzbnIrcjF4KzdPSXFDdz09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.16/Switchboard-v1.0.0-beta.16-macos-arm64.app.tar.gz"
     }
   }
 }
