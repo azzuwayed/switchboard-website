@@ -10,6 +10,27 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 
 ## [Unreleased]
 
+## [1.0.0-beta.15] - 2026-05-27
+
+### Added
+
+- **Runtime diagnostics in support exports.** Switchboard now writes a bounded
+  runtime log for backend warnings and includes a redacted recent tail when you
+  copy diagnostics. This gives support/debug sessions useful context without
+  flooding the export with dependency noise.
+
+### Changed
+
+- **Main window size and placement stick.** The main Switchboard window now
+  restores its saved size, position, and maximized state instead of reopening
+  across the full monitor work area every time.
+
+### Fixed
+
+- **Startup window no longer gets shoved around.** The About/What's New window
+  now waits for the main window handoff to finish, so it is less likely to jump,
+  animate twice, or appear behind the app during launch and tray reopen.
+
 ## [1.0.0-beta.14] - 2026-05-27
 
 ### Added
