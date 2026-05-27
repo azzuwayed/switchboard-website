@@ -10,6 +10,119 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 
 ## [Unreleased]
 
+## [1.0.0-beta.16] - 2026-05-27
+
+Major release — the post-audit rebuild. Adds the controls that were missing
+when a service misbehaved (mute, ceilings, revoke, approve-once), centralizes
+rogue-process actions, and finally lets you restore from a backup at first run.
+
+### Added
+
+- **Per-service mute / snooze.** Right-click a service (kebab menu) →
+  Mute for 1h / 4h / until tomorrow / forever. Muted services stop generating
+  attention badges, transition notifications, and tray attention entries until
+  you unmute them. Use it when a service is known-quirky and you don't want
+  the noise training you to ignore the badge.
+- **Per-service resource ceilings.** Service editor → Resource ceilings.
+  Override the global observer sensitivity for one service: `cpu: 20%` makes
+  Switchboard alert sooner on a small helper that shouldn't be hot, or
+  `cpu: 400%` lets a local LLM run hard without warnings. CPU and memory
+  thresholds can be set independently.
+- **Approve once.** Approval review now has an "Approve once" button next to
+  "Approve selected". The approval is consumed on the next successful run, so
+  the run after that prompts again. Useful for "try this flaky update one time"
+  without giving the command standing approval.
+- **Approval revoke.** Each approved command in the review surface now has a
+  Revoke action with a double-confirm. The audit-trail entry stays; only the
+  approved flag flips so the next run reprompts.
+- **Fingerprint-change diff prompt.** When you edit a command's cmd/args/cwd,
+  the approval review row now shows a "Previously approved" diff card with the
+  old version struck through, so the re-approval is informed.
+- **Inline approval panel in Settings.** Settings → Security now renders the
+  full approval list inline (the old modal-launching button is gone).
+- **Pending approvals badge.** The sidebar Settings icon and tray attention
+  tile now surface the global pending-approvals count.
+- **Port intelligence on action failures.** When a `start` fails because a
+  port is held, the failure dialog now inlines the owner process + Kill /
+  Reveal controls so you can resolve it without leaving the dialog. This is
+  the canonical "AI agent walked to the next port" scenario the app exists
+  to catch.
+- **Running-action strip.** Actions in flight past 2 seconds render a
+  one-line indicator below the action buttons with elapsed time and a
+  "Tail in /logs" link.
+- **Tray "Stop all running" button.** One click stops every running service
+  with a direct stop action. Confirms first.
+- **Tray port Kill / Reveal inline.** Port rows in the tray now expose
+  Kill / Reveal directly — no need to open the main window.
+- **Settings → Updates.** Auto-check toggle, last-checked timestamp, snooze
+  countdown, and manifest URL override moved out of About into a proper
+  Settings panel. The banner state machine and the panel share state.
+- **Bulk action result sheet.** Bulk start/stop/restart used to flash an
+  aggregate toast; now it opens a sheet listing every service's outcome
+  with a retry-failed button.
+- **Activity log export.** Export everything to JSON or CSV. Redaction-aware;
+  CSV is safe against formula-injection.
+- **Logs viewer polish.** Export the visible buffer to NDJSON, color-dot
+  legend when the source sidebar is collapsed, clearer search placeholder.
+- **Docs viewer polish.** Broken internal links now show an indicator, and
+  a Refresh index button reloads the docs tree without restarting the app.
+- **Service detail — recent activity.** Top 10 activity entries for the
+  current service render below the controls, with "View all" deep-linking
+  to `/activity` pre-filtered.
+- **Onboarding — Restore from backup.** New fourth path on the path-choice
+  step for returning-after-reset users. Lists the latest backup of each
+  target file (services, commands, settings, approvals) and restores them
+  as a coherent set. The current state is saved as a fresh backup first.
+- **Onboarding — Detect heuristic explanation.** Hover the
+  Recommended / Other split on the detect step to see what the heuristic
+  matched on.
+- **Onboarding — Confirm step shows services.** Replaces the "you're
+  monitoring N services" count with the actual service list (name + kind).
+- **Service editor — Logs section.** Pick a log source per service
+  (file tail, command output, or none) directly from the editor. The
+  unified Logs viewer used to require hand-editing YAML for any
+  custom-built service; that gate is gone.
+- **Service editor — Description / notes.** Optional notes field per
+  service, surfaced as a subtitle on dashboard cards and at the top of
+  service detail. Three months from now, "redis" finally says which redis.
+- **Service editor — Duplicate.** Kebab menu item that opens the editor
+  pre-filled from the source service.
+- **Logs and Observer reachable from every nav surface.** `/logs` is in
+  the command palette, the keyboard shortcuts include both `/observer`
+  and `/logs`, and the tray footer promotes them above About.
+- **Resource consumption profiles.** New Battery / Balanced / Active
+  profiles in Settings → Monitoring tune the background polling cadences
+  across status, observer, and unified-logs at once. Manual advanced
+  edits show a Custom state.
+
+### Changed
+
+- **Service liveness is now one source of truth.** Dashboard cards, tray
+  rows, and the status feed all reflect changes at the same time. The
+  separate background poller is gone; the observer scan owns liveness.
+- **One log viewer, not two.** The service-detail logs tab now opens the
+  unified Logs view pre-filtered to that service.
+- **Stable dashboard sort.** Cards no longer reshuffle on every status
+  flip. Initial sort locks on load; explicit refresh re-sorts.
+- **Rogue-process actions are consistent across surfaces.** Observer
+  inbox, ports inspector, and service-detail discovered services now
+  share one row of actions (Adopt / Reveal / Stop / Snooze / Dismiss /
+  Copy) instead of three slightly-different variants.
+
+### Fixed
+
+- **Mute didn't survive an edit.** Saving a service from the editor used
+  to silently clear its mute state. Mute now round-trips through the
+  editor save.
+- **Attention surfaces ignored mute.** Muted services were still counted
+  in sidebar chips and the tray Attention tab. They aren't anymore.
+- **Restoring one backup file at a time could fail.** Restoring services
+  and commands separately tripped the cross-file validation on the
+  intermediate state. The onboarding Restore path now writes every file
+  before validating once, and rolls back the whole batch if anything
+  fails (including deleting files that didn't exist before, so a
+  partial restore can't strand orphan config).
+
 ## [1.0.0-beta.15] - 2026-05-27
 
 ### Added
