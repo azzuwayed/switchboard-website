@@ -10,13 +10,106 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 
 ## [Unreleased]
 
+## [1.0.0-beta.14] - 2026-05-27
+
 ### Added
 
+- **Stop process button on forgotten dev servers.** When Switchboard auto-detects
+  an HTTP service (the kind that walks to the next available port without
+  killing the previous instance), the detail panel now has a "Stop process"
+  button next to "Open". One click opens a confirmation showing the exact
+  `kill -15 <pid>` and the port + process name, then sends SIGTERM if you
+  agree. This is the missing affordance for the core forgotten-server case
+  the app exists to catch.
+- **Custom service actions are editable in the GUI.** If a service has actions
+  beyond the four standard ones — `status`, `clear-logs`, `fail`, anything you
+  defined — the Edit modal now renders an editable row for each one with the
+  same cmd / args / cwd layout as Start / Stop / Restart / Update. Previously
+  these only showed on the read-only command-mapping panel and you had to drop
+  into `commands.yaml` to change them.
+- **"Discovered" pill on auto-detected services.** Services Switchboard
+  detected for you (Docker containers, launchd jobs, port observations) now
+  carry a small Discovered chip next to the kind chip on the dashboard card
+  and detail header. Distinguishes them from services you configured by hand,
+  without relying on the description text.
+- **Launchd services get real logs.** Discovered launchd jobs used to render
+  the Logs tab as "No log output" — Switchboard wasn't reading the plist's
+  `StandardOutPath` / `StandardErrorPath`. Now it parses both during
+  discovery and tails the configured file. Picks stdout first, falls back to
+  stderr.
 - **Arabic translation of the website.** The landing page and privacy
   statement are now available in Arabic with a right-to-left layout. A
   language toggle in the header switches between English and Arabic; deep
   links to sections (`#features`, `#install`, `#faq`, ...) work in both
   locales.
+
+### Changed
+
+- **Health summary stops calling everything "errors".** The detail panel's
+  health rollup used to read `~5 ms avg · 100% errors` whether the service
+  was stopped on purpose (Redis you hadn't started) or returning HTTP 404
+  (reachable but degraded). Both produced false alarm. The summary now
+  breaks down by health state — `~5 ms avg · 60% stopped · 40% degraded` —
+  with zero-percent buckets dropped. The word "errors" is gone; each
+  bucket names its own state.
+- **Status-only services get a real action button.** Services with only a
+  `status` command (typical for launchd agents) used to collapse the entire
+  action row to a single hidden-overflow dropdown. The lone action is now
+  rendered as a primary button so you can see and click it without opening
+  a menu.
+- **Edit modal: empty command rows collapse.** "Update" (or any unused
+  primary action slot) no longer renders as three permanently-visible
+  empty inputs. Collapses to a single "+ Add update command" button that
+  expands when clicked. The `args` field also got more room — long
+  `launchctl list com.foo.bar` style commands no longer truncate past the
+  first word.
+- **Less noise on the dashboard.** Project group cards drop a redundant
+  "{count} services" chip (the summary line already carries the count).
+  Single-service grid cards drop the small response-time sparkline at the
+  bottom (it only showed up on some cards, making the dashboard feel
+  uneven). The detail panel keeps its larger sparkline.
+- **Less noise in the detail panel.** Last-check timestamps drop seconds.
+  Probe lines no longer give the auto-generated command id ("redis-health-3")
+  equal visual weight with the probe type — the id stays visible but
+  smaller and muted below the type. The status pill moves to the left of
+  the service name, matching every dashboard card. The two ellipsis
+  controls that used to sit ~30px apart in the header (one for action
+  overflow, one for the management menu) now use distinct icons. The
+  overflow trigger itself drops the redundant word "More" alongside the
+  three-dot glyph.
+- **Forgotten-pin state.** Pinning a service to the Command Center now
+  fills the pin icon, not just tints it — easy to see at a glance which
+  services are pinned vs. not.
+- **Dashboard grid stops leaving an empty cell.** When a group has an odd
+  number of cards in a two-column layout, the last row used to render a
+  visible empty cell on the right. The grid now stretches present cards
+  to fill, no more gap.
+- **Row layout doesn't sprawl on wide monitors.** Caps row width around
+  1600px and centers it so each row stays readable on 4K displays.
+- **Detail timeline has guidance when empty.** The "No command runs or
+  status changes recorded yet" copy now points at how to populate it:
+  "Run Start, Stop, or Restart from above to populate this timeline."
+- **Default display scale is 125%.** New installs feel less cramped out
+  of the box. (Existing settings are unchanged.)
+- **Docs viewer: tighter rail, subfolder grouping, reliable highlighter.**
+  Documents in subfolders group under their folder name. The side rail
+  uses tighter padding so more docs fit at once. The TOC scroll-spy used
+  to lag one heading behind or freeze entirely; now the active heading
+  highlights as you scroll through it.
+- **Settings backups list stays tidy.** Old backups auto-prune so the
+  list doesn't accumulate forever, and rows render more compactly.
+- **Settings sidebar follows the scroll.** Previously the section nav
+  rail could freeze at the top while the content scrolled past; now they
+  stay in sync.
+
+### Fixed
+
+- **i18n: "key '...status' returned an object instead of string" no longer
+  appears anywhere.** Services declaring a `status` action used to display
+  an i18next error string in place of the button label because the
+  translation key clashed with a sub-namespace. Resolved at the structural
+  level — action labels now live in their own leaf namespace and can never
+  collide with sub-namespaces again.
 
 ## [1.0.0-beta.13] - 2026-05-26
 
