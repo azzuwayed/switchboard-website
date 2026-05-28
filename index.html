@@ -763,6 +763,27 @@
             </details>
 
             <details>
+              <summary>
+                How is this different from a port manager, or just killing the
+                port?
+              </summary>
+              <div class="faq-body">
+                <p>
+                  Switchboard isn't a port pre-assignment tool. Port managers
+                  and named-URL routers help an agent pick a free port
+                  <em>before</em> it starts a server; killing a port is a
+                  one-off. Switchboard gives you the standing, machine-wide
+                  picture — what's running, what's draining battery and CPU,
+                  what owns each port — plus a safe stop / restart flow,
+                  including the long-running local AI tools (Ollama, LM Studio,
+                  self-hosted agents) that pile up between sessions. Use them
+                  together: coordination decides where things start, Switchboard
+                  shows you everything that ends up running.
+                </p>
+              </div>
+            </details>
+
+            <details>
               <summary>Do I need an account or license key?</summary>
               <div class="faq-body">
                 <p>
