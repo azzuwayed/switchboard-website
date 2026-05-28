@@ -10,6 +10,34 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 
 ## [Unreleased]
 
+## [1.0.0-beta.17] - 2026-05-28
+
+### Added
+
+- **Unified Add Service flow.** Detection, listening ports, presets, YAML import,
+  and custom services now open through one Add Service path. Presets are reviewed
+  in the editor before they are saved, so you can adjust names, commands, health
+  checks, and logs first.
+- **Observer Ignore Forever.** Observer findings now have Ignore and Unignore
+  actions, plus an Ignored view. Switchboard remembers smart fingerprints for
+  noisy local processes, including resource anomalies whose PIDs change over
+  time.
+
+### Changed
+
+- **First-run setup starts with detection.** Onboarding now leads with local
+  service detection, offers presets/import/restore/manual setup as secondary
+  paths, includes monitoring power modes, and finishes by taking you straight to
+  the dashboard.
+- **Templates are now Presets.** The old Templates navigation has been folded
+  into Add Service as reviewed starting points. Existing `/templates` links still
+  land in the preset picker.
+- **App identity and storage path updated.** The macOS bundle identifier and
+  displayed config/log paths now use `com.azzuwayed.switchboard`.
+- **Product copy is clearer about what Switchboard is for.** The app and docs now
+  emphasize forgotten local services, AI-created port sprawl, unified logs, and
+  safe local automation.
+
 ## [1.0.0-beta.16] - 2026-05-27
 
 Major release — the post-audit rebuild. Adds the controls that were missing
