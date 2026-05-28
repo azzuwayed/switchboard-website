@@ -31,7 +31,25 @@
       href="assets/icon-256.png"
     />
     <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
-    <meta property="og:image" content="assets/icon-256.png" />
+    <meta
+      property="og:image"
+      content="https://azzuwayed.github.io/switchboard-website/assets/screenshots/services-dashboard.png"
+    />
+    <meta property="og:image:width" content="3084" />
+    <meta property="og:image:height" content="1968" />
+    <meta
+      property="og:image:alt"
+      content="Switchboard services dashboard showing local databases, AI tools, and dev servers."
+    />
+    <meta
+      property="og:url"
+      content="https://azzuwayed.github.io/switchboard-website/"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://azzuwayed.github.io/switchboard-website/assets/screenshots/services-dashboard.png"
+    />
     <link
       rel="alternate"
       hreflang="en"
@@ -47,7 +65,7 @@
       hreflang="x-default"
       href="https://azzuwayed.github.io/switchboard-website/"
     />
-    <link rel="stylesheet" href="style.css?v=fcf03096c8" />
+    <link rel="stylesheet" href="style.css?v=dccc666b4a" />
   </head>
   <body>
     <header class="site-header">
@@ -125,60 +143,31 @@
               </li>
             </ul>
           </div>
-          <div class="hero-art" aria-hidden="true">
-            <div class="mock-window">
-              <div class="mock-titlebar">
-                <span class="mock-dot mock-dot-red"></span>
-                <span class="mock-dot mock-dot-yellow"></span>
-                <span class="mock-dot mock-dot-green"></span>
-                <span class="mock-title">Switchboard</span>
-              </div>
-              <div class="mock-body">
-                <aside class="mock-sidebar">
-                  <div class="mock-nav-item mock-active">Services</div>
-                  <div class="mock-nav-item">Observer</div>
-                  <div class="mock-nav-item">Logs</div>
-                  <div class="mock-nav-item">Ports</div>
-                  <div class="mock-nav-item">Activity</div>
-                </aside>
-                <div class="mock-content">
-                  <div class="mock-service">
-                    <span class="mock-status mock-status-running"></span>
-                    <div>
-                      <div class="mock-service-name">postgresql</div>
-                      <div class="mock-service-meta">
-                        port 5432 · brew services
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mock-service">
-                    <span class="mock-status mock-status-running"></span>
-                    <div>
-                      <div class="mock-service-name">redis</div>
-                      <div class="mock-service-meta">
-                        port 6379 · brew services
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mock-service">
-                    <span class="mock-status mock-status-degraded"></span>
-                    <div>
-                      <div class="mock-service-name">nginx</div>
-                      <div class="mock-service-meta">
-                        port 8080 · brew services
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mock-service">
-                    <span class="mock-status mock-status-stopped"></span>
-                    <div>
-                      <div class="mock-service-name">ollama</div>
-                      <div class="mock-service-meta">port 11434 · launchd</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="hero-art">
+            <button
+              type="button"
+              class="screenshot-button"
+              data-lightbox-src="assets/screenshots/services-dashboard.webp"
+              data-lightbox-fallback="assets/screenshots/services-dashboard.png"
+              data-lightbox-alt="Switchboard services dashboard showing local databases, AI tools, and dev servers."
+              data-lightbox-caption="Services — your local stack at a glance."
+              aria-label="Open the Switchboard services dashboard screenshot"
+            >
+              <picture>
+                <source
+                  srcset="assets/screenshots/services-dashboard.webp"
+                  type="image/webp"
+                />
+                <img
+                  class="product-shot hero-shot"
+                  src="assets/screenshots/services-dashboard.png"
+                  alt="Switchboard services dashboard showing local databases, AI tools, and dev servers."
+                  width="3084"
+                  height="1968"
+                  fetchpriority="high"
+                />
+              </picture>
+            </button>
           </div>
         </div>
       </section>
@@ -476,6 +465,142 @@
                 Settings toggle away from off.
               </p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="screenshots" class="screenshots">
+        <div class="container">
+          <p class="eyebrow">See it in action</p>
+          <h2>The app is built around the mess it finds.</h2>
+          <p class="features-lede">
+            These are real Switchboard screens captured from a local demo
+            fixture: discovered services, port sprawl, live logs, and reviewed
+            adds before anything can run.
+          </p>
+          <div class="screenshot-grid">
+            <figure class="screenshot-card">
+              <button
+                type="button"
+                class="screenshot-button"
+                data-lightbox-src="assets/screenshots/observer-inbox.webp"
+                data-lightbox-fallback="assets/screenshots/observer-inbox.png"
+                data-lightbox-alt="Switchboard Observer showing unconfigured local dev servers."
+                data-lightbox-caption="Observer — forgotten listeners and project-shaped processes."
+                aria-label="Open Observer screenshot"
+              >
+                <picture>
+                  <source
+                    srcset="assets/screenshots/observer-inbox.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="assets/screenshots/observer-inbox.png"
+                    alt="Switchboard Observer showing unconfigured local dev servers."
+                    width="3084"
+                    height="1968"
+                    loading="lazy"
+                  />
+                </picture>
+              </button>
+              <figcaption>
+                <strong>Observer</strong>
+                <span>Forgotten listeners and project-shaped processes.</span>
+              </figcaption>
+            </figure>
+            <figure class="screenshot-card">
+              <button
+                type="button"
+                class="screenshot-button"
+                data-lightbox-src="assets/screenshots/ports-inspector.webp"
+                data-lightbox-fallback="assets/screenshots/ports-inspector.png"
+                data-lightbox-alt="Switchboard Ports view showing local listeners, linked services, and process actions."
+                data-lightbox-caption="Ports — who owns each local port, with stop and reveal actions."
+                aria-label="Open Ports screenshot"
+              >
+                <picture>
+                  <source
+                    srcset="assets/screenshots/ports-inspector.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="assets/screenshots/ports-inspector.png"
+                    alt="Switchboard Ports view showing local listeners, linked services, and process actions."
+                    width="3084"
+                    height="1968"
+                    loading="lazy"
+                  />
+                </picture>
+              </button>
+              <figcaption>
+                <strong>Ports</strong>
+                <span
+                  >Who owns each local port, with stop and reveal actions.</span
+                >
+              </figcaption>
+            </figure>
+            <figure class="screenshot-card">
+              <button
+                type="button"
+                class="screenshot-button"
+                data-lightbox-src="assets/screenshots/logs-viewer.webp"
+                data-lightbox-fallback="assets/screenshots/logs-viewer.png"
+                data-lightbox-alt="Switchboard Logs view showing multiple local service log sources in one timeline."
+                data-lightbox-caption="Logs — service files, command logs, and manual files together."
+                aria-label="Open Logs screenshot"
+              >
+                <picture>
+                  <source
+                    srcset="assets/screenshots/logs-viewer.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="assets/screenshots/logs-viewer.png"
+                    alt="Switchboard Logs view showing multiple local service log sources in one timeline."
+                    width="3084"
+                    height="1968"
+                    loading="lazy"
+                  />
+                </picture>
+              </button>
+              <figcaption>
+                <strong>Logs</strong>
+                <span
+                  >Service files, command logs, and manual files together.</span
+                >
+              </figcaption>
+            </figure>
+            <figure class="screenshot-card">
+              <button
+                type="button"
+                class="screenshot-button"
+                data-lightbox-src="assets/screenshots/detect-services.webp"
+                data-lightbox-fallback="assets/screenshots/detect-services.png"
+                data-lightbox-alt="Switchboard Detect services dialog reviewing discovered services before adding them."
+                data-lightbox-caption="Reviewed adds — detected services are shown for review before saving."
+                aria-label="Open Detect services screenshot"
+              >
+                <picture>
+                  <source
+                    srcset="assets/screenshots/detect-services.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="assets/screenshots/detect-services.png"
+                    alt="Switchboard Detect services dialog reviewing discovered services before adding them."
+                    width="3084"
+                    height="1968"
+                    loading="lazy"
+                  />
+                </picture>
+              </button>
+              <figcaption>
+                <strong>Reviewed adds</strong>
+                <span
+                  >Detected services are shown for review before saving.</span
+                >
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -925,6 +1050,34 @@
       </div>
     </footer>
 
+    <div
+      class="lightbox"
+      id="screenshot-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Screenshot preview"
+      hidden
+    >
+      <button
+        type="button"
+        class="lightbox-backdrop"
+        data-lightbox-close
+        aria-label="Close screenshot preview"
+      ></button>
+      <figure class="lightbox-panel">
+        <button
+          type="button"
+          class="lightbox-close"
+          data-lightbox-close
+          aria-label="Close screenshot preview"
+        >
+          ×
+        </button>
+        <img id="lightbox-image" src="" alt="" />
+        <figcaption id="lightbox-caption"></figcaption>
+      </figure>
+    </div>
+
     <script>
       // Auto-populate the hero download button with the latest .dmg URL and
       // version from updates.json. Falls back to /releases/latest if JS is
@@ -974,6 +1127,48 @@
           }, 1600);
         });
       });
+
+      (() => {
+        const lightbox = document.getElementById("screenshot-lightbox");
+        const image = document.getElementById("lightbox-image");
+        const caption = document.getElementById("lightbox-caption");
+        if (!lightbox || !image || !caption) return;
+
+        let lastFocus = null;
+
+        const close = () => {
+          lightbox.hidden = true;
+          document.body.classList.remove("lightbox-open");
+          image.removeAttribute("src");
+          if (lastFocus instanceof HTMLElement) lastFocus.focus();
+        };
+
+        document.querySelectorAll(".screenshot-button").forEach((button) => {
+          button.addEventListener("click", () => {
+            lastFocus = button;
+            image.src =
+              button.getAttribute("data-lightbox-src") ||
+              button.getAttribute("data-lightbox-fallback") ||
+              "";
+            image.alt = button.getAttribute("data-lightbox-alt") || "";
+            caption.textContent =
+              button.getAttribute("data-lightbox-caption") || "";
+            lightbox.hidden = false;
+            document.body.classList.add("lightbox-open");
+            lightbox.querySelector(".lightbox-close")?.focus();
+          });
+        });
+
+        lightbox.querySelectorAll("[data-lightbox-close]").forEach((button) => {
+          button.addEventListener("click", close);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (lightbox.hidden || event.key !== "Escape") return;
+          event.preventDefault();
+          close();
+        });
+      })();
     </script>
   </body>
 </html>

@@ -23,9 +23,29 @@ cp ../switchboard/src-tauri/icons/128x128.png    assets/icon-128.png
 cp ../switchboard/src-tauri/icons/128x128@2x.png assets/icon-256.png
 ```
 
-## Screenshots (not yet shipped)
+## Screenshots
 
-The hero currently uses a pure-CSS mock window in `index.html`. To swap in a
-real screenshot, capture from `pnpm tauri:dev` with `Cmd+Shift+4` → space →
-click the window (~1800×1200), drop it at `assets/screenshot-dashboard.png`,
-and replace the `.mock-window` block in `index.html` with an `<img>`.
+Website screenshots live in `assets/screenshots/`. Each capture is stored as a
+real PNG source plus a WebP sibling used by the landing pages through
+`<picture>`:
+
+| File                         | Use                                      |
+| ---------------------------- | ---------------------------------------- |
+| `services-dashboard.webp`    | Hero product screenshot                  |
+| `observer-inbox.webp`        | Screenshot gallery: discovered services  |
+| `ports-inspector.webp`       | Screenshot gallery: port/process view    |
+| `logs-viewer.webp`           | Screenshot gallery: unified logs         |
+| `detect-services.webp`       | Screenshot gallery: reviewed detection   |
+| `activity.webp`              | Supporting/docs screenshot               |
+| `new-service.webp`           | Supporting/docs screenshot               |
+| `service-detail.webp`        | Supporting/docs screenshot               |
+
+Regenerate from the PNG sources after recapturing:
+
+```sh
+for f in assets/screenshots/*.png; do
+  base=$(basename "$f" .png)
+  magick "$f" -auto-orient -strip -colorspace sRGB -depth 8 "$f"
+  magick "$f" -quality 86 "assets/screenshots/$base.webp"
+done
+```

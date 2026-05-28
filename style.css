@@ -267,148 +267,45 @@ h1 {
   margin: 0;
 }
 
-.hero-art img {
+.product-shot {
   width: 100%;
   height: auto;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   background: var(--bg-elev);
+  display: block;
 }
 
-/* Hero mock window — pure CSS preview of the app until a real screenshot lands. */
-.mock-window {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  background: var(--bg-elev);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+.hero-shot {
+  aspect-ratio: 3084 / 1968;
+  object-fit: cover;
 }
 
-.mock-titlebar {
-  height: 28px;
-  display: flex;
-  align-items: center;
-  padding: 0 12px;
-  gap: 6px;
-  background: color-mix(in srgb, var(--bg-elev-2) 60%, var(--bg-elev));
-  border-bottom: 1px solid var(--border);
+/* Soft accent halo so the hero screenshot lifts off the dark background. */
+.hero-art {
   position: relative;
 }
 
-.mock-dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-}
-
-.mock-dot-red {
-  background: #ff5f57;
-}
-.mock-dot-yellow {
-  background: #febc2e;
-}
-.mock-dot-green {
-  background: #28c840;
-}
-
-.mock-title {
+.hero-art::before {
+  content: "";
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 11px;
-  color: var(--fg-dim);
+  inset: -10% -8% -16%;
+  z-index: 0;
+  background: radial-gradient(
+    55% 55% at 50% 38%,
+    color-mix(in srgb, var(--accent) 30%, transparent),
+    transparent 72%
+  );
+  filter: blur(56px);
+  pointer-events: none;
 }
 
-.mock-body {
-  display: flex;
-  flex: 1;
-  min-height: 0;
-}
-
-.mock-sidebar {
-  width: 110px;
-  padding: 10px 6px;
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  flex-shrink: 0;
-}
-
-.mock-nav-item {
-  padding: 5px 10px;
-  font-size: 11px;
-  color: var(--fg-muted);
-  border-radius: var(--radius-sm);
-}
-
-.mock-nav-item.mock-active {
-  background: color-mix(in srgb, var(--accent) 22%, transparent);
-  color: var(--fg);
-}
-
-.mock-content {
-  flex: 1;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  overflow: hidden;
-}
-
-.mock-service {
-  display: grid;
-  grid-template-columns: 12px 1fr;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg);
-}
-
-.mock-status {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.mock-status-running {
-  background: #4ade80;
-  box-shadow: 0 0 6px rgba(74, 222, 128, 0.55);
-}
-.mock-status-degraded {
-  background: #fbbf24;
-}
-.mock-status-stopped {
-  background: var(--fg-dim);
-}
-
-.mock-service-name {
-  font-size: 12.5px;
-  font-weight: 500;
-  color: var(--fg);
-}
-
-.mock-service-meta {
-  font-size: 10.5px;
-  color: var(--fg-dim);
-  font-family: var(--font-mono);
-  margin-top: 1px;
-}
-
-@media (max-width: 880px) {
-  .mock-sidebar {
-    width: 96px;
-  }
-  .mock-service-meta {
-    display: none;
-  }
+.hero-art .screenshot-button,
+.hero-art picture,
+.hero-art .product-shot {
+  position: relative;
+  z-index: 1;
 }
 
 /* Features */
@@ -483,6 +380,205 @@ h2 {
   margin: 0;
   color: var(--fg-muted);
   font-size: 14px;
+}
+
+/* Screenshots */
+
+.screenshots {
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+}
+
+.screenshots .eyebrow {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.screenshots h2 {
+  max-width: 28ch;
+}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 780px) {
+  .screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.screenshot-card {
+  margin: 0;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.screenshot-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  color: inherit;
+  text-align: inherit;
+}
+
+.screenshot-button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 70%, transparent);
+  outline-offset: -3px;
+}
+
+.screenshot-button img {
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease;
+}
+
+.screenshot-button:hover img,
+.screenshot-button:focus-visible img {
+  filter: brightness(1.08);
+  transform: scale(1.01);
+}
+
+.screenshot-card picture,
+.screenshot-card img {
+  display: block;
+}
+
+.screenshot-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3084 / 1968;
+  object-fit: cover;
+  background: var(--bg);
+}
+
+.screenshot-card figcaption {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--border);
+  color: var(--fg-muted);
+  font-size: 14px;
+}
+
+.screenshot-card strong {
+  color: var(--fg);
+  font-size: 14.5px;
+  white-space: nowrap;
+}
+
+.screenshot-card span {
+  min-width: 0;
+}
+
+.lightbox-open {
+  overflow: hidden;
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(0, 0, 0, 0.78);
+  cursor: zoom-out;
+}
+
+.lightbox-panel {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  width: min(96vw, 1600px);
+  max-height: 92vh;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elev);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+}
+
+.lightbox-panel img {
+  width: 100%;
+  height: 100%;
+  max-height: calc(92vh - 56px);
+  display: block;
+  object-fit: contain;
+  background: #050608;
+}
+
+.lightbox-panel figcaption {
+  padding: 14px 18px;
+  color: var(--fg-muted);
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  color: var(--fg);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+  background: var(--bg-elev-2);
+}
+
+@media (max-width: 720px) {
+  .lightbox {
+    padding: 12px;
+  }
+
+  .lightbox-panel {
+    width: 100%;
+    max-height: 94vh;
+  }
+
+  .lightbox-panel img {
+    max-height: calc(94vh - 76px);
+  }
+}
+
+@media (max-width: 520px) {
+  .screenshot-card figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
 }
 
 /* Use cases — compact positioning section between feature inventory and story. */
@@ -1017,11 +1113,6 @@ h2 {
 [dir="rtl"] .version-chip {
   direction: ltr;
   unicode-bidi: isolate;
-}
-
-[dir="rtl"] .mock-sidebar {
-  border-right: 0;
-  border-left: 1px solid var(--border);
 }
 
 [dir="rtl"] .doc-section ul {
