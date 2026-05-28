@@ -485,6 +485,58 @@ h2 {
   font-size: 14px;
 }
 
+/* Use cases — compact positioning section between feature inventory and story. */
+
+.use-cases {
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+}
+
+.use-cases .eyebrow {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.use-cases h2 {
+  max-width: 24ch;
+}
+
+.use-case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 880px) {
+  .use-case-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .use-case-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.use-case-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.use-case-card h3 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+
+.use-case-card p {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 14px;
+}
+
 /* Trust */
 
 .trust {

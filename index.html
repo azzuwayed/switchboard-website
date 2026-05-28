@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Switchboard — Find forgotten local services on your Mac</title>
+    <title>Switchboard — Stop losing track of what's running on your Mac</title>
     <meta
       name="description"
-      content="Find local services running on your Mac, spot what may be draining battery, and stop the ones you forgot. Works whether you started them yourself, your scripts did, or your AI coding assistant did. Native macOS, no telemetry, free during beta."
+      content="Switchboard is the local-service memory layer for a developer's Mac: find forgotten dev servers, port conflicts, local AI tools, logs, and services your AI coding session left behind."
     />
     <meta
       property="og:title"
-      content="Switchboard — Find forgotten local services on your Mac"
+      content="Switchboard — Stop losing track of what's running on your Mac"
     />
     <meta
       property="og:description"
-      content="One menu-bar app that surfaces forgotten local services on your Mac, names what's eating CPU, and helps you stop the ones you don't need. For developers and people building with AI coding tools."
+      content="One menu-bar app that surfaces forgotten local services, names what owns each port, and brings controls, health checks, and logs into a local-first dashboard."
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
@@ -47,7 +47,7 @@
       hreflang="x-default"
       href="https://azzuwayed.github.io/switchboard-website/"
     />
-    <link rel="stylesheet" href="style.css?v=42e6ed15b7" />
+    <link rel="stylesheet" href="style.css?v=fcf03096c8" />
   </head>
   <body>
     <header class="site-header">
@@ -65,6 +65,7 @@
         </a>
         <nav class="site-nav" aria-label="Primary">
           <a href="#features">Features</a>
+          <a href="#use-cases">Use cases</a>
           <a href="#story">Why</a>
           <a href="#install">Install</a>
           <a href="privacy.html">Privacy</a>
@@ -91,12 +92,12 @@
         <div class="container hero-grid">
           <div class="hero-copy">
             <p class="eyebrow">macOS · Apple Silicon · Free during beta</p>
-            <h1>Your Mac is hosting more than you remember.</h1>
+            <h1>Stop losing track of what's running on your Mac.</h1>
             <p class="lede">
-              Switchboard surfaces local services running on your Mac, flags
-              what may be draining battery, and gives you a clear stop flow for
-              the ones you forgot. Whether you started them yourself, your
-              scripts did, or your AI coding assistant did.
+              Switchboard is the local-service memory layer for a developer's
+              Mac: it finds forgotten dev servers, names port conflicts, tails
+              scattered logs, and gives you a clear stop flow for the things you
+              no longer need.
             </p>
             <div class="cta-row">
               <a
@@ -135,11 +136,10 @@
               <div class="mock-body">
                 <aside class="mock-sidebar">
                   <div class="mock-nav-item mock-active">Services</div>
-                  <div class="mock-nav-item">Templates</div>
+                  <div class="mock-nav-item">Observer</div>
+                  <div class="mock-nav-item">Logs</div>
                   <div class="mock-nav-item">Ports</div>
                   <div class="mock-nav-item">Activity</div>
-                  <div class="mock-nav-item">Docs</div>
-                  <div class="mock-nav-item">Settings</div>
                 </aside>
                 <div class="mock-content">
                   <div class="mock-service">
@@ -199,7 +199,9 @@
             >
             dialog. Apple Developer ID signing and notarization land later —
             until then the one-liner below clears it. You only do this once per
-            machine; future OTA updates inherit the trust.
+            machine; future OTA updates inherit the trust. There are two ways to
+            do it below — either one works on its own, so start with the
+            recommended one.
           </p>
           <ol class="install-steps">
             <li class="install-step">
@@ -261,10 +263,11 @@
 
       <section id="features" class="features">
         <div class="container">
-          <h2>What you actually get</h2>
+          <h2>How Switchboard helps</h2>
           <p class="features-lede">
-            Built to answer specific questions: what's running right now, what
-            may be eating the battery, and what can I stop deliberately?
+            Built to answer specific questions: which local service owns this
+            process, why is it still alive, what owns this port, and what can I
+            do next?
           </p>
           <div class="feature-grid">
             <article class="feature">
@@ -399,9 +402,9 @@
               <h3>Logs without three Terminal tabs</h3>
               <p>
                 Launchd plist <code>StandardOutPath</code> /
-                <code>StandardErrorPath</code>, Docker logs, file-tailing for
-                anything that writes to disk — Switchboard surfaces them in the
-                Logs tab next to the service they belong to.
+                <code>StandardErrorPath</code>, Docker logs, command output,
+                manual log files, and Switchboard activity — all merged into one
+                live timeline.
               </p>
             </article>
             <article class="feature">
@@ -477,6 +480,67 @@
         </div>
       </section>
 
+      <section id="use-cases" class="use-cases">
+        <div class="container">
+          <p class="eyebrow">Where it fits</p>
+          <h2>For the messy, long-lived local machine.</h2>
+          <p class="features-lede">
+            Activity Monitor tells you a process exists. Switchboard connects it
+            to the service, port, logs, history, and action you actually care
+            about.
+          </p>
+          <div class="use-case-grid">
+            <article class="use-case-card">
+              <h3>After an AI coding session</h3>
+              <p>
+                Catch the extra Vite, Next.js, FastAPI, or Rails servers that
+                walked from <code>5173</code> to <code>5174</code> to
+                <code>5175</code>.
+              </p>
+            </article>
+            <article class="use-case-card">
+              <h3>When the laptop gets hot</h3>
+              <p>
+                See the local service behind the resource spike instead of
+                guessing from process names like <code>node</code>,
+                <code>python</code>, <code>docker</code>, or
+                <code>ollama</code>.
+              </p>
+            </article>
+            <article class="use-case-card">
+              <h3>Returning to an old project</h3>
+              <p>
+                Recover the database, worker, tunnel, custom command, docs, and
+                logs without reverse-engineering the setup again.
+              </p>
+            </article>
+            <article class="use-case-card">
+              <h3>Debugging a blocked port</h3>
+              <p>
+                Inspect listeners, link them to services, reveal or stop the
+                owning process, and adopt useful discoveries as monitor-only
+                services.
+              </p>
+            </article>
+            <article class="use-case-card">
+              <h3>Running a local AI stack</h3>
+              <p>
+                Keep Ollama, LM Studio, OpenClaw, vector stores, model servers,
+                API shims, dashboards, logs, and resource usage in one place.
+              </p>
+            </article>
+            <article class="use-case-card">
+              <h3>Mac mini / home-lab-lite</h3>
+              <p>
+                Watch launchd agents, containers, tunnels, endpoints, and local
+                daemons without turning your personal machine into an enterprise
+                monitoring project.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="story" class="story">
         <div class="container story-grid">
           <div class="story-copy">
@@ -502,11 +566,10 @@
               fast, and nothing in macOS surfacing any of it.
             </p>
             <p class="story-lede">
-              You don't have to be a developer to need this. If you build things
-              with AI now — apps, scripts, whatever — your Mac is hosting more
-              than you think. You don't need to know what
-              <code>launchd</code> is to know the fan is loud and the battery is
-              draining and you're not sure why.
+              You know roughly what you run — you just lose track of what's
+              still running. The fan spins up, the battery drops, and nothing in
+              macOS connects it back to that dev server, worker, or model you
+              started days ago and forgot about.
             </p>
             <p class="story-lede">
               Switchboard is the thing I wanted: one place where every local
@@ -664,19 +727,20 @@
               <summary>Do I need to be a developer to use this?</summary>
               <div class="faq-body">
                 <p>
-                  No. If you build things with AI tools and your fan keeps
-                  spinning up, Switchboard is for you. The dashboard shows you
-                  local services with human-readable names — you don't need to
-                  know the difference between a launchd agent and a Homebrew
-                  service to click <em>Stop</em> on the one that's draining your
-                  battery.
+                  Switchboard is built first for developer-ish workflows:
+                  projects, local databases, dev servers, containers, local AI
+                  tools, and ports. You do not need to be a command-line expert,
+                  but it helps if you are trying to understand what your machine
+                  is running.
                 </p>
                 <p>
                   You will hit a developer-flavored moment during install
                   (running <code>xattr</code> in Terminal to clear macOS
                   Gatekeeper's quarantine flag — one line, copy-pasted from the
-                  install section above). Past that, the rest of the app is
-                  point-and-click.
+                  install section above). Past that you drive Switchboard from
+                  its interface, but getting real value out of it assumes you're
+                  comfortable with the services, commands, and ports you run on
+                  your machine.
                 </p>
               </div>
             </details>
@@ -722,7 +786,7 @@
                   Everything stays on your Mac under
                   <code
                     >~/Library/Application
-                    Support/io.github.azzuwayed.switchboard/</code
+                    Support/com.azzuwayed.switchboard/</code
                   >. The only outbound request the app makes is a once-a-day
                   check to the public updates manifest to see whether a newer
                   release is available — and that can be disabled in Settings.
@@ -781,7 +845,7 @@
                   want to delete your services configuration — remove
                   <code
                     >~/Library/Application
-                    Support/io.github.azzuwayed.switchboard/</code
+                    Support/com.azzuwayed.switchboard/</code
                   >. No system-wide installer to undo.
                 </p>
               </div>

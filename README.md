@@ -1,6 +1,6 @@
 # Switchboard
 
-**Native macOS service manager for developers.** One menu-bar app for Homebrew services, Docker containers, launchd agents, HTTP endpoints, and dev-server commands.
+**The local-service memory layer for a developer's Mac.** One menu-bar app for forgotten dev servers, Homebrew services, Docker containers, launchd agents, HTTP endpoints, local AI tools, ports, and logs.
 
 [**Download for macOS →**](https://azzuwayed.github.io/switchboard-website/) · [Changelog](https://github.com/azzuwayed/switchboard-website/releases) · [Support](https://github.com/azzuwayed/switchboard-website/issues)
 
@@ -12,13 +12,15 @@ I kept losing track of services I'd started. A dev server here, a database there
 
 The problem got worse with AI coding agents. They're great at spinning up dev servers and not always great at stopping the previous one. Sometimes the agent is smart enough to free the port it needs; sometimes it just walks to the next available one. After a few hours of iteration you can end up with six copies of the same Vite server competing for memory, the laptop running hot, the battery draining fast, and nothing in macOS surfacing any of it.
 
-There's another version of the problem: you build a service yourself and then forget where in your dev folders it lives. Or you're running a mix of local services and AI tooling — Claude Code, Ollama, LM Studio, [OpenClaw](https://github.com/openclaw/openclaw), your own Hermes dashboard, local LLM runtimes — each with its own log stream in its own corner of disk. The next thing I'm building into Switchboard is **a central log view across every monitored service**, so following what your local stack is doing doesn't require five terminal panes and a good memory.
+There's another version of the problem: you build a service yourself and then forget where in your dev folders it lives. Or you're running a mix of local services and AI tooling — Claude Code, Ollama, LM Studio, [OpenClaw](https://github.com/openclaw/openclaw), your own Hermes dashboard, local LLM runtimes — each with its own log stream in its own corner of disk. Switchboard's unified Logs screen brings those service logs, manual files, and Switchboard activity into one timeline, so following what your local stack is doing doesn't require five terminal panes and a good memory.
 
 Switchboard is the thing I wanted: one place where every local service shows up, every forgotten process gets surfaced, every port flood gets named with its actual cause, and every log stream lands on one screen.
 
 ## What it gives you
 
 - **One tray for everything you run locally.** Start, stop, restart, and inspect Postgres, Redis, MySQL, MongoDB, Docker containers, your dev servers, and launchd agents from a single menu-bar icon.
+- **A memory layer for the messy local machine.** Discovered, adopted, snoozed, ignored, resolved, and still-suspicious findings survive beyond one terminal session.
+- **Port context Activity Monitor does not have.** Connect `node`, `python`, `docker`, or `ollama` to the service, port, logs, and safe next action.
 - **Risk-aware actions.** Every command is allowlisted and explicitly approved before it runs. No arbitrary shell from the UI.
 - **Local-only.** No cloud account. No telemetry. No background HTTP server. Your config and logs live in `~/Library/Application Support/`.
 - **Templates that actually work.** Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx, and more — reviewed and ready out of the box.
