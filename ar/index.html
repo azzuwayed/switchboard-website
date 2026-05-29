@@ -4,16 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-      Switchboard من عبدالله الزويد — لا تفقد أثر ما يعمل في الخلفية على جهاز
+      Switchboard Local by Azzuwayed — لا تفقد أثر ما يعمل في الخلفية على جهاز
       Mac
     </title>
     <meta
       name="description"
-      content="Switchboard هو ذاكرة الخدمات المحلية على جهاز Mac للمطورين: اعثر على خوادم التطوير المنسية التي تعمل في الخلفية، وتعارضات المنافذ، وأدوات الذكاء الاصطناعي المحلية، والسجلات، وما تركته جلسة البرمجة بالذكاء الاصطناعي."
+      content="Switchboard هو local service monitor for Mac developers: اعثر على خوادم التطوير المنسية التي تعمل في الخلفية، وتعارضات المنافذ، وأدوات الذكاء الاصطناعي المحلية، والسجلات، وما تركته جلسة البرمجة بالذكاء الاصطناعي."
     />
     <meta
       property="og:title"
-      content="Switchboard من عبدالله الزويد — لا تفقد أثر ما يعمل في الخلفية على جهاز Mac"
+      content="Switchboard Local by Azzuwayed — لا تفقد أثر ما يعمل في الخلفية على جهاز Mac"
     />
     <meta
       property="og:description"
@@ -91,8 +91,8 @@
             width="28"
             height="28"
           />
-          <span class="brand-name">Switchboard</span>
-          <span class="brand-by">من عبدالله الزويد</span>
+          <span class="brand-name" dir="ltr">Switchboard Local</span>
+          <span class="brand-by" dir="ltr">by Azzuwayed</span>
         </a>
         <nav class="site-nav" aria-label="التنقل الرئيسي">
           <a href="#features">ما يفعل</a>
@@ -127,8 +127,8 @@
             </p>
             <h1>لا تفقد أثر ما يعمل في الخلفية على جهاز Mac.</h1>
             <p class="lede">
-              Switchboard هو ذاكرة الخدمات المحلية على جهاز Mac للمطورين: يعثر
-              على خوادم التطوير المنسية، ويسمّي تعارضات المنافذ، ويجمع السجلات
+              Switchboard هو local service monitor for Mac developers: يعثر على
+              خوادم التطوير المنسية، ويسمّي تعارضات المنافذ، ويجمع السجلات
               المتناثرة، ويعطيك مسار إيقاف واضحاً لما لم تعد تحتاجه.
             </p>
             <div class="cta-row">
@@ -201,13 +201,13 @@
             <li class="install-step">
               <h3>الحل بسطر واحد <span class="install-pill">موصى به</span></h3>
               <p>
-                بعد سحب <code>Switchboard.app</code> إلى
+                بعد سحب <code>Switchboard Local.app</code> إلى
                 <code>/Applications</code>، افتح Terminal والصق هذا السطر:
               </p>
               <div class="copy-block">
                 <code id="quarantine-cmd"
-                  >xattr -dr com.apple.quarantine
-                  /Applications/Switchboard.app</code
+                  >xattr -dr com.apple.quarantine "/Applications/Switchboard
+                  Local.app"</code
                 >
                 <button
                   type="button"
@@ -756,8 +756,8 @@
                   هذه رسالة حماية من macOS لأن النسخة التجريبية لم تُوثَّق من
                   Apple بعد. قد تظهر رسالة:
                   <em
-                    >"Switchboard.app is damaged and can't be opened. You should
-                    move it to the Trash."</em
+                    >"Switchboard Local.app is damaged and can't be opened. You
+                    should move it to the Trash."</em
                   >. أنظمة أخرى قد تُظهر
                   <em
                     >"cannot be opened because Apple cannot check it for
@@ -848,9 +848,9 @@
               <div class="faq-body">
                 <p>
                   ليس خلال النسخة التجريبية. حمّل ملف <code>.dmg</code>، اسحب
-                  <code>Switchboard.app</code> إلى <code>/Applications</code>،
-                  ثم شغّله. لا يوجد شيء للتسجيل ولا مفتاح ترخيص لإدخاله بينما
-                  النسخة التجريبية مجانية.
+                  <code>Switchboard Local.app</code> إلى
+                  <code>/Applications</code>، ثم شغّله. لا يوجد شيء للتسجيل ولا
+                  مفتاح ترخيص لإدخاله بينما النسخة التجريبية مجانية.
                 </p>
               </div>
             </details>
@@ -918,8 +918,8 @@
               <div class="faq-body">
                 <p>
                   أوقف Switchboard من شريط القائمة، ثم اسحب
-                  <code>Switchboard.app</code> إلى المهملات، و — إن كنت تريد
-                  أيضاً حذف إعدادات التطبيق — أزل
+                  <code>Switchboard Local.app</code> إلى المهملات، و — إن كنت
+                  تريد أيضاً حذف إعدادات التطبيق — أزل
                   <code
                     >~/Library/Application
                     Support/com.azzuwayed.switchboard/</code
