@@ -10,6 +10,35 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 
 ## [Unreleased]
 
+## [1.0.0-beta.18] - 2026-05-29
+
+### Added
+
+- **Health checks are editable in the service editor.** Services can now use
+  none, HTTP, command, Homebrew, or Docker health probes, including
+  monitor-only services that do not have start/stop commands.
+
+### Changed
+
+- **Active monitoring is the default for new setups and resets.** Fresh installs
+  now start with proactive discovery, resource monitoring, faster checks, and
+  denser unified-log polling enabled.
+- **Service groups are easier to edit.** The fixed group picker is now an
+  editable suggestions field, so custom group names and ungrouped services are
+  preserved.
+- **Setup and Add Service flows are clearer.** Onboarding, empty-dashboard,
+  tray, Docs, and manual-log surfaces now point more consistently toward
+  detecting services first, then reviewing what to add.
+
+### Fixed
+
+- **The native tray menu no longer rebuilds on every status-count update.** An
+  open right-click tray menu now stays open instead of being recreated while
+  service counts change.
+- **Removed the ineffective Activity Monitor reveal buttons.** Observer, Ports,
+  tray, and failure-dialog actions no longer show a button that only opened
+  Activity Monitor without selecting the process.
+
 ## [1.0.0-beta.17] - 2026-05-28
 
 ### Added
