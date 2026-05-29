@@ -1,4 +1,4 @@
-# Switchboard
+# Switchboard by Azzuwayed
 
 **The local-service memory layer for a developer's Mac.** One menu-bar app for forgotten dev servers, Homebrew services, Docker containers, launchd agents, HTTP endpoints, local AI tools, ports, and logs.
 

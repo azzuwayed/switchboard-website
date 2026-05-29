@@ -114,6 +114,13 @@ code {
   text-decoration: none;
 }
 
+.brand-by {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--fg-dim);
+  margin-inline-start: -2px;
+}
+
 .brand-mark {
   width: 28px;
   height: 28px;
