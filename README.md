@@ -42,6 +42,12 @@ macOS 12 (Monterey) or later, Apple Silicon (arm64).
 
 → [**azzuwayed.github.io/switchboard-website**](https://azzuwayed.github.io/switchboard-website/)
 
+## Pricing
+
+Switchboard is free during beta. The stable 1.0 release is planned to be paid,
+and beta users will be offered either a founder discount or an early-supporter
+license path before stable pricing starts.
+
 ## Stay in the loop
 
 - **Releases** — [Changelog](https://github.com/azzuwayed/switchboard-website/releases). The app also checks once a day and shows an in-app banner when a new release is available.
