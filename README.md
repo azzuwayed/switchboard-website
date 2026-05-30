@@ -1,4 +1,4 @@
-# Switchboard Local by Azzuwayed
+# Switchboard by Azzuwayed
 
 **The local service monitor for Mac developers.** One menu-bar app for forgotten dev servers, Homebrew services, Docker containers, launchd agents, HTTP endpoints, local AI tools, ports, and logs.
 

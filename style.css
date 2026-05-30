@@ -153,17 +153,42 @@ code {
 
 /* Below typical phone width: stack header so nothing overflows. */
 @media (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+
   .header-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 8px;
     height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
   }
+
+  .brand-by {
+    display: none;
+  }
+
   .site-nav {
-    gap: 14px;
+    justify-content: center;
+    column-gap: 18px;
+    row-gap: 6px;
     font-size: 12.5px;
+  }
+
+  .hero {
+    padding: 40px 0 28px;
+  }
+
+  .features,
+  .screenshots,
+  .use-cases,
+  .trust,
+  .install,
+  .faq,
+  .story {
+    padding: 48px 0;
   }
 }
 
@@ -194,6 +219,31 @@ code {
   text-transform: uppercase;
   color: var(--fg-dim);
   margin: 0 0 16px;
+}
+
+.screenshots .eyebrow,
+.use-cases .eyebrow,
+.story-copy .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: color-mix(in srgb, var(--accent) 88%, var(--fg));
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  margin: 0 0 18px;
+}
+
+.screenshots .eyebrow::before,
+.use-cases .eyebrow::before,
+.story-copy .eyebrow::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 28px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
 }
 
 h1 {
@@ -396,11 +446,6 @@ h2 {
   border-top: 1px solid var(--border);
 }
 
-.screenshots .eyebrow {
-  color: var(--accent);
-  font-weight: 600;
-}
-
 .screenshots h2 {
   max-width: 28ch;
 }
@@ -593,11 +638,6 @@ h2 {
 .use-cases {
   padding: 64px 0;
   border-top: 1px solid var(--border);
-}
-
-.use-cases .eyebrow {
-  color: var(--accent);
-  font-weight: 600;
 }
 
 .use-cases h2 {
@@ -1008,31 +1048,6 @@ h2 {
   }
 }
 
-/* Promote the "Why I built this app" eyebrow — the default .eyebrow at
-   12px/--fg-dim renders almost invisibly against the dark surface for a
-   section that needs to introduce itself. Bumped size, accent color,
-   bolder weight, and an inline accent bar to make the label assertive
-   without competing with the H2. */
-.story-copy .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 0.12em;
-  margin: 0 0 18px;
-}
-
-.story-copy .eyebrow::before {
-  content: "";
-  display: inline-block;
-  width: 24px;
-  height: 2px;
-  background: var(--accent);
-  border-radius: 2px;
-}
-
 .story-copy h2 {
   font-size: clamp(26px, 4vw, 36px);
   line-height: 1.2;
@@ -1120,6 +1135,11 @@ h2 {
 [dir="rtl"] .version-chip {
   direction: ltr;
   unicode-bidi: isolate;
+}
+
+[dir="rtl"] .eyebrow {
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 [dir="rtl"] .doc-section ul {

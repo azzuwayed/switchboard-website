@@ -4,16 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-      Switchboard Local by Azzuwayed — لا تفقد أثر ما يعمل في الخلفية على جهاز
+      Switchboard by Azzuwayed — لا تفقد أثر ما يعمل في الخلفية على جهاز
       Mac
     </title>
     <meta
       name="description"
-      content="Switchboard هو local service monitor for Mac developers: اعثر على خوادم التطوير المنسية التي تعمل في الخلفية، وتعارضات المنافذ، وأدوات الذكاء الاصطناعي المحلية، والسجلات، وما تركته جلسة البرمجة بالذكاء الاصطناعي."
+      content="Switchboard مراقب للخدمات المحلية على Mac: يعثر على خوادم التطوير المنسية، وتعارضات المنافذ، وأدوات الذكاء الاصطناعي المحلية، والسجلات، وما تركته جلسة البرمجة بالذكاء الاصطناعي."
     />
     <meta
       property="og:title"
-      content="Switchboard Local by Azzuwayed — لا تفقد أثر ما يعمل في الخلفية على جهاز Mac"
+      content="Switchboard by Azzuwayed — لا تفقد أثر ما يعمل في الخلفية على جهاز Mac"
     />
     <meta
       property="og:description"
@@ -91,28 +91,13 @@
             width="28"
             height="28"
           />
-          <span class="brand-name" dir="ltr">Switchboard Local</span>
+          <span class="brand-name" dir="ltr">Switchboard</span>
           <span class="brand-by" dir="ltr">by Azzuwayed</span>
         </a>
         <nav class="site-nav" aria-label="التنقل الرئيسي">
-          <a href="#features">ما يفعل</a>
+          <a href="#features">كيف يساعدك</a>
           <a href="#use-cases">متى أستخدمه</a>
-          <a href="#story">لماذا</a>
           <a href="#install">التثبيت</a>
-          <a href="privacy.html">الخصوصية</a>
-          <a href="#faq">الأسئلة الشائعة</a>
-          <a
-            href="https://github.com/azzuwayed/switchboard-website/releases"
-            rel="noopener"
-            target="_blank"
-            >الإصدارات</a
-          >
-          <a
-            href="https://github.com/azzuwayed/switchboard-website/issues"
-            rel="noopener"
-            target="_blank"
-            >الدعم</a
-          >
           <a class="lang-switch" href="../" hreflang="en" lang="en">English</a>
         </nav>
       </div>
@@ -122,13 +107,11 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">
-              macOS · Apple Silicon · مجاني خلال النسخة التجريبية
-            </p>
+            <p class="eyebrow">macOS · Apple Silicon</p>
             <h1>لا تفقد أثر ما يعمل في الخلفية على جهاز Mac.</h1>
             <p class="lede">
-              Switchboard هو local service monitor for Mac developers: يعثر على
-              خوادم التطوير المنسية، ويسمّي تعارضات المنافذ، ويجمع السجلات
+              Switchboard مراقب للخدمات المحلية على Mac، مصمم للمطورين: يعثر
+              على خوادم التطوير المنسية، ويوضح تعارضات المنافذ، ويجمع السجلات
               المتناثرة، ويعطيك مسار إيقاف واضحاً لما لم تعد تحتاجه.
             </p>
             <div class="cta-row">
@@ -149,7 +132,7 @@
               </li>
               <li>
                 <span class="trust-chip-dot" aria-hidden="true"></span>بدون حساب
-                خلال النسخة التجريبية
+                في النسخة التجريبية
               </li>
               <li>
                 <span class="trust-chip-dot" aria-hidden="true"></span>محلي ١٠٠٪
@@ -190,7 +173,7 @@
         <div class="container">
           <h2>التثبيت لأول مرة</h2>
           <p class="install-lead">
-            Switchboard ما زال نسخة تجريبية، ولم يحصل بعد على توثيق Apple
+            Switchboard ما زال نسخة تجريبية، ولم يحصل بعد على اعتماد Apple
             الرسمي. لذلك قد يمنعه macOS عند أول فتح، أو قد يقول إن التطبيق
             "تالف" حتى لو كان التنزيل سليماً. الحل بسيط: بعد وضع التطبيق في مجلد
             التطبيقات، انسخ الأمر أدناه والصقه كما هو في Terminal. تفعل ذلك مرة
@@ -201,13 +184,12 @@
             <li class="install-step">
               <h3>الحل بسطر واحد <span class="install-pill">موصى به</span></h3>
               <p>
-                بعد سحب <code>Switchboard Local.app</code> إلى
+                بعد سحب <code>Switchboard.app</code> إلى
                 <code>/Applications</code>، افتح Terminal والصق هذا السطر:
               </p>
               <div class="copy-block">
                 <code id="quarantine-cmd"
-                  >xattr -dr com.apple.quarantine "/Applications/Switchboard
-                  Local.app"</code
+                  >xattr -dr com.apple.quarantine /Applications/Switchboard.app</code
                 >
                 <button
                   type="button"
@@ -252,11 +234,11 @@
 
       <section id="features" class="features">
         <div class="container">
-          <h2>ما الذي يساعدك عليه؟</h2>
+          <h2>كيف يساعدك؟</h2>
           <p class="features-lede">
             بدل البحث في Activity Monitor أو حفظ أوامر Terminal، يوضح لك
-            Switchboard أي خدمة محلية تملك هذه العملية، ولماذا ما زالت تعمل، ومن
-            يملك هذا المنفذ، وما الخطوة التالية.
+            Switchboard أي خدمة محلية ترتبط بهذه العملية، ولماذا ما زالت تعمل،
+            ومن يستخدم هذا المنفذ، وما الخطوة التالية.
           </p>
           <div class="feature-grid">
             <article class="feature">
@@ -297,7 +279,8 @@
               <p>
                 عندما يجد Switchboard شيئاً ما زال يعمل في الخلفية، يعرض زر
                 إيقاف في صفحة التفاصيل. يطلب منك التأكيد أولاً، ثم يوقف الشيء
-                الصحيح بدون أن تحتاج إلى البحث عن رقم العملية أو كتابة أمر قتل.
+                الصحيح بدون أن تحتاج إلى البحث عن رقم العملية أو كتابة أمر
+                إيقاف يدوي.
               </p>
             </article>
             <article class="feature">
@@ -449,7 +432,7 @@
                   <circle cx="7" cy="7" r="0.5" fill="currentColor" />
                 </svg>
               </span>
-              <h3>محلي فقط، بلا حساب، بلا تتبع استخدام</h3>
+              <h3>محلي فقط، بدون حساب، بدون تتبع استخدام</h3>
               <p>
                 لا يوجد حساب، ولا سحابة، ولا تحليلات. إعداداتك وسجلاتك تبقى على
                 جهازك. الاتصال الخارجي الوحيد هو فحص التحديثات، ويمكنك إيقافه من
@@ -504,7 +487,7 @@
                 class="screenshot-button"
                 data-lightbox-src="../assets/screenshots/ports-inspector.webp"
                 data-lightbox-fallback="../assets/screenshots/ports-inspector.png"
-                data-lightbox-alt="شاشة المنافذ في Switchboard تعرض المستمعين المحليين والخدمات المرتبطة وإجراءات العملية."
+                data-lightbox-alt="شاشة المنافذ في Switchboard تعرض العمليات التي تستخدم المنافذ المحلية والخدمات المرتبطة وإجراءات الإيقاف والإظهار."
                 data-lightbox-caption="المنافذ — من يملك كل منفذ محلي مع إجراءات الإظهار والإيقاف."
                 aria-label="فتح لقطة شاشة المنافذ"
               >
@@ -515,7 +498,7 @@
                   />
                   <img
                     src="../assets/screenshots/ports-inspector.png"
-                    alt="شاشة المنافذ في Switchboard تعرض المستمعين المحليين والخدمات المرتبطة وإجراءات العملية."
+                    alt="شاشة المنافذ في Switchboard تعرض العمليات التي تستخدم المنافذ المحلية والخدمات المرتبطة وإجراءات الإيقاف والإظهار."
                     width="3084"
                     height="1968"
                     loading="lazy"
@@ -594,8 +577,9 @@
           <p class="eyebrow">أين يفيد؟</p>
           <h2>للجهاز المحلي الذي تتراكم عليه المشاريع والأدوات.</h2>
           <p class="features-lede">
-            Activity Monitor يخبرك أن عملية ما موجودة. Switchboard يربطها
-            بالخدمة والمنفذ والسجلات والتاريخ والخطوة التي تهمك.
+            macOS يأتي مع تطبيق Activity Monitor المدمج، وهو يخبرك أن عملية ما
+            موجودة. Switchboard يربط تلك العملية بالخدمة والمنفذ والسجلات
+            والتاريخ والخطوة التي تهمك.
           </p>
           <div class="use-case-grid">
             <article class="use-case-card">
@@ -624,8 +608,8 @@
             <article class="use-case-card">
               <h3>عند تعارض منفذ</h3>
               <p>
-                افحص المستمعين، اربطهم بالخدمات، افتح العملية أو أوقفها، وحوّل
-                الاكتشافات المفيدة إلى خدمات مراقبة فقط.
+                افحص العمليات التي تستخدم المنافذ، اربطها بالخدمات، افتحها أو
+                أوقفها، وحوّل الاكتشافات المفيدة إلى خدمات مراقبة فقط.
               </p>
             </article>
             <article class="use-case-card">
@@ -638,8 +622,8 @@
             <article class="use-case-card">
               <h3>Mac mini أو معمل منزلي خفيف</h3>
               <p>
-                راقب وكلاء launchd والحاويات والأنفاق والنهايات والخدمات المحلية
-                بدون تحويل جهازك الشخصي إلى مشروع مراقبة مؤسسي.
+                راقب وكلاء launchd والحاويات والأنفاق ونقاط النهاية والخدمات
+                المحلية بدون تحويل جهازك الشخصي إلى مشروع مراقبة مؤسسي.
               </p>
             </article>
           </div>
@@ -650,7 +634,7 @@
         <div class="container story-grid">
           <div class="story-copy">
             <p class="eyebrow">لماذا برمجت هذا التطبيق</p>
-            <h2>كنت أريد إجابة بسيطة: ما الذي يجري الآن؟</h2>
+            <h2>كنت أريد إجابة بسيطة: ما الذي يحدث في جهازي دون علمي؟</h2>
             <p class="story-lede">
               أحياناً تجرّب مشروعاً، أو تشغّل أداة ذكاء اصطناعي، أو تفتح شيئاً
               مؤقتاً ثم تنساه. بعد يوم أو يومين يظل يعمل في الخلفية، والجهاز
@@ -698,7 +682,7 @@
                 <span class="story-list-dot" aria-hidden="true"></span>
                 <span
                   ><strong>نسخ متعددة من الشيء نفسه</strong> — أحياناً تعمل أكثر
-                  من نسخة من صفحة التجربة نفسها وتستهلك موارد بلا داعٍ.</span
+                  من نسخة من صفحة التجربة نفسها وتستهلك موارد بدون داعٍ.</span
                 >
               </li>
               <li>
@@ -756,7 +740,7 @@
                   هذه رسالة حماية من macOS لأن النسخة التجريبية لم تُوثَّق من
                   Apple بعد. قد تظهر رسالة:
                   <em
-                    >"Switchboard Local.app is damaged and can't be opened. You
+                    >"Switchboard.app is damaged and can't be opened. You
                     should move it to the Trash."</em
                   >. أنظمة أخرى قد تُظهر
                   <em
@@ -765,7 +749,7 @@
                   >
                 </p>
                 <p>
-                  التطبيق ليس تالفاً فعلياً. استخدم أمر النسخ واللصق في قسم
+                  التطبيق ليس تالفاً فعلاً. استخدم أمر النسخ واللصق في قسم
                   <a href="#install">التثبيت لأول مرة</a>، أو اضغط
                   <strong>افتح على أي حال</strong> من إعدادات النظام إذا ظهر
                   الخيار.
@@ -774,15 +758,15 @@
             </details>
 
             <details>
-              <summary>هل Switchboard مجاني فعلاً؟ ما الحيلة؟</summary>
+              <summary>هل Switchboard مجاني فعلاً؟ ما المقابل؟</summary>
               <div class="faq-body">
                 <p>
-                  نعم. النسخة التجريبية بالكامل مجانية بلا مفتاح ترخيص، بلا
-                  تسجيل، بلا عدّاد تجريبي، وبلا إعلانات. لا توجد مطالبات
+                  نعم. النسخة التجريبية بالكامل مجانية بدون مفتاح ترخيص، بدون
+                  تسجيل، بدون مؤقّت تجريبي، وبدون إعلانات. لا توجد مطالبات
                   بالترقية داخل التطبيق.
                 </p>
                 <p>
-                  إصدار 1.0 المستقر مخطط له أن يكون مدفوعاً. مستخدمو النسخة
+                  من المخطط أن يكون الإصدار المستقر 1.0 مدفوعاً. مستخدمو النسخة
                   التجريبية سيُعرض عليهم إما خصم للمؤسسين الأوائل أو مسار ترخيص
                   للداعمين الأوائل قبل بدء تسعير الإصدار المستقر. لم يُعلن السعر
                   النهائي بعد.
@@ -848,7 +832,7 @@
               <div class="faq-body">
                 <p>
                   ليس خلال النسخة التجريبية. حمّل ملف <code>.dmg</code>، اسحب
-                  <code>Switchboard Local.app</code> إلى
+                  <code>Switchboard.app</code> إلى
                   <code>/Applications</code>، ثم شغّله. لا يوجد شيء للتسجيل ولا
                   مفتاح ترخيص لإدخاله بينما النسخة التجريبية مجانية.
                 </p>
@@ -867,8 +851,8 @@
                   <code
                     >~/Library/Application
                     Support/com.azzuwayed.switchboard/</code
-                  >. الاتصال الخارجي الوحيد هو فحص يومي بسيط لمعرفة هل يوجد
-                  تحديث جديد، ويمكن تعطيله من الإعدادات.
+                  >. الاتصال الخارجي الوحيد هو فحص يومي بسيط لمعرفة ما إذا كان
+                  هناك تحديث جديد، ويمكن تعطيله من الإعدادات.
                 </p>
               </div>
             </details>
@@ -908,7 +892,7 @@
                     target="_blank"
                     >صفحة الإصدارات</a
                   >
-                  حسب جدولك.
+                  في الوقت الذي يناسبك.
                 </p>
               </div>
             </details>
@@ -918,7 +902,7 @@
               <div class="faq-body">
                 <p>
                   أوقف Switchboard من شريط القائمة، ثم اسحب
-                  <code>Switchboard Local.app</code> إلى المهملات، و — إن كنت
+                  <code>Switchboard.app</code> إلى المهملات، و — إن كنت
                   تريد أيضاً حذف إعدادات التطبيق — أزل
                   <code
                     >~/Library/Application

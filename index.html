@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-      Switchboard Local by Azzuwayed — Stop losing track of what's running on
+      Switchboard by Azzuwayed — Stop losing track of what's running on
       your Mac
     </title>
     <meta
@@ -13,7 +13,7 @@
     />
     <meta
       property="og:title"
-      content="Switchboard Local by Azzuwayed — Stop losing track of what's running on your Mac"
+      content="Switchboard by Azzuwayed — Stop losing track of what's running on your Mac"
     />
     <meta
       property="og:description"
@@ -82,28 +82,13 @@
             width="28"
             height="28"
           />
-          <span class="brand-name">Switchboard Local</span>
+          <span class="brand-name">Switchboard</span>
           <span class="brand-by">by Azzuwayed</span>
         </a>
         <nav class="site-nav" aria-label="Primary">
           <a href="#features">Features</a>
           <a href="#use-cases">Use cases</a>
-          <a href="#story">Why</a>
           <a href="#install">Install</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="#faq">FAQ</a>
-          <a
-            href="https://github.com/azzuwayed/switchboard-website/releases"
-            rel="noopener"
-            target="_blank"
-            >Changelog</a
-          >
-          <a
-            href="https://github.com/azzuwayed/switchboard-website/issues"
-            rel="noopener"
-            target="_blank"
-            >Support</a
-          >
           <a class="lang-switch" href="ar/" hreflang="ar" lang="ar">العربية</a>
         </nav>
       </div>
@@ -113,7 +98,7 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">macOS · Apple Silicon · Free during beta</p>
+            <p class="eyebrow">macOS · Apple Silicon</p>
             <h1>Stop losing track of what's running on your Mac.</h1>
             <p class="lede">
               Switchboard is the local service monitor for Mac developers: it
@@ -183,7 +168,7 @@
             Switchboard is still an unsigned beta, so the first launch can be
             blocked by macOS Gatekeeper. On newer macOS releases you may see
             <em
-              >"Switchboard Local.app is damaged and can't be opened. You should
+              >"Switchboard.app is damaged and can't be opened. You should
               move it to the Trash."</em
             >. On other systems you may see
             <em
@@ -202,13 +187,12 @@
                 The one-line fix <span class="install-pill">Recommended</span>
               </h3>
               <p>
-                After dragging <code>Switchboard Local.app</code> into
+                After dragging <code>Switchboard.app</code> into
                 <code>/Applications</code>, open Terminal and run:
               </p>
               <div class="copy-block">
                 <code id="quarantine-cmd"
-                  >xattr -dr com.apple.quarantine "/Applications/Switchboard
-                  Local.app"</code
+                  >xattr -dr com.apple.quarantine /Applications/Switchboard.app</code
                 >
                 <button
                   type="button"
@@ -614,9 +598,9 @@
           <p class="eyebrow">Where it fits</p>
           <h2>For the messy, long-lived local machine.</h2>
           <p class="features-lede">
-            Activity Monitor tells you a process exists. Switchboard connects it
-            to the service, port, logs, history, and action you actually care
-            about.
+            macOS ships with Activity Monitor, and it can tell you that a
+            process exists. Switchboard connects that process to the service,
+            port, logs, history, and action you actually care about.
           </p>
           <div class="use-case-grid">
             <article class="use-case-card">
@@ -817,7 +801,7 @@
                   Switchboard has Apple Developer ID signing and notarization.
                   Newer macOS releases may show
                   <em
-                    >"Switchboard Local.app is damaged and can't be opened. You
+                    >"Switchboard.app is damaged and can't be opened. You
                     should move it to the Trash."</em
                   >. Other systems may show
                   <em
@@ -918,7 +902,7 @@
               <div class="faq-body">
                 <p>
                   Not during the beta. Download the <code>.dmg</code>, drag
-                  <code>Switchboard Local.app</code> into
+                  <code>Switchboard.app</code> into
                   <code>/Applications</code>, and launch it. There's nothing to
                   sign up for and no license key to enter while the beta is
                   free.
@@ -993,7 +977,7 @@
               <div class="faq-body">
                 <p>
                   Quit Switchboard from the menu bar, drag
-                  <code>Switchboard Local.app</code> to the Trash, and — if you
+                  <code>Switchboard.app</code> to the Trash, and — if you
                   also want to delete your services configuration — remove
                   <code
                     >~/Library/Application
