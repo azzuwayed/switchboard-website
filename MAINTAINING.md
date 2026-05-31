@@ -17,9 +17,7 @@ and the live site at `https://azzuwayed.github.io/switchboard-website/`.
 - `CHANGELOG.md` — public user-facing release notes. Hand-curated; only
   entries a user would notice. Internal refactors/tests/tooling live in the
   source repo's `CHANGELOG.md` instead.
-- `.github/workflows/version-css.yml` — cloud cache-buster (currently
-  paused, see below).
-- `scripts/bump-css-cache.mjs` — local replacement for the cache-buster.
+- `scripts/bump-css-cache.mjs` — local stylesheet cache-buster.
 
 ## Localized pages
 
@@ -45,14 +43,14 @@ To add another locale later, mirror `/ar/` to `/<locale>/`, add the locale
 file paths to `HTML_PAGES` in `scripts/bump-css-cache.mjs`, and add the
 matching `<link rel="alternate" hreflang>` entries to every page.
 
-## Workflow status: cloud paused, local primary
+## Stylesheet cache-busting: local only
 
-The `version-css.yml` workflow is **disabled** while the parent project's
-CI quota is restored. Pushing changes to `index.html` or `style.css` no
-longer auto-bumps the `?v=<hash>` query string on the stylesheet link, so
-browsers/CDNs may serve a stale `style.css` after a deploy.
+The old `version-css.yml` workflow was removed because it could commit to
+`main` during a source-repo release and race the local `updates.json` push.
+There is now one writer: the local cache-buster script.
 
-**Run the local replacement before committing:**
+**Run it before standalone website commits that touch `style.css` or HTML
+stylesheet links:**
 
 ```bash
 node scripts/bump-css-cache.mjs
@@ -72,22 +70,18 @@ node scripts/bump-css-cache.mjs --check
 That exits non-zero if any page's cache-buster doesn't match the current
 `style.css` hash, so a stale push fails loudly.
 
-**Re-enabling cloud:**
-
-```bash
-gh workflow enable "Version stylesheet for cache-busting"
-```
-
 `pages-build-deployment` is GitHub-managed (not a workflow file) and runs
 on every push to `main` regardless — that's the actual deploy step.
 
-## Releases land here automatically (when CI is on) or via the source repo's local release script (when CI is off)
+## Releases land here via the source repo's local release script
 
-Both paths:
+The source repo's release script:
 
 - Create a GitHub Release on this repo with `.dmg`, `.dmg.sha256`,
   `.app.tar.gz`, `.app.tar.gz.sig` assets.
-- Commit a fresh `updates.json` to `main` here.
+- Sync this local clone with `origin/main`.
+- Run `scripts/bump-css-cache.mjs`.
+- Commit a fresh `updates.json` plus any cache-bust HTML changes to `main`.
 - Trigger the (always-on) Pages deploy that re-serves the manifest at the
   public URL.
 

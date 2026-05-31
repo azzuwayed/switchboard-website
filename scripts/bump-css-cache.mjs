@@ -5,9 +5,10 @@
 // from a stale CDN/browser cache.
 //
 // Why this exists locally: .github/workflows/version-css.yml used to do this
-// on every push to main. The workflow is paused while the parent project's
-// CI quota is restored; this script is the local equivalent. Run it after
-// editing style.css and before committing.
+// on every push to main, but that made release-time website commits race each
+// other. This script is the single local cache-busting path now. The source
+// repo's release script runs it before committing updates.json; for standalone
+// website changes, run it after editing style.css and before committing.
 //
 // Usage:
 //   node scripts/bump-css-cache.mjs           # bump if needed, exit 0 either way
