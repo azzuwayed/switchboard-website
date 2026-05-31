@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-      Switchboard by Azzuwayed — Stop losing track of what's running on
-      your Mac
+      Switchboard by Azzuwayed — Stop losing track of what's running on your Mac
     </title>
     <meta
       name="description"
@@ -112,16 +111,20 @@
                 id="download-btn"
                 href="https://github.com/azzuwayed/switchboard-website/releases/latest"
                 rel="noopener"
-                >Download for macOS
-                <span class="version-chip" id="version-chip">Latest</span></a
               >
-              <a class="btn btn-ghost" href="#story">Why you'd want it</a>
+                <span class="btn-label"
+                  ><span>Download</span
+                  ><span class="btn-version" id="version-chip"
+                    >Latest</span
+                  ></span
+                ></a
+              >
+              <span class="promo-badge">
+                <span class="promo-free">Free Beta</span>
+                <span class="promo-was">$39.99</span>
+              </span>
             </div>
             <ul class="trust-strip">
-              <li>
-                <span class="trust-chip-dot" aria-hidden="true"></span>Free
-                during beta
-              </li>
               <li>
                 <span class="trust-chip-dot" aria-hidden="true"></span>No signup
                 during beta
@@ -168,8 +171,8 @@
             Switchboard is still an unsigned beta, so the first launch can be
             blocked by macOS Gatekeeper. On newer macOS releases you may see
             <em
-              >"Switchboard.app is damaged and can't be opened. You should
-              move it to the Trash."</em
+              >"Switchboard.app is damaged and can't be opened. You should move
+              it to the Trash."</em
             >. On other systems you may see
             <em
               >"cannot be opened because Apple cannot check it for malicious
@@ -192,7 +195,8 @@
               </p>
               <div class="copy-block">
                 <code id="quarantine-cmd"
-                  >xattr -dr com.apple.quarantine /Applications/Switchboard.app</code
+                  >xattr -dr com.apple.quarantine
+                  /Applications/Switchboard.app</code
                 >
                 <button
                   type="button"
@@ -801,8 +805,8 @@
                   Switchboard has Apple Developer ID signing and notarization.
                   Newer macOS releases may show
                   <em
-                    >"Switchboard.app is damaged and can't be opened. You
-                    should move it to the Trash."</em
+                    >"Switchboard.app is damaged and can't be opened. You should
+                    move it to the Trash."</em
                   >. Other systems may show
                   <em
                     >"cannot be opened because Apple cannot check it for
@@ -902,10 +906,9 @@
               <div class="faq-body">
                 <p>
                   Not during the beta. Download the <code>.dmg</code>, drag
-                  <code>Switchboard.app</code> into
-                  <code>/Applications</code>, and launch it. There's nothing to
-                  sign up for and no license key to enter while the beta is
-                  free.
+                  <code>Switchboard.app</code> into <code>/Applications</code>,
+                  and launch it. There's nothing to sign up for and no license
+                  key to enter while the beta is free.
                 </p>
               </div>
             </details>
@@ -977,8 +980,8 @@
               <div class="faq-body">
                 <p>
                   Quit Switchboard from the menu bar, drag
-                  <code>Switchboard.app</code> to the Trash, and — if you
-                  also want to delete your services configuration — remove
+                  <code>Switchboard.app</code> to the Trash, and — if you also
+                  want to delete your services configuration — remove
                   <code
                     >~/Library/Application
                     Support/com.azzuwayed.switchboard/</code

@@ -262,9 +262,21 @@ h1 {
 
 .cta-row {
   display: flex;
+  align-items: center;
   gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 16px;
+}
+
+.cta-row > .btn-primary {
+  flex: 2;
+  justify-content: center;
+}
+
+.cta-row > .promo-badge {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn {
@@ -296,6 +308,26 @@ h1 {
   color: var(--accent-fg);
 }
 
+.btn-primary::before {
+  content: "\F8FF";
+  font-size: 20px;
+}
+
+.btn-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.btn-version {
+  font-size: 11px;
+  color: color-mix(in srgb, var(--accent-fg) 55%, transparent);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  line-height: 1;
+}
+
 .btn-primary:hover {
   background: color-mix(in srgb, var(--accent) 88%, white);
 }
@@ -316,6 +348,32 @@ h1 {
   padding: 2px 8px;
   border-radius: 999px;
   background: color-mix(in srgb, var(--accent-fg) 18%, transparent);
+}
+
+.promo-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 4px 0;
+}
+
+.promo-free {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 0 0 20px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.promo-was {
+  font-size: 16px;
+  font-family: var(--font-mono);
+  color: var(--fg-muted);
+  text-decoration: line-through;
+  text-decoration-color: #e05252;
+  text-decoration-thickness: 1px;
 }
 
 .micro {
