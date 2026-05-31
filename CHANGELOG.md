@@ -10,6 +10,32 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 
 ## [Unreleased]
 
+## [1.0.0-beta.20] - 2026-05-31
+
+### Added
+
+- **Tray dev-port console.** The Command Center now shows local dev-server
+  ports directly in the tray with quick actions to copy the port, open frontend
+  URLs, or stop the owning process.
+- **Curated free-port reference.** Common frontend, database, service, and
+  debug ports are available from a collapsed Free ports section when you need a
+  quick "what can I start on?" check.
+- **Dev-port conflict notifications.** Port conflict alerts now focus on common
+  development ports and have their own setting.
+
+### Changed
+
+- **The tray is more control-focused.** Running and degraded dev servers are
+  prioritized, active/free dev-port counts are split, and free-port chips are
+  passive labels instead of copy buttons.
+
+### Fixed
+
+- **The menu-bar count refreshes more reliably.** The running-service number now
+  updates after liveness scans instead of waiting for a tray rebuild.
+- **Port-stop errors are clearer.** Structured backend failures now show their
+  readable message instead of `[object Object]`.
+
 ## [1.0.0-beta.19] - 2026-05-31
 
 ### Added
