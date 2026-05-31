@@ -10,6 +10,23 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 
 ## [Unreleased]
 
+## [1.0.0-beta.19] - 2026-05-31
+
+### Added
+
+- **New branded macOS installer window.** The DMG now opens with a polished
+  Switchboard install background, clear app-to-Applications drop zones, and a
+  sharper Retina-ready layout.
+
+### Changed
+
+- **The app is branded as Switchboard.** Menus, tray labels, update banners,
+  About, the README, and the website now use "Switchboard by Azzuwayed" for the
+  public product name.
+- **The DMG install flow is more reliable.** Release builds now use a custom
+  dmgbuild layout so the Finder window is cleaner and less dependent on
+  Tauri's default DMG metadata.
+
 ## [1.0.0-beta.18] - 2026-05-29
 
 ### Added
