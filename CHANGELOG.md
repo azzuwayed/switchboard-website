@@ -10,6 +10,32 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 
 ## [Unreleased]
 
+## [1.0.0-beta.22] - 2026-06-02
+
+### Added
+
+- **Switchboard diagnostics in the Logs view.** A built-in log source now
+  surfaces Switchboard's own warnings and errors right alongside the services
+  it manages, so the app's own problems show up in the same place you already
+  watch. It's on by default; hide it from the Logs sidebar and bring it back any
+  time from Settings → Logs.
+- **Collapsible service groups with Start all / Stop all.** Each group on the
+  dashboard now collapses, and its header has bulk Start all / Stop all buttons
+  (stop-all still asks first).
+- **Undo for "Mute forever".** Muting a service forever now shows an 8-second
+  undo toast, so an accidental click is one tap to reverse. Timed mutes are
+  unchanged.
+
+### Changed
+
+- **The dashboard refreshes itself after an import.** Importing a config updates
+  the dashboard in place instead of waiting for you to navigate away and back,
+  and it opens the approval review automatically when the import added new
+  commands.
+- **Clearer status and error cues.** The connection port lookup shows a loading
+  spinner, failed log-export-to-clipboard explains what went wrong in plain
+  language, and a few error states no longer rely on color alone.
+
 ## [1.0.0-beta.21] - 2026-06-02
 
 ### Added
