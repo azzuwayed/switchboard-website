@@ -1,32 +1,32 @@
 {
   "schemaVersion": 1,
-  "latest": "1.0.0-beta.21",
-  "releasedAt": "2026-06-02T12:50:45.181Z",
+  "latest": "1.0.0-beta.22",
+  "releasedAt": "2026-06-02T19:58:30.518Z",
   "minimumSystemVersion": "12.0",
   "channel": "beta",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.21/Switchboard-v1.0.0-beta.21-macos-arm64.dmg",
-        "sha256": "733734c4d02db771c021672dfa98303b69276038179e949f5b79c2005ab61941",
-        "sizeBytes": 9840985
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.22/Switchboard-v1.0.0-beta.22-macos-arm64.dmg",
+        "sha256": "293bbe2b8197b7a05d3fd8250eab65755d55838fde32317a1cf54466230ce0a0",
+        "sizeBytes": 9844839
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.21",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.22",
   "downloadPageUrl": "https://azzuwayed.github.io/switchboard-website/",
-  "notes": "Switchboard 1.0.0-beta.21 — see release notes for details.",
+  "notes": "Switchboard 1.0.0-beta.22 — see release notes for details.",
   "highlights": [
-    "Workflow personalities. New setup and Settings choices tune Switchboard for AI/vibe-coding sessions, backend/infra work, minimalist use, or power observation, including matching monitoring defaults and interface density.",
-    "Staged in-app updates. Update banners now download first, install when you choose, then ask when to restart instead of immediately relaunching the app.",
-    "Optional background update downloads. Settings → Updates can download a newly detected version in the background while still requiring your approval before install or restart."
+    "Switchboard diagnostics in the Logs view. A built-in log source now surfaces Switchboard's own warnings and errors right alongside the services it manages, so the app's own problems show up in the same place you already watch. It's on by default; hide it from the Logs sidebar and bring it back any time from Settings → Logs.",
+    "Collapsible service groups with Start all / Stop all. Each group on the dashboard now collapses, and its header has bulk Start all / Stop all buttons (stop-all still asks first).",
+    "Undo for \"Mute forever\". Muting a service forever now shows an 8-second undo toast, so an accidental click is one tap to reverse. Timed mutes are unchanged."
   ],
-  "version": "1.0.0-beta.21",
-  "pub_date": "2026-06-02T12:50:45.181Z",
+  "version": "1.0.0-beta.22",
+  "pub_date": "2026-06-02T19:58:30.518Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTVMS3kzMEZBMk1VbmN2MWdLZUkyM0t5Z3U0djNyY2cwd1BHNVhiUWVTdUlPd3pLWTQ1eENERWx6S3JLTlBaazFKV3UvK09qUzhRQy8rdmhMZnNzTEEwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNDA0NTE0CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpERUZlbkdEZVZyRHpycklnRExnNDVEZVZmbG1RVzN2cTZBa3JQR1o3Tlc4SkZXRHpHSXcvSFByWERxY2d4enBHNG9jQ3dJQm5uVTNsZTZLWnlGQVZBZz09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.21/Switchboard-v1.0.0-beta.21-macos-arm64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXlZWFNPNm9BNXpEY3hrQXpjQkdPVVoyWWVQT1hPRXNiN0R4NGlEMzZpY2tabDA0ODhRd2w3c2tMMVI3R2Q4SXNvNWdibCtPUzhIaWVIb29xQ3U1SGcwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNDMwMjgyCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpzZHRqMS9lQUhJUG5DWjlqM0RoaC9jT1VpOUlXL3liVGhSU0ZUWUttcWlWUG9IUk0va0gyV2dYQnI4bXp6ZHhZUXBRazBON2pDSFBUa25JZVJxK3JCdz09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.22/Switchboard-v1.0.0-beta.22-macos-arm64.app.tar.gz"
     }
   }
 }
