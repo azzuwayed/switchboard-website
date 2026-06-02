@@ -130,8 +130,8 @@
                 during beta
               </li>
               <li>
-                <span class="trust-chip-dot" aria-hidden="true"></span>100%
-                local — no cloud, no telemetry
+                <span class="trust-chip-dot" aria-hidden="true"></span
+                >Local-first — no account, anonymous stats only
               </li>
               <li id="download-count-item" hidden>
                 <span class="trust-chip-dot" aria-hidden="true"></span
@@ -452,13 +452,14 @@
                   <circle cx="7" cy="7" r="0.5" fill="currentColor" />
                 </svg>
               </span>
-              <h3>Local-only, no account, no telemetry</h3>
+              <h3>Local-first, no account</h3>
               <p>
-                No cloud. No background HTTP server. No analytics. Your config
-                and logs live under
-                <code>~/Library/Application Support/</code>. The only outbound
-                request is the daily check for an app update — and that's a
-                Settings toggle away from off.
+                No cloud. No background HTTP server. Your config and logs live
+                under <code>~/Library/Application Support/</code>. The one thing
+                Switchboard sends is an anonymous, aggregate usage count — a
+                weekly-active estimate and the app version, no identifiers, no
+                IP stored — riding on the daily update check. On by default; one
+                toggle off in Settings → Privacy.
               </p>
             </article>
           </div>
@@ -921,18 +922,20 @@
               <summary>What data does Switchboard collect or send?</summary>
               <div class="faq-body">
                 <p>
-                  None. No telemetry, no analytics, no crash reporter, no
-                  background HTTP server. The app does not listen on any network
-                  port.
+                  One thing, and it is anonymous: a weekly-active estimate plus
+                  the app version, sent via the daily update check so we can see
+                  roughly how many people use Switchboard. No account, no
+                  identifiers, no installation token, no raw IP stored — and no
+                  crash reporter or per-action tracking. The app does not listen
+                  on any network port.
                 </p>
                 <p>
-                  Everything stays on your Mac under
+                  Everything else stays on your Mac under
                   <code
                     >~/Library/Application
                     Support/com.azzuwayed.switchboard/</code
-                  >. The only outbound request the app makes is a once-a-day
-                  check to the public updates manifest to see whether a newer
-                  release is available — and that can be disabled in Settings.
+                  >. Turn the stats off with one toggle in Settings → Privacy
+                  (updates keep working), or disable update checks entirely.
                 </p>
               </div>
             </details>

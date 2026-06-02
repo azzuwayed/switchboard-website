@@ -6,7 +6,7 @@
     <title>Privacy &amp; trust — Switchboard by Azzuwayed</title>
     <meta
       name="description"
-      content="What Switchboard does and does not do with your data. No telemetry, no analytics, no cloud account. One configurable outbound request for the update check."
+      content="What Switchboard does and does not do with your data. The only data it sends is an anonymous, aggregate usage count over the update check — no account, no identifiers, no IP stored. Opt out anytime."
     />
     <meta
       property="og:title"
@@ -143,12 +143,13 @@
           <p class="eyebrow">Privacy &amp; trust</p>
           <h1>Switchboard runs on your Mac, not on a server.</h1>
           <p class="lede">
-            Switchboard is a local-only macOS utility. It does not have a cloud
-            account, a telemetry pipeline, or a background HTTP server. This
-            page describes exactly what the app reads, writes, and sends — and
-            what it deliberately does not do.
+            Switchboard is a local-first macOS utility with no cloud account and
+            no background HTTP server. The only data it sends is an anonymous,
+            aggregate usage count carried over the update check — on by default,
+            one toggle to off. This page describes exactly what the app reads,
+            writes, and sends — and what it deliberately does not do.
           </p>
-          <p class="doc-meta">Last updated: 2026-05-29.</p>
+          <p class="doc-meta">Last updated: 2026-06-02.</p>
         </div>
       </section>
 
@@ -156,13 +157,17 @@
         <div class="container">
           <h2>Summary</h2>
           <ul>
-            <li>No telemetry, no analytics, no crash reports.</li>
+            <li>
+              Anonymous, aggregate usage stats only: a weekly-active estimate
+              and the app version. No identifiers, no IP stored, no crash
+              reports. On by default; opt out in Settings → Privacy.
+            </li>
             <li>No user account, license key, or signup during the beta.</li>
             <li>No background server, no listening network port.</li>
             <li>
-              The only outbound request the app makes is a once-a-day check
-              against the public update manifest. It is on by default and you
-              can turn it off.
+              The app's only outbound request is the once-a-day update check,
+              served through a Cloudflare proxy that counts it anonymously. You
+              can turn off counting, the check, or both.
             </li>
             <li>
               All configuration, logs, and approval state are stored on your Mac
@@ -177,10 +182,12 @@
           <h2>What the app does not do</h2>
           <ul>
             <li>
-              <strong>No telemetry or analytics.</strong> Switchboard does not
-              call out to a usage-tracking endpoint, a crash reporter, an
-              attribution service, or any third-party analytics SDK. There is no
-              &ldquo;anonymous usage data&rdquo; collection.
+              <strong>No crash reporting or behavioral tracking.</strong>
+              Switchboard does not send crash dumps, does not record which
+              features or services you use, attaches no user or machine
+              identifier, and uses no third-party analytics SDK. The one signal
+              it does send — an anonymous weekly-active count — is described in
+              <a href="#outbound">The one outbound request</a> below.
             </li>
             <li>
               <strong>No cloud account.</strong> There is nothing to sign up
@@ -254,31 +261,40 @@
 
       <section class="doc-section">
         <div class="container">
-          <h2>The one outbound request</h2>
+          <h2 id="outbound">The one outbound request</h2>
           <p>
             With <em>Check for updates automatically</em> enabled (the default),
-            the app fetches this public file on launch and roughly once a day
-            after that:
+            the app fetches the public update manifest on launch and roughly
+            once a day after that. The manifest is a static JSON file (latest
+            version number, release date, download URLs), served through a small
+            Cloudflare Worker we operate:
           </p>
           <p>
             <code
-              >https://azzuwayed.github.io/switchboard-website/updates.json</code
+              >https://switchboard-updates.azzuwayed.workers.dev/updates.json</code
             >
           </p>
+          <p>The Worker proxies the same static JSON hosted on GitHub Pages.</p>
           <p>
-            The file is a static JSON manifest containing the latest version
-            number, release date, and download URLs. The request itself sends
-            only the standard headers any HTTP client sends; the app does not
-            attach a user identifier, a machine identifier, or any installation
-            token. The site behind the manifest is GitHub Pages, which receives
-            its own standard access logs from any visitor; the app does not
-            enrich those.
+            From those daily checks — and only those, never the artifact
+            downloads — the Worker records an
+            <strong>anonymous, aggregate</strong>
+            signal so we can estimate how many people actively use Switchboard:
+            a weekly-active count and the app version. It stores no raw IP and
+            no identifier. Like any web server, the Worker receives the standard
+            request metadata your HTTP client sends (including your IP address);
+            it keeps only coarse counts — app version and country — and discards
+            the rest. The app attaches no user identifier, no machine
+            identifier, and no installation token.
           </p>
           <p>
-            Turning off <em>Check for updates automatically</em> in the in-app
-            About dialog stops this request entirely. The
-            <em>Check for updates</em> button in the same dialog still works as
-            a manual, one-shot fetch when you press it.
+            Turn off <em>Anonymous usage statistics</em> in Settings → Privacy
+            and the daily check carries a do-not-track marker the Worker honors
+            — it is never counted, while update checks keep working. Turning off
+            <em>Check for updates automatically</em> (Settings → Updates, or the
+            About dialog) stops the request entirely. The
+            <em>Check for updates</em> button still works as a manual, one-shot
+            fetch when you press it.
           </p>
         </div>
       </section>
