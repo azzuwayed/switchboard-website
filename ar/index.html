@@ -141,6 +141,10 @@
                 <span class="trust-chip-dot" aria-hidden="true"></span>محلي ١٠٠٪
                 — بدون سحابة، بدون تتبع استخدام
               </li>
+              <li id="download-count-item" hidden>
+                <span class="trust-chip-dot" aria-hidden="true"></span
+                ><span id="download-count">—</span> عملية تنزيل
+              </li>
             </ul>
           </div>
           <div class="hero-art">
@@ -1015,6 +1019,59 @@
           if (chip && latest) chip.textContent = "v" + latest;
         } catch {
           // صامت — الرابط الثابت على #download-btn ما زال يشير إلى /releases/latest.
+        }
+      })();
+
+      // يعرض إجمالي عدد تنزيلات ملف .dmg من GitHub Releases كشارة في شريط الثقة.
+      // يقرأ رقماً عاماً مجمّعاً عبر واجهة GitHub — بدون كوكيز، بدون تتبّع للزائر،
+      // بدون رمز وصول. يخزّن مؤقتاً في localStorage ويفشل بصمت (تبقى الشارة مخفية).
+      (async () => {
+        const REPO = "azzuwayed/switchboard-website";
+        const MIN_TO_SHOW = 0; // ارفعه لإخفاء الشارة حتى تكبر أرقام التنزيل
+        const TTL_MS = 6 * 60 * 60 * 1000;
+        const KEY = "sb-dl-count";
+        const item = document.getElementById("download-count-item");
+        const out = document.getElementById("download-count");
+        if (!item || !out) return;
+
+        const show = (n) => {
+          if (typeof n !== "number" || n < MIN_TO_SHOW) return;
+          out.textContent = new Intl.NumberFormat("ar").format(n);
+          item.hidden = false;
+        };
+
+        try {
+          const cached = JSON.parse(localStorage.getItem(KEY) || "null");
+          if (cached && Date.now() - cached.t < TTL_MS) {
+            show(cached.n);
+            return;
+          }
+        } catch {
+          // تجاهل إدخال التخزين المؤقت التالف واجلب من جديد.
+        }
+
+        try {
+          const res = await fetch(
+            `https://api.github.com/repos/${REPO}/releases?per_page=100`,
+            { headers: { Accept: "application/vnd.github+json" } },
+          );
+          if (!res.ok) return;
+          const releases = await res.json();
+          const total = releases
+            .flatMap((r) => r.assets || [])
+            .filter((a) => a.name.toLowerCase().endsWith(".dmg"))
+            .reduce((sum, a) => sum + (a.download_count || 0), 0);
+          try {
+            localStorage.setItem(
+              KEY,
+              JSON.stringify({ n: total, t: Date.now() }),
+            );
+          } catch {
+            // localStorage غير متاح (وضع خاص/تجاوز الحصة) — تخطّى التخزين المؤقت.
+          }
+          show(total);
+        } catch {
+          // صامت — تبقى الشارة مخفية.
         }
       })();
 

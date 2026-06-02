@@ -133,6 +133,10 @@
                 <span class="trust-chip-dot" aria-hidden="true"></span>100%
                 local — no cloud, no telemetry
               </li>
+              <li id="download-count-item" hidden>
+                <span class="trust-chip-dot" aria-hidden="true"></span
+                ><span id="download-count">—</span> downloads
+              </li>
             </ul>
           </div>
           <div class="hero-art">
@@ -1089,6 +1093,60 @@
         } catch {
           // Silent — the static href on #download-btn still points at the
           // /releases/latest page.
+        }
+      })();
+
+      // Display the cumulative .dmg download count from GitHub Releases as a
+      // trust-strip chip. Reads a public aggregate via the GitHub API — no
+      // cookies, no visitor tracking, no token. Caches in localStorage and
+      // degrades silently (the chip stays hidden) on any failure.
+      (async () => {
+        const REPO = "azzuwayed/switchboard-website";
+        const MIN_TO_SHOW = 0; // raise to hide the chip until downloads grow
+        const TTL_MS = 6 * 60 * 60 * 1000;
+        const KEY = "sb-dl-count";
+        const item = document.getElementById("download-count-item");
+        const out = document.getElementById("download-count");
+        if (!item || !out) return;
+
+        const show = (n) => {
+          if (typeof n !== "number" || n < MIN_TO_SHOW) return;
+          out.textContent = new Intl.NumberFormat("en").format(n);
+          item.hidden = false;
+        };
+
+        try {
+          const cached = JSON.parse(localStorage.getItem(KEY) || "null");
+          if (cached && Date.now() - cached.t < TTL_MS) {
+            show(cached.n);
+            return;
+          }
+        } catch {
+          // Ignore a malformed cache entry and fetch fresh.
+        }
+
+        try {
+          const res = await fetch(
+            `https://api.github.com/repos/${REPO}/releases?per_page=100`,
+            { headers: { Accept: "application/vnd.github+json" } },
+          );
+          if (!res.ok) return;
+          const releases = await res.json();
+          const total = releases
+            .flatMap((r) => r.assets || [])
+            .filter((a) => a.name.toLowerCase().endsWith(".dmg"))
+            .reduce((sum, a) => sum + (a.download_count || 0), 0);
+          try {
+            localStorage.setItem(
+              KEY,
+              JSON.stringify({ n: total, t: Date.now() }),
+            );
+          } catch {
+            // localStorage unavailable (private mode/quota) — skip caching.
+          }
+          show(total);
+        } catch {
+          // Silent — the chip just stays hidden.
         }
       })();
 
