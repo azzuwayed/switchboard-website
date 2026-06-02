@@ -10,6 +10,28 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 
 ## [Unreleased]
 
+## [1.0.0-beta.21] - 2026-06-02
+
+### Added
+
+- **Workflow personalities.** New setup and Settings choices tune Switchboard
+  for AI/vibe-coding sessions, backend/infra work, minimalist use, or power
+  observation, including matching monitoring defaults and interface density.
+- **Staged in-app updates.** Update banners now download first, install when
+  you choose, then ask when to restart instead of immediately relaunching the
+  app.
+- **Optional background update downloads.** Settings → Updates can download a
+  newly detected version in the background while still requiring your approval
+  before install or restart.
+
+### Changed
+
+- **Update preferences live in Settings.** The About window keeps manual update
+  checking and install progress, while automatic check/download preferences are
+  configured in Settings → Updates.
+- **Restarting after an update is safer.** Switchboard now waits for active
+  service actions to finish before enabling Restart now.
+
 ## [1.0.0-beta.20] - 2026-05-31
 
 ### Added
