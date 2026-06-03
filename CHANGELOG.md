@@ -10,6 +10,17 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 
 ## [Unreleased]
 
+## [1.0.0-beta.23] - 2026-06-03
+
+### Added
+
+- **Anonymous usage statistics (opt-out).** So we can tell roughly how many
+  people actively use Switchboard, the daily update check now reports an
+  anonymous, aggregate count — no account, no identifiers, and no IP address is
+  stored. It's on by default; turn it off anytime in **Settings → Privacy**. See
+  the [privacy page](https://azzuwayed.github.io/switchboard-website/privacy.html)
+  for exactly what is and isn't collected.
+
 ## [1.0.0-beta.22] - 2026-06-02
 
 ### Added
