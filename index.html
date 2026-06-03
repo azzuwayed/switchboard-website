@@ -3,20 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>
-      Switchboard by Azzuwayed — Stop losing track of what's running on your Mac
-    </title>
+    <title>Switchboard — the missing dashboard for Mac devs</title>
     <meta
       name="description"
       content="Switchboard is the local service monitor for Mac developers: find forgotten dev servers, port conflicts, local AI tools, logs, and services your AI coding session left behind."
     />
     <meta
       property="og:title"
-      content="Switchboard by Azzuwayed — Stop losing track of what's running on your Mac"
+      content="Switchboard — the missing dashboard for Mac devs"
     />
     <meta
       property="og:description"
-      content="One menu-bar app that surfaces forgotten local services, names what owns each port, and brings controls, health checks, and logs into a local-first dashboard."
+      content="Activity Monitor says 'node.' Switchboard says which server it is, why it's still running, and what owns the port — one menu bar for Homebrew, Docker, dev servers, and local AI tools."
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
@@ -49,6 +47,14 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta
+      name="twitter:title"
+      content="Switchboard — the missing dashboard for Mac devs"
+    />
+    <meta
+      name="twitter:description"
+      content="Find the local dev servers, Docker containers, and AI tools your Mac is still running — and see what owns each port."
+    />
+    <meta
       name="twitter:image"
       content="https://azzuwayed.github.io/switchboard-website/assets/screenshots/services-dashboard.png"
     />
@@ -68,6 +74,20 @@
       href="https://azzuwayed.github.io/switchboard-website/"
     />
     <link rel="stylesheet" href="style.css?v=c949ffbbff" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Switchboard",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS 12 or later (Apple Silicon)",
+        "description": "A native macOS menu-bar app that finds the local services your Mac is running — Homebrew services, Docker containers, launchd agents, dev servers, and local AI tools — names what owns each port, and brings controls, health checks, and logs into one local-first dashboard.",
+        "url": "https://azzuwayed.github.io/switchboard-website/",
+        "image": "https://azzuwayed.github.io/switchboard-website/assets/screenshots/services-dashboard.png",
+        "author": { "@type": "Person", "name": "Abdullah Alzuwayed" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -121,7 +141,7 @@
               >
               <span class="promo-badge">
                 <span class="promo-free">Free Beta</span>
-                <span class="promo-note">Signed + notarized</span>
+                <span class="promo-note">Apple notarized</span>
               </span>
             </div>
             <ul class="trust-strip">
