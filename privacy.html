@@ -166,8 +166,8 @@
             <li>No background server, no listening network port.</li>
             <li>
               The app's only outbound request is the once-a-day update check,
-              served through a Cloudflare proxy that counts it anonymously. You
-              can turn off counting, the check, or both.
+              served through an endpoint we operate that counts it anonymously.
+              You can turn off counting, the check, or both.
             </li>
             <li>
               All configuration, logs, and approval state are stored on your Mac
@@ -265,41 +265,35 @@
           <p>
             With <em>Check for updates automatically</em> enabled (the default),
             the app fetches the public update manifest on launch and roughly
-            once a day after that. The manifest is a static JSON file (latest
-            version number, release date, download URLs), served through a small
-            Cloudflare Worker we operate:
+            once a day after that — a static JSON file (latest version number,
+            release date, download URLs), served through a small endpoint we
+            operate that mirrors the file hosted on GitHub Pages.
           </p>
-          <p>
-            <code
-              >https://switchboard-updates.azzuwayed.workers.dev/updates.json</code
-            >
-          </p>
-          <p>The Worker proxies the same static JSON hosted on GitHub Pages.</p>
           <p>
             From those daily checks — and only those, never the artifact
-            downloads — the Worker records an
+            downloads — the endpoint records an
             <strong>anonymous, aggregate</strong>
             signal so we can estimate how many people actively use Switchboard:
             a weekly-active count and the app version. It stores no raw IP and
-            no identifier. Like any web server, the Worker receives the standard
-            request metadata your HTTP client sends (including your IP address);
-            it keeps only coarse counts — app version and country — and discards
+            no identifier. Like any web server, it receives the standard request
+            metadata your HTTP client sends (including your IP address); it
+            keeps only coarse counts — app version and country — and discards
             the rest. The app attaches no user identifier, no machine
             identifier, and no installation token.
           </p>
           <p>
-            To count distinct installs without identifying anyone, the Worker
-            derives a one-way, salted hash from your IP that rotates on a weekly
-            and monthly schedule. It cannot be reversed to your IP, resets on
+            To count distinct installs without identifying anyone, the endpoint
+            derives a one-way, salted hash from your IP that rotates on a
+            regular schedule. It cannot be reversed to your IP, resets on
             rotation, and is tied to no account or device — it exists only to
             avoid counting the same install twice in a window.
           </p>
           <p>
             Turn off <em>Anonymous usage statistics</em> in Settings → Privacy
-            and the daily check carries a do-not-track marker the Worker honors
-            — it is never counted, while update checks keep working. Turning off
-            <em>Check for updates automatically</em> (Settings → Updates, or the
-            About dialog) stops the request entirely. The
+            and the daily check carries a do-not-track marker the endpoint
+            honors — it is never counted, while update checks keep working.
+            Turning off <em>Check for updates automatically</em> (Settings →
+            Updates, or the About dialog) stops the request entirely. The
             <em>Check for updates</em> button still works as a manual, one-shot
             fetch when you press it.
           </p>
