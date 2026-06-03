@@ -1,32 +1,30 @@
 {
   "schemaVersion": 1,
-  "latest": "1.0.0-beta.22",
-  "releasedAt": "2026-06-02T19:58:30.518Z",
+  "latest": "1.0.0-beta.23",
+  "releasedAt": "2026-06-03T07:01:17.273Z",
   "minimumSystemVersion": "12.0",
   "channel": "beta",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.22/Switchboard-v1.0.0-beta.22-macos-arm64.dmg",
-        "sha256": "293bbe2b8197b7a05d3fd8250eab65755d55838fde32317a1cf54466230ce0a0",
-        "sizeBytes": 9844839
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.23/Switchboard-v1.0.0-beta.23-macos-arm64.dmg",
+        "sha256": "f3af85c4c1f0b560743da0575745abdc35b32423194fde672e4b42e1b432676b",
+        "sizeBytes": 9844030
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.22",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.23",
   "downloadPageUrl": "https://azzuwayed.github.io/switchboard-website/",
-  "notes": "Switchboard 1.0.0-beta.22 — see release notes for details.",
+  "notes": "Switchboard 1.0.0-beta.23 — see release notes for details.",
   "highlights": [
-    "Switchboard diagnostics in the Logs view. A built-in log source now surfaces Switchboard's own warnings and errors right alongside the services it manages, so the app's own problems show up in the same place you already watch. It's on by default; hide it from the Logs sidebar and bring it back any time from Settings → Logs.",
-    "Collapsible service groups with Start all / Stop all. Each group on the dashboard now collapses, and its header has bulk Start all / Stop all buttons (stop-all still asks first).",
-    "Undo for \"Mute forever\". Muting a service forever now shows an 8-second undo toast, so an accidental click is one tap to reverse. Timed mutes are unchanged."
+    "Anonymous usage statistics (opt-out). So we can tell roughly how many people actively use Switchboard, the daily update check now reports an anonymous, aggregate count — no account, no identifiers, and no IP address is stored. It's on by default; turn it off anytime in Settings → Privacy. See the privacy page for exactly what is and isn't collected."
   ],
-  "version": "1.0.0-beta.22",
-  "pub_date": "2026-06-02T19:58:30.518Z",
+  "version": "1.0.0-beta.23",
+  "pub_date": "2026-06-03T07:01:17.273Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXlZWFNPNm9BNXpEY3hrQXpjQkdPVVoyWWVQT1hPRXNiN0R4NGlEMzZpY2tabDA0ODhRd2w3c2tMMVI3R2Q4SXNvNWdibCtPUzhIaWVIb29xQ3U1SGcwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNDMwMjgyCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpzZHRqMS9lQUhJUG5DWjlqM0RoaC9jT1VpOUlXL3liVGhSU0ZUWUttcWlWUG9IUk0va0gyV2dYQnI4bXp6ZHhZUXBRazBON2pDSFBUa25JZVJxK3JCdz09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.22/Switchboard-v1.0.0-beta.22-macos-arm64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTdUb0xIZGZCUkN3ejl0c2xZK3lqRnpyWTNNVlllYmt5U2Z5dm9UdzhNYTE4dlZRNFVrazZpeGorMFV6L3hCTXlJMk0zRENCN1NvQnBlZXJMTFIwY2c4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNDcwMDM4CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpIMFk4ODBUQXlhTlJqMXRFVkN2c1V1OS9UMnlKVGh1b2ljR0p5Si9STWlYOVFBV2ZPa2ZqOEFoVTQxSGFucGhqTE5jQklINUg5dktLT1ZPT0t1YWpDZz09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.23/Switchboard-v1.0.0-beta.23-macos-arm64.app.tar.gz"
     }
   }
 }
