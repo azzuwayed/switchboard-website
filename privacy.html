@@ -288,6 +288,13 @@
             identifier, and no installation token.
           </p>
           <p>
+            To count distinct installs without identifying anyone, the Worker
+            derives a one-way, salted hash from your IP that rotates on a weekly
+            and monthly schedule. It cannot be reversed to your IP, resets on
+            rotation, and is tied to no account or device — it exists only to
+            avoid counting the same install twice in a window.
+          </p>
+          <p>
             Turn off <em>Anonymous usage statistics</em> in Settings → Privacy
             and the daily check carries a do-not-track marker the Worker honors
             — it is never counted, while update checks keep working. Turning off
