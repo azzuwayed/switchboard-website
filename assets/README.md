@@ -32,6 +32,7 @@ real PNG source plus a WebP sibling used by the landing pages through
 | File                         | Use                                      |
 | ---------------------------- | ---------------------------------------- |
 | `services-dashboard.webp`    | Hero product screenshot                  |
+| `install-dmg.webp`           | First-time install screenshot            |
 | `observer-inbox.webp`        | Screenshot gallery: discovered services  |
 | `ports-inspector.webp`       | Screenshot gallery: port/process view    |
 | `logs-viewer.webp`           | Screenshot gallery: unified logs         |

@@ -67,7 +67,7 @@
       hreflang="x-default"
       href="https://azzuwayed.github.io/switchboard-website/"
     />
-    <link rel="stylesheet" href="style.css?v=d35e9ac2df" />
+    <link rel="stylesheet" href="style.css?v=c949ffbbff" />
   </head>
   <body>
     <header class="site-header">
@@ -121,7 +121,7 @@
               >
               <span class="promo-badge">
                 <span class="promo-free">Free Beta</span>
-                <span class="promo-was">$39.99</span>
+                <span class="promo-note">Signed + notarized</span>
               </span>
             </div>
             <ul class="trust-strip">
@@ -172,76 +172,27 @@
         <div class="container">
           <h2>First-time install</h2>
           <p class="install-lead">
-            Switchboard is still an unsigned beta, so the first launch can be
-            blocked by macOS Gatekeeper. On newer macOS releases you may see
-            <em
-              >"Switchboard.app is damaged and can't be opened. You should move
-              it to the Trash."</em
-            >. On other systems you may see
-            <em
-              >"cannot be opened because Apple cannot check it for malicious
-              software"</em
-            >
-            dialog. Apple Developer ID signing and notarization land later —
-            until then the one-liner below clears it. You only do this once per
-            machine; future OTA updates inherit the trust. There are two ways to
-            do it below — either one works on its own, so start with the
-            recommended one.
+            Open the downloaded <code>.dmg</code>, drag Switchboard into your
+            Applications folder, and open it. That's it.
           </p>
-          <ol class="install-steps">
-            <li class="install-step">
-              <h3>
-                The one-line fix <span class="install-pill">Recommended</span>
-              </h3>
-              <p>
-                After dragging <code>Switchboard.app</code> into
-                <code>/Applications</code>, open Terminal and run:
-              </p>
-              <div class="copy-block">
-                <code id="quarantine-cmd"
-                  >xattr -dr com.apple.quarantine
-                  /Applications/Switchboard.app</code
-                >
-                <button
-                  type="button"
-                  class="copy-btn"
-                  data-copy-target="quarantine-cmd"
-                  aria-label="Copy command"
-                >
-                  Copy
-                </button>
-              </div>
-              <p class="install-foot">
-                This removes the quarantine attribute Safari added to the
-                download. Launch Switchboard normally afterwards. Works on every
-                supported macOS version.
-              </p>
-            </li>
-            <li class="install-step">
-              <h3>
-                Open Anyway
-                <span class="install-pill install-pill-muted"
-                  >when offered</span
-                >
-              </h3>
-              <p>
-                After the first blocked launch, open System Settings →
-                <strong>Privacy &amp; Security</strong>, scroll to Security, and
-                click <strong>Open Anyway</strong> for Switchboard if macOS
-                shows that option.
-              </p>
-              <p class="install-foot">
-                Apple only shows this override temporarily and not for every
-                blocked-app dialog. If you do not see it, use the one-line fix
-                above instead.
-              </p>
-            </li>
-          </ol>
+          <figure class="install-shot">
+            <picture>
+              <source
+                srcset="assets/screenshots/install-dmg.webp"
+                type="image/webp"
+              />
+              <img
+                src="assets/screenshots/install-dmg.png"
+                alt="The Switchboard installer window: drag the Switchboard app onto the Applications folder."
+                width="1664"
+                height="1224"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </figure>
           <p class="install-note">
-            Why is this needed? Apple Developer ID signing costs $99/year and
-            notarization adds release friction. The beta is unsigned to keep it
-            free and fast to ship. See the
-            <a href="#faq">FAQ</a> for more.
+            Apple Silicon (arm64), macOS 12 (Monterey) or later.
           </p>
         </div>
       </section>
@@ -800,36 +751,6 @@
           <h2>Frequently asked questions</h2>
           <div class="faq-list">
             <details open>
-              <summary>
-                macOS says the app is "damaged" or "can't be checked" — what do
-                I do?
-              </summary>
-              <div class="faq-body">
-                <p>
-                  Both messages are Gatekeeper launch blocks you can hit before
-                  Switchboard has Apple Developer ID signing and notarization.
-                  Newer macOS releases may show
-                  <em
-                    >"Switchboard.app is damaged and can't be opened. You should
-                    move it to the Trash."</em
-                  >. Other systems may show
-                  <em
-                    >"cannot be opened because Apple cannot check it for
-                    malicious software."</em
-                  >
-                </p>
-                <p>
-                  The app is not actually damaged. Run the one-line
-                  <code>xattr</code> command in the
-                  <a href="#install">First-time install</a> section to clear the
-                  quarantine flag — it works on every supported macOS version.
-                  If System Settings shows an <strong>Open Anyway</strong>
-                  override after the first blocked launch, that also works.
-                </p>
-              </div>
-            </details>
-
-            <details>
               <summary>Is Switchboard really free? What's the catch?</summary>
               <div class="faq-body">
                 <p>
@@ -857,13 +778,11 @@
                   is running.
                 </p>
                 <p>
-                  You will hit a developer-flavored moment during install
-                  (running <code>xattr</code> in Terminal to clear macOS
-                  Gatekeeper's quarantine flag — one line, copy-pasted from the
-                  install section above). Past that you drive Switchboard from
-                  its interface, but getting real value out of it assumes you're
-                  comfortable with the services, commands, and ports you run on
-                  your machine.
+                  Installing is just drag-to-Applications and open — no Terminal
+                  steps, since the app is notarized. Past that you drive
+                  Switchboard from its interface, but getting real value out of
+                  it assumes you're comfortable with the services, commands, and
+                  ports you run on your machine.
                 </p>
               </div>
             </details>
@@ -963,9 +882,10 @@
                 <p>
                   The app checks the public updates manifest once a day and
                   shows a non-intrusive banner in the app shell when a new
-                  release is available. One click installs the update in place —
-                  the new bundle's minisign signature is verified against the
-                  public key compiled into the running app before it swaps.
+                  release is available. The in-app flow downloads the update,
+                  installs it, and then asks you to restart — the new bundle's
+                  minisign signature is verified against the public key compiled
+                  into the running app before it swaps.
                 </p>
                 <p>
                   Prefer to install manually? Disable
@@ -1152,35 +1072,6 @@
           // Silent — the chip just stays hidden.
         }
       })();
-
-      // Wire copy buttons inside the Install section to the Clipboard API.
-      // Falls back gracefully: if writeText fails or is unavailable, the
-      // command text remains selectable in the page.
-      document.querySelectorAll(".copy-btn").forEach((btn) => {
-        btn.addEventListener("click", async () => {
-          const targetId = btn.getAttribute("data-copy-target");
-          const target = targetId && document.getElementById(targetId);
-          if (!target) return;
-          const text = target.textContent.trim().replace(/\s+/g, " ");
-          const original = btn.textContent;
-          try {
-            await navigator.clipboard.writeText(text);
-            btn.textContent = "Copied";
-            btn.classList.add("is-copied");
-          } catch {
-            btn.textContent = "Press ⌘C";
-            const range = document.createRange();
-            range.selectNodeContents(target);
-            const sel = window.getSelection();
-            sel.removeAllRanges();
-            sel.addRange(range);
-          }
-          setTimeout(() => {
-            btn.textContent = original;
-            btn.classList.remove("is-copied");
-          }, 1600);
-        });
-      });
 
       (() => {
         const lightbox = document.getElementById("screenshot-lightbox");

@@ -367,13 +367,10 @@ h1 {
   text-shadow: 0 0 20px color-mix(in srgb, var(--accent) 50%, transparent);
 }
 
-.promo-was {
+.promo-note {
   font-size: 16px;
   font-family: var(--font-mono);
   color: var(--fg-muted);
-  text-decoration: line-through;
-  text-decoration-color: #e05252;
-  text-decoration-thickness: 1px;
 }
 
 .micro {
@@ -838,7 +835,7 @@ h2 {
   flex-shrink: 0;
 }
 
-/* Install — first-time Gatekeeper workaround section. */
+/* Install — first-time install section. */
 
 .install {
   padding: 64px 0;
@@ -851,86 +848,6 @@ h2 {
   margin: 0 0 28px;
 }
 
-.install-steps {
-  list-style: none;
-  margin: 0 0 24px;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  counter-reset: install-step;
-}
-
-@media (max-width: 720px) {
-  .install-steps {
-    grid-template-columns: 1fr;
-  }
-}
-
-.install-step {
-  background: var(--bg-elev);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 22px;
-  counter-increment: install-step;
-  position: relative;
-}
-
-.install-step::before {
-  content: counter(install-step);
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--fg-dim);
-  letter-spacing: 0.04em;
-}
-
-.install-step h3 {
-  font-size: 16px;
-  margin: 0 0 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  padding-right: 28px;
-}
-
-.install-step p {
-  margin: 0 0 12px;
-  color: var(--fg-muted);
-  font-size: 14px;
-}
-
-.install-step p:last-child {
-  margin-bottom: 0;
-}
-
-.install-step .install-foot {
-  font-size: 13px;
-  color: var(--fg-dim);
-}
-
-.install-pill {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
-  color: var(--accent);
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-weight: 500;
-}
-
-.install-pill-muted {
-  background: var(--bg-elev-2);
-  color: var(--fg-dim);
-  text-transform: none;
-  letter-spacing: 0;
-}
-
 .install-note {
   color: var(--fg-dim);
   font-size: 13.5px;
@@ -938,61 +855,24 @@ h2 {
   max-width: 56em;
 }
 
-/* Copy block — mono command + Copy button for the xattr workaround. */
-
-.copy-block {
-  display: flex;
-  align-items: stretch;
-  gap: 8px;
-  background: var(--bg-elev-2);
+.install-shot {
+  margin: 0 0 24px;
+  max-width: 720px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 10px 10px 10px 14px;
-  margin: 0 0 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--bg-elev);
 }
 
-.copy-block code {
-  background: transparent;
-  border: none;
-  padding: 0;
-  flex: 1;
-  font-size: 13px;
-  white-space: pre-wrap;
-  word-break: break-all;
-  color: var(--fg);
-  align-self: center;
+.install-shot picture,
+.install-shot img {
+  display: block;
 }
 
-.copy-btn {
-  font-family: var(--font-sans);
-  font-size: 12.5px;
-  font-weight: 500;
-  background: transparent;
-  color: var(--fg);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-sm);
-  padding: 6px 12px;
-  cursor: pointer;
-  transition:
-    background 0.15s,
-    border-color 0.15s,
-    color 0.15s;
-  flex-shrink: 0;
-}
-
-.copy-btn:hover {
-  background: var(--bg);
-}
-
-.copy-btn:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-.copy-btn.is-copied {
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
-  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
-  color: var(--accent);
+.install-shot img {
+  width: 100%;
+  height: auto;
 }
 
 /* FAQ — native <details>/<summary> accordion, no JS required. */
@@ -1182,8 +1062,8 @@ h2 {
 
 /* RTL — overrides for the Arabic mirror under /ar/. The English layout is
    left untouched; rules below only apply when <html dir="rtl"> is set.
-   Keep code/pre/URLs/version strings LTR even inside RTL paragraphs so the
-   xattr command, file paths, and version chips remain readable and
+   Keep code/pre/URLs/version strings LTR even inside RTL paragraphs so
+   commands, file paths, and version chips remain readable and
    copyable. */
 
 [dir="rtl"] code,
@@ -1208,20 +1088,6 @@ h2 {
 [dir="rtl"] .trust-list {
   padding-left: 0;
   padding-right: 20px;
-}
-
-[dir="rtl"] .install-step::before {
-  right: auto;
-  left: 20px;
-}
-
-[dir="rtl"] .install-step h3 {
-  padding-right: 0;
-  padding-left: 28px;
-}
-
-[dir="rtl"] .copy-block {
-  padding: 10px 14px 10px 10px;
 }
 
 [dir="rtl"] .faq summary {

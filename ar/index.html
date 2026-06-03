@@ -76,7 +76,7 @@
       hreflang="x-default"
       href="https://azzuwayed.github.io/switchboard-website/"
     />
-    <link rel="stylesheet" href="../style.css?v=d35e9ac2df" />
+    <link rel="stylesheet" href="../style.css?v=c949ffbbff" />
   </head>
   <body>
     <header class="site-header">
@@ -128,8 +128,8 @@
                 ></a
               >
               <span class="promo-badge">
-                <span class="promo-free">عرض تجريبي</span>
-                <span class="promo-was">$39.99</span>
+                <span class="promo-free">تجريب مجاني</span>
+                <span class="promo-note">موثّق من Apple</span>
               </span>
             </div>
             <ul class="trust-strip">
@@ -180,62 +180,27 @@
         <div class="container">
           <h2>التثبيت لأول مرة</h2>
           <p class="install-lead">
-            Switchboard ما زال نسخة تجريبية، ولم يحصل بعد على اعتماد Apple
-            الرسمي. لذلك قد يمنعه macOS عند أول فتح، أو قد يقول إن التطبيق
-            "تالف" حتى لو كان التنزيل سليماً. الحل بسيط: بعد وضع التطبيق في مجلد
-            التطبيقات، انسخ الأمر أدناه والصقه كما هو في Terminal. تفعل ذلك مرة
-            واحدة فقط على جهازك. وأمامك طريقتان للقيام بذلك، تكفيك إحداهما — لست
-            بحاجة إلى تنفيذهما معاً، فابدأ بالطريقة الموصى بها.
+            افتح ملف <code>.dmg</code> الذي نزّلته، واسحب Switchboard إلى مجلد
+            التطبيقات، ثم افتحه. هذا كل شيء.
           </p>
-          <ol class="install-steps">
-            <li class="install-step">
-              <h3>الحل بسطر واحد <span class="install-pill">موصى به</span></h3>
-              <p>
-                بعد سحب <code>Switchboard.app</code> إلى
-                <code>/Applications</code>، افتح Terminal والصق هذا السطر:
-              </p>
-              <div class="copy-block">
-                <code id="quarantine-cmd"
-                  >xattr -dr com.apple.quarantine
-                  /Applications/Switchboard.app</code
-                >
-                <button
-                  type="button"
-                  class="copy-btn"
-                  data-copy-target="quarantine-cmd"
-                  aria-label="نسخ الأمر"
-                >
-                  نسخ
-                </button>
-              </div>
-              <p class="install-foot">
-                هذا يزيل علامة الحظر التي أضافها macOS للتنزيل. بعدها افتح
-                Switchboard بالطريقة المعتادة.
-              </p>
-            </li>
-            <li class="install-step">
-              <h3>
-                افتح على أي حال
-                <span class="install-pill install-pill-muted"
-                  >عند توفّر الخيار</span
-                >
-              </h3>
-              <p>
-                بعد أول محاولة فتح محظورة، افتح إعدادات النظام ←
-                <strong>الخصوصية والأمان</strong>، ثم اضغط
-                <strong>افتح على أي حال</strong> لـ Switchboard إذا ظهر هذا
-                الخيار.
-              </p>
-              <p class="install-foot">
-                هذا الخيار لا يظهر دائماً. إذا لم تجده، استخدم حل السطر الواحد
-                أعلاه.
-              </p>
-            </li>
-          </ol>
+          <figure class="install-shot">
+            <picture>
+              <source
+                srcset="../assets/screenshots/install-dmg.webp"
+                type="image/webp"
+              />
+              <img
+                src="../assets/screenshots/install-dmg.png"
+                alt="نافذة مثبّت Switchboard: اسحب تطبيق Switchboard إلى مجلد التطبيقات."
+                width="1664"
+                height="1224"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </figure>
           <p class="install-note">
-            لماذا هذا ضروري؟ لأن النسخة التجريبية لم تُوثَّق من Apple بعد. إلى
-            أن يحدث ذلك، يحتاج macOS إلى سماح يدوي في أول مرة فقط. اطّلع على
-            <a href="#faq">الأسئلة الشائعة</a> لمزيد من التفاصيل.
+            معالج Apple Silicon‏ (arm64)‏ وmacOS 12 (Monterey) أو أحدث.
           </p>
         </div>
       </section>
@@ -724,11 +689,11 @@
           <ul class="trust-list">
             <li>يعمل بالكامل على جهاز Mac الخاص بك.</li>
             <li>لا تحتاج حساباً ولا مفتاح ترخيص خلال النسخة التجريبية.</li>
-            <li>لا يرسل بيانات استخدام أو تحليلات.</li>
+            <li>إحصاءات استخدام مجهولة فقط، ويمكن إيقافها من الإعدادات.</li>
+            <li>إعداداتك وسجلاتك تبقى على جهازك.</li>
             <li>لا يشغّل أمراً عشوائياً لأن صفحة الواجهة طلبت ذلك.</li>
             <li>كل زر حساس يطلب تأكيداً قبل التنفيذ.</li>
             <li>الأوامر الجاهزة أو المستوردة تُراجع قبل السماح بتشغيلها.</li>
-            <li>إعداداتك وسجلاتك تبقى على جهازك.</li>
           </ul>
           <p class="install-foot" style="margin-top: 24px">
             <a href="privacy.html">اقرأ بيان الخصوصية والثقة الكامل ←</a>
@@ -741,33 +706,6 @@
           <h2>الأسئلة الشائعة</h2>
           <div class="faq-list">
             <details open>
-              <summary>
-                macOS يقول إن التطبيق "تالف" أو "لا يمكن التحقق منه" — ماذا
-                أفعل؟
-              </summary>
-              <div class="faq-body">
-                <p>
-                  هذه رسالة حماية من macOS لأن النسخة التجريبية لم تُوثَّق من
-                  Apple بعد. قد تظهر رسالة:
-                  <em
-                    >"Switchboard.app is damaged and can't be opened. You should
-                    move it to the Trash."</em
-                  >. أنظمة أخرى قد تُظهر
-                  <em
-                    >"cannot be opened because Apple cannot check it for
-                    malicious software."</em
-                  >
-                </p>
-                <p>
-                  التطبيق ليس تالفاً فعلاً. استخدم أمر النسخ واللصق في قسم
-                  <a href="#install">التثبيت لأول مرة</a>، أو اضغط
-                  <strong>افتح على أي حال</strong> من إعدادات النظام إذا ظهر
-                  الخيار.
-                </p>
-              </div>
-            </details>
-
-            <details>
               <summary>هل Switchboard مجاني فعلاً؟ ما المقابل؟</summary>
               <div class="faq-body">
                 <p>
@@ -794,9 +732,8 @@
                   عندما تريد فهم ما يشغله جهازك.
                 </p>
                 <p>
-                  الجزء الوحيد الذي يلامس سطر الأوامر مباشرةً هو أمر التثبيت
-                  الأول: نسخ سطر واحد إلى Terminal حتى يسمح macOS بفتح النسخة
-                  التجريبية. بعد ذلك تدير الخدمات من واجهة التطبيق، لكن
+                  التثبيت مجرد سحب إلى مجلد التطبيقات ثم الفتح — دون أي خطوات في
+                  سطر الأوامر. بعد ذلك تدير الخدمات من واجهة التطبيق، لكن
                   الاستفادة الكاملة تفترض أنك معتاد على الخدمات والأوامر
                   والمنافذ التي تشغّلها على جهازك.
                 </p>
@@ -892,8 +829,9 @@
               <div class="faq-body">
                 <p>
                   يفحص التطبيق مرة في اليوم هل يوجد إصدار جديد. إذا وجد تحديثاً،
-                  يعرض شريطاً صغيراً داخل التطبيق. عند التثبيت، يتحقق من توقيع
-                  رقمي للحزمة قبل استبدال النسخة الموجودة.
+                  يعرض شريطاً صغيراً داخل التطبيق. مسار التحديث ينزّل النسخة
+                  الجديدة، يثبّتها، ثم يطلب منك إعادة تشغيل التطبيق، ويتحقق من
+                  توقيع رقمي للحزمة قبل استبدال النسخة الموجودة.
                 </p>
                 <p>
                   تفضّل تنزيل التحديث بنفسك؟ عطّل
@@ -1079,34 +1017,6 @@
           // صامت — تبقى الشارة مخفية.
         }
       })();
-
-      // ربط أزرار النسخ داخل قسم التثبيت بـ Clipboard API.
-      // الرجوع التدريجي: إن فشل writeText أو لم يكن متاحاً، يبقى نص الأمر قابلاً للتحديد.
-      document.querySelectorAll(".copy-btn").forEach((btn) => {
-        btn.addEventListener("click", async () => {
-          const targetId = btn.getAttribute("data-copy-target");
-          const target = targetId && document.getElementById(targetId);
-          if (!target) return;
-          const text = target.textContent.trim().replace(/\s+/g, " ");
-          const original = btn.textContent;
-          try {
-            await navigator.clipboard.writeText(text);
-            btn.textContent = "تم النسخ";
-            btn.classList.add("is-copied");
-          } catch {
-            btn.textContent = "اضغط ⌘C";
-            const range = document.createRange();
-            range.selectNodeContents(target);
-            const sel = window.getSelection();
-            sel.removeAllRanges();
-            sel.addRange(range);
-          }
-          setTimeout(() => {
-            btn.textContent = original;
-            btn.classList.remove("is-copied");
-          }, 1600);
-        });
-      });
 
       (() => {
         const lightbox = document.getElementById("screenshot-lightbox");

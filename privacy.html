@@ -47,7 +47,7 @@
       hreflang="x-default"
       href="https://azzuwayed.github.io/switchboard-website/privacy.html"
     />
-    <link rel="stylesheet" href="style.css?v=d35e9ac2df" />
+    <link rel="stylesheet" href="style.css?v=c949ffbbff" />
     <style>
       .doc-hero {
         padding: 64px 0 32px;
@@ -149,7 +149,7 @@
             off. This page describes exactly what the app reads, writes, and
             sends — and what it deliberately does not do.
           </p>
-          <p class="doc-meta">Last updated: 2026-06-02.</p>
+          <p class="doc-meta">Last updated: 2026-06-03.</p>
         </div>
       </section>
 
@@ -365,10 +365,9 @@
           </p>
           <p>
             The private signing key never leaves a local keychain and CI secret
-            store. Until Apple Developer ID signing and notarization land, macOS
-            Gatekeeper may still prompt you to allow a freshly-installed update
-            the first time you open it; the in-app updater can swap the bundle
-            but cannot bypass that prompt.
+            store. Release builds are also signed with an Apple Developer ID
+            certificate and notarized by Apple, so a freshly-installed update
+            opens normally.
           </p>
         </div>
       </section>
