@@ -10,6 +10,15 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 
 ## [Unreleased]
 
+## [1.0.0-beta.24] - 2026-06-03
+
+### Changed
+
+- **Signed and notarized by Apple.** Switchboard is now signed with an Apple
+  Developer ID and notarized by Apple, so the downloaded app opens like any
+  other Mac app — no more Terminal command or "app is damaged" warning on first
+  launch. Existing installs update to the notarized build automatically.
+
 ## [1.0.0-beta.23] - 2026-06-03
 
 ### Added
