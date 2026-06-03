@@ -1,30 +1,32 @@
 {
   "schemaVersion": 1,
-  "latest": "1.0.0-beta.24",
-  "releasedAt": "2026-06-03T19:43:03.240Z",
+  "latest": "1.0.0-beta.25",
+  "releasedAt": "2026-06-03T22:36:37.957Z",
   "minimumSystemVersion": "12.0",
   "channel": "beta",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.24/Switchboard-v1.0.0-beta.24-macos-arm64.dmg",
-        "sha256": "163e6329ae726d444caaf62b604402356751a2902ef8b985faab6dba6c56c2cb",
-        "sizeBytes": 9790945
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.25/Switchboard-v1.0.0-beta.25-macos-arm64.dmg",
+        "sha256": "f06e4f9a75d8049c90a9381e88b99be5594c770cdc5a01881d7a6a1f80e77169",
+        "sizeBytes": 9795442
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.24",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.25",
   "downloadPageUrl": "https://azzuwayed.github.io/switchboard-website/",
-  "notes": "Switchboard 1.0.0-beta.24 — see release notes for details.",
+  "notes": "Switchboard 1.0.0-beta.25 — see release notes for details.",
   "highlights": [
-    "Signed and notarized by Apple. Switchboard is now signed with an Apple Developer ID and notarized by Apple, so the downloaded app opens like any other Mac app — no more Terminal command or \"app is damaged\" warning on first launch. Existing installs update to the notarized build automatically."
+    "Less jumpy action feedback. Short-lived success and error messages in Settings, Observer, Ports, Tray, and bulk service actions now appear as toasts instead of moving the surrounding interface around. Longer-running and blocking states still stay inline where they need attention.",
+    "Download count now tracks the latest Mac installer. The website badge now reads the current release's .dmg count instead of summing every older beta, matching the public mirror's latest-installer retention policy.",
+    "Safer diagnostics sharing. Copy diagnostics now produces a minimal support report that leaves out command output, command IDs, local paths, process IDs, and observer titles while still including enough non-identifying app environment details for troubleshooting."
   ],
-  "version": "1.0.0-beta.24",
-  "pub_date": "2026-06-03T19:43:03.240Z",
+  "version": "1.0.0-beta.25",
+  "pub_date": "2026-06-03T22:36:37.957Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTE3dG5aN1gyOWZlK2NKSWgyZVZKUVowQ3plYmd5bUZDOFB0SnNzV1VaVjNGQ3RPM1NDZmdBY3JKeWF6cUpON3ozdWhjd3ZXRzJYdSswY0NCNm4zclFBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNTE1NzEyCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpqeUU1OFVWZnFxZW5ZR3RyTlZuNmpYd1FLWUtpV2RtV2JleUlkUUl3OWFEdkR1dFloQmFvckZzbVFkS0ZxaUNsbXhFc1VuRzNaYmgvK1RqazNSazlBZz09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.24/Switchboard-v1.0.0-beta.24-macos-arm64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXg3NThNMEMvL0xSL3pncTBOQys3aUk1YnBkVU9aMUlYd0FLUzFjakJFQlphTEwxaVkwcHFKYm5zMTB4M25YWGxOTTRvUVV3T0ZqREdvdlRxRWt6K2dNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNTI2MTQyCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpjaExXMitWQjU0TVNqc1ZzL2JGL1p5TzVNTVAyazRxOVYydkI2Ymt0a0Zna3NjS1lUNzRKMlFPMHJiMHpaRWJoaVZyWjBIRW40cWVoamdhRXcveitBZz09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.25/Switchboard-v1.0.0-beta.25-macos-arm64.app.tar.gz"
     }
   }
 }
