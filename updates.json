@@ -1,30 +1,30 @@
 {
   "schemaVersion": 1,
-  "latest": "1.0.0-beta.23",
-  "releasedAt": "2026-06-03T07:01:17.273Z",
+  "latest": "1.0.0-beta.24",
+  "releasedAt": "2026-06-03T19:43:03.240Z",
   "minimumSystemVersion": "12.0",
   "channel": "beta",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.23/Switchboard-v1.0.0-beta.23-macos-arm64.dmg",
-        "sha256": "f3af85c4c1f0b560743da0575745abdc35b32423194fde672e4b42e1b432676b",
-        "sizeBytes": 9844030
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.24/Switchboard-v1.0.0-beta.24-macos-arm64.dmg",
+        "sha256": "163e6329ae726d444caaf62b604402356751a2902ef8b985faab6dba6c56c2cb",
+        "sizeBytes": 9790945
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.23",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.24",
   "downloadPageUrl": "https://azzuwayed.github.io/switchboard-website/",
-  "notes": "Switchboard 1.0.0-beta.23 — see release notes for details.",
+  "notes": "Switchboard 1.0.0-beta.24 — see release notes for details.",
   "highlights": [
-    "Anonymous usage statistics (opt-out). So we can tell roughly how many people actively use Switchboard, the daily update check now reports an anonymous, aggregate count — no account, no identifiers, and no IP address is stored. It's on by default; turn it off anytime in Settings → Privacy. See the privacy page for exactly what is and isn't collected."
+    "Signed and notarized by Apple. Switchboard is now signed with an Apple Developer ID and notarized by Apple, so the downloaded app opens like any other Mac app — no more Terminal command or \"app is damaged\" warning on first launch. Existing installs update to the notarized build automatically."
   ],
-  "version": "1.0.0-beta.23",
-  "pub_date": "2026-06-03T07:01:17.273Z",
+  "version": "1.0.0-beta.24",
+  "pub_date": "2026-06-03T19:43:03.240Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTdUb0xIZGZCUkN3ejl0c2xZK3lqRnpyWTNNVlllYmt5U2Z5dm9UdzhNYTE4dlZRNFVrazZpeGorMFV6L3hCTXlJMk0zRENCN1NvQnBlZXJMTFIwY2c4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNDcwMDM4CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpIMFk4ODBUQXlhTlJqMXRFVkN2c1V1OS9UMnlKVGh1b2ljR0p5Si9STWlYOVFBV2ZPa2ZqOEFoVTQxSGFucGhqTE5jQklINUg5dktLT1ZPT0t1YWpDZz09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.23/Switchboard-v1.0.0-beta.23-macos-arm64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTE3dG5aN1gyOWZlK2NKSWgyZVZKUVowQ3plYmd5bUZDOFB0SnNzV1VaVjNGQ3RPM1NDZmdBY3JKeWF6cUpON3ozdWhjd3ZXRzJYdSswY0NCNm4zclFBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNTE1NzEyCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpqeUU1OFVWZnFxZW5ZR3RyTlZuNmpYd1FLWUtpV2RtV2JleUlkUUl3OWFEdkR1dFloQmFvckZzbVFkS0ZxaUNsbXhFc1VuRzNaYmgvK1RqazNSazlBZz09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.24/Switchboard-v1.0.0-beta.24-macos-arm64.app.tar.gz"
     }
   }
 }
