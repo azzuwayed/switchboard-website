@@ -10,6 +10,25 @@ Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
 
 ## [Unreleased]
 
+## [1.0.0-beta.25] - 2026-06-03
+
+### Changed
+
+- **Less jumpy action feedback.** Short-lived success and error messages in
+  Settings, Observer, Ports, Tray, and bulk service actions now appear as toasts
+  instead of moving the surrounding interface around. Longer-running and
+  blocking states still stay inline where they need attention.
+- **Download count now tracks the latest Mac installer.** The website badge now
+  reads the current release's `.dmg` count instead of summing every older beta,
+  matching the public mirror's latest-installer retention policy.
+
+### Security
+
+- **Safer diagnostics sharing.** Copy diagnostics now produces a minimal support
+  report that leaves out command output, command IDs, local paths, process IDs,
+  and observer titles while still including enough non-identifying app
+  environment details for troubleshooting.
+
 ## [1.0.0-beta.24] - 2026-06-03
 
 ### Changed

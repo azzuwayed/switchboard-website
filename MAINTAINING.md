@@ -84,6 +84,10 @@ The source repo's release script:
 - Commit a fresh `updates.json` plus any cache-bust HTML changes to `main`.
 - Trigger the (always-on) Pages deploy that re-serves the manifest at the
   public URL.
+- Wait until the public manifest reports the new version, then wait through
+  the Worker cache grace and delete older public release binary assets. Older
+  release pages, tags, and notes remain public; the private source repo keeps
+  the full artifact archive.
 
 The full procedure lives in the source repo's
 [`docs/release/process.md`](https://github.com/azzuwayed/switchboard/blob/main/docs/release/process.md).

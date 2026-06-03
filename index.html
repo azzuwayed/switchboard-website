@@ -1039,15 +1039,15 @@
         }
       })();
 
-      // Display the cumulative .dmg download count from GitHub Releases as a
-      // trust-strip chip. Reads a public aggregate via the GitHub API — no
-      // cookies, no visitor tracking, no token. Caches in localStorage and
+      // Display the latest .dmg download count from GitHub Releases as a
+      // trust-strip chip. Reads public release metadata via the GitHub API —
+      // no cookies, no visitor tracking, no token. Caches in localStorage and
       // degrades silently (the chip stays hidden) on any failure.
       (async () => {
         const REPO = "azzuwayed/switchboard-website";
         const MIN_TO_SHOW = 0; // raise to hide the chip until downloads grow
         const TTL_MS = 6 * 60 * 60 * 1000;
-        const KEY = "sb-dl-count";
+        const KEY = "sb-latest-dl-count";
         const item = document.getElementById("download-count-item");
         const out = document.getElementById("download-count");
         if (!item || !out) return;
@@ -1059,30 +1059,44 @@
         };
 
         try {
-          const cached = JSON.parse(localStorage.getItem(KEY) || "null");
-          if (cached && Date.now() - cached.t < TTL_MS) {
-            show(cached.n);
-            return;
-          }
-        } catch {
-          // Ignore a malformed cache entry and fetch fresh.
-        }
+          const manifestRes = await fetch("updates.json", {
+            cache: "no-cache",
+          });
+          if (!manifestRes.ok) return;
+          const manifest = await manifestRes.json();
+          const latest = manifest?.latest;
+          if (!latest) return;
 
-        try {
+          try {
+            const cached = JSON.parse(localStorage.getItem(KEY) || "null");
+            if (
+              cached &&
+              cached.latest === latest &&
+              Date.now() - cached.t < TTL_MS
+            ) {
+              show(cached.n);
+              return;
+            }
+          } catch {
+            // Ignore a malformed cache entry and fetch fresh.
+          }
+
           const res = await fetch(
-            `https://api.github.com/repos/${REPO}/releases?per_page=100`,
+            `https://api.github.com/repos/${REPO}/releases/tags/v${encodeURIComponent(
+              latest,
+            )}`,
             { headers: { Accept: "application/vnd.github+json" } },
           );
           if (!res.ok) return;
-          const releases = await res.json();
-          const total = releases
-            .flatMap((r) => r.assets || [])
-            .filter((a) => a.name.toLowerCase().endsWith(".dmg"))
-            .reduce((sum, a) => sum + (a.download_count || 0), 0);
+          const release = await res.json();
+          const dmgName = `Switchboard-v${latest}-macos-arm64.dmg`;
+          const total =
+            (release.assets || []).find((a) => a.name === dmgName)
+              ?.download_count || 0;
           try {
             localStorage.setItem(
               KEY,
-              JSON.stringify({ n: total, t: Date.now() }),
+              JSON.stringify({ latest, n: total, t: Date.now() }),
             );
           } catch {
             // localStorage unavailable (private mode/quota) — skip caching.

@@ -986,14 +986,14 @@
         }
       })();
 
-      // يعرض إجمالي عدد تنزيلات ملف .dmg من GitHub Releases كشارة في شريط الثقة.
-      // يقرأ رقماً عاماً مجمّعاً عبر واجهة GitHub — بدون كوكيز، بدون تتبّع للزائر،
+      // يعرض عدد تنزيلات أحدث ملف .dmg من GitHub Releases كشارة في شريط الثقة.
+      // يقرأ بيانات الإصدار العامة عبر واجهة GitHub — بدون كوكيز، بدون تتبّع للزائر،
       // بدون رمز وصول. يخزّن مؤقتاً في localStorage ويفشل بصمت (تبقى الشارة مخفية).
       (async () => {
         const REPO = "azzuwayed/switchboard-website";
         const MIN_TO_SHOW = 0; // ارفعه لإخفاء الشارة حتى تكبر أرقام التنزيل
         const TTL_MS = 6 * 60 * 60 * 1000;
-        const KEY = "sb-dl-count";
+        const KEY = "sb-latest-dl-count";
         const item = document.getElementById("download-count-item");
         const out = document.getElementById("download-count");
         if (!item || !out) return;
@@ -1005,30 +1005,44 @@
         };
 
         try {
-          const cached = JSON.parse(localStorage.getItem(KEY) || "null");
-          if (cached && Date.now() - cached.t < TTL_MS) {
-            show(cached.n);
-            return;
-          }
-        } catch {
-          // تجاهل إدخال التخزين المؤقت التالف واجلب من جديد.
-        }
+          const manifestRes = await fetch("../updates.json", {
+            cache: "no-cache",
+          });
+          if (!manifestRes.ok) return;
+          const manifest = await manifestRes.json();
+          const latest = manifest?.latest;
+          if (!latest) return;
 
-        try {
+          try {
+            const cached = JSON.parse(localStorage.getItem(KEY) || "null");
+            if (
+              cached &&
+              cached.latest === latest &&
+              Date.now() - cached.t < TTL_MS
+            ) {
+              show(cached.n);
+              return;
+            }
+          } catch {
+            // تجاهل إدخال التخزين المؤقت التالف واجلب من جديد.
+          }
+
           const res = await fetch(
-            `https://api.github.com/repos/${REPO}/releases?per_page=100`,
+            `https://api.github.com/repos/${REPO}/releases/tags/v${encodeURIComponent(
+              latest,
+            )}`,
             { headers: { Accept: "application/vnd.github+json" } },
           );
           if (!res.ok) return;
-          const releases = await res.json();
-          const total = releases
-            .flatMap((r) => r.assets || [])
-            .filter((a) => a.name.toLowerCase().endsWith(".dmg"))
-            .reduce((sum, a) => sum + (a.download_count || 0), 0);
+          const release = await res.json();
+          const dmgName = `Switchboard-v${latest}-macos-arm64.dmg`;
+          const total =
+            (release.assets || []).find((a) => a.name === dmgName)
+              ?.download_count || 0;
           try {
             localStorage.setItem(
               KEY,
-              JSON.stringify({ n: total, t: Date.now() }),
+              JSON.stringify({ latest, n: total, t: Date.now() }),
             );
           } catch {
             // localStorage غير متاح (وضع خاص/تجاوز الحصة) — تخطّى التخزين المؤقت.
