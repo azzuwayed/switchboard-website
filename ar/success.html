@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Switchboard — رخصتك</title>
+    <meta name="robots" content="noindex" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/icon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="128x128"
+      href="../assets/icon-128.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="256x256"
+      href="../assets/icon-256.png"
+    />
+    <link rel="stylesheet" href="../style.css?v=c949ffbbff" />
+    <style>
+      .result-card {
+        max-width: 520px;
+        border: 1px solid var(--border, #2a2a2a);
+        border-radius: 14px;
+        padding: 24px;
+        background: var(--bg-elev, rgba(255, 255, 255, 0.02));
+      }
+      .key-box {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin: 16px 0 6px;
+      }
+      .key-value {
+        flex: 1;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 11px 13px;
+        border-radius: 8px;
+        border: 1px solid var(--border, #2a2a2a);
+        background: var(--bg, #0e0e0e);
+        user-select: all;
+        word-break: break-all;
+        direction: ltr;
+        text-align: left;
+      }
+      .save-warning {
+        font-size: 13px;
+        color: #e0a23a;
+        margin-top: 4px;
+      }
+      .how-to {
+        font-size: 14px;
+        opacity: 0.85;
+        margin-top: 18px;
+        line-height: 1.6;
+      }
+      .status-line {
+        font-size: 15px;
+        opacity: 0.85;
+      }
+      .spinner {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border: 2px solid currentColor;
+        border-inline-start-color: transparent;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        vertical-align: -2px;
+        margin-inline-end: 8px;
+        opacity: 0.7;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .muted {
+        font-size: 13px;
+        opacity: 0.6;
+        margin-top: 14px;
+      }
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../">
+          <img
+            class="brand-mark"
+            src="../assets/icon-256.png"
+            srcset="../assets/icon-128.png 1x, ../assets/icon-256.png 2x"
+            alt=""
+            width="28"
+            height="28"
+          />
+          <span class="brand-name">Switchboard</span>
+          <span class="brand-by">by Azzuwayed</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <p class="eyebrow">شكراً لك</p>
+          <h1 id="heading">جارٍ تأكيد الدفع…</h1>
+
+          <div class="result-card">
+            <p class="status-line" id="status">
+              <span class="spinner" aria-hidden="true"></span>جارٍ التحقق مع
+              مزوّد الدفع…
+            </p>
+
+            <div id="key-section" hidden>
+              <p style="font-size: 14px; opacity: 0.85; margin: 0">
+                مفتاح رخصة Switchboard الشخصية:
+              </p>
+              <div class="key-box">
+                <code class="key-value" id="key-value">—</code>
+                <button class="btn btn-secondary" id="copy-btn" type="button">
+                  نسخ
+                </button>
+              </div>
+              <p class="save-warning">
+                احفظ هذا المفتاح الآن — انسخه إلى مكان آمن. لا نرسله بالبريد
+                الإلكتروني حالياً.
+              </p>
+              <p class="how-to">
+                للتفعيل: افتح Switchboard، واذهب إلى
+                <strong>الإعدادات ← الرخصة والباقة</strong>، ثم الصق مفتاحك
+                واضغط <strong>تفعيل</strong>. تعمل الرخصة الواحدة على حتى 3
+                أجهزة Mac.
+              </p>
+            </div>
+
+            <div id="pending-section" hidden>
+              <p class="how-to" id="pending-message">
+                ما زالت عملية الدفع قيد المعالجة. ستستمر هذه الصفحة في التحقق.
+              </p>
+            </div>
+
+            <div id="fallback-section" hidden>
+              <p class="how-to">
+                إذا أتممت الدفع ولم يظهر لك المفتاح، يرجى التواصل مع الدعم برقم
+                طلبك وسنرسله إليك.
+                <span id="order-ref"></span>
+              </p>
+            </div>
+          </div>
+
+          <p class="muted">
+            <a href="pricing.html">العودة إلى الأسعار</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 عبدالله الزويد. جميع الحقوق محفوظة.</p>
+        <nav class="footer-nav" aria-label="تذييل">
+          <a href="pricing.html">الأسعار</a>
+          <a href="privacy.html">الخصوصية</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
+      const POLL_INTERVAL_MS = 3000;
+      const MAX_POLLS = 20;
+
+      const params = new URLSearchParams(window.location.search);
+      const transactionNo =
+        params.get("transactionNo") ||
+        params.get("orderNumber") ||
+        sessionStorage.getItem("sb-transaction-no");
+
+      const statusEl = document.getElementById("status");
+      const headingEl = document.getElementById("heading");
+      const keySection = document.getElementById("key-section");
+      const keyValue = document.getElementById("key-value");
+      const copyBtn = document.getElementById("copy-btn");
+      const pendingSection = document.getElementById("pending-section");
+      const fallbackSection = document.getElementById("fallback-section");
+      const orderRef = document.getElementById("order-ref");
+
+      function showKey(key) {
+        statusEl.hidden = true;
+        pendingSection.hidden = true;
+        headingEl.textContent = "كل شيء جاهز";
+        keyValue.textContent = key;
+        keySection.hidden = false;
+      }
+
+      function showFallback() {
+        statusEl.hidden = true;
+        pendingSection.hidden = true;
+        headingEl.textContent = "تم استلام الدفع";
+        if (transactionNo) {
+          orderRef.textContent = `رقم الطلب: ${transactionNo}`;
+        }
+        fallbackSection.hidden = false;
+      }
+
+      copyBtn?.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(keyValue.textContent);
+          copyBtn.textContent = "تم النسخ";
+          setTimeout(() => (copyBtn.textContent = "نسخ"), 1800);
+        } catch {
+          const range = document.createRange();
+          range.selectNodeContents(keyValue);
+          window.getSelection()?.removeAllRanges();
+          window.getSelection()?.addRange(range);
+        }
+      });
+
+      async function poll(attempt) {
+        if (!transactionNo) {
+          showFallback();
+          return;
+        }
+        try {
+          const res = await fetch(
+            `${LICENSE_API}/api/checkout/status?transactionNo=${encodeURIComponent(transactionNo)}`,
+          );
+          const data = await res.json().catch(() => ({}));
+          if (data.status === "Paid" && data.licenseKey) {
+            showKey(data.licenseKey);
+            return;
+          }
+          if (data.status === "Canceled") {
+            statusEl.hidden = true;
+            headingEl.textContent = "أُلغيت عملية الدفع";
+            pendingSection.hidden = false;
+            document.getElementById("pending-message").textContent =
+              "أُلغيت عملية الدفع هذه. يمكنك المحاولة مجدداً من صفحة الأسعار.";
+            return;
+          }
+        } catch {
+          // عابر — نواصل التحقق.
+        }
+        if (attempt >= MAX_POLLS) {
+          showFallback();
+          return;
+        }
+        setTimeout(() => poll(attempt + 1), POLL_INTERVAL_MS);
+      }
+
+      poll(1);
+    </script>
+  </body>
+</html>

@@ -44,9 +44,12 @@ macOS 12 (Monterey) or later, Apple Silicon (arm64).
 
 ## Pricing
 
-Switchboard is free during beta. The stable 1.0 release is planned to be paid,
-and beta users will be offered either a founder discount or an early-supporter
-license path before stable pricing starts.
+Switchboard has a free tier that stays free (custom services, start/stop, the
+central log viewer, basic ports and health, manual scan, service-down alerts).
+A paid Personal license (founder offer $20 at launch, then $39) unlocks the
+advanced monitoring — continuous Observer, resource-anomaly detection, port
+intelligence, and advanced notifications — and activates up to 3 Macs. See
+[pricing](https://azzuwayed.github.io/switchboard-website/pricing.html).
 
 ## Stay in the loop
 

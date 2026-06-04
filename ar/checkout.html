@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Switchboard — الدفع</title>
+    <meta name="description" content="اشترِ رخصة Switchboard الشخصية." />
+    <meta name="robots" content="noindex" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/icon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="128x128"
+      href="../assets/icon-128.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="256x256"
+      href="../assets/icon-256.png"
+    />
+    <link rel="stylesheet" href="../style.css?v=c949ffbbff" />
+    <style>
+      .checkout-card {
+        max-width: 460px;
+        border: 1px solid var(--border, #2a2a2a);
+        border-radius: 14px;
+        padding: 24px;
+        background: var(--bg-elev, rgba(255, 255, 255, 0.02));
+      }
+      .checkout-field {
+        display: grid;
+        gap: 6px;
+        margin-bottom: 16px;
+      }
+      .checkout-field label {
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .checkout-field .hint {
+        font-size: 12px;
+        opacity: 0.6;
+      }
+      .checkout-field input {
+        font: inherit;
+        font-size: 14px;
+        padding: 9px 11px;
+        border-radius: 8px;
+        border: 1px solid var(--border, #2a2a2a);
+        background: var(--bg, #0e0e0e);
+        color: inherit;
+      }
+      .checkout-field input:focus-visible {
+        outline: 2px solid var(--accent, #5b8def);
+        outline-offset: 1px;
+      }
+      .checkout-summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 18px;
+        font-size: 14px;
+      }
+      .checkout-summary .total {
+        font-size: 22px;
+        font-weight: 700;
+      }
+      .checkout-error {
+        color: #ef5b5b;
+        font-size: 13px;
+        margin-top: 12px;
+        min-height: 1em;
+      }
+      .checkout-card .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .checkout-fineprint {
+        font-size: 12px;
+        opacity: 0.6;
+        margin-top: 14px;
+        max-width: 460px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../">
+          <img
+            class="brand-mark"
+            src="../assets/icon-256.png"
+            srcset="../assets/icon-128.png 1x, ../assets/icon-256.png 2x"
+            alt=""
+            width="28"
+            height="28"
+          />
+          <span class="brand-name">Switchboard</span>
+          <span class="brand-by">by Azzuwayed</span>
+        </a>
+        <nav class="site-nav" aria-label="التنقّل الرئيسي">
+          <a href="pricing.html">الأسعار</a>
+          <a class="lang-switch" href="../checkout.html" hreflang="en" lang="en"
+            >English</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <p class="eyebrow">الدفع</p>
+          <h1>رخصة Switchboard الشخصية</h1>
+          <p class="lede" style="max-width: 56ch">
+            تفعّل الرخصة الواحدة حتى 3 أجهزة Mac. ستحصل على مفتاح الرخصة مباشرة
+            بعد الدفع — احفظه في مكان آمن.
+          </p>
+
+          <form class="checkout-card" id="checkout-form" novalidate>
+            <div class="checkout-summary">
+              <span>الرخصة الشخصية · عرض الإطلاق</span>
+              <span class="total" id="total">— ريال</span>
+            </div>
+
+            <div class="checkout-field">
+              <label for="name">الاسم الكامل</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <div class="checkout-field">
+              <label for="mobile">رقم الجوال</label>
+              <span class="hint">مطلوب من مزوّد الدفع (مثل 05XXXXXXXX).</span>
+              <input
+                id="mobile"
+                name="mobile"
+                type="tel"
+                autocomplete="tel"
+                inputmode="tel"
+                required
+              />
+            </div>
+            <div class="checkout-field">
+              <label for="email">البريد الإلكتروني</label>
+              <span class="hint">للإيصال والدعم. مُستحسن.</span>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+              />
+            </div>
+
+            <button class="btn btn-primary" id="pay-btn" type="submit">
+              المتابعة إلى الدفع الآمن
+            </button>
+            <p class="checkout-error" id="error" role="alert"></p>
+          </form>
+
+          <p class="checkout-fineprint">
+            تتم معالجة الدفع عبر Paylink على صفحته الآمنة. يُحصّل المبلغ بالريال
+            (شامل الضريبة). التفعيل بمفتاح الرخصة فقط — لا يُنشأ أي حساب.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 عبدالله الزويد. جميع الحقوق محفوظة.</p>
+        <nav class="footer-nav" aria-label="تذييل">
+          <a href="pricing.html">الأسعار</a>
+          <a href="privacy.html">الخصوصية</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
+
+      const form = document.getElementById("checkout-form");
+      const payBtn = document.getElementById("pay-btn");
+      const errorEl = document.getElementById("error");
+      const totalEl = document.getElementById("total");
+
+      totalEl.textContent = "≈ 73 ريال";
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        errorEl.textContent = "";
+        const name = document.getElementById("name").value.trim();
+        const mobile = document.getElementById("mobile").value.trim();
+        const email = document.getElementById("email").value.trim();
+        if (!name || !mobile) {
+          errorEl.textContent = "الرجاء إدخال الاسم ورقم الجوال.";
+          return;
+        }
+        payBtn.disabled = true;
+        payBtn.textContent = "جارٍ إنشاء فاتورتك…";
+        try {
+          const res = await fetch(`${LICENSE_API}/api/checkout/create`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, mobile, email, locale: "ar" }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok || !data.url) {
+            throw new Error(
+              data.error || "تعذّر بدء الدفع. الرجاء المحاولة مجدداً.",
+            );
+          }
+          if (data.amount && data.currency) {
+            totalEl.textContent = `${data.amount} ${data.currency}`;
+          }
+          try {
+            sessionStorage.setItem("sb-transaction-no", data.transactionNo);
+          } catch {
+            // وضع التصفّح الخاص — تعتمد صفحة النجاح على مَعلمة الرابط.
+          }
+          window.location.href = data.url;
+        } catch (err) {
+          errorEl.textContent = err.message || String(err);
+          payBtn.disabled = false;
+          payBtn.textContent = "المتابعة إلى الدفع الآمن";
+        }
+      });
+    </script>
+  </body>
+</html>

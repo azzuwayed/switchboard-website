@@ -32,8 +32,14 @@ const CHECK_ONLY = process.argv.includes("--check");
 const HTML_PAGES = [
   "index.html",
   "privacy.html",
+  "pricing.html",
+  "checkout.html",
+  "success.html",
   "ar/index.html",
   "ar/privacy.html",
+  "ar/pricing.html",
+  "ar/checkout.html",
+  "ar/success.html",
 ];
 
 function fail(message, code = 1) {
