@@ -5,10 +5,37 @@ Internal refactors, test changes, and dependency bumps are intentionally
 omitted — those live in the development repo's changelog.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/);
-Switchboard uses [SemVer](https://semver.org/). Pre-1.0 builds ship as
-`1.0.0-beta.<n>`.
+Switchboard uses [SemVer](https://semver.org/). `1.0.0` is the first stable
+release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
+
+## [1.0.0] - 2026-06-04
+
+Switchboard 1.0 — the first stable release.
+
+### Added
+
+- **Pricing is live, and the free tier stays free.** Switchboard is genuinely
+  useful for free: custom services, start/stop/restart with approval review, the
+  central log viewer, basic port visibility and health, a manual "Scan now," and
+  service-down notifications. A one-time **Personal license** unlocks the advanced
+  monitoring — the continuous Observer, resource-anomaly detection, deeper port
+  intelligence, and advanced notifications. One purchase covers up to 3 Macs, with
+  updates and support through the next major release.
+- **7-day full-feature trial on first launch.** Every fresh install starts with
+  everything unlocked for 7 days — no account, no card — then returns to free use.
+  A small plan badge by the app name shows Free, Trial (with days remaining), or
+  Paid at a glance, and Settings → License & Plan handles activation, the trial
+  countdown, and the upgrade.
+- **Follow one incident across surfaces.** Focused links now connect the Observer,
+  Activity log, Services, and Logs, so you can jump straight to the same finding in
+  each place instead of hunting for it.
+
+### Changed
+
+- **Interface polish.** Tidier spacing between Settings sections, and corrected
+  Arabic plural wording across the app's counters and the trial countdown.
 
 ## [1.0.0-beta.25] - 2026-06-03
 
