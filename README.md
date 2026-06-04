@@ -45,8 +45,9 @@ macOS 12 (Monterey) or later, Apple Silicon (arm64).
 ## Pricing
 
 Switchboard stays useful for free (custom services, start/stop, the central log
-viewer, basic ports and health, manual scan, service-down alerts). A Personal
-license (founder offer $20 at launch, then $39) unlocks advanced monitoring —
+viewer, basic ports and health, manual scan, service-down alerts). Fresh installs
+get a 7-day full-feature trial, then return to free use. A Personal license
+(founder offer $20 at launch, then $39) unlocks advanced monitoring —
 continuous Observer, resource-anomaly detection, port intelligence, and advanced
 notifications — and activates up to 3 Macs. See
 [pricing](https://azzuwayed.github.io/switchboard-website/pricing.html).
