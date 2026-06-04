@@ -179,9 +179,16 @@
                   Updates &amp; support through the next major (min. 2 years)
                 </li>
               </ul>
-              <a class="btn btn-primary" href="checkout.html"
+              <a class="btn btn-primary" id="buy-cta" href="checkout.html"
                 >Get the founder offer</a
               >
+              <p
+                class="pricing-note"
+                id="purchase-paused"
+                role="status"
+                hidden
+                style="margin-top: 0.75rem"
+              ></p>
             </div>
           </div>
 
@@ -208,5 +215,37 @@
         </nav>
       </div>
     </footer>
+    <script>
+      // Reflect the live purchasing state: if it's paused (manually or by the
+      // gateway watchdog), show the notice and turn the Buy button into a
+      // disabled "paused" state instead of sending people to a dead checkout.
+      (async function () {
+        const LICENSE_API =
+          "https://switchboard-licenses.azzuwayed.workers.dev";
+        try {
+          const res = await fetch(`${LICENSE_API}/api/checkout/availability`);
+          const data = await res.json().catch(() => ({}));
+          if (data && data.enabled === false) {
+            const cta = document.getElementById("buy-cta");
+            const note = document.getElementById("purchase-paused");
+            if (note) {
+              note.textContent =
+                data.message ||
+                "Purchasing is temporarily paused — please check back soon.";
+              note.hidden = false;
+            }
+            if (cta) {
+              cta.textContent = "Purchasing paused";
+              cta.setAttribute("aria-disabled", "true");
+              cta.removeAttribute("href");
+              cta.style.pointerEvents = "none";
+              cta.style.opacity = "0.6";
+            }
+          }
+        } catch {
+          // Check failed — leave the page as-is; checkout still guards.
+        }
+      })();
+    </script>
   </body>
 </html>

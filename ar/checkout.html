@@ -139,13 +139,17 @@
             </div>
             <div class="checkout-field">
               <label for="mobile">رقم الجوال</label>
-              <span class="hint">مطلوب من مزوّد الدفع (مثل 05XXXXXXXX).</span>
+              <span class="hint"
+                >مطلوب من مزوّد الدفع — من أي دولة. أضف رمز دولتك (مثل ‎+966
+                5XXXXXXXX أو ‎+44 أو ‎+1).</span
+              >
               <input
                 id="mobile"
                 name="mobile"
                 type="tel"
                 autocomplete="tel"
                 inputmode="tel"
+                placeholder="+966 5XXXXXXXX"
                 required
               />
             </div>
@@ -194,6 +198,22 @@
 
       totalEl.textContent = "≈ 73 ريال";
 
+      // إيقاف الشراء (يدوياً أو عبر مراقب بوابة الدفع): اعرض الإشعار وعطّل النموذج.
+      (async function checkAvailability() {
+        try {
+          const res = await fetch(`${LICENSE_API}/api/checkout/availability`);
+          const data = await res.json().catch(() => ({}));
+          if (data && data.enabled === false) {
+            errorEl.textContent =
+              data.message || "الشراء متوقف مؤقتاً. الرجاء المحاولة لاحقاً.";
+            payBtn.disabled = true;
+            payBtn.textContent = "الشراء متوقف مؤقتاً";
+          }
+        } catch {
+          // فشل الفحص — اترك النموذج صالحاً؛ يبقى طلب الإنشاء محمياً.
+        }
+      })();
+
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorEl.textContent = "";
@@ -213,6 +233,13 @@
             body: JSON.stringify({ name, mobile, email, locale: "ar" }),
           });
           const data = await res.json().catch(() => ({}));
+          if (data.disabled) {
+            // الشراء متوقف — أبقِ الزر معطّلاً واعرض الإشعار.
+            errorEl.textContent =
+              data.message || data.error || "الشراء متوقف مؤقتاً.";
+            payBtn.textContent = "الشراء متوقف مؤقتاً";
+            return;
+          }
           if (!res.ok || !data.url) {
             throw new Error(
               data.error || "تعذّر بدء الدفع. الرجاء المحاولة مجدداً.",

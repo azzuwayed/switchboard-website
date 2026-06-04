@@ -131,7 +131,8 @@
             <div class="checkout-field">
               <label for="mobile">Mobile number</label>
               <span class="hint"
-                >Required by the payment provider (e.g. 05XXXXXXXX).</span
+                >Required by the payment provider — any country. Include your
+                country code (e.g. +966 5XXXXXXXX, +44…, +1…).</span
               >
               <input
                 id="mobile"
@@ -139,6 +140,7 @@
                 type="tel"
                 autocomplete="tel"
                 inputmode="tel"
+                placeholder="+966 5XXXXXXXX"
                 required
               />
             </div>
@@ -193,6 +195,24 @@
       // show the founder figure. The authoritative amount comes from the Worker.
       totalEl.textContent = "≈ 73 SAR";
 
+      // If purchasing is paused (manually or by the gateway watchdog), show the
+      // friendly notice and disable the form up front.
+      (async function checkAvailability() {
+        try {
+          const res = await fetch(`${LICENSE_API}/api/checkout/availability`);
+          const data = await res.json().catch(() => ({}));
+          if (data && data.enabled === false) {
+            errorEl.textContent =
+              data.message ||
+              "Purchasing is temporarily paused. Please check back soon.";
+            payBtn.disabled = true;
+            payBtn.textContent = "Purchasing paused";
+          }
+        } catch {
+          // Check failed — leave the form usable; the create call still guards.
+        }
+      })();
+
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorEl.textContent = "";
@@ -212,6 +232,13 @@
             body: JSON.stringify({ name, mobile, email, locale: "en" }),
           });
           const data = await res.json().catch(() => ({}));
+          if (data.disabled) {
+            // Purchasing paused — keep the button off and show the notice.
+            errorEl.textContent =
+              data.message || data.error || "Purchasing is temporarily paused.";
+            payBtn.textContent = "Purchasing paused";
+            return;
+          }
           if (!res.ok || !data.url) {
             throw new Error(
               data.error || "Could not start checkout. Please try again.",

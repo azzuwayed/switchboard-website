@@ -186,9 +186,16 @@
                   تحديثات ودعم حتى الإصدار الرئيسي التالي (سنتان كحد أدنى)
                 </li>
               </ul>
-              <a class="btn btn-primary" href="checkout.html"
+              <a class="btn btn-primary" id="buy-cta" href="checkout.html"
                 >احصل على عرض الإطلاق</a
               >
+              <p
+                class="pricing-note"
+                id="purchase-paused"
+                role="status"
+                hidden
+                style="margin-top: 0.75rem"
+              ></p>
             </div>
           </div>
 
@@ -215,5 +222,35 @@
         </nav>
       </div>
     </footer>
+    <script>
+      // عرض حالة الشراء الحيّة: إذا كان متوقفاً (يدوياً أو عبر مراقب البوابة) اعرض
+      // الإشعار وحوّل زر الشراء إلى حالة "متوقف" بدل إرسال الزائر إلى دفع معطّل.
+      (async function () {
+        const LICENSE_API =
+          "https://switchboard-licenses.azzuwayed.workers.dev";
+        try {
+          const res = await fetch(`${LICENSE_API}/api/checkout/availability`);
+          const data = await res.json().catch(() => ({}));
+          if (data && data.enabled === false) {
+            const cta = document.getElementById("buy-cta");
+            const note = document.getElementById("purchase-paused");
+            if (note) {
+              note.textContent =
+                data.message || "الشراء متوقف مؤقتاً — الرجاء المحاولة لاحقاً.";
+              note.hidden = false;
+            }
+            if (cta) {
+              cta.textContent = "الشراء متوقف مؤقتاً";
+              cta.setAttribute("aria-disabled", "true");
+              cta.removeAttribute("href");
+              cta.style.pointerEvents = "none";
+              cta.style.opacity = "0.6";
+            }
+          }
+        } catch {
+          // فشل الفحص — اترك الصفحة كما هي؛ يبقى الدفع محمياً.
+        }
+      })();
+    </script>
   </body>
 </html>
