@@ -1,32 +1,30 @@
 {
   "schemaVersion": 1,
-  "latest": "1.0.0-beta.25",
-  "releasedAt": "2026-06-03T22:36:37.957Z",
+  "latest": "1.0.0",
+  "releasedAt": "2026-06-04T19:10:15.652Z",
   "minimumSystemVersion": "12.0",
-  "channel": "beta",
+  "channel": "stable",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.25/Switchboard-v1.0.0-beta.25-macos-arm64.dmg",
-        "sha256": "f06e4f9a75d8049c90a9381e88b99be5594c770cdc5a01881d7a6a1f80e77169",
-        "sizeBytes": 9795442
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0/Switchboard-v1.0.0-macos-arm64.dmg",
+        "sha256": "1555cde61e551058a3158636837f98ae0ca8ae913ae9c03e23d649349acbb72f",
+        "sizeBytes": 9895093
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.25",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0",
   "downloadPageUrl": "https://azzuwayed.github.io/switchboard-website/",
-  "notes": "Switchboard 1.0.0-beta.25 — see release notes for details.",
+  "notes": "Switchboard 1.0.0 — first stable release. Freemium with a genuinely useful free tier, a one-time Personal license for advanced monitoring, and a 7-day full-feature trial on first launch.",
   "highlights": [
-    "Less jumpy action feedback. Short-lived success and error messages in Settings, Observer, Ports, Tray, and bulk service actions now appear as toasts instead of moving the surrounding interface around. Longer-running and blocking states still stay inline where they need attention.",
-    "Download count now tracks the latest Mac installer. The website badge now reads the current release's .dmg count instead of summing every older beta, matching the public mirror's latest-installer retention policy.",
-    "Safer diagnostics sharing. Copy diagnostics now produces a minimal support report that leaves out command output, command IDs, local paths, process IDs, and observer titles while still including enough non-identifying app environment details for troubleshooting."
+    "Switchboard 1.0.0 — first stable release. Freemium with a genuinely useful free tier, a one-time Personal license for advanced monitoring, and a 7-day full-feature trial on first launch."
   ],
-  "version": "1.0.0-beta.25",
-  "pub_date": "2026-06-03T22:36:37.957Z",
+  "version": "1.0.0",
+  "pub_date": "2026-06-04T19:10:15.652Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXg3NThNMEMvL0xSL3pncTBOQys3aUk1YnBkVU9aMUlYd0FLUzFjakJFQlphTEwxaVkwcHFKYm5zMTB4M25YWGxOTTRvUVV3T0ZqREdvdlRxRWt6K2dNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNTI2MTQyCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpjaExXMitWQjU0TVNqc1ZzL2JGL1p5TzVNTVAyazRxOVYydkI2Ymt0a0Zna3NjS1lUNzRKMlFPMHJiMHpaRWJoaVZyWjBIRW40cWVoamdhRXcveitBZz09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0-beta.25/Switchboard-v1.0.0-beta.25-macos-arm64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTJYME9WY0VHWVVqN2s4Z0Y0RnlMY0hkeFdXNWNqVGtqaVh5QUxZY3FYNUdvNmFsb2ROd3F3N29rOXpDVCtLNmtQcGtFalphYTBrSzRYa0xIVXl6R0FrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNjAwMTQ5CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpXNXovQ1Iwb2RaQ2FLMGtKZGgzWWRVWHZ5NlloNWplODd0MmRmdlBXWTZxYVV4TEZjRnlhWVRJQjZwTklmSUNqeTFaTjhFdmJlWUJ1cytkSkdmWnBCdz09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0/Switchboard-v1.0.0-macos-arm64.app.tar.gz"
     }
   }
 }
