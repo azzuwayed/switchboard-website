@@ -23,69 +23,7 @@
       sizes="256x256"
       href="../assets/icon-256.png"
     />
-    <link rel="stylesheet" href="../style.css?v=c949ffbbff" />
-    <style>
-      .checkout-card {
-        max-width: 460px;
-        border: 1px solid var(--border, #2a2a2a);
-        border-radius: 14px;
-        padding: 24px;
-        background: var(--bg-elev, rgba(255, 255, 255, 0.02));
-      }
-      .checkout-field {
-        display: grid;
-        gap: 6px;
-        margin-bottom: 16px;
-      }
-      .checkout-field label {
-        font-size: 13px;
-        font-weight: 600;
-      }
-      .checkout-field .hint {
-        font-size: 12px;
-        opacity: 0.6;
-      }
-      .checkout-field input {
-        font: inherit;
-        font-size: 14px;
-        padding: 9px 11px;
-        border-radius: 8px;
-        border: 1px solid var(--border, #2a2a2a);
-        background: var(--bg, #0e0e0e);
-        color: inherit;
-      }
-      .checkout-field input:focus-visible {
-        outline: 2px solid var(--accent, #5b8def);
-        outline-offset: 1px;
-      }
-      .checkout-summary {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        margin-bottom: 18px;
-        font-size: 14px;
-      }
-      .checkout-summary .total {
-        font-size: 22px;
-        font-weight: 700;
-      }
-      .checkout-error {
-        color: #ef5b5b;
-        font-size: 13px;
-        margin-top: 12px;
-        min-height: 1em;
-      }
-      .checkout-card .btn {
-        width: 100%;
-        justify-content: center;
-      }
-      .checkout-fineprint {
-        font-size: 12px;
-        opacity: 0.6;
-        margin-top: 14px;
-        max-width: 460px;
-      }
-    </style>
+    <link rel="stylesheet" href="../style.css?v=4168667efc" />
   </head>
   <body>
     <header class="site-header">
@@ -112,68 +50,119 @@
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero page-hero checkout-hero">
         <div class="container">
           <p class="eyebrow">الدفع</p>
-          <h1>رخصة Switchboard الشخصية</h1>
-          <p class="lede" style="max-width: 56ch">
-            تفعّل الرخصة الواحدة حتى 3 أجهزة Mac. ستحصل على مفتاح الرخصة مباشرة
-            بعد الدفع — احفظه في مكان آمن.
+          <h1>شراء رخصة Switchboard الشخصية</h1>
+          <p class="lede">
+            تفتح عملية شراء واحدة المراقبة المتقدمة على حتى 3 أجهزة Mac. بعد
+            الدفع، تعرض لك هذه الصفحة مفتاح الرخصة مباشرة.
           </p>
 
-          <form class="checkout-card" id="checkout-form" novalidate>
-            <div class="checkout-summary">
-              <span>الرخصة الشخصية · عرض الإطلاق</span>
-              <span class="total" id="total">— ريال</span>
+          <div class="checkout-shell">
+            <div>
+              <form class="checkout-card" id="checkout-form" novalidate>
+                <div class="checkout-summary">
+                  <span>الرخصة الشخصية · عرض التأسيس</span>
+                  <span class="total" id="total">— ريال</span>
+                </div>
+
+                <div class="checkout-field">
+                  <label for="name">الاسم الكامل</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    maxlength="120"
+                    required
+                  />
+                </div>
+                <div class="checkout-field">
+                  <label for="mobile">رقم الجوال</label>
+                  <span class="hint" id="mobile-hint"
+                    >يتطلب Paylink رقم جوال. أضف رمز الدولة، مثل ‎+966
+                    5XXXXXXXX أو ‎+44 أو ‎+1.</span
+                  >
+                  <input
+                    id="mobile"
+                    name="mobile"
+                    type="tel"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    placeholder="+966 5XXXXXXXX"
+                    aria-describedby="mobile-hint"
+                    dir="ltr"
+                    maxlength="32"
+                    required
+                  />
+                </div>
+                <div class="checkout-field">
+                  <label for="email">البريد الإلكتروني</label>
+                  <span class="hint" id="email-hint"
+                    >اختياري، لكنه مفيد للإيصال والدعم.</span
+                  >
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    aria-describedby="email-hint"
+                    dir="ltr"
+                    maxlength="254"
+                  />
+                </div>
+
+                <button class="btn btn-primary" id="pay-btn" type="submit">
+                  <svg
+                    class="btn-icon"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="4" y="11" width="16" height="10" rx="2"></rect>
+                    <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+                  </svg>
+                  <span id="pay-btn-label">المتابعة إلى Paylink</span>
+                </button>
+                <p class="checkout-error" id="error" role="alert"></p>
+              </form>
+
+              <p class="checkout-fineprint">
+                تتم معالجة الدفع على صفحة Paylink المستضافة والآمنة. يُحصّل
+                المبلغ بالريال السعودي.
+              </p>
             </div>
 
-            <div class="checkout-field">
-              <label for="name">الاسم الكامل</label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                autocomplete="name"
-                required
-              />
-            </div>
-            <div class="checkout-field">
-              <label for="mobile">رقم الجوال</label>
-              <span class="hint"
-                >مطلوب من مزوّد الدفع — من أي دولة. أضف رمز دولتك (مثل ‎+966
-                5XXXXXXXX أو ‎+44 أو ‎+1).</span
-              >
-              <input
-                id="mobile"
-                name="mobile"
-                type="tel"
-                autocomplete="tel"
-                inputmode="tel"
-                placeholder="+966 5XXXXXXXX"
-                required
-              />
-            </div>
-            <div class="checkout-field">
-              <label for="email">البريد الإلكتروني</label>
-              <span class="hint">للإيصال والدعم. مُستحسن.</span>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autocomplete="email"
-              />
-            </div>
-
-            <button class="btn btn-primary" id="pay-btn" type="submit">
-              المتابعة إلى الدفع الآمن
-            </button>
-            <p class="checkout-error" id="error" role="alert"></p>
-          </form>
-
-          <p class="checkout-fineprint">
-            تتم معالجة الدفع عبر Paylink على صفحته الآمنة. يُحصّل المبلغ بالريال
-            (شامل الضريبة). التفعيل بمفتاح الرخصة فقط — لا يُنشأ أي حساب.
-          </p>
+            <aside class="checkout-aside" aria-labelledby="checkout-next">
+              <h2 id="checkout-next">ماذا يحدث بعد ذلك</h2>
+              <ul class="checkout-list">
+                <li>
+                  <span>
+                    <strong>دفع مستضاف</strong>
+                    ستنتقل إلى Paylink، ثم تعود إلى هذه الصفحة بعد الدفع.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>مفتاح رخصة فقط</strong>
+                    لا يُنشأ أي حساب. احفظ المفتاح في مكان آمن عندما يظهر.
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <strong>حتى 3 أجهزة Mac</strong>
+                    فعّل الرخصة نفسها من الإعدادات ← الرخصة والوصول على كل
+                    جهاز.
+                  </span>
+                </li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </section>
     </main>
@@ -192,9 +181,107 @@
       const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
 
       const form = document.getElementById("checkout-form");
+      const nameInput = document.getElementById("name");
+      const mobileInput = document.getElementById("mobile");
+      const emailInput = document.getElementById("email");
       const payBtn = document.getElementById("pay-btn");
+      const payBtnLabel = document.getElementById("pay-btn-label");
       const errorEl = document.getElementById("error");
       const totalEl = document.getElementById("total");
+
+      function setPayButtonLabel(label) {
+        if (payBtnLabel) payBtnLabel.textContent = label;
+      }
+
+      function normalizeLocalizedDigits(value) {
+        return String(value)
+          .replace(/[٠-٩]/g, (digit) =>
+            String(digit.charCodeAt(0) - 0x0660),
+          )
+          .replace(/[۰-۹]/g, (digit) =>
+            String(digit.charCodeAt(0) - 0x06f0),
+          );
+      }
+
+      function sanitizeMobile(value) {
+        const normalized = normalizeLocalizedDigits(value)
+          .replace(/\uFF0B/g, "+")
+          .trim();
+        const keepLeadingPlus = normalized.startsWith("+");
+        const digits = normalized.replace(/\D/g, "");
+        return keepLeadingPlus ? `+${digits}` : digits;
+      }
+
+      function normalizeName(value) {
+        return String(value).replace(/\s+/g, " ").trim();
+      }
+
+      function setFieldValidity(input, isValid) {
+        input.setAttribute("aria-invalid", isValid ? "false" : "true");
+      }
+
+      function validateCheckout() {
+        const name = normalizeName(nameInput.value);
+        const mobile = sanitizeMobile(mobileInput.value);
+        const email = emailInput.value.trim();
+        const mobileDigits = mobile.replace(/\D/g, "");
+        const emailLooksValid = !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+        setFieldValidity(nameInput, name.length >= 2 && name.length <= 120);
+        setFieldValidity(
+          mobileInput,
+          mobileDigits.length >= 8 && mobileDigits.length <= 15,
+        );
+        setFieldValidity(emailInput, emailLooksValid);
+
+        if (name.length < 2) {
+          return {
+            ok: false,
+            message: "الرجاء إدخال الاسم الكامل.",
+          };
+        }
+        if (name.length > 120) {
+          return {
+            ok: false,
+            message: "الرجاء تقصير حقل الاسم.",
+          };
+        }
+        if (mobileDigits.length < 8 || mobileDigits.length > 15) {
+          return {
+            ok: false,
+            message: "الرجاء إدخال رقم جوال صحيح مع رمز الدولة.",
+          };
+        }
+        if (!emailLooksValid) {
+          return {
+            ok: false,
+            message: "الرجاء إدخال بريد إلكتروني صحيح أو تركه فارغاً.",
+          };
+        }
+        return { ok: true, name, mobile, email };
+      }
+
+      function clearFieldError(input) {
+        input.setAttribute("aria-invalid", "false");
+        errorEl.textContent = "";
+      }
+
+      [nameInput, mobileInput, emailInput].forEach((input) => {
+        input.addEventListener("input", () => clearFieldError(input));
+      });
+
+      nameInput.addEventListener("blur", () => {
+        nameInput.value = normalizeName(nameInput.value);
+      });
+
+      mobileInput.addEventListener("blur", () => {
+        const mobile = sanitizeMobile(mobileInput.value);
+        if (mobile) mobileInput.value = mobile;
+      });
+
+      emailInput.addEventListener("blur", () => {
+        emailInput.value = emailInput.value.trim();
+      });
 
       totalEl.textContent = "≈ 73 ريال";
 
@@ -207,7 +294,7 @@
             errorEl.textContent =
               data.message || "الشراء متوقف مؤقتاً. الرجاء المحاولة لاحقاً.";
             payBtn.disabled = true;
-            payBtn.textContent = "الشراء متوقف مؤقتاً";
+            setPayButtonLabel("الشراء متوقف مؤقتاً");
           }
         } catch {
           // فشل الفحص — اترك النموذج صالحاً؛ يبقى طلب الإنشاء محمياً.
@@ -217,27 +304,34 @@
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorEl.textContent = "";
-        const name = document.getElementById("name").value.trim();
-        const mobile = document.getElementById("mobile").value.trim();
-        const email = document.getElementById("email").value.trim();
-        if (!name || !mobile) {
-          errorEl.textContent = "الرجاء إدخال الاسم ورقم الجوال.";
+        if (payBtn.disabled) return;
+        const validation = validateCheckout();
+        if (!validation.ok) {
+          errorEl.textContent = validation.message;
           return;
         }
+        nameInput.value = validation.name;
+        mobileInput.value = validation.mobile;
+        emailInput.value = validation.email;
         payBtn.disabled = true;
-        payBtn.textContent = "جارٍ إنشاء فاتورتك…";
+        setPayButtonLabel("جارٍ فتح Paylink…");
         try {
           const res = await fetch(`${LICENSE_API}/api/checkout/create`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, mobile, email, locale: "ar" }),
+            body: JSON.stringify({
+              name: validation.name,
+              mobile: validation.mobile,
+              email: validation.email,
+              locale: "ar",
+            }),
           });
           const data = await res.json().catch(() => ({}));
           if (data.disabled) {
             // الشراء متوقف — أبقِ الزر معطّلاً واعرض الإشعار.
             errorEl.textContent =
               data.message || data.error || "الشراء متوقف مؤقتاً.";
-            payBtn.textContent = "الشراء متوقف مؤقتاً";
+            setPayButtonLabel("الشراء متوقف مؤقتاً");
             return;
           }
           if (!res.ok || !data.url) {
@@ -257,7 +351,7 @@
         } catch (err) {
           errorEl.textContent = err.message || String(err);
           payBtn.disabled = false;
-          payBtn.textContent = "المتابعة إلى الدفع الآمن";
+          setPayButtonLabel("المتابعة إلى Paylink");
         }
       });
     </script>

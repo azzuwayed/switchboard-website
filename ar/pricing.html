@@ -25,89 +25,7 @@
       sizes="256x256"
       href="../assets/icon-256.png"
     />
-    <link rel="stylesheet" href="../style.css?v=c949ffbbff" />
-    <style>
-      .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        margin: 28px 0 12px;
-      }
-      .price-card {
-        border: 1px solid var(--border, #2a2a2a);
-        border-radius: 14px;
-        padding: 24px;
-        background: var(--bg-elev, rgba(255, 255, 255, 0.02));
-        display: flex;
-        flex-direction: column;
-      }
-      .price-card.featured {
-        border-color: var(--accent, #5b8def);
-        box-shadow: 0 0 0 1px var(--accent, #5b8def);
-      }
-      .price-tier {
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        opacity: 0.7;
-      }
-      .price-amount {
-        font-size: 38px;
-        font-weight: 700;
-        margin: 8px 0 2px;
-      }
-      .price-amount .price-was {
-        font-size: 20px;
-        opacity: 0.5;
-        text-decoration: line-through;
-        margin-inline-end: 8px;
-        font-weight: 500;
-      }
-      .price-sub {
-        font-size: 13px;
-        opacity: 0.7;
-        margin-bottom: 16px;
-      }
-      .price-features {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 20px;
-        display: grid;
-        gap: 9px;
-      }
-      .price-features li {
-        font-size: 14px;
-        padding-inline-start: 22px;
-        position: relative;
-        line-height: 1.45;
-      }
-      .price-features li::before {
-        content: "✓";
-        position: absolute;
-        inset-inline-start: 0;
-        color: var(--accent, #5b8def);
-        font-weight: 700;
-      }
-      .price-card .btn {
-        margin-top: auto;
-        justify-content: center;
-      }
-      .founder-badge {
-        display: inline-block;
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--accent, #5b8def);
-        border: 1px solid var(--accent, #5b8def);
-        border-radius: 999px;
-        padding: 2px 10px;
-        margin-bottom: 12px;
-      }
-      .pricing-note {
-        font-size: 13px;
-        opacity: 0.7;
-        max-width: 60ch;
-      }
-    </style>
+    <link rel="stylesheet" href="../style.css?v=4168667efc" />
   </head>
   <body>
     <header class="site-header">
@@ -136,79 +54,102 @@
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero page-hero pricing-hero">
         <div class="container">
           <p class="eyebrow">الأسعار</p>
-          <h1>مجاني للاستخدام. والترقية للمراقبة المتقدمة.</h1>
-          <p class="lede" style="max-width: 62ch">
-            Switchboard مجاني ويبقى مفيداً بذاته. الرخصة الشخصية تفتح
-            المراقبة المتقدمة التي توضّح ما نسيه جهازك — المراقب المستمر، ورصد
-            الارتفاعات غير المعتادة في استهلاك الموارد، وتحليل المنافذ،
-            والتنبيهات المتقدمة.
+          <h1>ابدأ مجاناً. رقِّ عندما تحتاج مراقبة مستمرة.</h1>
+          <p class="lede">
+            يبقى Switchboard مفيداً بدون حساب أو مفتاح رخصة. تفتح الرخصة
+            الشخصية طبقة المراقبة الدائمة: اكتشافاً في الخلفية، ورصد ارتفاعات
+            الموارد، وتحليلاً أعمق للمنافذ، وتنبيهات للأنماط التي لا يسمّيها
+            macOS بوضوح.
           </p>
 
           <div class="pricing-grid">
             <div class="price-card">
-              <span class="price-tier">مجانية</span>
-              <div class="price-amount">0$</div>
-              <p class="price-sub">بدون حساب. بدون مفتاح. بشكل دائم.</p>
+              <div class="price-head">
+                <span class="price-tier">مجانية</span>
+                <div class="price-amount"><span dir="ltr">$0</span></div>
+                <p class="price-sub">بدون حساب. بدون مفتاح. بشكل دائم.</p>
+                <p class="price-fit">
+                  مناسبة لإبقاء خدماتك المحلية واضحة وتحت السيطرة.
+                </p>
+              </div>
               <ul class="price-features">
                 <li>خدمات وإعدادات مخصّصة غير محدودة</li>
-                <li>تشغيل / إيقاف / إعادة تشغيل / تحديث مع مراجعة الموافقات</li>
-                <li>عارض سجلّات مركزي لكل خدمة مراقَبة</li>
+                <li>تشغيل وإيقاف وإعادة تشغيل وتحديث مع مراجعة الموافقات</li>
+                <li>عارض سجلات مركزي لكل خدمة مراقَبة</li>
                 <li>رؤية أساسية للمنافذ والحالة الصحية</li>
-                <li>«فحص الآن» يدوياً للخدمات المنسية وتعارضات المنافذ</li>
-                <li>إشعارات توقّف الخدمات</li>
+                <li>فحص يدوي للخدمات المنسية وتعارضات المنافذ</li>
+                <li>تنبيهات عند توقّف الخدمات</li>
               </ul>
-              <a class="btn btn-secondary" href="./#install">تنزيل</a>
+              <a class="btn btn-secondary" href="./">تنزيل</a>
             </div>
 
             <div class="price-card featured">
-              <span class="founder-badge">عرض الإطلاق · خصم ~50٪</span>
-              <span class="price-tier">شخصية</span>
-              <div class="price-amount">
-                <span class="price-was">39$</span>20$
+              <div class="price-head">
+                <span class="founder-badge">عرض التأسيس · خصم يقارب 50٪</span>
+                <span class="price-tier">شخصية</span>
+                <div class="price-amount">
+                  <span class="price-was" dir="ltr">$39</span
+                  ><span dir="ltr">$20</span>
+                </div>
+                <p class="price-sub">
+                  حوالي 73 ريالاً · دفعة واحدة · حتى 3 أجهزة Mac
+                </p>
+                <p class="price-fit">
+                  مناسبة لالتقاط ما يعمل في الخلفية قبل أن يتحول إلى حرارة أو
+                  ضجيج مروحة أو صراع على المنافذ.
+                </p>
               </div>
-              <p class="price-sub">
-                ≈ 73 ريال، شامل الضريبة · دفعة واحدة · حتى 3 أجهزة Mac
-              </p>
               <ul class="price-features">
-                <li>كل ما في الاستخدام المجاني، بالإضافة إلى:</li>
+                <li>كل ما في الخطة المجانية</li>
                 <li>المراقب المستمر — اكتشاف في الخلفية</li>
                 <li>
-                  رصد الارتفاعات غير المعتادة في استهلاك الموارد (المعالج /
-                  الذاكرة)
+                  رصد ارتفاعات استهلاك الموارد غير المعتادة (المعالج / الذاكرة)
                 </li>
-                <li>تحليل أعمق للمنافذ والعمليات + وحدة منافذ في الشريط</li>
+                <li>تحليل أعمق للمنافذ والعمليات، مع وحدة منافذ في الشريط</li>
                 <li>تنبيهات المراقب وتعارض المنافذ</li>
-                <li>تأجيل / اعتماد / إيقاف تلقائي</li>
+                <li>تأجيل واعتماد وإيقاف تلقائي</li>
                 <li>
-                  تحديثات ودعم Switchboard 1.x، سنتان كحد أدنى
+                  تحديثات ودعم Switchboard 1.x لمدة سنتين على الأقل
                 </li>
               </ul>
               <a class="btn btn-primary" id="buy-cta" href="checkout.html"
-                >احصل على عرض الإطلاق</a
+                >احصل على الرخصة الشخصية</a
               >
               <p
                 class="pricing-note"
                 id="purchase-paused"
                 role="status"
                 hidden
-                style="margin-top: 0.75rem"
               ></p>
             </div>
           </div>
 
-          <p class="pricing-note">
-            عرض الإطلاق هو 20$ (حوالي 73 ريال، شامل الضريبة)، ثم يصبح سعر الرخصة
-            الشخصية 39$ بعد الإطلاق. التفعيل بمفتاح الرخصة فقط — بدون حساب.
-            التثبيتات الجديدة تشمل تجربة كاملة لمدة 7 أيام، ثم تعود إلى
-            الاستخدام المجاني. يستمر الجهاز المرخّص بالعمل دون اتصال حتى 30
-            يوماً بين الفحوصات، ولا يتوقف التطبيق أبداً: إذا انتهت الرخصة يرجع
-            ببساطة إلى الاستخدام المجاني. رخصة شخصية لمرة واحدة لـ Switchboard
-            1.x، وتشمل التحديثات والدعم حتى الإصدار الرئيسي التالي، مع تغطية
-            1.x لمدة سنتين على الأقل.
-          </p>
+          <div class="pricing-note-grid" aria-label="تفاصيل الرخصة">
+            <div class="pricing-note-card">
+              <strong>سعر التأسيس</strong>
+              <p>
+                السعر 20 دولاراً أثناء عرض التأسيس، ثم 39 دولاراً للرخصة
+                الشخصية. يُحصّل الدفع بالريال السعودي عبر Paylink.
+              </p>
+            </div>
+            <div class="pricing-note-card">
+              <strong>بدون حساب</strong>
+              <p>
+                التفعيل بمفتاح رخصة فقط. كل تثبيت جديد يتضمن تجربة كاملة لمدة 7
+                أيام، ثم يعود إلى الخطة المجانية.
+              </p>
+            </div>
+            <div class="pricing-note-card">
+              <strong>يعمل دون اتصال</strong>
+              <p>
+                يستمر جهاز Mac المرخّص بالعمل دون اتصال حتى 30 يوماً. إذا انتهت
+                الرخصة، يعود Switchboard ببساطة إلى الخطة المجانية.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </main>

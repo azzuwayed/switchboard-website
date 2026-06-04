@@ -16,90 +16,7 @@
       href="assets/icon-128.png"
     />
     <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
-    <link rel="stylesheet" href="style.css?v=c949ffbbff" />
-    <style>
-      .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        margin: 28px 0 12px;
-      }
-      .price-card {
-        border: 1px solid var(--border, #2a2a2a);
-        border-radius: 14px;
-        padding: 24px;
-        background: var(--bg-elev, rgba(255, 255, 255, 0.02));
-        display: flex;
-        flex-direction: column;
-      }
-      .price-card.featured {
-        border-color: var(--accent, #5b8def);
-        box-shadow: 0 0 0 1px var(--accent, #5b8def);
-      }
-      .price-tier {
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        opacity: 0.7;
-      }
-      .price-amount {
-        font-size: 38px;
-        font-weight: 700;
-        margin: 8px 0 2px;
-      }
-      .price-amount .price-was {
-        font-size: 20px;
-        opacity: 0.5;
-        text-decoration: line-through;
-        margin-inline-end: 8px;
-        font-weight: 500;
-      }
-      .price-sub {
-        font-size: 13px;
-        opacity: 0.7;
-        margin-bottom: 16px;
-      }
-      .price-features {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 20px;
-        display: grid;
-        gap: 9px;
-      }
-      .price-features li {
-        font-size: 14px;
-        padding-inline-start: 22px;
-        position: relative;
-        line-height: 1.45;
-      }
-      .price-features li::before {
-        content: "✓";
-        position: absolute;
-        inset-inline-start: 0;
-        color: var(--accent, #5b8def);
-        font-weight: 700;
-      }
-      .price-card .btn {
-        margin-top: auto;
-        justify-content: center;
-      }
-      .founder-badge {
-        display: inline-block;
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--accent, #5b8def);
-        border: 1px solid var(--accent, #5b8def);
-        border-radius: 999px;
-        padding: 2px 10px;
-        margin-bottom: 12px;
-      }
-      .pricing-note {
-        font-size: 13px;
-        opacity: 0.7;
-        max-width: 60ch;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css?v=4168667efc" />
   </head>
   <body>
     <header class="site-header">
@@ -128,80 +45,101 @@
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero page-hero pricing-hero">
         <div class="container">
           <p class="eyebrow">Pricing</p>
-          <h1>Free to use. Upgrade for advanced monitoring.</h1>
-          <p class="lede" style="max-width: 62ch">
-            Switchboard is free and stays useful on its own. A Personal license
-            unlocks the advanced monitoring that names what your Mac
-            forgot — the continuous Observer, resource-anomaly detection, port
-            intelligence, and advanced notifications.
+          <h1>Start free. Upgrade when you want continuous monitoring.</h1>
+          <p class="lede">
+            Switchboard stays useful without an account or license key. Personal
+            unlocks the always-on layer: background discovery, resource anomaly
+            detection, deeper port intelligence, and notifications for the
+            patterns macOS does not name.
           </p>
 
           <div class="pricing-grid">
             <div class="price-card">
-              <span class="price-tier">Free</span>
-              <div class="price-amount">$0</div>
-              <p class="price-sub">No account. No key. Forever.</p>
+              <div class="price-head">
+                <span class="price-tier">Free</span>
+                <div class="price-amount">$0</div>
+                <p class="price-sub">No account. No key. Forever.</p>
+                <p class="price-fit">
+                  Best for keeping your own services visible and under control.
+                </p>
+              </div>
               <ul class="price-features">
                 <li>Unlimited custom services &amp; presets</li>
-                <li>Start / stop / restart / update, with approval review</li>
+                <li>Start, stop, restart, and update with approval review</li>
                 <li>Central log viewer across every monitored service</li>
                 <li>Basic port visibility and health/status</li>
                 <li>
-                  Manual “Scan now” for forgotten services &amp; port conflicts
+                  Manual “Scan now” for forgotten services and port conflicts
                 </li>
                 <li>Service-down notifications</li>
               </ul>
-              <a class="btn btn-secondary" href="./#install">Download</a>
+              <a class="btn btn-secondary" href="./">Download</a>
             </div>
 
             <div class="price-card featured">
-              <span class="founder-badge">Founder offer · ~50% off</span>
-              <span class="price-tier">Personal</span>
-              <div class="price-amount">
-                <span class="price-was">$39</span>$20
+              <div class="price-head">
+                <span class="founder-badge">Founder offer · about 50% off</span>
+                <span class="price-tier">Personal</span>
+                <div class="price-amount">
+                  <span class="price-was">$39</span>$20
+                </div>
+                <p class="price-sub">
+                  ≈ 73 SAR · one-time · up to 3 Macs
+                </p>
+                <p class="price-fit">
+                  Best for catching forgotten background work before it turns
+                  into heat, fan noise, or port fights.
+                </p>
               </div>
-              <p class="price-sub">
-                ≈ 73 SAR, VAT included · one-time · up to 3 Macs
-              </p>
               <ul class="price-features">
-                <li>Everything in Free, plus:</li>
+                <li>Everything in Free</li>
                 <li>Continuous Observer — background discovery</li>
                 <li>Resource-anomaly detection (CPU / memory)</li>
                 <li>
-                  Port &amp; process intelligence depth + tray port console
+                  Deeper port and process intelligence, plus tray port console
                 </li>
-                <li>Observer &amp; port-conflict notifications</li>
-                <li>Snooze / adopt / auto-stop workflows</li>
-                <li>
-                  Switchboard 1.x updates &amp; support, min. 2 years
-                </li>
+                <li>Observer and port-conflict notifications</li>
+                <li>Snooze, adopt, and auto-stop workflows</li>
+                <li>Switchboard 1.x updates and support for at least 2 years</li>
               </ul>
               <a class="btn btn-primary" id="buy-cta" href="checkout.html"
-                >Get the founder offer</a
+                >Get Personal</a
               >
               <p
                 class="pricing-note"
                 id="purchase-paused"
                 role="status"
                 hidden
-                style="margin-top: 0.75rem"
               ></p>
             </div>
           </div>
 
-          <p class="pricing-note">
-            Founder offer is $20 (≈ 73 SAR, VAT included); standard Personal
-            pricing is $39 after launch. Activation is by license key only — no
-            account required. New installs include a 7-day full-feature trial,
-            then return to free use. A licensed Mac keeps working offline for up
-            to 30 days between checks, and the app never blocks: if a license
-            lapses it simply returns to free use. One-time Personal license for
-            Switchboard 1.x, including updates and support through the next major
-            release, with at least two years of 1.x coverage.
-          </p>
+          <div class="pricing-note-grid" aria-label="License details">
+            <div class="pricing-note-card">
+              <strong>Founder price</strong>
+              <p>
+                $20 during the founder offer, then $39 for a Personal license.
+                Payment is charged in SAR through Paylink.
+              </p>
+            </div>
+            <div class="pricing-note-card">
+              <strong>No account</strong>
+              <p>
+                Activation uses a license key only. New installs include a
+                7-day full-feature trial, then return to Free.
+              </p>
+            </div>
+            <div class="pricing-note-card">
+              <strong>Offline-friendly</strong>
+              <p>
+                Licensed Macs keep working offline for up to 30 days. If access
+                lapses, Switchboard simply returns to Free.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
