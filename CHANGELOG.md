@@ -10,6 +10,39 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-06-05
+
+Switchboard 1.1 sharpens the main workflow around the things you forgot were
+still running, and makes the busiest surfaces easier to scan.
+
+### Added
+
+- **Command Center home.** The app now opens to a home view with service status
+  counts, a needs-attention queue, port-conflict summary, and quick access to
+  your services. The Services dashboard now lives at its own Services section.
+- **Instant new-arrival awareness.** Switchboard can notice new local listeners
+  as soon as they bind a port, notify you, and surface them in Observer without
+  requiring the continuous Observer engine.
+- **Per-service resource view.** Service details now include a Resources tab
+  showing live CPU and memory for the process currently bound to that service's
+  port.
+
+### Changed
+
+- **Activity now lives with Logs.** The Logs screen has Stream and Activity
+  views, so log lines and structured timeline events share one destination.
+- **Live logs are steadier under load.** Long-running command log sources stay
+  attached instead of rerunning on every refresh, busy bursts are paced into the
+  UI, and log work stops when the page is closed or paused.
+- **Monitoring controls are clearer.** Settings now separates free new-arrival
+  awareness from Personal-only continuous Observer automation.
+
+### Fixed
+
+- **Ports now call out true conflicts only.** The Command Center conflict
+  summary focuses on actual port conflicts instead of treating every occupied
+  port as a problem.
+
 ## [1.0.0] - 2026-06-04
 
 Switchboard 1.0 — the first stable release.
