@@ -1,32 +1,32 @@
 {
   "schemaVersion": 1,
-  "latest": "1.0.0",
-  "releasedAt": "2026-06-04T20:01:47.940Z",
+  "latest": "1.1.0",
+  "releasedAt": "2026-06-05T12:10:48.184Z",
   "minimumSystemVersion": "12.0",
   "channel": "stable",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0/Switchboard-v1.0.0-macos-arm64.dmg",
-        "sha256": "ba5817e677c7b85137d62314bc91dfada3fa3d85293d4ddee8ad319fd46d6ee4",
-        "sizeBytes": 9895933
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.1.0/Switchboard-v1.1.0-macos-arm64.dmg",
+        "sha256": "22ce530903ac560601fcb0937393d298e2e23ac2b1f13f4f7d140f3e8ec196ac",
+        "sizeBytes": 9953769
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.1.0",
   "downloadPageUrl": "https://azzuwayed.github.io/switchboard-website/",
-  "notes": "Switchboard 1.0.0 — first stable release. Freemium with a genuinely useful free tier, a one-time Personal license for advanced monitoring, and a 7-day full-feature trial on first launch.",
+  "notes": "Switchboard 1.1.0 — see release notes for details.",
   "highlights": [
-    "Pricing is live, and the free tier stays free. Switchboard is genuinely useful for free: custom services, start/stop/restart with approval review, the central log viewer, basic port visibility and health, a manual \"Scan now,\" and service-down notifications. A one-time Personal license unlocks the advanced monitoring — the continuous Observer, resource-anomaly detection, deeper port intelligence, and advanced notifications. One purchase covers up to 3 Macs, with updates and support through the next major release.",
-    "7-day full-feature trial on first launch. Every fresh install starts with everything unlocked for 7 days — no account, no card — then returns to free use. A small plan badge by the app name shows Free, Trial (with days remaining), or Paid at a glance, and Settings → License & Plan handles activation, the trial countdown, and the upgrade.",
-    "Follow one incident across surfaces. Focused links now connect the Observer, Activity log, Services, and Logs, so you can jump straight to the same finding in each place instead of hunting for it."
+    "Command Center home. The app now opens to a home view with service status counts, a needs-attention queue, port-conflict summary, and quick access to your services. The Services dashboard now lives at its own Services section.",
+    "Instant new-arrival awareness. Switchboard can notice new local listeners as soon as they bind a port, notify you, and surface them in Observer without requiring the continuous Observer engine.",
+    "Per-service resource view. Service details now include a Resources tab showing live CPU and memory for the process currently bound to that service's port."
   ],
-  "version": "1.0.0",
-  "pub_date": "2026-06-04T20:01:47.940Z",
+  "version": "1.1.0",
+  "pub_date": "2026-06-05T12:10:48.184Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTdDTnVBWjYzYzZEODdoVjNYc0d2THFzU1pSRW03dHpPUnRyekVKREtQUDRNY0xEZTN3SXZwK2F5dnowS2tZbVBiekpyWEx5Mk1oS2J0Vk90ZThFN0FVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNjAzMjUxCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpwK3dSYThvb2FQOTF5VDNETm9tMXI3UXVYUGVkcTZLc01QRTJQQXpVa1VRZm1IL0tWV0dmZG9Yb1lpOTZxSVRpdDlmeEk3RTFTZ1pBbThYS2pReFJCQT09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.0.0/Switchboard-v1.0.0-macos-arm64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXgxZ253bmQ0Rjc0NjlwMzI3aHR3OUw3U1NiNHVNL25tcjUwSEUxUG9lTGJ3WmJrOG5LU0hudmtCTGJsZ1JJUEpjRVZjVDRLbHRSenRjY1RyMkFsWmdNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNjYxMzg4CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpDcGQzTFRoOTF0VEVUSjVacGM4Wm95U2ZhZjJYVDI0Slhzc1F0WE0xT25jT2ZhWlpGaTFLUnVXZDhsQ2FnbmhTNG04cU5heWlhVEh4M0RJa2JoNXNCZz09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.1.0/Switchboard-v1.1.0-macos-arm64.app.tar.gz"
     }
   }
 }
