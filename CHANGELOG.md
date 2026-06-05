@@ -881,7 +881,7 @@ First public release.
 
 ## System requirements
 
-macOS 12 (Monterey) or later, Apple Silicon (arm64).
+macOS 12 (Monterey) or later on Apple Silicon or Intel Macs.
 
 [1.0.0-beta.7]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.7
 [1.0.0-beta.6]: https://github.com/azzuwayed/switchboard-website/releases/tag/v1.0.0-beta.6

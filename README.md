@@ -36,7 +36,7 @@ Switchboard is the thing I wanted: one place where every local service shows up,
 
 ## System requirements
 
-macOS 12 (Monterey) or later, Apple Silicon (arm64).
+macOS 12 (Monterey) or later on Apple Silicon or Intel Macs.
 
 ## Get it
 

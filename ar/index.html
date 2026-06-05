@@ -89,7 +89,7 @@
         "@type": "SoftwareApplication",
         "name": "Switchboard",
         "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "macOS 12 or later (Apple Silicon)",
+        "operatingSystem": "macOS 12 or later",
         "inLanguage": "ar",
         "description": "تطبيق macOS أصلي في شريط القائمة يعثر على الخدمات المحلية التي يشغّلها جهازك — خدمات Homebrew وحاويات Docker ووكلاء launchd وخوادم التطوير وأدوات الذكاء الاصطناعي المحلية — ويوضح من يملك كل منفذ، ويجمع التحكم والفحص والسجلات في لوحة محلية واحدة.",
         "url": "https://azzuwayed.github.io/switchboard-website/ar/",
@@ -128,7 +128,7 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">macOS · Apple Silicon</p>
+            <p class="eyebrow">macOS · Apple Silicon + Intel</p>
             <h1>لا تفقد أثر ما يعمل في الخلفية على جهاز Mac.</h1>
             <p class="lede">
               Switchboard مراقب للخدمات المحلية على Mac، مصمم للمطورين: يعثر على
@@ -222,7 +222,8 @@
             </picture>
           </figure>
           <p class="install-note">
-            معالج Apple Silicon‏ (arm64)‏ وmacOS 12 (Monterey) أو أحدث.
+            إصدار Universal لأجهزة Mac بمعالجات Apple Silicon وIntel، مع macOS
+            12 (Monterey) أو أحدث.
           </p>
         </div>
       </section>
@@ -843,8 +844,8 @@
               <summary>هل يعمل على أجهزة Intel Mac؟</summary>
               <div class="faq-body">
                 <p>
-                  ليس حالياً. Switchboard 1.0 يصدر بصيغة Apple Silicon (arm64)
-                  فقط. لا توجد خطة لإصدار Intel ضمن خط 1.x.
+                  نعم. إصدارات Switchboard المباشرة تأتي بصيغة macOS Universal
+                  وتعمل على أجهزة Mac بمعالجات Apple Silicon وIntel.
                 </p>
               </div>
             </details>
@@ -852,7 +853,10 @@
             <details>
               <summary>ما إصدارات macOS المدعومة؟</summary>
               <div class="faq-body">
-                <p>macOS 12 (Monterey) أو أحدث، Apple Silicon فقط.</p>
+                <p>
+                  macOS 12 (Monterey) أو أحدث على أجهزة Mac بمعالجات Apple
+                  Silicon أو Intel.
+                </p>
               </div>
             </details>
 
@@ -986,7 +990,9 @@
           });
           if (!response.ok) return;
           const manifest = await response.json();
-          const dmgUrl = manifest?.macos?.arm64?.dmg?.url;
+          const dmgUrl =
+            manifest?.macos?.universal?.dmg?.url ||
+            manifest?.macos?.arm64?.dmg?.url;
           const latest = manifest?.latest;
           const btn = document.getElementById("download-btn");
           const chip = document.getElementById("version-chip");
@@ -1046,7 +1052,12 @@
           );
           if (!res.ok) return;
           const release = await res.json();
-          const dmgName = `Switchboard-v${latest}-macos-arm64.dmg`;
+          const manifestDmgUrl =
+            manifest?.macos?.universal?.dmg?.url ||
+            manifest?.macos?.arm64?.dmg?.url;
+          const dmgName =
+            (manifestDmgUrl || "").split("/").pop() ||
+            `Switchboard-v${latest}-macos-universal.dmg`;
           const total =
             (release.assets || []).find((a) => a.name === dmgName)
               ?.download_count || 0;

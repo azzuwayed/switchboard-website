@@ -80,7 +80,7 @@
         "@type": "SoftwareApplication",
         "name": "Switchboard",
         "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "macOS 12 or later (Apple Silicon)",
+        "operatingSystem": "macOS 12 or later",
         "description": "A native macOS menu-bar app that finds the local services your Mac is running — Homebrew services, Docker containers, launchd agents, dev servers, and local AI tools — names what owns each port, and brings controls, health checks, and logs into one local-first dashboard.",
         "url": "https://azzuwayed.github.io/switchboard-website/",
         "image": "https://azzuwayed.github.io/switchboard-website/assets/screenshots/services-dashboard.png",
@@ -118,7 +118,7 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">macOS · Apple Silicon</p>
+            <p class="eyebrow">macOS · Apple Silicon + Intel</p>
             <h1>Stop losing track of what's running on your Mac.</h1>
             <p class="lede">
               Switchboard is the local service monitor for Mac developers: it
@@ -213,7 +213,8 @@
             </picture>
           </figure>
           <p class="install-note">
-            Apple Silicon (arm64), macOS 12 (Monterey) or later.
+            Universal build for Apple Silicon and Intel Macs, macOS 12
+            (Monterey) or later.
           </p>
         </div>
       </section>
@@ -894,8 +895,8 @@
               <summary>Does it work on Intel Macs?</summary>
               <div class="faq-body">
                 <p>
-                  Not currently. Switchboard 1.0 ships as Apple Silicon (arm64)
-                  only. An Intel build is not planned for the 1.x line.
+                  Yes. Direct Switchboard releases are universal macOS builds for
+                  Apple Silicon and Intel Macs.
                 </p>
               </div>
             </details>
@@ -903,7 +904,9 @@
             <details>
               <summary>What macOS versions are supported?</summary>
               <div class="faq-body">
-                <p>macOS 12 (Monterey) or newer, Apple Silicon only.</p>
+                <p>
+                  macOS 12 (Monterey) or newer on Apple Silicon or Intel Macs.
+                </p>
               </div>
             </details>
 
@@ -1038,7 +1041,9 @@
           const response = await fetch("updates.json", { cache: "no-cache" });
           if (!response.ok) return;
           const manifest = await response.json();
-          const dmgUrl = manifest?.macos?.arm64?.dmg?.url;
+          const dmgUrl =
+            manifest?.macos?.universal?.dmg?.url ||
+            manifest?.macos?.arm64?.dmg?.url;
           const latest = manifest?.latest;
           const btn = document.getElementById("download-btn");
           const chip = document.getElementById("version-chip");
@@ -1100,7 +1105,12 @@
           );
           if (!res.ok) return;
           const release = await res.json();
-          const dmgName = `Switchboard-v${latest}-macos-arm64.dmg`;
+          const manifestDmgUrl =
+            manifest?.macos?.universal?.dmg?.url ||
+            manifest?.macos?.arm64?.dmg?.url;
+          const dmgName =
+            (manifestDmgUrl || "").split("/").pop() ||
+            `Switchboard-v${latest}-macos-universal.dmg`;
           const total =
             (release.assets || []).find((a) => a.name === dmgName)
               ?.download_count || 0;
