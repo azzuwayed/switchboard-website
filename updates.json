@@ -1,32 +1,50 @@
 {
   "schemaVersion": 1,
-  "latest": "1.1.0",
-  "releasedAt": "2026-06-05T12:10:48.184Z",
+  "latest": "1.1.1",
+  "releasedAt": "2026-06-06T09:54:13.485Z",
   "minimumSystemVersion": "12.0",
   "channel": "stable",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.1.0/Switchboard-v1.1.0-macos-arm64.dmg",
-        "sha256": "22ce530903ac560601fcb0937393d298e2e23ac2b1f13f4f7d140f3e8ec196ac",
-        "sizeBytes": 9953769
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.1.1/Switchboard-v1.1.1-macos-universal.dmg",
+        "sha256": "704a74c5d92c13709f0cfe7c16003a87d5225e3cb3f3a9bd71b65b12ea79dd98",
+        "sizeBytes": 17761891
+      }
+    },
+    "x86_64": {
+      "dmg": {
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.1.1/Switchboard-v1.1.1-macos-universal.dmg",
+        "sha256": "704a74c5d92c13709f0cfe7c16003a87d5225e3cb3f3a9bd71b65b12ea79dd98",
+        "sizeBytes": 17761891
+      }
+    },
+    "universal": {
+      "dmg": {
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.1.1/Switchboard-v1.1.1-macos-universal.dmg",
+        "sha256": "704a74c5d92c13709f0cfe7c16003a87d5225e3cb3f3a9bd71b65b12ea79dd98",
+        "sizeBytes": 17761891
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.1.0",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.1.1",
   "downloadPageUrl": "https://azzuwayed.github.io/switchboard-website/",
-  "notes": "Switchboard 1.1.0 — see release notes for details.",
+  "notes": "Switchboard 1.1.1 — see release notes for details.",
   "highlights": [
-    "Command Center home. The app now opens to a home view with service status counts, a needs-attention queue, port-conflict summary, and quick access to your services. The Services dashboard now lives at its own Services section.",
-    "Instant new-arrival awareness. Switchboard can notice new local listeners as soon as they bind a port, notify you, and surface them in Observer without requiring the continuous Observer engine.",
-    "Per-service resource view. Service details now include a Resources tab showing live CPU and memory for the process currently bound to that service's port."
+    "Universal Mac builds. The direct download now ships as one universal macOS build for both Apple Silicon and Intel Macs.",
+    "Smoother live logs. Busy log bursts are grouped into small updates before they render, so the Logs screen stays calmer under noisy services.",
+    "Lower new-arrival overhead. When a new local listener appears, Switchboard now samples only the newly-seen process instead of scanning the whole process table for attribution."
   ],
-  "version": "1.1.0",
-  "pub_date": "2026-06-05T12:10:48.184Z",
+  "version": "1.1.1",
+  "pub_date": "2026-06-06T09:54:13.485Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXgxZ253bmQ0Rjc0NjlwMzI3aHR3OUw3U1NiNHVNL25tcjUwSEUxUG9lTGJ3WmJrOG5LU0hudmtCTGJsZ1JJUEpjRVZjVDRLbHRSenRjY1RyMkFsWmdNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNjYxMzg4CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpDcGQzTFRoOTF0VEVUSjVacGM4Wm95U2ZhZjJYVDI0Slhzc1F0WE0xT25jT2ZhWlpGaTFLUnVXZDhsQ2FnbmhTNG04cU5heWlhVEh4M0RJa2JoNXNCZz09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.1.0/Switchboard-v1.1.0-macos-arm64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTJzcDdRaDFXNGdVTnJYZzBxS1RhczNKVHIvY09LZmpqVzR2Z2tIRnQyelphVStmNjcxa3FaT2tHZ2dOLzMycTV0bCtidTAxeFc4UmFNZXgyMzhWaHd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNzM5NTkzCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negp1a3FuTm9nWnJ4dHlhNXlYblJsWGJRSzZDdWMrQTBkY0oxV2dBZXBzam5HcExERFU2LzZydEFmcHc5L0tnRnVYbHJXaG5TQ2VpZEQ4SjJLYlUreDNDZz09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.1.1/Switchboard-v1.1.1-macos-universal.app.tar.gz"
+    },
+    "darwin-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTJzcDdRaDFXNGdVTnJYZzBxS1RhczNKVHIvY09LZmpqVzR2Z2tIRnQyelphVStmNjcxa3FaT2tHZ2dOLzMycTV0bCtidTAxeFc4UmFNZXgyMzhWaHd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwNzM5NTkzCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negp1a3FuTm9nWnJ4dHlhNXlYblJsWGJRSzZDdWMrQTBkY0oxV2dBZXBzam5HcExERFU2LzZydEFmcHc5L0tnRnVYbHJXaG5TQ2VpZEQ4SjJLYlUreDNDZz09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.1.1/Switchboard-v1.1.1-macos-universal.app.tar.gz"
     }
   }
 }
