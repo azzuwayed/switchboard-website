@@ -10,6 +10,14 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.1.3] - 2026-06-06
+
+Switchboard 1.1.3 is a maintenance release with no user-facing changes.
+It is internal groundwork: the app's largest modules were split into smaller,
+more maintainable pieces, and the local release and smoke-test tooling was
+strengthened so future updates ship more safely. Everything you interact with
+behaves exactly as it did in 1.1.2.
+
 ## [1.1.2] - 2026-06-06
 
 Switchboard 1.1.2 is a reliability-focused maintenance release that makes local
