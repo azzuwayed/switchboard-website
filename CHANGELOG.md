@@ -10,6 +10,21 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-06-06
+
+Switchboard 1.1.1 is a small release focused on smoother runtime behavior and
+broader Mac compatibility.
+
+### Changed
+
+- **Universal Mac builds.** The direct download now ships as one universal macOS
+  build for both Apple Silicon and Intel Macs.
+- **Smoother live logs.** Busy log bursts are grouped into small updates before
+  they render, so the Logs screen stays calmer under noisy services.
+- **Lower new-arrival overhead.** When a new local listener appears, Switchboard
+  now samples only the newly-seen process instead of scanning the whole process
+  table for attribution.
+
 ## [1.1.0] - 2026-06-05
 
 Switchboard 1.1 sharpens the main workflow around the things you forgot were
