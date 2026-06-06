@@ -10,6 +10,29 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.1.2] - 2026-06-06
+
+Switchboard 1.1.2 is a reliability-focused maintenance release that makes local
+release checks stricter and diagnostics easier to trust.
+
+### Added
+
+- **Stronger local release checks.** The release path now catches missing
+  artifacts, stale bundled release notes, incorrect update-manifest routing, and
+  prerelease/latest mismatches before publishing.
+- **Safer diagnostics counters.** Diagnostics now include local-only numeric
+  counters for listener attribution, resource sampling, and live log batching —
+  without service names, command arguments, paths, or raw log text.
+- **Built-app smoke validation.** A new local smoke check verifies the packaged
+  app bundle, offline update-manifest parsing, and the What’s New notes bundled
+  into the app.
+
+### Changed
+
+- **Better timestamp ordering.** Logs with log4j or Python-style comma
+  fractional timestamps now sort by their parsed log time in the merged Logs
+  stream.
+
 ## [1.1.1] - 2026-06-06
 
 Switchboard 1.1.1 is a small release focused on smoother runtime behavior and
