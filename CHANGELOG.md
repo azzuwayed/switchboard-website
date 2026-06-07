@@ -10,6 +10,45 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-06-07
+
+Switchboard 1.2.0 brings command approvals front and center, makes the Observer
+quieter and easier to act on, and unifies how updates install.
+
+### Added
+
+- **Approvals is now its own screen.** Commands waiting for your approval live at
+  a dedicated Approvals destination in the sidebar and command palette, with the
+  pending badge moved there from Settings. Pending commands sort to the top, show
+  at-a-glance pending/approved counts, and the review area uses the full window.
+- **Grouped Observer findings.** When Switchboard spots new local activity, it
+  now groups related signals into one probable service instead of a wall of raw
+  detector hits — reflected everywhere it counts attention: the Command Center,
+  sidebar badges, the tray, and the Observer inbox.
+- **Tidier onboarding discovery.** First-run setup groups related launchd, project,
+  and live-port detections so you can add them as a single reviewed service.
+- **One consistent update experience.** The update banner, About, and Settings now
+  share the same calm update card with inline release notes, slim progress, and a
+  tucked-away More menu — and you can install an update directly from Settings.
+
+### Fixed
+
+- **Wider setup and Settings.** Settings and the onboarding review screens now use
+  the full window instead of a narrow column, and the "nothing detected" summary
+  no longer shows a bare `0`.
+- **Calmer Observer cards.** Review & add and Stop stay one click away; Snooze,
+  Dismiss, and Ignore move into a compact More menu. Findings you've already
+  adopted now clear themselves from attention surfaces.
+- **Less onboarding noise.** Switchboard no longer flags itself during setup,
+  keeps stopped Homebrew services visible (just unselected), and names any
+  discovery source it skips.
+- **Trimmed tray header.** The tray Command Center no longer repeats its status
+  and last-checked lines.
+- **Safer Docs indexing.** Pointing Docs at a broad or stale folder can no longer
+  bog down the app: overly broad home folders are rejected, heavy directories are
+  skipped, and a folder with no Markdown now shows a clear empty state explaining
+  what was scanned instead of a blank pane.
+
 ## [1.1.3] - 2026-06-06
 
 Switchboard 1.1.3 is a maintenance release with no user-facing changes.
