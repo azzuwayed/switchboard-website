@@ -147,6 +147,22 @@
                 <strong>Settings → License &amp; Access</strong>, paste the key,
                 and click <strong>Activate</strong>.
               </p>
+              <p id="receipt-line" hidden style="margin-top: 16px">
+                <a
+                  class="btn btn-secondary"
+                  id="receipt-link"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  >Download invoice</a
+                >
+                <span
+                  id="receipt-passcode"
+                  class="muted"
+                  hidden
+                  style="display: block; margin-top: 6px"
+                ></span>
+              </p>
             </div>
           </div>
 
@@ -222,6 +238,15 @@
             keyValue.textContent = data.licenseKey;
             form.hidden = true;
             keySection.hidden = false;
+            if (data.receiptUrl) {
+              document.getElementById("receipt-link").href = data.receiptUrl;
+              document.getElementById("receipt-line").hidden = false;
+              if (data.receiptPasscode) {
+                const pc = document.getElementById("receipt-passcode");
+                pc.textContent = `If the invoice asks for a passcode, use: ${data.receiptPasscode}`;
+                pc.hidden = false;
+              }
+            }
             return;
           }
           if (res.ok && data.licenseKey === null) {

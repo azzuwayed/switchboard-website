@@ -157,6 +157,22 @@
                 <strong>الإعدادات ← الرخصة والوصول</strong>، الصق المفتاح واضغط
                 <strong>تفعيل</strong>.
               </p>
+              <p id="receipt-line" hidden style="margin-top: 16px">
+                <a
+                  class="btn btn-secondary"
+                  id="receipt-link"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  >تنزيل الفاتورة</a
+                >
+                <span
+                  id="receipt-passcode"
+                  class="muted"
+                  hidden
+                  style="display: block; margin-top: 6px"
+                ></span>
+              </p>
             </div>
           </div>
 
@@ -232,6 +248,15 @@
             keyValue.textContent = data.licenseKey;
             form.hidden = true;
             keySection.hidden = false;
+            if (data.receiptUrl) {
+              document.getElementById("receipt-link").href = data.receiptUrl;
+              document.getElementById("receipt-line").hidden = false;
+              if (data.receiptPasscode) {
+                const pc = document.getElementById("receipt-passcode");
+                pc.textContent = `إذا طلبت الفاتورة رمزاً، استخدم: ${data.receiptPasscode}`;
+                pc.hidden = false;
+              }
+            }
             return;
           }
           if (res.ok && data.licenseKey === null) {

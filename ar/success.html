@@ -151,6 +151,22 @@
                 واضغط <strong>تفعيل</strong>. تعمل الرخصة الواحدة على حتى 3
                 أجهزة Mac.
               </p>
+              <p id="receipt-line" hidden style="margin-top: 16px">
+                <a
+                  class="btn btn-secondary"
+                  id="receipt-link"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  >تنزيل الفاتورة</a
+                >
+                <span
+                  id="receipt-passcode"
+                  class="muted"
+                  hidden
+                  style="display: block; margin-top: 6px"
+                ></span>
+              </p>
             </div>
 
             <div id="pending-section" hidden>
@@ -226,12 +242,24 @@
         return null;
       }
 
-      function showKey(key) {
+      function showReceipt(receiptUrl, passcode) {
+        if (!receiptUrl) return;
+        document.getElementById("receipt-link").href = receiptUrl;
+        document.getElementById("receipt-line").hidden = false;
+        if (passcode) {
+          const pc = document.getElementById("receipt-passcode");
+          pc.textContent = `إذا طلبت الفاتورة رمزاً، استخدم: ${passcode}`;
+          pc.hidden = false;
+        }
+      }
+
+      function showKey(key, receiptUrl, passcode) {
         statusEl.hidden = true;
         pendingSection.hidden = true;
         headingEl.textContent = "كل شيء جاهز";
         keyValue.textContent = key;
         keySection.hidden = false;
+        showReceipt(receiptUrl, passcode);
       }
 
       function showFallback() {
@@ -278,7 +306,7 @@
           const res = await fetch(url);
           const data = await res.json().catch(() => ({}));
           if (data.status === "Paid" && data.licenseKey) {
-            showKey(data.licenseKey);
+            showKey(data.licenseKey, data.receiptUrl, data.receiptPasscode);
             return;
           }
           if (data.status === "Canceled") {
