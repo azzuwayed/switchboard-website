@@ -10,6 +10,32 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.2.2] - 2026-06-08
+
+Switchboard 1.2.2 polishes license receipts, admin workflows, and update
+restart behavior.
+
+### Added
+
+- **Switchboard receipts.** Payment receipts now come from Switchboard instead
+  of Paylink's fee report, with Switchboard branding, Arabic and English
+  labels, a language toggle, Riyadh timestamps, customer mobile, and clearer
+  order and payment references.
+
+### Changed
+
+- **Cleaner receipt layout.** Seller details are easier to scan, the order
+  number label is clearer, and extra payment-provider wording has been removed.
+- **Roomier license admin console.** The admin dashboard and action areas now
+  use the available page width and refresh more cleanly after changes.
+
+### Fixed
+
+- **Smoother update restart.** After installing an update and restarting,
+  Switchboard now returns to the foreground.
+- **Private license notes stay private.** Customer-facing disabled-license
+  messages no longer expose the operator's internal reason.
+
 ## [1.2.1] - 2026-06-07
 
 Switchboard 1.2.1 smooths out buying and managing your license and quiets the
