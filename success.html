@@ -173,10 +173,6 @@
               </p>
             </div>
           </div>
-
-          <p class="muted">
-            <a href="pricing.html">Back to pricing</a>
-          </p>
         </div>
       </section>
     </main>
@@ -209,9 +205,15 @@
       // sessionStorage); fall back to the orderNumber the worker now appends to
       // the callback, so the key is recoverable even when sessionStorage is gone
       // (private mode / a different tab). Each maps to its own status param.
-      const txn = params.get("transactionNo") || safeSession();
       const orderNumber = params.get("orderNumber");
-      const orderRefValue = txn || orderNumber || null;
+      // Explicit URL identifiers always win over a possibly-stale
+      // sessionStorage value left by an earlier checkout in the same tab.
+      // sessionStorage is only a last resort when the callback URL carries
+      // neither identifier (the worker now appends orderNumber, so it usually
+      // does).
+      const txn =
+        params.get("transactionNo") || (orderNumber ? null : safeSession());
+      const orderRefValue = txn || orderNumber || safeSession() || null;
 
       const statusEl = document.getElementById("status");
       const headingEl = document.getElementById("heading");

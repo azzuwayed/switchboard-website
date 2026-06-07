@@ -919,6 +919,10 @@ h2 {
   min-height: 2.9em;
 }
 
+.founder-badge[hidden] {
+  display: none;
+}
+
 .founder-badge {
   justify-self: start;
   display: inline-flex;

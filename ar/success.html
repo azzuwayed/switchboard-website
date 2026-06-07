@@ -184,10 +184,6 @@
               </p>
             </div>
           </div>
-
-          <p class="muted">
-            <a href="pricing.html">العودة إلى الأسعار</a>
-          </p>
         </div>
       </section>
     </main>
@@ -216,12 +212,14 @@
       }
 
       const params = new URLSearchParams(window.location.search);
-      // نفضّل رقم العملية الحقيقي من Paylink (من الرابط أو من sessionStorage في
-      // التبويب نفسه)، ثم نعود إلى orderNumber الذي يضيفه الـ worker إلى رابط
-      // العودة، حتى يبقى المفتاح قابلاً للاسترجاع دون sessionStorage.
-      const txn = params.get("transactionNo") || safeSession();
+      // المعرّفات الصريحة في الرابط تتقدّم دائمًا على قيمة sessionStorage التي قد
+      // تكون قديمة من عملية شراء سابقة في التبويب نفسه. لا نستخدم sessionStorage
+      // إلا كحل أخير عندما لا يحمل رابط العودة أي معرّف (الـ worker يضيف
+      // orderNumber عادةً، فيكون متوفّرًا).
       const orderNumber = params.get("orderNumber");
-      const orderRefValue = txn || orderNumber || null;
+      const txn =
+        params.get("transactionNo") || (orderNumber ? null : safeSession());
+      const orderRefValue = txn || orderNumber || safeSession() || null;
 
       const statusEl = document.getElementById("status");
       const headingEl = document.getElementById("heading");
