@@ -1,50 +1,50 @@
 {
   "schemaVersion": 1,
-  "latest": "1.2.1",
-  "releasedAt": "2026-06-07T14:04:16.417Z",
+  "latest": "1.2.2",
+  "releasedAt": "2026-06-07T23:07:27.873Z",
   "minimumSystemVersion": "12.0",
   "channel": "stable",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.2.1/Switchboard-v1.2.1-macos-universal.dmg",
-        "sha256": "8981665ace4ec3b6607a55a7f7e8603270e502c740a12521aba77767561d14a6",
-        "sizeBytes": 17891977
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.2.2/Switchboard-v1.2.2-macos-universal.dmg",
+        "sha256": "101a9f46b469f0f5c8832b8ae82f274f491a3d036d18b8c1366de7e9feb7dc6a",
+        "sizeBytes": 17891531
       }
     },
     "x86_64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.2.1/Switchboard-v1.2.1-macos-universal.dmg",
-        "sha256": "8981665ace4ec3b6607a55a7f7e8603270e502c740a12521aba77767561d14a6",
-        "sizeBytes": 17891977
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.2.2/Switchboard-v1.2.2-macos-universal.dmg",
+        "sha256": "101a9f46b469f0f5c8832b8ae82f274f491a3d036d18b8c1366de7e9feb7dc6a",
+        "sizeBytes": 17891531
       }
     },
     "universal": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.2.1/Switchboard-v1.2.1-macos-universal.dmg",
-        "sha256": "8981665ace4ec3b6607a55a7f7e8603270e502c740a12521aba77767561d14a6",
-        "sizeBytes": 17891977
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.2.2/Switchboard-v1.2.2-macos-universal.dmg",
+        "sha256": "101a9f46b469f0f5c8832b8ae82f274f491a3d036d18b8c1366de7e9feb7dc6a",
+        "sizeBytes": 17891531
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.2.1",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.2.2",
   "downloadPageUrl": "https://azzuwayed.github.io/switchboard-website/",
-  "notes": "Switchboard 1.2.1 — see release notes for details.",
+  "notes": "Switchboard 1.2.2 — see release notes for details.",
   "highlights": [
-    "Download your invoice. After paying — or anytime from the new key-recovery page — you can download your official payment receipt.",
-    "Lost your key? Get it back yourself. A new recovery page re-shows your license key from your email and order number, with no waiting on support.",
-    "Clearer license messages. If activation is blocked — a device limit reached, or a refunded or disabled license — Switchboard now explains exactly what happened and what to do, in English and Arabic, right where you enter the key."
+    "Switchboard receipts. Payment receipts now come from Switchboard instead of Paylink's fee report, with Switchboard branding, Arabic and English labels, a language toggle, Riyadh timestamps, customer mobile, and clearer order and payment references.",
+    "Cleaner receipt layout. Seller details are easier to scan, the order number label is clearer, and extra payment-provider wording has been removed.",
+    "Roomier license admin console. The admin dashboard and action areas now use the available page width and refresh more cleanly after changes."
   ],
-  "version": "1.2.1",
-  "pub_date": "2026-06-07T14:04:16.417Z",
+  "version": "1.2.2",
+  "pub_date": "2026-06-07T23:07:27.873Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXp0VXhLT2puV1V1Wmd0elNRRWNIYTJvUmRvQ1NsWmRVc0JGUTRqTnk2ckRzRzFhTUhFQWJmTGRpRFVQaWdQclJueHcrR0VnZVE0NlRXaTNNU1lyQlFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwODQwOTg5CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negp2cGlLdjRQSjBuRmlVS0FYbkduZkpCSmVWSzBMcUdyUkQyWWNZUFZib2dhTzloenJLR083d2tUUHIwWERTTUZ5Z3RMemJNZjUweEJ5RGZpZG8wZ1FCUT09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.2.1/Switchboard-v1.2.1-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXhESEJMRU1RTFRzM1pzNGx0Ry9PWVVNZmk0VG9QN1ZUanlYQm5EUHhRQkhEbkZTTmZFSUlKdzJydW0raEt3RmwzZkhIZnI2eStXWGp1YStCWG9UZnd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwODczNTg1CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5nego5bHNGaGtJdmsrRGIyU1pGY0QzNXF3SUVSVzBQZWwvTFhNMm42S2sxSTFsNGwxL1F0TmxjT3hscWtKWnNESUpXT04zN291ejZ4YmF3Y1FWRjZlZ2ZBQT09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.2.2/Switchboard-v1.2.2-macos-universal.app.tar.gz"
     },
     "darwin-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXp0VXhLT2puV1V1Wmd0elNRRWNIYTJvUmRvQ1NsWmRVc0JGUTRqTnk2ckRzRzFhTUhFQWJmTGRpRFVQaWdQclJueHcrR0VnZVE0NlRXaTNNU1lyQlFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwODQwOTg5CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negp2cGlLdjRQSjBuRmlVS0FYbkduZkpCSmVWSzBMcUdyUkQyWWNZUFZib2dhTzloenJLR083d2tUUHIwWERTTUZ5Z3RMemJNZjUweEJ5RGZpZG8wZ1FCUT09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.2.1/Switchboard-v1.2.1-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXhESEJMRU1RTFRzM1pzNGx0Ry9PWVVNZmk0VG9QN1ZUanlYQm5EUHhRQkhEbkZTTmZFSUlKdzJydW0raEt3RmwzZkhIZnI2eStXWGp1YStCWG9UZnd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwODczNTg1CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5nego5bHNGaGtJdmsrRGIyU1pGY0QzNXF3SUVSVzBQZWwvTFhNMm42S2sxSTFsNGwxL1F0TmxjT3hscWtKWnNESUpXT04zN291ejZ4YmF3Y1FWRjZlZ2ZBQT09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.2.2/Switchboard-v1.2.2-macos-universal.app.tar.gz"
     }
   }
 }
