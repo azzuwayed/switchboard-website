@@ -10,6 +10,36 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-06-07
+
+Switchboard 1.2.1 smooths out buying and managing your license and quiets the
+unified Logs view.
+
+### Added
+
+- **Download your invoice.** After paying — or anytime from the new key-recovery
+  page — you can download your official payment receipt.
+- **Lost your key? Get it back yourself.** A new recovery page re-shows your
+  license key from your email and order number, with no waiting on support.
+- **Clearer license messages.** If activation is blocked — a device limit
+  reached, or a refunded or disabled license — Switchboard now explains exactly
+  what happened and what to do, in English and Arabic, right where you enter the
+  key.
+
+### Changed
+
+- **Calmer unified Logs.** Long log lines stay on one row with horizontal scroll,
+  duplicate file sources collapse together, new-line highlighting is more
+  subtle, and a log file that doesn't exist yet stays selectable while it waits
+  to appear.
+- **Refined onboarding layout.**
+
+### Fixed
+
+- **More reliable post-payment page.** After checkout, the success page reliably
+  shows your key even if the browser lost its session, and never displays a stale
+  order from an earlier attempt.
+
 ## [1.2.0] - 2026-06-07
 
 Switchboard 1.2.0 brings command approvals front and center, makes the Observer
