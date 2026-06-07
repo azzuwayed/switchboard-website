@@ -118,7 +118,7 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">macOS · Apple Silicon + Intel</p>
+            <p class="eyebrow platform-eyebrow">macOS · Apple Silicon + Intel</p>
             <h1>Stop losing track of what's running on your Mac.</h1>
             <p class="lede">
               Switchboard is the local service monitor for Mac developers: it
@@ -145,20 +145,6 @@
                 <span class="promo-note">Apple notarized</span>
               </span>
             </div>
-            <ul class="trust-strip">
-              <li>
-                <span class="trust-chip-dot" aria-hidden="true"></span>Free use
-                — no account
-              </li>
-              <li>
-                <span class="trust-chip-dot" aria-hidden="true"></span
-                >Local-first — anonymous stats only
-              </li>
-              <li id="download-count-item" hidden>
-                <span class="trust-chip-dot" aria-hidden="true"></span
-                ><span id="download-count">—</span> downloads
-              </li>
-            </ul>
           </div>
           <div class="hero-art">
             <button
@@ -429,10 +415,10 @@
               <p>
                 No background HTTP server. Your config and logs live under
                 <code>~/Library/Application Support/</code> and never leave your
-                Mac. The one thing Switchboard sends is an anonymous, aggregate
-                usage count — a weekly-active estimate and the app version, no
-                identifiers, no IP stored — riding on the daily update check. On
-                by default; one toggle off in Settings → Privacy.
+                Mac. The one thing Switchboard sends is an anonymous
+                active-install count, with no account, installation token, or
+                raw IP stored. On by default; one toggle off in Settings →
+                Privacy.
               </p>
             </article>
           </div>
@@ -445,8 +431,7 @@
           <h2>The app is built around the mess it finds.</h2>
           <p class="features-lede">
             These are real Switchboard screens captured from a local demo
-            fixture: discovered services, port sprawl, live logs, and reviewed
-            adds before anything can run.
+            fixture: discovered services, port sprawl, and live logs.
           </p>
           <div class="screenshot-grid">
             <figure class="screenshot-card">
@@ -537,37 +522,6 @@
                 <strong>Logs</strong>
                 <span
                   >Service files, command logs, and manual files together.</span
-                >
-              </figcaption>
-            </figure>
-            <figure class="screenshot-card">
-              <button
-                type="button"
-                class="screenshot-button"
-                data-lightbox-src="assets/screenshots/detect-services.webp"
-                data-lightbox-fallback="assets/screenshots/detect-services.png"
-                data-lightbox-alt="Switchboard Detect services dialog reviewing discovered services before adding them."
-                data-lightbox-caption="Reviewed adds — detected services are shown for review before saving."
-                aria-label="Open Detect services screenshot"
-              >
-                <picture>
-                  <source
-                    srcset="assets/screenshots/detect-services.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    src="assets/screenshots/detect-services.png"
-                    alt="Switchboard Detect services dialog reviewing discovered services before adding them."
-                    width="3084"
-                    height="1968"
-                    loading="lazy"
-                  />
-                </picture>
-              </button>
-              <figcaption>
-                <strong>Reviewed adds</strong>
-                <span
-                  >Detected services are shown for review before saving.</span
                 >
               </figcaption>
             </figure>
@@ -873,12 +827,12 @@
               <summary>What data does Switchboard collect or send?</summary>
               <div class="faq-body">
                 <p>
-                  One thing, and it is anonymous: a weekly-active estimate plus
-                  the app version, sent via the daily update check so we can see
-                  roughly how many people use Switchboard. No account, no
-                  identifiers, no installation token, no raw IP stored — and no
-                  crash reporter or per-action tracking. The app does not listen
-                  on any network port.
+                  One thing, and it is anonymous: an active-install count sent
+                  via the daily update check so we can see roughly how many
+                  people use Switchboard. No account, no identifiers, no
+                  installation token, no raw IP stored — and no crash reporter
+                  or per-action tracking. The app does not listen on any network
+                  port.
                 </p>
                 <p>
                   Everything else stays on your Mac under
@@ -1052,79 +1006,6 @@
         } catch {
           // Silent — the static href on #download-btn still points at the
           // /releases/latest page.
-        }
-      })();
-
-      // Display the latest .dmg download count from GitHub Releases as a
-      // trust-strip chip. Reads public release metadata via the GitHub API —
-      // no cookies, no visitor tracking, no token. Caches in localStorage and
-      // degrades silently (the chip stays hidden) on any failure.
-      (async () => {
-        const REPO = "azzuwayed/switchboard-website";
-        const MIN_TO_SHOW = 0; // raise to hide the chip until downloads grow
-        const TTL_MS = 6 * 60 * 60 * 1000;
-        const KEY = "sb-latest-dl-count";
-        const item = document.getElementById("download-count-item");
-        const out = document.getElementById("download-count");
-        if (!item || !out) return;
-
-        const show = (n) => {
-          if (typeof n !== "number" || n < MIN_TO_SHOW) return;
-          out.textContent = new Intl.NumberFormat("en").format(n);
-          item.hidden = false;
-        };
-
-        try {
-          const manifestRes = await fetch("updates.json", {
-            cache: "no-cache",
-          });
-          if (!manifestRes.ok) return;
-          const manifest = await manifestRes.json();
-          const latest = manifest?.latest;
-          if (!latest) return;
-
-          try {
-            const cached = JSON.parse(localStorage.getItem(KEY) || "null");
-            if (
-              cached &&
-              cached.latest === latest &&
-              Date.now() - cached.t < TTL_MS
-            ) {
-              show(cached.n);
-              return;
-            }
-          } catch {
-            // Ignore a malformed cache entry and fetch fresh.
-          }
-
-          const res = await fetch(
-            `https://api.github.com/repos/${REPO}/releases/tags/v${encodeURIComponent(
-              latest,
-            )}`,
-            { headers: { Accept: "application/vnd.github+json" } },
-          );
-          if (!res.ok) return;
-          const release = await res.json();
-          const manifestDmgUrl =
-            manifest?.macos?.universal?.dmg?.url ||
-            manifest?.macos?.arm64?.dmg?.url;
-          const dmgName =
-            (manifestDmgUrl || "").split("/").pop() ||
-            `Switchboard-v${latest}-macos-universal.dmg`;
-          const total =
-            (release.assets || []).find((a) => a.name === dmgName)
-              ?.download_count || 0;
-          try {
-            localStorage.setItem(
-              KEY,
-              JSON.stringify({ latest, n: total, t: Date.now() }),
-            );
-          } catch {
-            // localStorage unavailable (private mode/quota) — skip caching.
-          }
-          show(total);
-        } catch {
-          // Silent — the chip just stays hidden.
         }
       })();
 

@@ -102,7 +102,7 @@
                   Deeper port and process intelligence, plus tray port console
                 </li>
                 <li>Observer and port-conflict notifications</li>
-                <li>Snooze, adopt, and auto-stop workflows</li>
+                <li>Stop, snooze, and adopt workflows</li>
                 <li>Switchboard 1.x updates and support for at least 2 years</li>
               </ul>
               <a class="btn btn-primary" id="buy-cta" href="checkout.html"
@@ -156,9 +156,6 @@
       </div>
     </footer>
     <script>
-      // Reflect the live purchasing state: if it's paused (manually or by the
-      // gateway watchdog), show the notice and turn the Buy button into a
-      // disabled "paused" state instead of sending people to a dead checkout.
       (async function () {
         const LICENSE_API =
           "https://switchboard-licenses.azzuwayed.workers.dev";

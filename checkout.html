@@ -169,7 +169,6 @@
     </footer>
 
     <script>
-      // License service Worker. Override for sandbox/dev testing if needed.
       const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
 
       const form = document.getElementById("checkout-form");
@@ -276,12 +275,8 @@
         emailInput.value = emailInput.value.trim();
       });
 
-      // Display the price from the Worker once an order is created; until then,
-      // show the founder figure. The authoritative amount comes from the Worker.
       totalEl.textContent = "≈ 73 SAR";
 
-      // If purchasing is paused (manually or by the gateway watchdog), show the
-      // friendly notice and disable the form up front.
       (async function checkAvailability() {
         try {
           const res = await fetch(`${LICENSE_API}/api/checkout/availability`);
@@ -339,15 +334,10 @@
           if (data.amount && data.currency) {
             totalEl.textContent = `${data.amount} ${data.currency}`;
           }
-          // Remember the transaction so the success page can poll for the key
-          // even if Paylink's return URL doesn't echo it back.
           try {
             sessionStorage.setItem("sb-transaction-no", data.transactionNo);
           } catch {
-            // Private mode / disabled storage — success page falls back to the
-            // query param Paylink appends to the return URL.
           }
-          // Hand off to the Paylink hosted payment page.
           window.location.href = data.url;
         } catch (err) {
           errorEl.textContent = err.message || String(err);

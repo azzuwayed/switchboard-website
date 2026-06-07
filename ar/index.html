@@ -128,7 +128,7 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">macOS · Apple Silicon + Intel</p>
+            <p class="eyebrow platform-eyebrow">macOS · Apple Silicon + Intel</p>
             <h1>لا تفقد أثر ما يعمل في الخلفية على جهاز Mac.</h1>
             <p class="lede">
               Switchboard مراقب للخدمات المحلية على Mac، مصمم للمطورين: يعثر على
@@ -154,20 +154,6 @@
                 <span class="promo-note">موثّق من Apple</span>
               </span>
             </div>
-            <ul class="trust-strip">
-              <li>
-                <span class="trust-chip-dot" aria-hidden="true"></span>بدون
-                حساب أو بطاقة
-              </li>
-              <li>
-                <span class="trust-chip-dot" aria-hidden="true"></span>محلي
-                أولاً — إحصاءات مجهولة فقط
-              </li>
-              <li id="download-count-item" hidden>
-                <span class="trust-chip-dot" aria-hidden="true"></span
-                ><span id="download-count">—</span> عملية تنزيل
-              </li>
-            </ul>
           </div>
           <div class="hero-art">
             <button
@@ -431,10 +417,9 @@
               <h3>محلي أولاً</h3>
               <p>
                 لا خادم خلفي. إعداداتك وسجلاتك تبقى على جهازك. الشيء الوحيد الذي
-                يرسله Switchboard هو عدد استخدام مجمّع ومجهول — تقدير للمستخدمين
-                النشطين أسبوعياً وإصدار التطبيق، بدون معرّفات وبدون تخزين عنوان
-                IP — عبر فحص التحديث اليومي. مفعّل افتراضياً؛ إيقافه بنقرة واحدة
-                من الإعدادات ← الخصوصية.
+                يرسله Switchboard هو عدد مجهول للتثبيتات النشطة، بدون حساب أو
+                رمز تثبيت أو تخزين عنوان IP خام. مفعّل افتراضياً؛ إيقافه بنقرة
+                واحدة من الإعدادات ← الخصوصية.
               </p>
             </article>
           </div>
@@ -446,8 +431,8 @@
           <p class="eyebrow">لقطات من التطبيق</p>
           <h2>الواجهة مبنية حول الفوضى التي يجدها التطبيق.</h2>
           <p class="features-lede">
-            هذه لقطات حقيقية من وضع عرض محلي: خدمات مكتشفة، منافذ كثيرة، سجلات
-            مباشرة، ومراجعة قبل إضافة أي خدمة.
+            هذه لقطات حقيقية من وضع عرض محلي: خدمات مكتشفة، منافذ كثيرة، وسجلات
+            مباشرة.
           </p>
           <div class="screenshot-grid">
             <figure class="screenshot-card">
@@ -535,35 +520,6 @@
               <figcaption>
                 <strong>السجلات</strong>
                 <span>ملفات الخدمات وسجلات الأوامر والملفات اليدوية معاً.</span>
-              </figcaption>
-            </figure>
-            <figure class="screenshot-card">
-              <button
-                type="button"
-                class="screenshot-button"
-                data-lightbox-src="../assets/screenshots/detect-services.webp"
-                data-lightbox-fallback="../assets/screenshots/detect-services.png"
-                data-lightbox-alt="نافذة اكتشاف الخدمات في Switchboard تعرض خدمات مكتشفة للمراجعة قبل إضافتها."
-                data-lightbox-caption="إضافة بعد المراجعة — الخدمات المكتشفة تظهر للمراجعة قبل حفظها."
-                aria-label="فتح لقطة شاشة اكتشاف الخدمات"
-              >
-                <picture>
-                  <source
-                    srcset="../assets/screenshots/detect-services.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    src="../assets/screenshots/detect-services.png"
-                    alt="نافذة اكتشاف الخدمات في Switchboard تعرض خدمات مكتشفة للمراجعة قبل إضافتها."
-                    width="3084"
-                    height="1968"
-                    loading="lazy"
-                  />
-                </picture>
-              </button>
-              <figcaption>
-                <strong>إضافة بعد المراجعة</strong>
-                <span>الخدمات المكتشفة تظهر للمراجعة قبل حفظها.</span>
               </figcaption>
             </figure>
           </div>
@@ -823,11 +779,11 @@
               <summary>ما البيانات التي يجمعها Switchboard أو يرسلها؟</summary>
               <div class="faq-body">
                 <p>
-                  شيء واحد فقط، وهو مجهول: تقدير للمستخدمين النشطين أسبوعياً مع
-                  إصدار التطبيق، يُرسَل عبر فحص التحديث اليومي حتى نعرف تقريباً
-                  عدد مستخدمي Switchboard. بدون حساب، بدون معرّفات، بدون رمز
-                  تثبيت، وبدون تخزين عنوان IP — ولا تقارير أعطال ولا تتبّع
-                  للإجراءات. لا يستمع التطبيق إلى أي منفذ شبكي.
+                  شيء واحد فقط، وهو مجهول: عدد للتثبيتات النشطة يُرسَل عبر فحص
+                  التحديث اليومي حتى نعرف تقريباً عدد مستخدمي Switchboard. بدون
+                  حساب، بدون معرّفات، بدون رمز تثبيت، وبدون تخزين عنوان IP خام —
+                  ولا تقارير أعطال ولا تتبّع للإجراءات. لا يستمع التطبيق إلى أي
+                  منفذ شبكي.
                 </p>
                 <p>
                   بقية كل شيء يبقى على جهاز Mac الخاص بك تحت
@@ -1000,78 +956,6 @@
           if (chip && latest) chip.textContent = "v" + latest;
         } catch {
           // صامت — الرابط الثابت على #download-btn ما زال يشير إلى /releases/latest.
-        }
-      })();
-
-      // يعرض عدد تنزيلات أحدث ملف .dmg من GitHub Releases كشارة في شريط الثقة.
-      // يقرأ بيانات الإصدار العامة عبر واجهة GitHub — بدون كوكيز، بدون تتبّع للزائر،
-      // بدون رمز وصول. يخزّن مؤقتاً في localStorage ويفشل بصمت (تبقى الشارة مخفية).
-      (async () => {
-        const REPO = "azzuwayed/switchboard-website";
-        const MIN_TO_SHOW = 0; // ارفعه لإخفاء الشارة حتى تكبر أرقام التنزيل
-        const TTL_MS = 6 * 60 * 60 * 1000;
-        const KEY = "sb-latest-dl-count";
-        const item = document.getElementById("download-count-item");
-        const out = document.getElementById("download-count");
-        if (!item || !out) return;
-
-        const show = (n) => {
-          if (typeof n !== "number" || n < MIN_TO_SHOW) return;
-          out.textContent = new Intl.NumberFormat("ar").format(n);
-          item.hidden = false;
-        };
-
-        try {
-          const manifestRes = await fetch("../updates.json", {
-            cache: "no-cache",
-          });
-          if (!manifestRes.ok) return;
-          const manifest = await manifestRes.json();
-          const latest = manifest?.latest;
-          if (!latest) return;
-
-          try {
-            const cached = JSON.parse(localStorage.getItem(KEY) || "null");
-            if (
-              cached &&
-              cached.latest === latest &&
-              Date.now() - cached.t < TTL_MS
-            ) {
-              show(cached.n);
-              return;
-            }
-          } catch {
-            // تجاهل إدخال التخزين المؤقت التالف واجلب من جديد.
-          }
-
-          const res = await fetch(
-            `https://api.github.com/repos/${REPO}/releases/tags/v${encodeURIComponent(
-              latest,
-            )}`,
-            { headers: { Accept: "application/vnd.github+json" } },
-          );
-          if (!res.ok) return;
-          const release = await res.json();
-          const manifestDmgUrl =
-            manifest?.macos?.universal?.dmg?.url ||
-            manifest?.macos?.arm64?.dmg?.url;
-          const dmgName =
-            (manifestDmgUrl || "").split("/").pop() ||
-            `Switchboard-v${latest}-macos-universal.dmg`;
-          const total =
-            (release.assets || []).find((a) => a.name === dmgName)
-              ?.download_count || 0;
-          try {
-            localStorage.setItem(
-              KEY,
-              JSON.stringify({ latest, n: total, t: Date.now() }),
-            );
-          } catch {
-            // localStorage غير متاح (وضع خاص/تجاوز الحصة) — تخطّى التخزين المؤقت.
-          }
-          show(total);
-        } catch {
-          // صامت — تبقى الشارة مخفية.
         }
       })();
 

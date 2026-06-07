@@ -221,6 +221,11 @@ code {
   margin: 0 0 16px;
 }
 
+.platform-eyebrow {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .screenshots .eyebrow,
 .use-cases .eyebrow,
 .story-copy .eyebrow {
@@ -1152,40 +1157,6 @@ h2 {
     display: grid;
     gap: 6px;
   }
-}
-
-/* Hero trust strip — three pill chips replacing the old single line of micro
-   copy. Communicates Free / No-signup / Local at a glance. */
-
-.trust-strip {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.trust-strip li {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--bg-elev);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 13px;
-  color: var(--fg-muted);
-  line-height: 1.2;
-}
-
-.trust-chip-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 6px color-mix(in srgb, var(--accent) 55%, transparent);
-  flex-shrink: 0;
 }
 
 /* Install — first-time install section. */

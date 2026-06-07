@@ -144,10 +144,9 @@
           <h1>Your data stays on your Mac.</h1>
           <p class="lede">
             Switchboard is a local-first macOS utility with no background HTTP
-            server. The only data it sends is an anonymous, aggregate usage
+            server. The only telemetry it sends is an anonymous active-install
             count carried over the update check — on by default, one toggle to
-            off. This page describes exactly what the app reads, writes, and
-            sends — and what it deliberately does not do.
+            off. This page describes what the app reads, writes, and sends.
           </p>
           <p class="doc-meta">Last updated: 2026-06-03.</p>
         </div>
@@ -158,9 +157,10 @@
           <h2>Summary</h2>
           <ul>
             <li>
-              Anonymous, aggregate usage stats only: a weekly-active estimate
-              and the app version. No identifiers, no IP stored, no crash
-              reports. On by default; opt out in Settings → Privacy.
+              Anonymous, aggregate usage stats only: an active-install count
+              with minimal update-check metadata. No identifiers, no raw IP
+              stored, no crash reports. On by default; opt out in Settings →
+              Privacy.
             </li>
             <li>
               No user account or signup. Free use needs no license key; a
@@ -168,9 +168,8 @@
             </li>
             <li>No background server, no listening network port.</li>
             <li>
-              The app's only outbound request is the once-a-day update check,
-              served through an endpoint we operate that counts it anonymously.
-              You can turn off counting, the check, or both.
+              The app's only outbound request is the update check. You can turn
+              off counting, the check, or both.
             </li>
             <li>
               All configuration, logs, and approval state are stored on your Mac
@@ -189,7 +188,7 @@
               Switchboard does not send crash dumps, does not record which
               features or services you use, attaches no user or machine
               identifier, and uses no third-party analytics SDK. The one signal
-              it does send — an anonymous weekly-active count — is described in
+              it does send — an anonymous active-install count — is described in
               <a href="#outbound">The one outbound request</a> below.
             </li>
             <li>
@@ -268,34 +267,23 @@
           <h2 id="outbound">The one outbound request</h2>
           <p>
             With <em>Check for updates automatically</em> enabled (the default),
-            the app fetches the public update manifest on launch and roughly
-            once a day after that — a static JSON file (latest version number,
-            release date, download URLs), served through a small endpoint we
-            operate that mirrors the file hosted on GitHub Pages.
+            the app checks for a newer release on launch and roughly once a day
+            after that. This is a small static update file with the latest
+            version and download information.
           </p>
           <p>
-            From those daily checks — and only those, never the artifact
-            downloads — the endpoint records an
+            From automatic app checks — and only those, never update downloads —
+            the update service records an
             <strong>anonymous, aggregate</strong>
-            signal so we can estimate how many people actively use Switchboard:
-            a weekly-active count and the app version. It stores no raw IP and
-            no identifier. Like any web server, it receives the standard request
-            metadata your HTTP client sends (including your IP address); it
-            keeps only coarse counts — app version and country — and discards
-            the rest. The app attaches no user identifier, no machine
-            identifier, and no installation token.
-          </p>
-          <p>
-            To count distinct installs without identifying anyone, the endpoint
-            derives a one-way, salted hash from your IP that rotates on a
-            regular schedule. It cannot be reversed to your IP, resets on
-            rotation, and is tied to no account or device — it exists only to
-            avoid counting the same install twice in a window.
+            active-install signal with minimal app and system metadata needed
+            for coarse totals. It stores no raw IP and no identifier. The app
+            attaches no user identifier, no machine identifier, and no
+            installation token.
           </p>
           <p>
             Turn off <em>Anonymous usage statistics</em> in Settings → Privacy
-            and the daily check carries a do-not-track marker the endpoint
-            honors — it is never counted, while update checks keep working.
+            and the daily check carries an opt-out marker — it is never counted,
+            while update checks keep working.
             Turning off <em>Check for updates automatically</em> (Settings →
             Updates, or the About dialog) stops the request entirely. The
             <em>Check for updates</em> button still works as a manual, one-shot

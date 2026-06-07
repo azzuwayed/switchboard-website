@@ -22,7 +22,7 @@ Switchboard is the thing I wanted: one place where every local service shows up,
 - **A memory layer for the messy local machine.** Discovered, adopted, snoozed, ignored, resolved, and still-suspicious findings survive beyond one terminal session.
 - **Port context Activity Monitor does not have.** Connect `node`, `python`, `docker`, or `ollama` to the service, port, logs, and safe next action.
 - **Risk-aware actions.** Every command is allowlisted and explicitly approved before it runs. No arbitrary shell from the UI.
-- **Local-first.** No background HTTP server. The only data it sends is an anonymous, aggregate usage count (weekly-active estimate + app version) over the update check — no identifiers, no IP stored, opt out in Settings → Privacy. Your config and logs live in `~/Library/Application Support/`.
+- **Local-first.** No background HTTP server. The only telemetry it sends is an anonymous active-install count over the update check — no identifiers, no raw IP stored, opt out in Settings → Privacy. Your config and logs live in `~/Library/Application Support/`.
 - **Templates that actually work.** Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx, and more — reviewed and ready out of the box.
 
 ## What's inside
