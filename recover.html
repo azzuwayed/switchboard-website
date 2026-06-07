@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Switchboard — Recover your license</title>
+    <meta
+      name="description"
+      content="Recover your Switchboard Personal license key."
+    />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="128x128"
+      href="assets/icon-128.png"
+    />
+    <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
+    <link rel="stylesheet" href="style.css?v=4168667efc" />
+    <style>
+      .result-card {
+        max-width: 520px;
+        border: 1px solid var(--border, #2a2a2a);
+        border-radius: 14px;
+        padding: 24px;
+        background: var(--bg-elev, rgba(255, 255, 255, 0.02));
+      }
+      .key-box {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin: 16px 0 6px;
+      }
+      .key-value {
+        flex: 1;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 11px 13px;
+        border-radius: 8px;
+        border: 1px solid var(--border, #2a2a2a);
+        background: var(--bg, #0e0e0e);
+        user-select: all;
+        word-break: break-all;
+      }
+      .how-to {
+        font-size: 14px;
+        opacity: 0.85;
+        margin-top: 18px;
+        line-height: 1.5;
+      }
+      .muted {
+        font-size: 13px;
+        opacity: 0.6;
+        margin-top: 14px;
+      }
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./">
+          <img
+            class="brand-mark"
+            src="assets/icon-256.png"
+            srcset="assets/icon-128.png 1x, assets/icon-256.png 2x"
+            alt=""
+            width="28"
+            height="28"
+          />
+          <span class="brand-name">Switchboard</span>
+          <span class="brand-by">by Azzuwayed</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="pricing.html">Pricing</a>
+          <a class="lang-switch" href="ar/recover.html" hreflang="ar" lang="ar"
+            >العربية</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <p class="eyebrow">License recovery</p>
+          <h1>Recover your license key</h1>
+          <p class="lede">
+            Lost the key after purchase? Enter the email and the order or
+            transaction number from your invoice and we'll show it again.
+          </p>
+
+          <div class="result-card">
+            <form id="recover-form" novalidate>
+              <div class="checkout-field">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="checkout-field">
+                <label for="ref">Order or transaction number</label>
+                <span class="hint" id="ref-hint">
+                  From your invoice — the order number (starts with
+                  <code>SWBD-</code>) or the Paylink invoice number.
+                </span>
+                <input
+                  id="ref"
+                  name="ref"
+                  type="text"
+                  aria-describedby="ref-hint"
+                  required
+                />
+              </div>
+              <button class="btn btn-primary" id="recover-btn" type="submit">
+                <span id="recover-btn-label">Recover my key</span>
+              </button>
+              <p
+                class="checkout-error"
+                id="error"
+                role="alert"
+                aria-live="polite"
+              ></p>
+            </form>
+
+            <div id="key-section" hidden>
+              <p style="font-size: 14px; opacity: 0.85; margin: 0">
+                Your Switchboard Personal license key:
+              </p>
+              <div class="key-box">
+                <code class="key-value" id="key-value">—</code>
+                <button class="btn btn-secondary" id="copy-btn" type="button">
+                  Copy
+                </button>
+              </div>
+              <p class="how-to">
+                Activate in Switchboard:
+                <strong>Settings → License &amp; Access</strong>, paste the key,
+                and click <strong>Activate</strong>.
+              </p>
+            </div>
+          </div>
+
+          <p class="muted">
+            <a href="pricing.html">Back to pricing</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Abdullah Alzuwayed. All rights reserved.</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="pricing.html">Pricing</a>
+          <a href="privacy.html">Privacy</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
+
+      const form = document.getElementById("recover-form");
+      const emailInput = document.getElementById("email");
+      const refInput = document.getElementById("ref");
+      const btn = document.getElementById("recover-btn");
+      const btnLabel = document.getElementById("recover-btn-label");
+      const errorEl = document.getElementById("error");
+      const keySection = document.getElementById("key-section");
+      const keyValue = document.getElementById("key-value");
+      const copyBtn = document.getElementById("copy-btn");
+
+      copyBtn?.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(keyValue.textContent);
+          copyBtn.textContent = "Copied";
+          setTimeout(() => (copyBtn.textContent = "Copy"), 1800);
+        } catch {
+          const range = document.createRange();
+          range.selectNodeContents(keyValue);
+          window.getSelection()?.removeAllRanges();
+          window.getSelection()?.addRange(range);
+        }
+      });
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        errorEl.textContent = "";
+        const email = emailInput.value.trim();
+        const ref = refInput.value.trim();
+        if (!email || !ref) {
+          errorEl.textContent =
+            "Enter your email and your order or transaction number.";
+          return;
+        }
+        // The order number starts with SWBD-; anything else is the Paylink
+        // transaction number. Route each to the right field the worker checks.
+        const body = { email };
+        if (/^SWBD-/i.test(ref)) body.orderNumber = ref;
+        else body.transactionNo = ref;
+
+        btn.disabled = true;
+        btnLabel.textContent = "Checking…";
+        try {
+          const res = await fetch(`${LICENSE_API}/api/checkout/recover`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (res.ok && data.status === "Paid" && data.licenseKey) {
+            keyValue.textContent = data.licenseKey;
+            form.hidden = true;
+            keySection.hidden = false;
+            return;
+          }
+          if (res.ok && data.licenseKey === null) {
+            errorEl.textContent =
+              "We found your order, but the payment isn't confirmed yet. Try again in a minute.";
+          } else {
+            errorEl.textContent =
+              "No matching paid order was found. Check that the email and number match your invoice.";
+          }
+        } catch {
+          errorEl.textContent = "Something went wrong. Please try again.";
+        } finally {
+          btn.disabled = false;
+          btnLabel.textContent = "Recover my key";
+        }
+      });
+    </script>
+  </body>
+</html>

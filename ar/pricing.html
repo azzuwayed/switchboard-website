@@ -59,10 +59,9 @@
           <p class="eyebrow">الأسعار</p>
           <h1>ابدأ مجاناً. رقِّ عندما تحتاج مراقبة مستمرة.</h1>
           <p class="lede">
-            يبقى Switchboard مفيداً بدون حساب أو مفتاح رخصة. تفتح الرخصة
-            الشخصية طبقة المراقبة الدائمة: اكتشافاً في الخلفية، ورصد ارتفاعات
-            الموارد، وتحليلاً أعمق للمنافذ، وتنبيهات للأنماط التي لا يسمّيها
-            macOS بوضوح.
+            يبقى Switchboard مفيداً بدون حساب أو مفتاح رخصة. تفتح الرخصة الشخصية
+            طبقة المراقبة الدائمة: اكتشافاً في الخلفية، ورصد ارتفاعات الموارد،
+            وتحليلاً أعمق للمنافذ، وتنبيهات للأنماط التي لا يسمّيها macOS بوضوح.
           </p>
 
           <div class="pricing-grid">
@@ -95,7 +94,8 @@
                   ><span dir="ltr">$20</span>
                 </div>
                 <p class="price-sub">
-                  حوالي 73 ريالاً · دفعة واحدة · حتى 3 أجهزة Mac
+                  حوالي <span id="price-sar">73 ريالاً</span> · دفعة واحدة · حتى
+                  3 أجهزة Mac
                 </p>
                 <p class="price-fit">
                   مناسبة لالتقاط ما يعمل في الخلفية قبل أن يتحول إلى حرارة أو
@@ -111,9 +111,7 @@
                 <li>تحليل أعمق للمنافذ والعمليات، مع وحدة منافذ في الشريط</li>
                 <li>تنبيهات المراقب وتعارض المنافذ</li>
                 <li>إيقاف وتأجيل واعتماد</li>
-                <li>
-                  تحديثات ودعم Switchboard 1.x لمدة سنتين على الأقل
-                </li>
+                <li>تحديثات ودعم Switchboard 1.x لمدة سنتين على الأقل</li>
               </ul>
               <a class="btn btn-primary" id="buy-cta" href="checkout.html"
                 >احصل على الرخصة الشخصية</a
@@ -166,9 +164,30 @@
       </div>
     </footer>
     <script>
-      (async function () {
-        const LICENSE_API =
-          "https://switchboard-licenses.azzuwayed.workers.dev";
+      const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
+
+      // المصدر الوحيد للسعر بالريال — لا يُكتب يدوياً هنا.
+      (async function loadPricing() {
+        try {
+          const res = await fetch(`${LICENSE_API}/api/checkout/pricing`);
+          const p = await res.json().catch(() => ({}));
+          if (p && typeof p.amount === "number") {
+            const cur =
+              p.currency === "SAR" ? "ريالاً" : p.currency || "ريالاً";
+            const el = document.getElementById("price-sar");
+            if (el) el.textContent = `${p.amount} ${cur}`;
+            if (p.founder === false) {
+              document
+                .querySelector(".founder-badge")
+                ?.setAttribute("hidden", "");
+            }
+          }
+        } catch {
+          // اترك السعر الثابت إذا تعذّر جلب السعر.
+        }
+      })();
+
+      (async function checkAvailability() {
         try {
           const res = await fetch(`${LICENSE_API}/api/checkout/availability`);
           const data = await res.json().catch(() => ({}));
@@ -183,6 +202,7 @@
             if (cta) {
               cta.textContent = "الشراء متوقف مؤقتاً";
               cta.setAttribute("aria-disabled", "true");
+              cta.setAttribute("tabindex", "-1");
               cta.removeAttribute("href");
               cta.style.pointerEvents = "none";
               cta.style.opacity = "0.6";

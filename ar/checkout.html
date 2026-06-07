@@ -81,8 +81,8 @@
                 <div class="checkout-field">
                   <label for="mobile">رقم الجوال</label>
                   <span class="hint" id="mobile-hint"
-                    >يتطلب Paylink رقم جوال. أضف رمز الدولة، مثل ‎+966
-                    5XXXXXXXX أو ‎+44 أو ‎+1.</span
+                    >يتطلب Paylink رقم جوال. أضف رمز الدولة، مثل ‎+966 5XXXXXXXX
+                    أو ‎+44 أو ‎+1.</span
                   >
                   <input
                     id="mobile"
@@ -156,8 +156,7 @@
                 <li>
                   <span>
                     <strong>حتى 3 أجهزة Mac</strong>
-                    فعّل الرخصة نفسها من الإعدادات ← الرخصة والوصول على كل
-                    جهاز.
+                    فعّل الرخصة نفسها من الإعدادات ← الرخصة والوصول على كل جهاز.
                   </span>
                 </li>
               </ul>
@@ -195,12 +194,8 @@
 
       function normalizeLocalizedDigits(value) {
         return String(value)
-          .replace(/[٠-٩]/g, (digit) =>
-            String(digit.charCodeAt(0) - 0x0660),
-          )
-          .replace(/[۰-۹]/g, (digit) =>
-            String(digit.charCodeAt(0) - 0x06f0),
-          );
+          .replace(/[٠-٩]/g, (digit) => String(digit.charCodeAt(0) - 0x0660))
+          .replace(/[۰-۹]/g, (digit) => String(digit.charCodeAt(0) - 0x06f0));
       }
 
       function sanitizeMobile(value) {
@@ -225,7 +220,8 @@
         const mobile = sanitizeMobile(mobileInput.value);
         const email = emailInput.value.trim();
         const mobileDigits = mobile.replace(/\D/g, "");
-        const emailLooksValid = !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        const emailLooksValid =
+          !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
         setFieldValidity(nameInput, name.length >= 2 && name.length <= 120);
         setFieldValidity(
@@ -283,7 +279,19 @@
         emailInput.value = emailInput.value.trim();
       });
 
-      totalEl.textContent = "≈ 73 ريال";
+      // المصدر الوحيد للسعر — يُجلب من الـ worker ولا يُكتب يدوياً.
+      (async function loadPricing() {
+        try {
+          const res = await fetch(`${LICENSE_API}/api/checkout/pricing`);
+          const p = await res.json().catch(() => ({}));
+          if (p && typeof p.amount === "number") {
+            const cur = p.currency === "SAR" ? "ريال" : p.currency || "ريال";
+            totalEl.textContent = `${p.amount} ${cur}`;
+          }
+        } catch {
+          // اترك القيمة الافتراضية إذا تعذّر جلب السعر.
+        }
+      })();
 
       // إيقاف الشراء (يدوياً أو عبر مراقب بوابة الدفع): اعرض الإشعار وعطّل النموذج.
       (async function checkAvailability() {

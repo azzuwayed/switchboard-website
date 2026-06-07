@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Switchboard — استرجاع الرخصة</title>
+    <meta name="description" content="استرجع مفتاح رخصة Switchboard الشخصية." />
+    <meta name="robots" content="noindex" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/icon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="128x128"
+      href="../assets/icon-128.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="256x256"
+      href="../assets/icon-256.png"
+    />
+    <link rel="stylesheet" href="../style.css?v=4168667efc" />
+    <style>
+      .result-card {
+        max-width: 520px;
+        border: 1px solid var(--border, #2a2a2a);
+        border-radius: 14px;
+        padding: 24px;
+        background: var(--bg-elev, rgba(255, 255, 255, 0.02));
+      }
+      .key-box {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin: 16px 0 6px;
+      }
+      .key-value {
+        flex: 1;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 11px 13px;
+        border-radius: 8px;
+        border: 1px solid var(--border, #2a2a2a);
+        background: var(--bg, #0e0e0e);
+        user-select: all;
+        word-break: break-all;
+        direction: ltr;
+        text-align: left;
+      }
+      .how-to {
+        font-size: 14px;
+        opacity: 0.85;
+        margin-top: 18px;
+        line-height: 1.6;
+      }
+      .muted {
+        font-size: 13px;
+        opacity: 0.6;
+        margin-top: 14px;
+      }
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../">
+          <img
+            class="brand-mark"
+            src="../assets/icon-256.png"
+            srcset="../assets/icon-128.png 1x, ../assets/icon-256.png 2x"
+            alt=""
+            width="28"
+            height="28"
+          />
+          <span class="brand-name">Switchboard</span>
+          <span class="brand-by">by Azzuwayed</span>
+        </a>
+        <nav class="site-nav" aria-label="التنقل">
+          <a href="pricing.html">الأسعار</a>
+          <a class="lang-switch" href="../recover.html" hreflang="en" lang="en"
+            >English</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <p class="eyebrow">استرجاع الرخصة</p>
+          <h1>استرجع مفتاح رخصتك</h1>
+          <p class="lede">
+            فقدت المفتاح بعد الشراء؟ أدخل بريدك الإلكتروني ورقم الطلب أو رقم
+            العملية من فاتورتك وسنعرضه لك من جديد.
+          </p>
+
+          <div class="result-card">
+            <form id="recover-form" novalidate>
+              <div class="checkout-field">
+                <label for="email">البريد الإلكتروني</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  dir="ltr"
+                  required
+                />
+              </div>
+              <div class="checkout-field">
+                <label for="ref">رقم الطلب أو رقم العملية</label>
+                <span class="hint" id="ref-hint">
+                  من فاتورتك — رقم الطلب (يبدأ بـ <code>SWBD-</code>) أو رقم
+                  فاتورة Paylink.
+                </span>
+                <input
+                  id="ref"
+                  name="ref"
+                  type="text"
+                  dir="ltr"
+                  aria-describedby="ref-hint"
+                  required
+                />
+              </div>
+              <button class="btn btn-primary" id="recover-btn" type="submit">
+                <span id="recover-btn-label">استرجاع مفتاحي</span>
+              </button>
+              <p
+                class="checkout-error"
+                id="error"
+                role="alert"
+                aria-live="polite"
+              ></p>
+            </form>
+
+            <div id="key-section" hidden>
+              <p style="font-size: 14px; opacity: 0.85; margin: 0">
+                مفتاح رخصة Switchboard الشخصية:
+              </p>
+              <div class="key-box">
+                <code class="key-value" id="key-value">—</code>
+                <button class="btn btn-secondary" id="copy-btn" type="button">
+                  نسخ
+                </button>
+              </div>
+              <p class="how-to">
+                للتفعيل في Switchboard:
+                <strong>الإعدادات ← الرخصة والوصول</strong>، الصق المفتاح واضغط
+                <strong>تفعيل</strong>.
+              </p>
+            </div>
+          </div>
+
+          <p class="muted">
+            <a href="pricing.html">العودة إلى الأسعار</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 عبدالله الزويد. جميع الحقوق محفوظة.</p>
+        <nav class="footer-nav" aria-label="تذييل">
+          <a href="pricing.html">الأسعار</a>
+          <a href="privacy.html">الخصوصية</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
+
+      const form = document.getElementById("recover-form");
+      const emailInput = document.getElementById("email");
+      const refInput = document.getElementById("ref");
+      const btn = document.getElementById("recover-btn");
+      const btnLabel = document.getElementById("recover-btn-label");
+      const errorEl = document.getElementById("error");
+      const keySection = document.getElementById("key-section");
+      const keyValue = document.getElementById("key-value");
+      const copyBtn = document.getElementById("copy-btn");
+
+      copyBtn?.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(keyValue.textContent);
+          copyBtn.textContent = "تم النسخ";
+          setTimeout(() => (copyBtn.textContent = "نسخ"), 1800);
+        } catch {
+          const range = document.createRange();
+          range.selectNodeContents(keyValue);
+          window.getSelection()?.removeAllRanges();
+          window.getSelection()?.addRange(range);
+        }
+      });
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        errorEl.textContent = "";
+        const email = emailInput.value.trim();
+        const ref = refInput.value.trim();
+        if (!email || !ref) {
+          errorEl.textContent =
+            "أدخل بريدك الإلكتروني ورقم الطلب أو رقم العملية.";
+          return;
+        }
+        // رقم الطلب يبدأ بـ SWBD-؛ وأي شيء آخر هو رقم عملية Paylink. نوجّه كلاً
+        // منهما إلى الحقل الصحيح الذي يفحصه الـ worker.
+        const body = { email };
+        if (/^SWBD-/i.test(ref)) body.orderNumber = ref;
+        else body.transactionNo = ref;
+
+        btn.disabled = true;
+        btnLabel.textContent = "جارٍ التحقق…";
+        try {
+          const res = await fetch(`${LICENSE_API}/api/checkout/recover`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (res.ok && data.status === "Paid" && data.licenseKey) {
+            keyValue.textContent = data.licenseKey;
+            form.hidden = true;
+            keySection.hidden = false;
+            return;
+          }
+          if (res.ok && data.licenseKey === null) {
+            errorEl.textContent =
+              "عثرنا على طلبك، لكن لم يتأكد الدفع بعد. حاول مجدداً بعد دقيقة.";
+          } else {
+            errorEl.textContent =
+              "لم يُعثر على طلب مدفوع مطابق. تأكد من تطابق البريد والرقم مع فاتورتك.";
+          }
+        } catch {
+          errorEl.textContent = "حدث خطأ ما. الرجاء المحاولة مرة أخرى.";
+        } finally {
+          btn.disabled = false;
+          btnLabel.textContent = "استرجاع مفتاحي";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -78,6 +78,13 @@
         opacity: 0.6;
         margin-top: 14px;
       }
+      .result-card.is-canceled {
+        border-color: #e0a23a;
+      }
+      .notice-warn {
+        color: #e0a23a;
+        font-weight: 600;
+      }
       [hidden] {
         display: none !important;
       }
@@ -105,10 +112,10 @@
       <section class="hero">
         <div class="container">
           <p class="eyebrow">Thank you</p>
-          <h1 id="heading">Confirming your payment…</h1>
+          <h1 id="heading" aria-live="polite">Confirming your payment…</h1>
 
           <div class="result-card">
-            <p class="status-line" id="status">
+            <p class="status-line" id="status" aria-live="polite">
               <span class="spinner" aria-hidden="true"></span>Checking with the
               payment provider…
             </p>
@@ -129,9 +136,9 @@
               </p>
               <p class="how-to">
                 To activate: open Switchboard, go to
-                <strong>Settings → License &amp; Access</strong>, paste your key,
-                and click <strong>Activate</strong>. One license works on up to
-                3 Macs.
+                <strong>Settings → License &amp; Access</strong>, paste your
+                key, and click <strong>Activate</strong>. One license works on
+                up to 3 Macs.
               </p>
             </div>
 
@@ -143,8 +150,9 @@
 
             <div id="fallback-section" hidden>
               <p class="how-to">
-                If you completed payment but don't see your key, please contact
-                support with your order number and we'll send it over.
+                If you completed payment but don't see your key, recover it any
+                time with your email and order number on the
+                <a href="recover.html">key recovery page</a>.
                 <span id="order-ref"></span>
               </p>
             </div>
@@ -172,11 +180,22 @@
       const POLL_INTERVAL_MS = 3000;
       const MAX_POLLS = 20;
 
+      function safeSession() {
+        try {
+          return sessionStorage.getItem("sb-transaction-no");
+        } catch {
+          return null;
+        }
+      }
+
       const params = new URLSearchParams(window.location.search);
-      const transactionNo =
-        params.get("transactionNo") ||
-        params.get("orderNumber") ||
-        sessionStorage.getItem("sb-transaction-no");
+      // Prefer a real Paylink transactionNo (query param or same-tab
+      // sessionStorage); fall back to the orderNumber the worker now appends to
+      // the callback, so the key is recoverable even when sessionStorage is gone
+      // (private mode / a different tab). Each maps to its own status param.
+      const txn = params.get("transactionNo") || safeSession();
+      const orderNumber = params.get("orderNumber");
+      const orderRefValue = txn || orderNumber || null;
 
       const statusEl = document.getElementById("status");
       const headingEl = document.getElementById("heading");
@@ -186,6 +205,16 @@
       const pendingSection = document.getElementById("pending-section");
       const fallbackSection = document.getElementById("fallback-section");
       const orderRef = document.getElementById("order-ref");
+
+      function statusUrl() {
+        if (txn) {
+          return `${LICENSE_API}/api/checkout/status?transactionNo=${encodeURIComponent(txn)}`;
+        }
+        if (orderNumber) {
+          return `${LICENSE_API}/api/checkout/status?orderNumber=${encodeURIComponent(orderNumber)}`;
+        }
+        return null;
+      }
 
       function showKey(key) {
         statusEl.hidden = true;
@@ -199,10 +228,21 @@
         statusEl.hidden = true;
         pendingSection.hidden = true;
         headingEl.textContent = "Payment received";
-        if (transactionNo) {
-          orderRef.textContent = `Order reference: ${transactionNo}`;
+        if (orderRefValue) {
+          orderRef.textContent = ` Order reference: ${orderRefValue}`;
         }
         fallbackSection.hidden = false;
+      }
+
+      function showCanceled() {
+        statusEl.hidden = true;
+        headingEl.textContent = "Payment canceled";
+        document.querySelector(".result-card")?.classList.add("is-canceled");
+        const msg = document.getElementById("pending-message");
+        msg.textContent =
+          "This payment was canceled. You can try again from the pricing page.";
+        msg.classList.add("notice-warn");
+        pendingSection.hidden = false;
       }
 
       copyBtn?.addEventListener("click", async () => {
@@ -220,25 +260,20 @@
       });
 
       async function poll(attempt) {
-        if (!transactionNo) {
+        const url = statusUrl();
+        if (!url) {
           showFallback();
           return;
         }
         try {
-          const res = await fetch(
-            `${LICENSE_API}/api/checkout/status?transactionNo=${encodeURIComponent(transactionNo)}`,
-          );
+          const res = await fetch(url);
           const data = await res.json().catch(() => ({}));
           if (data.status === "Paid" && data.licenseKey) {
             showKey(data.licenseKey);
             return;
           }
           if (data.status === "Canceled") {
-            statusEl.hidden = true;
-            headingEl.textContent = "Payment canceled";
-            pendingSection.hidden = false;
-            document.getElementById("pending-message").textContent =
-              "This payment was canceled. You can try again from the pricing page.";
+            showCanceled();
             return;
           }
         } catch {

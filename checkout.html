@@ -186,12 +186,8 @@
 
       function normalizeLocalizedDigits(value) {
         return String(value)
-          .replace(/[٠-٩]/g, (digit) =>
-            String(digit.charCodeAt(0) - 0x0660),
-          )
-          .replace(/[۰-۹]/g, (digit) =>
-            String(digit.charCodeAt(0) - 0x06f0),
-          );
+          .replace(/[٠-٩]/g, (digit) => String(digit.charCodeAt(0) - 0x0660))
+          .replace(/[۰-۹]/g, (digit) => String(digit.charCodeAt(0) - 0x06f0));
       }
 
       function sanitizeMobile(value) {
@@ -216,7 +212,8 @@
         const mobile = sanitizeMobile(mobileInput.value);
         const email = emailInput.value.trim();
         const mobileDigits = mobile.replace(/\D/g, "");
-        const emailLooksValid = !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        const emailLooksValid =
+          !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
         setFieldValidity(nameInput, name.length >= 2 && name.length <= 120);
         setFieldValidity(
@@ -275,7 +272,18 @@
         emailInput.value = emailInput.value.trim();
       });
 
-      totalEl.textContent = "≈ 73 SAR";
+      // Single source of truth for the price — fetched, never hardcoded.
+      (async function loadPricing() {
+        try {
+          const res = await fetch(`${LICENSE_API}/api/checkout/pricing`);
+          const p = await res.json().catch(() => ({}));
+          if (p && typeof p.amount === "number") {
+            totalEl.textContent = `${p.amount} ${p.currency || "SAR"}`;
+          }
+        } catch {
+          // Leave the neutral placeholder if pricing can't load.
+        }
+      })();
 
       (async function checkAvailability() {
         try {
@@ -336,8 +344,7 @@
           }
           try {
             sessionStorage.setItem("sb-transaction-no", data.transactionNo);
-          } catch {
-          }
+          } catch {}
           window.location.href = data.url;
         } catch (err) {
           errorEl.textContent = err.message || String(err);

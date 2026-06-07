@@ -87,7 +87,7 @@
                   <span class="price-was">$39</span>$20
                 </div>
                 <p class="price-sub">
-                  ≈ 73 SAR · one-time · up to 3 Macs
+                  ≈ <span id="price-sar">73 SAR</span> · one-time · up to 3 Macs
                 </p>
                 <p class="price-fit">
                   Best for catching forgotten background work before it turns
@@ -103,7 +103,9 @@
                 </li>
                 <li>Observer and port-conflict notifications</li>
                 <li>Stop, snooze, and adopt workflows</li>
-                <li>Switchboard 1.x updates and support for at least 2 years</li>
+                <li>
+                  Switchboard 1.x updates and support for at least 2 years
+                </li>
               </ul>
               <a class="btn btn-primary" id="buy-cta" href="checkout.html"
                 >Get Personal</a
@@ -128,8 +130,8 @@
             <div class="pricing-note-card">
               <strong>No account</strong>
               <p>
-                Activation uses a license key only. New installs include a
-                7-day full-feature trial, then return to Free.
+                Activation uses a license key only. New installs include a 7-day
+                full-feature trial, then return to Free.
               </p>
             </div>
             <div class="pricing-note-card">
@@ -156,9 +158,28 @@
       </div>
     </footer>
     <script>
-      (async function () {
-        const LICENSE_API =
-          "https://switchboard-licenses.azzuwayed.workers.dev";
+      const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
+
+      // Single source of truth for the SAR price — never hardcode it here.
+      (async function loadPricing() {
+        try {
+          const res = await fetch(`${LICENSE_API}/api/checkout/pricing`);
+          const p = await res.json().catch(() => ({}));
+          if (p && typeof p.amount === "number") {
+            const el = document.getElementById("price-sar");
+            if (el) el.textContent = `${p.amount} ${p.currency || "SAR"}`;
+            if (p.founder === false) {
+              document
+                .querySelector(".founder-badge")
+                ?.setAttribute("hidden", "");
+            }
+          }
+        } catch {
+          // Leave the static price if pricing can't load.
+        }
+      })();
+
+      (async function checkAvailability() {
         try {
           const res = await fetch(`${LICENSE_API}/api/checkout/availability`);
           const data = await res.json().catch(() => ({}));
@@ -174,6 +195,7 @@
             if (cta) {
               cta.textContent = "Purchasing paused";
               cta.setAttribute("aria-disabled", "true");
+              cta.setAttribute("tabindex", "-1");
               cta.removeAttribute("href");
               cta.style.pointerEvents = "none";
               cta.style.opacity = "0.6";
