@@ -18,7 +18,7 @@
 // Idempotent: if every page already matches style.css's hash, this is a no-op.
 
 import { createHash } from "node:crypto";
-import { readFileSync, writeFileSync } from "node:fs";
+import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -27,20 +27,25 @@ const REPO_ROOT = dirname(SCRIPT_DIR);
 const STYLE_PATH = join(REPO_ROOT, "style.css");
 const CHECK_ONLY = process.argv.includes("--check");
 
-// Pages that reference style.css and therefore need their cache-buster kept
-// in sync. New localized pages go here.
-const HTML_PAGES = [
-  "index.html",
-  "privacy.html",
-  "pricing.html",
-  "checkout.html",
-  "success.html",
-  "ar/index.html",
-  "ar/privacy.html",
-  "ar/pricing.html",
-  "ar/checkout.html",
-  "ar/success.html",
-];
+// Every .html page in the site, discovered recursively. Auto-discovery (vs a
+// hardcoded list) means a newly added page is cache-busted automatically — the
+// previous static list silently skipped new pages (e.g. recover.html), leaving
+// them pointed at a stale style.css hash.
+function discoverHtmlPages(dir = REPO_ROOT, prefix = "") {
+  const out = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (entry.name.startsWith(".") || entry.name === "node_modules") continue;
+    const rel = prefix ? `${prefix}/${entry.name}` : entry.name;
+    if (entry.isDirectory()) {
+      out.push(...discoverHtmlPages(join(dir, entry.name), rel));
+    } else if (entry.isFile() && entry.name.endsWith(".html")) {
+      out.push(rel);
+    }
+  }
+  return out;
+}
+
+const HTML_PAGES = discoverHtmlPages().sort();
 
 function fail(message, code = 1) {
   console.error(`bump-css-cache: ${message}`);
@@ -50,6 +55,7 @@ function fail(message, code = 1) {
 const styleBytes = readFileSync(STYLE_PATH);
 const hash = createHash("sha256").update(styleBytes).digest("hex").slice(0, 10);
 const linkRe = /(style\.css\?v=)([0-9a-f]+)/;
+const styleRefRe = /<link[^>]*href=["'][^"']*style\.css/i;
 
 let staleCount = 0;
 const rewrites = [];
@@ -59,7 +65,15 @@ for (const rel of HTML_PAGES) {
   const before = readFileSync(path, "utf8");
   const match = linkRe.exec(before);
   if (!match) {
-    fail(`could not find 'style.css?v=<hash>' in ${rel}`);
+    // Pages that don't link style.css are skipped. A page that links it
+    // *without* a ?v= cache-buster is an authoring gap: warn (so it's visible)
+    // but don't block the release — that page just won't be cache-busted.
+    if (styleRefRe.test(before)) {
+      console.warn(
+        `bump-css-cache: ${rel} links style.css without a ?v= cache-buster; add ?v=${hash}.`,
+      );
+    }
+    continue;
   }
   if (match[2] === hash) continue;
   staleCount += 1;
