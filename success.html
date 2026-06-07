@@ -149,12 +149,6 @@
                   rel="noopener"
                   >Download invoice</a
                 >
-                <span
-                  id="receipt-passcode"
-                  class="muted"
-                  hidden
-                  style="display: block; margin-top: 6px"
-                ></span>
               </p>
             </div>
 
@@ -234,24 +228,30 @@
         return null;
       }
 
-      function showReceipt(receiptUrl, passcode) {
-        if (!receiptUrl) return;
-        document.getElementById("receipt-link").href = receiptUrl;
-        document.getElementById("receipt-line").hidden = false;
-        if (passcode) {
-          const pc = document.getElementById("receipt-passcode");
-          pc.textContent = `If the invoice asks for a passcode, use: ${passcode}`;
-          pc.hidden = false;
-        }
+      // Our own receipt (not Paylink's merchant/fee VAT report). Built from the
+      // order identifier this page already holds.
+      function invoiceUrl() {
+        if (orderNumber)
+          return `${LICENSE_API}/api/checkout/invoice?orderNumber=${encodeURIComponent(orderNumber)}`;
+        if (txn)
+          return `${LICENSE_API}/api/checkout/invoice?transactionNo=${encodeURIComponent(txn)}`;
+        return null;
       }
 
-      function showKey(key, receiptUrl, passcode) {
+      function showReceipt() {
+        const url = invoiceUrl();
+        if (!url) return;
+        document.getElementById("receipt-link").href = url;
+        document.getElementById("receipt-line").hidden = false;
+      }
+
+      function showKey(key) {
         statusEl.hidden = true;
         pendingSection.hidden = true;
         headingEl.textContent = "You're all set";
         keyValue.textContent = key;
         keySection.hidden = false;
-        showReceipt(receiptUrl, passcode);
+        showReceipt();
       }
 
       function showFallback() {
@@ -299,7 +299,7 @@
           const res = await fetch(url);
           const data = await res.json().catch(() => ({}));
           if (data.status === "Paid" && data.licenseKey) {
-            showKey(data.licenseKey, data.receiptUrl, data.receiptPasscode);
+            showKey(data.licenseKey);
             return;
           }
           if (data.status === "Canceled") {

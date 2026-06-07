@@ -156,12 +156,6 @@
                   rel="noopener"
                   >Download invoice</a
                 >
-                <span
-                  id="receipt-passcode"
-                  class="muted"
-                  hidden
-                  style="display: block; margin-top: 6px"
-                ></span>
               </p>
             </div>
           </div>
@@ -234,15 +228,13 @@
             keyValue.textContent = data.licenseKey;
             form.hidden = true;
             keySection.hidden = false;
-            if (data.receiptUrl) {
-              document.getElementById("receipt-link").href = data.receiptUrl;
-              document.getElementById("receipt-line").hidden = false;
-              if (data.receiptPasscode) {
-                const pc = document.getElementById("receipt-passcode");
-                pc.textContent = `If the invoice asks for a passcode, use: ${data.receiptPasscode}`;
-                pc.hidden = false;
-              }
-            }
+            // Our own receipt, built from the order identifier they just
+            // recovered with (not Paylink's merchant/fee VAT report).
+            const inv = body.orderNumber
+              ? `${LICENSE_API}/api/checkout/invoice?orderNumber=${encodeURIComponent(body.orderNumber)}`
+              : `${LICENSE_API}/api/checkout/invoice?transactionNo=${encodeURIComponent(body.transactionNo)}`;
+            document.getElementById("receipt-link").href = inv;
+            document.getElementById("receipt-line").hidden = false;
             return;
           }
           if (res.ok && data.licenseKey === null) {
