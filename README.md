@@ -12,7 +12,7 @@ I kept losing track of services I'd started. A dev server here, a database there
 
 The problem got worse with AI coding agents. They're great at spinning up dev servers and not always great at stopping the previous one. Sometimes the agent is smart enough to free the port it needs; sometimes it just walks to the next available one. After a few hours of iteration you can end up with six copies of the same Vite server competing for memory, the laptop running hot, the battery draining fast, and nothing in macOS surfacing any of it.
 
-There's another version of the problem: you build a service yourself and then forget where in your dev folders it lives. Or you're running a mix of local services and AI tooling — Claude Code, Ollama, LM Studio, [OpenClaw](https://github.com/openclaw/openclaw), your own Hermes dashboard, local LLM runtimes — each with its own log stream in its own corner of disk. Switchboard's unified Logs screen brings those service logs, manual files, and Switchboard activity into one timeline, so following what your local stack is doing doesn't require five terminal panes and a good memory.
+There's another version of the problem: you build a service yourself and then forget where in your dev folders it lives. Or you're running a mix of local services and AI tooling — Claude Code, Ollama, LM Studio, [OpenClaw](https://github.com/openclaw/openclaw), your own Hermes dashboard, local LLM runtimes — each with its own log stream in its own corner of disk. Switchboard's unified Logs screen brings service logs and Switchboard activity into one timeline, with Personal adding arbitrary manual files, so following what your local stack is doing doesn't require five terminal panes and a good memory.
 
 Switchboard is the thing I wanted: one place where every local service shows up, every forgotten process gets surfaced, every port flood gets named with its actual cause, and every log stream lands on one screen.
 
@@ -44,12 +44,14 @@ macOS 12 (Monterey) or later on Apple Silicon or Intel Macs.
 
 ## Pricing
 
-Switchboard stays useful for free (custom services, start/stop, the central log
-viewer, basic ports and health, manual scan, service-down alerts). Fresh installs
-get a 7-day full-feature trial, then return to free use. A Personal license
-(founder offer $20 at launch, then $39) unlocks advanced monitoring —
-continuous Observer, resource-anomaly detection, port intelligence, and advanced
-notifications — and activates up to 3 Macs. See
+Switchboard stays useful for free: up to 5 active services, safe start/stop,
+service command logs, recent Activity, a counts-only Observer teaser, basic
+ports, service-down alerts, and new-arrival notifications. Fresh installs get a
+7-day full-feature trial, then return to free use. A Personal license (founder
+offer $20 at launch, then $39) unlocks the rest — services beyond 5, full
+Observer details and actions, Resources, manual log sources, full Activity,
+diagnostics export, backup restore, config import/export, deeper port tools, and
+the tray port console — and activates up to 3 Macs. See
 [pricing](https://azzuwayed.github.io/switchboard-website/pricing.html).
 
 ## Stay in the loop
