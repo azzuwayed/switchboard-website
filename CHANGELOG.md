@@ -10,6 +10,12 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+### Changed
+
+- **Personal is easier to recognize.** The app's title-bar Personal badge is now
+  a small yellow crown instead of another text pill, with the same accessible
+  license label. The pricing page uses the same crown cue for the Personal plan.
+
 ## [1.3.0] - 2026-06-08
 
 Switchboard 1.3.0 is a big upgrade to the Logs view, plus a simpler first run
@@ -241,9 +247,9 @@ Switchboard 1.0 — the first stable release.
   updates and support through the next major release.
 - **7-day full-feature trial on first launch.** Every fresh install starts with
   everything unlocked for 7 days — no account, no card — then returns to free use.
-  A small plan badge by the app name shows Free, Trial (with days remaining), or
-  Paid at a glance, and Settings → License & Plan handles activation, the trial
-  countdown, and the upgrade.
+  A small access badge by the app name shows Free, Trial (with days remaining),
+  or full Personal access at a glance, and Settings → License & Access handles
+  activation, the trial countdown, and the upgrade.
 - **Follow one incident across surfaces.** Focused links now connect the Observer,
   Activity log, Services, and Logs, so you can jump straight to the same finding in
   each place instead of hunting for it.

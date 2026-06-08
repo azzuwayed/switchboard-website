@@ -885,6 +885,34 @@ h2 {
   color: var(--fg-muted);
 }
 
+.personal-tier {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--fg);
+}
+
+.personal-tier-crown {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #facc15;
+  color: #000;
+}
+
+.personal-tier-crown svg {
+  width: 10px;
+  height: 10px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .price-amount {
   display: flex;
   align-items: baseline;
