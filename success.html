@@ -13,7 +13,7 @@
       href="assets/icon-128.png"
     />
     <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
-    <link rel="stylesheet" href="style.css?v=096caf6d48" />
+    <link rel="stylesheet" href="style.css?v=3a348fa2f9" />
     <style>
       .result-card {
         max-width: 520px;
@@ -131,8 +131,8 @@
                 </button>
               </div>
               <p class="save-warning">
-                Save this key now — copy it somewhere safe. We don't email it
-                yet.
+                Save this key now — we've also emailed it to you, but this page
+                is your fastest copy.
               </p>
               <p class="how-to">
                 To activate: open Switchboard, go to
@@ -156,6 +156,15 @@
               <p class="how-to" id="pending-message">
                 Your payment is still processing. This page will keep checking.
               </p>
+            </div>
+
+            <div id="bank-pending" hidden>
+              <p class="how-to" id="bank-pending-message">
+                Payment pending. Transfer the amount with your reference in the
+                note — your key appears here once we confirm it. We've emailed
+                you these details.
+              </p>
+              <dl class="bank-rows" id="bank-pending-rows"></dl>
             </div>
 
             <div id="fallback-section" hidden>
@@ -289,6 +298,52 @@
         }
       });
 
+      const bankPendingSection = document.getElementById("bank-pending");
+
+      function bankRowHtml(label, value) {
+        const safe = String(value == null ? "" : value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+        return `<dt>${label}</dt><dd><span dir="ltr" class="bank-value">${safe}</span></dd>`;
+      }
+
+      function showBankPending(data, stopped) {
+        statusEl.hidden = true;
+        pendingSection.hidden = true;
+        headingEl.textContent = "Payment pending";
+        const b = data.bankDetails || {};
+        const rows = [];
+        if (b.name) rows.push(bankRowHtml("Bank", b.name));
+        if (b.accountName)
+          rows.push(bankRowHtml("Account name", b.accountName));
+        if (b.iban) rows.push(bankRowHtml("IBAN", b.iban));
+        if (data.amount)
+          rows.push(
+            bankRowHtml("Amount", `${data.amount} ${data.currency || "SAR"}`),
+          );
+        if (data.bankReference)
+          rows.push(bankRowHtml("Reference", data.bankReference));
+        document.getElementById("bank-pending-rows").innerHTML = rows.join("");
+        if (stopped) {
+          document.getElementById("bank-pending-message").textContent =
+            "Still pending. We'll email your license key as soon as we confirm your transfer — you can close this page.";
+        }
+        bankPendingSection.hidden = false;
+      }
+
+      function showExpired() {
+        statusEl.hidden = true;
+        pendingSection.hidden = true;
+        bankPendingSection.hidden = true;
+        headingEl.textContent = "Order expired";
+        const msg = document.getElementById("pending-message");
+        msg.textContent =
+          "This order expired before payment was confirmed. You can start a new order from the pricing page.";
+        msg.classList.add("notice-warn");
+        pendingSection.hidden = false;
+      }
+
       async function poll(attempt) {
         const url = statusUrl();
         if (!url) {
@@ -304,6 +359,18 @@
           }
           if (data.status === "Canceled") {
             showCanceled();
+            return;
+          }
+          if (data.status === "Expired") {
+            showExpired();
+            return;
+          }
+          // Bank transfer: show the details + reference while it stays Pending.
+          if (data.method === "bank") {
+            showBankPending(data, attempt >= MAX_POLLS);
+            if (attempt < MAX_POLLS) {
+              setTimeout(() => poll(attempt + 1), POLL_INTERVAL_MS);
+            }
             return;
           }
         } catch {

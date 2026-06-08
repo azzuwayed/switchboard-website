@@ -6,7 +6,7 @@
     <title>Privacy &amp; trust — Switchboard by Azzuwayed</title>
     <meta
       name="description"
-      content="What Switchboard does and does not do with your data. The only data it sends is an anonymous, aggregate usage count over the update check — no identifiers, no IP stored. Opt out anytime."
+      content="What Switchboard does and does not do with your data: local app data stays on your Mac; update checks are anonymous; purchases and license activation send only the details needed to process and deliver the license."
     />
     <meta
       property="og:title"
@@ -47,7 +47,7 @@
       hreflang="x-default"
       href="https://azzuwayed.github.io/switchboard-website/privacy.html"
     />
-    <link rel="stylesheet" href="style.css?v=096caf6d48" />
+    <link rel="stylesheet" href="style.css?v=3a348fa2f9" />
     <style>
       .doc-hero {
         padding: 64px 0 32px;
@@ -141,14 +141,15 @@
       <section class="doc-hero">
         <div class="container">
           <p class="eyebrow">Privacy &amp; trust</p>
-          <h1>Your data stays on your Mac.</h1>
+          <h1>Your app data stays on your Mac.</h1>
           <p class="lede">
             Switchboard is a local-first macOS utility with no background HTTP
-            server. The only telemetry it sends is an anonymous active-install
-            count carried over the update check — on by default, one toggle to
-            off. This page describes what the app reads, writes, and sends.
+            server. Its update-count telemetry is anonymous and opt-out, while
+            license purchase, email delivery, and activation use only the
+            checkout and device details needed to process the license. This page
+            describes what the app and purchase flow read, write, and send.
           </p>
-          <p class="doc-meta">Last updated: 2026-06-03.</p>
+          <p class="doc-meta">Last updated: 2026-06-09.</p>
         </div>
       </section>
 
@@ -168,14 +169,47 @@
             </li>
             <li>No background server, no listening network port.</li>
             <li>
-              The app's only outbound request is the update check. You can turn
-              off counting, the check, or both.
+              The installed app's routine outbound requests are update checks
+              and, for Personal licenses, license activation/validation. You can
+              turn off update counting, update checks, or both.
             </li>
             <li>
               All configuration, logs, and approval state are stored on your Mac
               under your home folder.
             </li>
+            <li>
+              Buying a Personal license on this website sends checkout details
+              to the license service, Paylink for card payments, and a
+              transactional email provider for order delivery.
+            </li>
           </ul>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <div class="container">
+          <h2>Buying and activating a license</h2>
+          <p>
+            When you buy a Personal license, the checkout form sends the details
+            needed to create and deliver the order: name, mobile number, email
+            address, locale, payment method, amount, and order references. Card
+            payments are completed on Paylink's hosted payment page. Bank
+            transfer orders stay pending until the transfer is confirmed.
+          </p>
+          <p>
+            Transactional email is sent through an email service provider:
+            bank-transfer instructions, license-key delivery, purchase
+            notifications, and refund notices. Email is used for order delivery
+            and support, not marketing newsletters.
+          </p>
+          <p>
+            The license service keeps the order, license, email-delivery, and
+            activation records needed to deliver the license, support recovery
+            or refunds, and enforce the 3-Mac activation limit. Activating or
+            validating a Personal license sends the license key and a device
+            hash to the license service. Your local services, logs, docs, and
+            command approvals are not sent.
+          </p>
         </div>
       </section>
 
@@ -188,8 +222,9 @@
               Switchboard does not send crash dumps, does not record which
               features or services you use, attaches no user or machine
               identifier, and uses no third-party analytics SDK. The one signal
-              it does send — an anonymous active-install count — is described in
-              <a href="#outbound">The one outbound request</a> below.
+              it does send for update counting — an anonymous active-install
+              count — is described in <a href="#outbound">Outbound requests</a>
+              below.
             </li>
             <li>
               <strong>No cloud sync of your data.</strong> Your configuration,
@@ -264,7 +299,7 @@
 
       <section class="doc-section">
         <div class="container">
-          <h2 id="outbound">The one outbound request</h2>
+          <h2 id="outbound">Outbound requests</h2>
           <p>
             With <em>Check for updates automatically</em> enabled (the default),
             the app checks for a newer release on launch and roughly once a day
@@ -288,6 +323,12 @@
             Updates, or the About dialog) stops the request entirely. The
             <em>Check for updates</em> button still works as a manual, one-shot
             fetch when you press it.
+          </p>
+          <p>
+            Personal-license activation and validation contact the license
+            service to check the key status and device slot count. They do not
+            upload your service list, logs, command output, docs folders, or
+            other local app data.
           </p>
         </div>
       </section>
@@ -400,8 +441,8 @@
             If a future release adds a new outbound request, a new on-disk
             artifact, or a new permission, this page is updated in the same
             release. The release&rsquo;s public changelog calls out the change.
-            There is no separate &ldquo;privacy policy update&rdquo; email
-            because the app does not have your email.
+            Transactional purchase email may go only to customers who supplied
+            an email address during checkout.
           </p>
         </div>
       </section>

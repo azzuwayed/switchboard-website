@@ -22,7 +22,7 @@
       sizes="256x256"
       href="../assets/icon-256.png"
     />
-    <link rel="stylesheet" href="../style.css?v=096caf6d48" />
+    <link rel="stylesheet" href="../style.css?v=3a348fa2f9" />
     <style>
       .result-card {
         max-width: 520px;
@@ -142,14 +142,14 @@
                 </button>
               </div>
               <p class="save-warning">
-                احفظ هذا المفتاح الآن — انسخه إلى مكان آمن. لا نرسله بالبريد
-                الإلكتروني حالياً.
+                احفظ هذا المفتاح الآن — أرسلناه أيضاً إلى بريدك، لكن هذه الصفحة
+                هي أسرع نسخة لديك.
               </p>
               <p class="how-to">
                 للتفعيل: افتح Switchboard، واذهب إلى
                 <strong>الإعدادات ← الرخصة والوصول</strong>، ثم الصق مفتاحك
-                واضغط <strong>تفعيل</strong>. تعمل الرخصة الواحدة على ما يصل
-                إلى 3 أجهزة Mac.
+                واضغط <strong>تفعيل</strong>. تعمل الرخصة الواحدة على ما يصل إلى
+                3 أجهزة Mac.
               </p>
               <p id="receipt-line" hidden style="margin-top: 16px">
                 <a
@@ -167,6 +167,14 @@
               <p class="how-to" id="pending-message">
                 ما زالت عملية الدفع قيد المعالجة. ستستمر هذه الصفحة في التحقق.
               </p>
+            </div>
+
+            <div id="bank-pending" hidden>
+              <p class="how-to" id="bank-pending-message">
+                الدفع معلّق. حوّل المبلغ مع رقم المرجع في الملاحظة — ويظهر
+                مفتاحك هنا بمجرد تأكيد التحويل. أرسلنا هذه التفاصيل إلى بريدك.
+              </p>
+              <dl class="bank-rows" id="bank-pending-rows"></dl>
             </div>
 
             <div id="fallback-section" hidden>
@@ -294,6 +302,51 @@
         }
       });
 
+      const bankPendingSection = document.getElementById("bank-pending");
+
+      function bankRowHtml(label, value) {
+        const safe = String(value == null ? "" : value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+        return `<dt>${label}</dt><dd><span dir="ltr" class="bank-value">${safe}</span></dd>`;
+      }
+
+      function showBankPending(data, stopped) {
+        statusEl.hidden = true;
+        pendingSection.hidden = true;
+        headingEl.textContent = "الدفع معلّق";
+        const b = data.bankDetails || {};
+        const rows = [];
+        if (b.name) rows.push(bankRowHtml("البنك", b.name));
+        if (b.accountName) rows.push(bankRowHtml("اسم الحساب", b.accountName));
+        if (b.iban) rows.push(bankRowHtml("الآيبان", b.iban));
+        if (data.amount)
+          rows.push(
+            bankRowHtml("المبلغ", `${data.amount} ${data.currency || "ريال"}`),
+          );
+        if (data.bankReference)
+          rows.push(bankRowHtml("المرجع", data.bankReference));
+        document.getElementById("bank-pending-rows").innerHTML = rows.join("");
+        if (stopped) {
+          document.getElementById("bank-pending-message").textContent =
+            "ما زال معلّقاً. سنرسل مفتاح رخصتك بالبريد بمجرد تأكيد تحويلك — يمكنك إغلاق هذه الصفحة.";
+        }
+        bankPendingSection.hidden = false;
+      }
+
+      function showExpired() {
+        statusEl.hidden = true;
+        pendingSection.hidden = true;
+        bankPendingSection.hidden = true;
+        headingEl.textContent = "انتهت صلاحية الطلب";
+        const msg = document.getElementById("pending-message");
+        msg.textContent =
+          "انتهت صلاحية هذا الطلب قبل تأكيد الدفع. يمكنك بدء طلب جديد من صفحة الأسعار.";
+        msg.classList.add("notice-warn");
+        pendingSection.hidden = false;
+      }
+
       async function poll(attempt) {
         const url = statusUrl();
         if (!url) {
@@ -309,6 +362,17 @@
           }
           if (data.status === "Canceled") {
             showCanceled();
+            return;
+          }
+          if (data.status === "Expired") {
+            showExpired();
+            return;
+          }
+          if (data.method === "bank") {
+            showBankPending(data, attempt >= MAX_POLLS);
+            if (attempt < MAX_POLLS) {
+              setTimeout(() => poll(attempt + 1), POLL_INTERVAL_MS);
+            }
             return;
           }
         } catch {

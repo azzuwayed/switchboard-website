@@ -23,7 +23,7 @@
       sizes="256x256"
       href="../assets/icon-256.png"
     />
-    <link rel="stylesheet" href="../style.css?v=096caf6d48" />
+    <link rel="stylesheet" href="../style.css?v=3a348fa2f9" />
   </head>
   <body>
     <header class="site-header">
@@ -67,6 +67,35 @@
                   <span class="total" id="total">— ريال</span>
                 </div>
 
+                <div
+                  class="pay-methods"
+                  role="radiogroup"
+                  aria-label="طريقة الدفع"
+                >
+                  <button
+                    type="button"
+                    class="pay-method is-active"
+                    id="method-card"
+                    role="radio"
+                    aria-checked="true"
+                    data-method="card"
+                  >
+                    <span class="pay-method-title">بطاقة</span>
+                    <span class="pay-method-sub">فيزا / مدى عبر Paylink</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="pay-method"
+                    id="method-bank"
+                    role="radio"
+                    aria-checked="false"
+                    data-method="bank"
+                  >
+                    <span class="pay-method-title">تحويل بنكي</span>
+                    <span class="pay-method-sub">حوّل عبر الآيبان ونؤكّده</span>
+                  </button>
+                </div>
+
                 <div class="checkout-field">
                   <label for="name">الاسم الكامل</label>
                   <input
@@ -100,7 +129,7 @@
                 <div class="checkout-field">
                   <label for="email">البريد الإلكتروني</label>
                   <span class="hint" id="email-hint"
-                    >اختياري، لكنه مفيد للإيصال والدعم.</span
+                    >سنرسل مفتاح الرخصة والإيصال إلى هذا البريد.</span
                   >
                   <input
                     id="email"
@@ -110,6 +139,7 @@
                     aria-describedby="email-hint"
                     dir="ltr"
                     maxlength="254"
+                    required
                   />
                 </div>
 
@@ -132,9 +162,20 @@
                 <p class="checkout-error" id="error" role="alert"></p>
               </form>
 
-              <p class="checkout-fineprint">
+              <p class="checkout-fineprint" id="fineprint">
                 تتم عملية الدفع على صفحة Paylink الآمنة وبالريال السعودي.
               </p>
+
+              <div class="bank-details-panel" id="bank-panel" hidden>
+                <h2 class="bank-panel-title">حوّل المبلغ لإتمام الطلب</h2>
+                <p class="bank-panel-lead">
+                  أرسلنا هذه التفاصيل إلى بريدك. حوّل المبلغ بالضبط وأضِف المرجع
+                  في ملاحظة التحويل — وسنرسل مفتاحك بالبريد بمجرد تأكيد التحويل
+                  (عادة خلال يوم عمل).
+                </p>
+                <dl class="bank-rows" id="bank-rows"></dl>
+                <p class="bank-panel-note" id="bank-status-link"></p>
+              </div>
             </div>
 
             <aside class="checkout-aside" aria-labelledby="checkout-next">
@@ -186,10 +227,40 @@
       const payBtnLabel = document.getElementById("pay-btn-label");
       const errorEl = document.getElementById("error");
       const totalEl = document.getElementById("total");
+      const fineprintEl = document.getElementById("fineprint");
+      const methodButtons = Array.from(
+        document.querySelectorAll(".pay-method"),
+      );
+
+      let method = "card";
 
       function setPayButtonLabel(label) {
         if (payBtnLabel) payBtnLabel.textContent = label;
       }
+
+      const IDLE_LABEL = {
+        card: "المتابعة إلى Paylink",
+        bank: "عرض التفاصيل البنكية",
+      };
+      const FINEPRINT = {
+        card: "تتم عملية الدفع على صفحة Paylink الآمنة وبالريال السعودي.",
+        bank: "سترى تفاصيل حسابنا البنكي ورقم مرجع. نؤكّد تحويلك يدوياً ثم نرسل مفتاحك بالبريد.",
+      };
+
+      function setMethod(next) {
+        method = next === "bank" ? "bank" : "card";
+        methodButtons.forEach((b) => {
+          const on = b.dataset.method === method;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-checked", on ? "true" : "false");
+        });
+        if (!payBtn.disabled) setPayButtonLabel(IDLE_LABEL[method]);
+        if (fineprintEl) fineprintEl.textContent = FINEPRINT[method];
+      }
+
+      methodButtons.forEach((b) => {
+        b.addEventListener("click", () => setMethod(b.dataset.method));
+      });
 
       function normalizeLocalizedDigits(value) {
         return String(value)
@@ -219,8 +290,7 @@
         const mobile = sanitizeMobile(mobileInput.value);
         const email = emailInput.value.trim();
         const mobileDigits = mobile.replace(/\D/g, "");
-        const emailLooksValid =
-          !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        const emailLooksValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
         setFieldValidity(nameInput, name.length >= 2 && name.length <= 120);
         setFieldValidity(
@@ -250,7 +320,7 @@
         if (!emailLooksValid) {
           return {
             ok: false,
-            message: "أدخل بريد إلكتروني صحيح أو اتركه فارغاً.",
+            message: "أدخل بريدك الإلكتروني — سنرسل المفتاح إليه.",
           };
         }
         return { ok: true, name, mobile, email };
@@ -321,7 +391,9 @@
         mobileInput.value = validation.mobile;
         emailInput.value = validation.email;
         payBtn.disabled = true;
-        setPayButtonLabel("جارٍ فتح Paylink…");
+        setPayButtonLabel(
+          method === "bank" ? "جارٍ إنشاء طلبك…" : "جارٍ فتح Paylink…",
+        );
         try {
           const res = await fetch(`${LICENSE_API}/api/checkout/create`, {
             method: "POST",
@@ -331,6 +403,7 @@
               mobile: validation.mobile,
               email: validation.email,
               locale: "ar",
+              paymentMethod: method,
             }),
           });
           const data = await res.json().catch(() => ({}));
@@ -341,13 +414,22 @@
             setPayButtonLabel("الشراء متوقف مؤقتاً");
             return;
           }
-          if (!res.ok || !data.url) {
-            throw new Error(
-              data.error || "تعذّر بدء الدفع. حاول مجدداً.",
-            );
-          }
           if (data.amount && data.currency) {
             totalEl.textContent = `${data.amount} ${data.currency}`;
+          }
+
+          // التحويل البنكي: لا إعادة توجيه — اعرض التفاصيل في الصفحة.
+          if (method === "bank") {
+            if (!res.ok || data.method !== "bank") {
+              throw new Error(data.error || "تعذّر إنشاء طلبك. حاول مجدداً.");
+            }
+            renderBankDetails(data);
+            return;
+          }
+
+          // البطاقة: إعادة توجيه إلى صفحة Paylink.
+          if (!res.ok || !data.url) {
+            throw new Error(data.error || "تعذّر بدء الدفع. حاول مجدداً.");
           }
           try {
             sessionStorage.setItem("sb-transaction-no", data.transactionNo);
@@ -358,7 +440,59 @@
         } catch (err) {
           errorEl.textContent = err.message || String(err);
           payBtn.disabled = false;
-          setPayButtonLabel("المتابعة إلى Paylink");
+          setPayButtonLabel(IDLE_LABEL[method]);
+        }
+      });
+
+      function bankRow(label, value, copyable) {
+        const v = String(value == null ? "" : value);
+        const safe = v
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+        const copyBtn = copyable
+          ? ` <button type="button" class="bank-copy" data-copy="${safe.replace(/"/g, "&quot;")}" aria-label="نسخ ${label}">نسخ</button>`
+          : "";
+        return `<dt>${label}</dt><dd><span dir="ltr" class="bank-value">${safe}</span>${copyBtn}</dd>`;
+      }
+
+      function renderBankDetails(data) {
+        const b = data.bankDetails || {};
+        const rows = [];
+        if (b.name) rows.push(bankRow("البنك", b.name, false));
+        if (b.accountName)
+          rows.push(bankRow("اسم الحساب", b.accountName, false));
+        if (b.iban) rows.push(bankRow("الآيبان", b.iban, true));
+        rows.push(
+          bankRow("المبلغ", `${data.amount} ${data.currency || "ريال"}`, false),
+        );
+        rows.push(bankRow("المرجع", data.bankReference, true));
+        document.getElementById("bank-rows").innerHTML = rows.join("");
+
+        const statusUrl = `success.html?orderNumber=${encodeURIComponent(data.orderNumber)}`;
+        document.getElementById("bank-status-link").innerHTML =
+          `أرسلنا هذه التفاصيل إلى بريدك أيضاً. <a href="${statusUrl}">تابِع طلبك</a> — يظهر مفتاحك هنا بمجرد التأكيد.`;
+
+        form.hidden = true;
+        if (fineprintEl) fineprintEl.hidden = true;
+        document.getElementById("bank-panel").hidden = false;
+        document
+          .getElementById("bank-panel")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest && e.target.closest(".bank-copy");
+        if (!btn) return;
+        const text = btn.getAttribute("data-copy") || "";
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(() => {
+            const prev = btn.textContent;
+            btn.textContent = "تم النسخ";
+            setTimeout(() => {
+              btn.textContent = prev;
+            }, 1400);
+          });
         }
       });
     </script>

@@ -14,7 +14,7 @@
       href="assets/icon-128.png"
     />
     <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
-    <link rel="stylesheet" href="style.css?v=096caf6d48" />
+    <link rel="stylesheet" href="style.css?v=3a348fa2f9" />
   </head>
   <body>
     <header class="site-header">
@@ -58,6 +58,35 @@
                   <span class="total" id="total">— SAR</span>
                 </div>
 
+                <div
+                  class="pay-methods"
+                  role="radiogroup"
+                  aria-label="Payment method"
+                >
+                  <button
+                    type="button"
+                    class="pay-method is-active"
+                    id="method-card"
+                    role="radio"
+                    aria-checked="true"
+                    data-method="card"
+                  >
+                    <span class="pay-method-title">Card</span>
+                    <span class="pay-method-sub">Visa / Mada via Paylink</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="pay-method"
+                    id="method-bank"
+                    role="radio"
+                    aria-checked="false"
+                    data-method="bank"
+                  >
+                    <span class="pay-method-title">Bank transfer</span>
+                    <span class="pay-method-sub">Pay by IBAN, we confirm</span>
+                  </button>
+                </div>
+
                 <div class="checkout-field">
                   <label for="name">Full name</label>
                   <input
@@ -90,7 +119,7 @@
                 <div class="checkout-field">
                   <label for="email">Email</label>
                   <span class="hint" id="email-hint"
-                    >Optional, but useful for receipts and support.</span
+                    >We'll email your license key and receipt here.</span
                   >
                   <input
                     id="email"
@@ -99,6 +128,7 @@
                     autocomplete="email"
                     aria-describedby="email-hint"
                     maxlength="254"
+                    required
                   />
                 </div>
 
@@ -121,10 +151,22 @@
                 <p class="checkout-error" id="error" role="alert"></p>
               </form>
 
-              <p class="checkout-fineprint">
+              <p class="checkout-fineprint" id="fineprint">
                 Payment is processed on Paylink's secure hosted page. The charge
                 is in SAR.
               </p>
+
+              <div class="bank-details-panel" id="bank-panel" hidden>
+                <h2 class="bank-panel-title">Transfer the amount to finish</h2>
+                <p class="bank-panel-lead">
+                  We've emailed these details to you. Send the exact amount and
+                  put the reference in your transfer note — we'll email your
+                  license key once we confirm the transfer (usually within a
+                  business day).
+                </p>
+                <dl class="bank-rows" id="bank-rows"></dl>
+                <p class="bank-panel-note" id="bank-status-link"></p>
+              </div>
             </div>
 
             <aside class="checkout-aside" aria-labelledby="checkout-next">
@@ -179,10 +221,40 @@
       const payBtnLabel = document.getElementById("pay-btn-label");
       const errorEl = document.getElementById("error");
       const totalEl = document.getElementById("total");
+      const fineprintEl = document.getElementById("fineprint");
+      const methodButtons = Array.from(
+        document.querySelectorAll(".pay-method"),
+      );
+
+      let method = "card";
 
       function setPayButtonLabel(label) {
         if (payBtnLabel) payBtnLabel.textContent = label;
       }
+
+      const IDLE_LABEL = {
+        card: "Continue to Paylink",
+        bank: "Get bank details",
+      };
+      const FINEPRINT = {
+        card: "Payment is processed on Paylink's secure hosted page. The charge is in SAR.",
+        bank: "You'll see our bank details and a reference. We confirm your transfer manually, then email your key.",
+      };
+
+      function setMethod(next) {
+        method = next === "bank" ? "bank" : "card";
+        methodButtons.forEach((b) => {
+          const on = b.dataset.method === method;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-checked", on ? "true" : "false");
+        });
+        if (!payBtn.disabled) setPayButtonLabel(IDLE_LABEL[method]);
+        if (fineprintEl) fineprintEl.textContent = FINEPRINT[method];
+      }
+
+      methodButtons.forEach((b) => {
+        b.addEventListener("click", () => setMethod(b.dataset.method));
+      });
 
       function normalizeLocalizedDigits(value) {
         return String(value)
@@ -212,8 +284,7 @@
         const mobile = sanitizeMobile(mobileInput.value);
         const email = emailInput.value.trim();
         const mobileDigits = mobile.replace(/\D/g, "");
-        const emailLooksValid =
-          !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        const emailLooksValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
         setFieldValidity(nameInput, name.length >= 2 && name.length <= 120);
         setFieldValidity(
@@ -244,7 +315,7 @@
         if (!emailLooksValid) {
           return {
             ok: false,
-            message: "Please enter a valid email address, or leave it blank.",
+            message: "Please enter your email — we email your key there.",
           };
         }
         return { ok: true, name, mobile, email };
@@ -314,7 +385,9 @@
         mobileInput.value = validation.mobile;
         emailInput.value = validation.email;
         payBtn.disabled = true;
-        setPayButtonLabel("Opening Paylink…");
+        setPayButtonLabel(
+          method === "bank" ? "Creating your order…" : "Opening Paylink…",
+        );
         try {
           const res = await fetch(`${LICENSE_API}/api/checkout/create`, {
             method: "POST",
@@ -324,6 +397,7 @@
               mobile: validation.mobile,
               email: validation.email,
               locale: "en",
+              paymentMethod: method,
             }),
           });
           const data = await res.json().catch(() => ({}));
@@ -334,13 +408,26 @@
             setPayButtonLabel("Purchasing paused");
             return;
           }
+          if (data.amount && data.currency) {
+            totalEl.textContent = `${data.amount} ${data.currency}`;
+          }
+
+          // Bank transfer: no redirect — show the bank details inline.
+          if (method === "bank") {
+            if (!res.ok || data.method !== "bank") {
+              throw new Error(
+                data.error || "Could not create your order. Please try again.",
+              );
+            }
+            renderBankDetails(data);
+            return;
+          }
+
+          // Card: redirect to the Paylink hosted page.
           if (!res.ok || !data.url) {
             throw new Error(
               data.error || "Could not start checkout. Please try again.",
             );
-          }
-          if (data.amount && data.currency) {
-            totalEl.textContent = `${data.amount} ${data.currency}`;
           }
           try {
             sessionStorage.setItem("sb-transaction-no", data.transactionNo);
@@ -349,7 +436,60 @@
         } catch (err) {
           errorEl.textContent = err.message || String(err);
           payBtn.disabled = false;
-          setPayButtonLabel("Continue to Paylink");
+          setPayButtonLabel(IDLE_LABEL[method]);
+        }
+      });
+
+      function bankRow(label, value, copyable) {
+        const v = String(value == null ? "" : value);
+        const safe = v
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+        const copyBtn = copyable
+          ? ` <button type="button" class="bank-copy" data-copy="${safe.replace(/"/g, "&quot;")}" aria-label="Copy ${label}">Copy</button>`
+          : "";
+        return `<dt>${label}</dt><dd><span dir="ltr" class="bank-value">${safe}</span>${copyBtn}</dd>`;
+      }
+
+      function renderBankDetails(data) {
+        const b = data.bankDetails || {};
+        const rows = [];
+        if (b.name) rows.push(bankRow("Bank", b.name, false));
+        if (b.accountName)
+          rows.push(bankRow("Account name", b.accountName, false));
+        if (b.iban) rows.push(bankRow("IBAN", b.iban, true));
+        rows.push(
+          bankRow("Amount", `${data.amount} ${data.currency || "SAR"}`, false),
+        );
+        rows.push(bankRow("Reference", data.bankReference, true));
+        document.getElementById("bank-rows").innerHTML = rows.join("");
+
+        const statusUrl = `success.html?orderNumber=${encodeURIComponent(data.orderNumber)}`;
+        document.getElementById("bank-status-link").innerHTML =
+          `We've also emailed these to you. <a href="${statusUrl}">Track your order</a> — your key appears here once we confirm.`;
+
+        form.hidden = true;
+        if (fineprintEl) fineprintEl.hidden = true;
+        document.getElementById("bank-panel").hidden = false;
+        document
+          .getElementById("bank-panel")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      // Copy buttons inside the bank panel.
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest && e.target.closest(".bank-copy");
+        if (!btn) return;
+        const text = btn.getAttribute("data-copy") || "";
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(text).then(() => {
+            const prev = btn.textContent;
+            btn.textContent = "Copied";
+            setTimeout(() => {
+              btn.textContent = prev;
+            }, 1400);
+          });
         }
       });
     </script>
