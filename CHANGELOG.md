@@ -10,11 +10,35 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-06-08
+
+Switchboard 1.4.0 introduces the free and Personal tiers, a preview of MCP
+support, and a thorough Arabic polish pass.
+
+### Added
+
+- **Free and Personal tiers.** Switchboard is now free to use for up to 5 active
+  services, with service-down and new-listener alerts and basic start/stop
+  included. A one-time **Personal** license (or the 7-day trial) unlocks the rest:
+  unlimited services, per-service CPU/memory, full activity history, manual log
+  sources and diagnostics export, backup restore and config import/export, the
+  port intelligence layer and tray port console, the Observer detail view and
+  actions, and unlimited docs folders. Extra services you set up during the trial
+  are never deleted — they simply lock to view-only until you activate or upgrade.
+- **MCP is coming.** A new "MCP" entry in the sidebar previews Model Context
+  Protocol support: letting an AI agent reach a scoped set of your services
+  through Switchboard's command guardrails and approvals, instead of running
+  arbitrary shell commands. It's an informational preview for now.
+
 ### Changed
 
 - **Personal is easier to recognize.** The app's title-bar Personal badge is now
   a small yellow crown instead of another text pill, with the same accessible
   license label. The pricing page uses the same crown cue for the Personal plan.
+- **Arabic, polished throughout.** Right-to-left layout is corrected across
+  service details, onboarding, logs, docs, ports, the tray, the Command Center,
+  and the About window, and observer, discovery, and port messages now read in
+  natural Arabic instead of English.
 
 ## [1.3.0] - 2026-06-08
 
