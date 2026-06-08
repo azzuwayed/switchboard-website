@@ -10,6 +10,48 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-06-08
+
+Switchboard 1.3.0 is a big upgrade to the Logs view, plus a simpler first run
+and a clearer activity timeline.
+
+### Added
+
+- **See errors in your logs.** Command-based log sources now show what a service
+  writes to its error stream (stderr), tinted red, so failures aren't invisible.
+  Turn it off in Settings → Logs if a command is noisy on stderr.
+- **Filter and search logs properly.** Filter the Logs view by level
+  (error/warn/info/debug/trace), wrap long lines, and search with an optional
+  regular-expression mode, case sensitivity, and a live match count.
+- **Per-line actions.** Hover any log line to copy it, focus the view on just
+  that one source, or jump straight to the related service or its Activity
+  timeline.
+- **Keep your scrollback — or don't.** A new "On leaving Logs" setting keeps the
+  Logs buffer when you navigate away and catches you up on what you missed, or
+  starts fresh to save memory. The default follows your resource profile.
+- **Pick your language on first run.** The welcome screen now has an English /
+  Arabic switcher.
+
+### Changed
+
+- **Simpler first run.** Onboarding goes straight from welcome to detecting your
+  services to an optional tidy-up and finish — fewer setup screens to click
+  through. Launch-at-login, notifications, and command-output redaction use
+  sensible defaults you can change any time in Settings.
+- **Clearer activity timeline.** Only genuinely failed commands and actions count
+  as failures; "degraded" and "unknown" health changes now read as states to
+  look at rather than failures, each with its own label, and the layout is
+  tighter so the detail column has more room.
+- **Tidier Logs sidebar and update banner.** The Switchboard activity overlay
+  moved into the Built-in group, log commands that replay old history no longer
+  pile up duplicate lines, and the update banner fits on one line without
+  cropping the release notes.
+
+### Fixed
+
+- **Cleared logs stay cleared.** Clearing a command-based log source no longer
+  replays the same lines on the next refresh.
+
 ## [1.2.2] - 2026-06-08
 
 Switchboard 1.2.2 polishes license receipts, admin workflows, and update
