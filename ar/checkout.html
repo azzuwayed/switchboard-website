@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Switchboard — الدفع</title>
-    <meta name="description" content="اشترِ رخصة Switchboard الشخصية." />
+    <meta name="description" content="اشترِ رخصة Switchboard Personal." />
     <meta name="robots" content="noindex" />
     <link
       rel="icon"
@@ -53,17 +53,17 @@
       <section class="hero page-hero checkout-hero">
         <div class="container">
           <p class="eyebrow">الدفع</p>
-          <h1>شراء رخصة Switchboard الشخصية</h1>
+          <h1>شراء رخصة Switchboard Personal</h1>
           <p class="lede">
-            تفتح عملية شراء واحدة المراقبة المتقدمة على حتى 3 أجهزة Mac. بعد
-            الدفع، تعرض لك هذه الصفحة مفتاح الرخصة مباشرة.
+            شراء واحد يفتح المراقبة المتقدمة على ما يصل إلى 3 أجهزة Mac. بعد
+            الدفع، ستعرض لك هذه الصفحة مفتاح الرخصة مباشرة.
           </p>
 
           <div class="checkout-shell">
             <div>
               <form class="checkout-card" id="checkout-form" novalidate>
                 <div class="checkout-summary">
-                  <span>الرخصة الشخصية · عرض التأسيس</span>
+                  <span>رخصة Personal · عرض التأسيس</span>
                   <span class="total" id="total">— ريال</span>
                 </div>
 
@@ -81,8 +81,8 @@
                 <div class="checkout-field">
                   <label for="mobile">رقم الجوال</label>
                   <span class="hint" id="mobile-hint"
-                    >يتطلب Paylink رقم جوال. أضف رمز الدولة، مثل ‎+966 5XXXXXXXX
-                    أو ‎+44 أو ‎+1.</span
+                    >يحتاج Paylink إلى رقم جوال. أضف رمز الدولة، مثل ‎+966
+                    5XXXXXXXX أو ‎+44 أو ‎+1.</span
                   >
                   <input
                     id="mobile"
@@ -133,8 +133,7 @@
               </form>
 
               <p class="checkout-fineprint">
-                تتم معالجة الدفع على صفحة Paylink المستضافة والآمنة. يُحصّل
-                المبلغ بالريال السعودي.
+                تتم عملية الدفع على صفحة Paylink الآمنة وبالريال السعودي.
               </p>
             </div>
 
@@ -143,20 +142,20 @@
               <ul class="checkout-list">
                 <li>
                   <span>
-                    <strong>دفع مستضاف</strong>
+                    <strong>دفع عبر Paylink</strong>
                     ستنتقل إلى Paylink، ثم تعود إلى هذه الصفحة بعد الدفع.
                   </span>
                 </li>
                 <li>
                   <span>
                     <strong>مفتاح رخصة فقط</strong>
-                    لا يُنشأ أي حساب. احفظ المفتاح في مكان آمن عندما يظهر.
+                    لن ننشئ حساباً. احفظ المفتاح في مكان آمن عندما يظهر.
                   </span>
                 </li>
                 <li>
                   <span>
                     <strong>حتى 3 أجهزة Mac</strong>
-                    فعّل الرخصة نفسها من الإعدادات ← الرخصة والوصول على كل جهاز.
+                    فعّل نفس الرخصة من الإعدادات ← الرخصة والوصول على كل جهاز.
                   </span>
                 </li>
               </ul>
@@ -233,25 +232,25 @@
         if (name.length < 2) {
           return {
             ok: false,
-            message: "الرجاء إدخال الاسم الكامل.",
+            message: "أدخل الاسم الكامل.",
           };
         }
         if (name.length > 120) {
           return {
             ok: false,
-            message: "الرجاء تقصير حقل الاسم.",
+            message: "اختصر الاسم.",
           };
         }
         if (mobileDigits.length < 8 || mobileDigits.length > 15) {
           return {
             ok: false,
-            message: "الرجاء إدخال رقم جوال صحيح مع رمز الدولة.",
+            message: "أدخل رقم جوال صحيح مع رمز الدولة.",
           };
         }
         if (!emailLooksValid) {
           return {
             ok: false,
-            message: "الرجاء إدخال بريد إلكتروني صحيح أو تركه فارغاً.",
+            message: "أدخل بريد إلكتروني صحيح أو اتركه فارغاً.",
           };
         }
         return { ok: true, name, mobile, email };
@@ -300,7 +299,7 @@
           const data = await res.json().catch(() => ({}));
           if (data && data.enabled === false) {
             errorEl.textContent =
-              data.message || "الشراء متوقف مؤقتاً. الرجاء المحاولة لاحقاً.";
+              data.message || "الشراء متوقف مؤقتاً. حاول لاحقاً.";
             payBtn.disabled = true;
             setPayButtonLabel("الشراء متوقف مؤقتاً");
           }
@@ -344,7 +343,7 @@
           }
           if (!res.ok || !data.url) {
             throw new Error(
-              data.error || "تعذّر بدء الدفع. الرجاء المحاولة مجدداً.",
+              data.error || "تعذّر بدء الدفع. حاول مجدداً.",
             );
           }
           if (data.amount && data.currency) {

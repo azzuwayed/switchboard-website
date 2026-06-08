@@ -41,6 +41,19 @@ strict parity:
 - Code blocks, file paths, command strings, and version chips render LTR
   inside RTL pages by the `direction: ltr; unicode-bidi: isolate;` rule
   on `code`/`pre`/`kbd`/`samp`/`.version-chip`.
+- Arabic copy should use Saudi-friendly "white Arabic": modern MSA with light
+  local/common phrasing, not stiff classical or government-formal Arabic. Keep
+  product/platform names in English when they are names: `Switchboard`,
+  `Personal`, `Paylink`, `Mac`, `Terminal`, `Docker`, `Homebrew`, `launchd`.
+  Use Arabic around them naturally: `افتح Switchboard`, `انتقل إلى Personal`,
+  `رخصة Switchboard Personal`, `مفتاح الرخصة`, `فعّل الرخصة`, `يعمل على ما يصل
+  إلى 3 أجهزة Mac`.
+- For licensing language, prefer `رخصة` and `مفتاح الرخصة`. Avoid translating
+  plan names (`الرخصة الشخصية`) or using stiff legal/product phrasing
+  (`ترخيص Switchboard`) unless the context is truly legal. Prefer direct app
+  verbs (`أدخل`, `اختر`, `راجع`) over `الرجاء` / `يرجى` / `قم بـ`, and avoid
+  awkward literal terms that came up in review: `رقِّ`, `صدفة طرفية`,
+  `الوافدين الجدد`, `تهدئة`, `اعتماد` for adopting a service, and `مرشحات`.
 
 To add another locale later, mirror `/ar/` to `/<locale>/`, add the locale
 file paths to `HTML_PAGES` in `scripts/bump-css-cache.mjs`, and add the
