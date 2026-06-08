@@ -48,7 +48,7 @@ Switchboard stays useful for free: up to 5 active services, safe start/stop,
 service command logs, recent Activity, a counts-only Observer teaser, basic
 ports, service-down alerts, and new-arrival notifications. Fresh installs get a
 7-day full-feature trial, then return to free use. A Personal license (founder
-offer $20 at launch, then $39) unlocks the rest — services beyond 5, full
+offer $19 at launch, then $39) unlocks the rest — services beyond 5, full
 Observer details and actions, Resources, manual log sources, full Activity,
 diagnostics export, backup restore, config import/export, deeper port tools, and
 the tray port console — and activates up to 3 Macs. See
