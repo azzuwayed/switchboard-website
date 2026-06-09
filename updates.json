@@ -1,50 +1,50 @@
 {
   "schemaVersion": 1,
-  "latest": "1.4.0",
-  "releasedAt": "2026-06-08T17:26:22.868Z",
+  "latest": "1.4.1",
+  "releasedAt": "2026-06-09T07:15:28.905Z",
   "minimumSystemVersion": "12.0",
   "channel": "stable",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.4.0/Switchboard-v1.4.0-macos-universal.dmg",
-        "sha256": "2faa6d8b1dda4191326b6f9c57c3e5039b9b858bfb15f2b0bafe03df8bda85b5",
-        "sizeBytes": 18122397
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.4.1/Switchboard-v1.4.1-macos-universal.dmg",
+        "sha256": "d12d89f0848254259bbe41e6bb66fae7548112228411f56ffa8367b1633d90b1",
+        "sizeBytes": 18125421
       }
     },
     "x86_64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.4.0/Switchboard-v1.4.0-macos-universal.dmg",
-        "sha256": "2faa6d8b1dda4191326b6f9c57c3e5039b9b858bfb15f2b0bafe03df8bda85b5",
-        "sizeBytes": 18122397
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.4.1/Switchboard-v1.4.1-macos-universal.dmg",
+        "sha256": "d12d89f0848254259bbe41e6bb66fae7548112228411f56ffa8367b1633d90b1",
+        "sizeBytes": 18125421
       }
     },
     "universal": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.4.0/Switchboard-v1.4.0-macos-universal.dmg",
-        "sha256": "2faa6d8b1dda4191326b6f9c57c3e5039b9b858bfb15f2b0bafe03df8bda85b5",
-        "sizeBytes": 18122397
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.4.1/Switchboard-v1.4.1-macos-universal.dmg",
+        "sha256": "d12d89f0848254259bbe41e6bb66fae7548112228411f56ffa8367b1633d90b1",
+        "sizeBytes": 18125421
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.4.0",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.4.1",
   "downloadPageUrl": "https://azzuwayed.github.io/switchboard-website/",
-  "notes": "Switchboard 1.4.0 — see release notes for details.",
+  "notes": "Switchboard 1.4.1 — see release notes for details.",
   "highlights": [
-    "Free and Personal tiers. Switchboard is now free to use for up to 5 active services, with service-down and new-listener alerts and basic start/stop included. A one-time Personal license (or the 7-day trial) unlocks the rest: unlimited services, per-service CPU/memory, full activity history, manual log sources and diagnostics export, backup restore and config import/export, the port intelligence layer and tray port console, the Observer detail view and actions, and unlimited docs folders. Extra services you set up during the trial are never deleted — they simply lock to view-only until you activate or upgrade.",
-    "MCP is coming. A new \"MCP\" entry in the sidebar previews Model Context Protocol support: letting an AI agent reach a scoped set of your services through Switchboard's command guardrails and approvals, instead of running arbitrary shell commands. It's an informational preview for now.",
-    "Personal is easier to recognize. The app's title-bar Personal badge is now a small yellow crown instead of another text pill, with the same accessible license label. The pricing page uses the same crown cue for the Personal plan."
+    "Reset your devices yourself. Sold, lost, or wiped a Mac and can't free its slot from the app? The new Reset my devices page frees all your activation slots — enter your email and order number, then activate on the Mac you're using now. When you hit the device limit, Switchboard now links you straight to it.",
+    "Contact form. A new Contact page for licensing, billing, and general questions — your message reaches support by email, and replies go to your address. (Bug reports still go to GitHub Issues.)",
+    "Easier to get help. The FAQ now answers the common device questions — how many Macs a license covers, freeing the slot from a Mac you no longer have, and moving your license to a new Mac — and the privacy page documents what the contact form collects."
   ],
-  "version": "1.4.0",
-  "pub_date": "2026-06-08T17:26:22.868Z",
+  "version": "1.4.1",
+  "pub_date": "2026-06-09T07:15:28.905Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTFobEFpdmRNQXNBNVJuV09TU1pIUE5SM3NxOXNBSlUxSU8zclhqZ2NJQnR4aElVa3l0SnB0QndyR2tPcFY2a29pUzhQVS9oVy9rVGdtV3NmVXQ4bXc0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwOTM5NTEwCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpFY1UvZWcrTDIvVlVpNUViR1RoWFdqdGxiRXFGTzcrckZ5Wk5JVnM1NDRzL05LcFFxeXJhb2M3Q0w2a0IxVVhjTmF3RXBOcm9jR3JmcWtISTJPN2lDdz09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.4.0/Switchboard-v1.4.0-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTRaU2w0RWdvMnJ5cXlPODNmd1lvY2FCODlnM2VZSmlabncyb2ppVHprOW8yK1J2dHpiQS93UnNXZlcvMzJtRy9FWGpnZTh4VWsrQnZramFxMlp3Y0FnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwOTg5MjU0CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negorYmZTNUNFTmlzK1FFcXdPOFR1RFU2OVZxY20yT0dNeEd5clM4d3U0b1J2bHR5ZVA1NmpOb3UzMC9XMGwybk4xSnM1YWt5Mzk1bldmZDducUduQ3hEUT09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.4.1/Switchboard-v1.4.1-macos-universal.app.tar.gz"
     },
     "darwin-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTFobEFpdmRNQXNBNVJuV09TU1pIUE5SM3NxOXNBSlUxSU8zclhqZ2NJQnR4aElVa3l0SnB0QndyR2tPcFY2a29pUzhQVS9oVy9rVGdtV3NmVXQ4bXc0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwOTM5NTEwCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpFY1UvZWcrTDIvVlVpNUViR1RoWFdqdGxiRXFGTzcrckZ5Wk5JVnM1NDRzL05LcFFxeXJhb2M3Q0w2a0IxVVhjTmF3RXBOcm9jR3JmcWtISTJPN2lDdz09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.4.0/Switchboard-v1.4.0-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTRaU2w0RWdvMnJ5cXlPODNmd1lvY2FCODlnM2VZSmlabncyb2ppVHprOW8yK1J2dHpiQS93UnNXZlcvMzJtRy9FWGpnZTh4VWsrQnZramFxMlp3Y0FnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgwOTg5MjU0CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negorYmZTNUNFTmlzK1FFcXdPOFR1RFU2OVZxY20yT0dNeEd5clM4d3U0b1J2bHR5ZVA1NmpOb3UzMC9XMGwybk4xSnM1YWt5Mzk1bldmZDducUduQ3hEUT09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.4.1/Switchboard-v1.4.1-macos-universal.app.tar.gz"
     }
   }
 }
