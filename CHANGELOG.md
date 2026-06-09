@@ -10,6 +10,28 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-06-09
+
+Switchboard 1.5.0 adds a System logs tab that surfaces the crashes and noisy
+logs your Mac generates, connects Switchboard to your AI coding agents over MCP,
+and brings discount codes to checkout.
+
+### Added
+
+- **System logs.** A new System tab in Logs shows what your Mac itself is
+  logging — recent app crashes (with the worst offenders and when they last
+  happened) and the log files spamming the most errors — so background crashes
+  you'd never have noticed show up in one place. Optional crash notifications
+  let Switchboard tell you the moment a new crash report appears.
+- **Connect your AI coding agents.** Switchboard now runs a built-in MCP server,
+  so agents like Claude Code, Cursor, VS Code, and Claude Desktop can see and
+  control your services through Switchboard's guardrails instead of running raw
+  shell commands. One click installs it into the agents you already have. Every
+  AI-driven action shows up in the Activity timeline with an "AI" badge.
+  (Personal)
+- **Discount codes.** Checkout now has a promo-code field with a live discount
+  preview, and a dismissible banner advertises the current offer.
+
 ## [1.4.1] - 2026-06-09
 
 Switchboard 1.4.1 makes license help self-service: reset your devices yourself,
