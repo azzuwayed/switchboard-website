@@ -14,7 +14,7 @@
       href="assets/icon-128.png"
     />
     <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
-    <link rel="stylesheet" href="style.css?v=3a348fa2f9" />
+    <link rel="stylesheet" href="style.css?v=36b04fd246" />
   </head>
   <body>
     <header class="site-header">
@@ -45,7 +45,7 @@
         <div class="container">
           <p class="eyebrow">Checkout</p>
           <h1>Buy Switchboard Personal</h1>
-          <p class="lede">
+          <p class="lede" id="lede">
             One purchase unlocks advanced monitoring on up to 3 Macs. After
             payment, this page shows your license key immediately.
           </p>
@@ -72,7 +72,7 @@
                     data-method="card"
                   >
                     <span class="pay-method-title">Card</span>
-                    <span class="pay-method-sub">Visa / Mada via Paylink</span>
+                    <span class="pay-method-sub">via Paylink</span>
                   </button>
                   <button
                     type="button"
@@ -85,6 +85,21 @@
                     <span class="pay-method-title">Bank transfer</span>
                     <span class="pay-method-sub">Pay by IBAN, we confirm</span>
                   </button>
+                </div>
+
+                <div class="pay-accepted" id="pay-accepted">
+                  <span class="pay-accepted-label">We accept</span>
+                  <img
+                    src="assets/pay-visa-mastercard.png"
+                    alt="Visa and Mastercard"
+                    height="24"
+                  />
+                  <img src="assets/pay-mada.png" alt="mada" height="24" />
+                  <img
+                    src="assets/pay-apple-pay.png"
+                    alt="Apple Pay"
+                    height="24"
+                  />
                 </div>
 
                 <div class="checkout-field">
@@ -174,9 +189,11 @@
               <ul class="checkout-list">
                 <li>
                   <span>
-                    <strong>Hosted payment</strong>
-                    You will leave Switchboard's site for Paylink, then return
-                    here after payment.
+                    <strong id="aside-flow-title">Hosted payment</strong>
+                    <span id="aside-flow-desc"
+                      >You will leave Switchboard's site for Paylink, then
+                      return here after payment.</span
+                    >
                   </span>
                 </li>
                 <li>
@@ -241,6 +258,36 @@
         bank: "You'll see our bank details and a reference. We confirm your transfer manually, then email your key.",
       };
 
+      // Copy that's only true for the card/Paylink flow swaps when the buyer picks
+      // bank transfer (which never touches Paylink and isn't an instant reveal).
+      // The card copy is whatever the page ships with; only the bank text is defined.
+      const ledeEl = document.getElementById("lede");
+      const mobileHintEl = document.getElementById("mobile-hint");
+      const flowTitleEl = document.getElementById("aside-flow-title");
+      const flowDescEl = document.getElementById("aside-flow-desc");
+      const CARD_COPY = {
+        lede: ledeEl ? ledeEl.textContent : "",
+        mobileHint: mobileHintEl ? mobileHintEl.textContent : "",
+        flowTitle: flowTitleEl ? flowTitleEl.textContent : "",
+        flowDesc: flowDescEl ? flowDescEl.textContent : "",
+      };
+      const BANK_COPY = {
+        lede: "One purchase unlocks advanced monitoring on up to 3 Macs. We email your license key once we confirm your bank transfer.",
+        mobileHint:
+          "We use this to reach you about your transfer. Include your country code, for example +966 5XXXXXXXX.",
+        flowTitle: "Bank transfer",
+        flowDesc:
+          "You'll get our bank details and a reference here — we email your key once we confirm the transfer (usually within a business day).",
+      };
+
+      function applyMethodCopy(m) {
+        const copy = m === "bank" ? BANK_COPY : CARD_COPY;
+        if (ledeEl) ledeEl.textContent = copy.lede;
+        if (mobileHintEl) mobileHintEl.textContent = copy.mobileHint;
+        if (flowTitleEl) flowTitleEl.textContent = copy.flowTitle;
+        if (flowDescEl) flowDescEl.textContent = copy.flowDesc;
+      }
+
       function setMethod(next) {
         method = next === "bank" ? "bank" : "card";
         methodButtons.forEach((b) => {
@@ -250,6 +297,9 @@
         });
         if (!payBtn.disabled) setPayButtonLabel(IDLE_LABEL[method]);
         if (fineprintEl) fineprintEl.textContent = FINEPRINT[method];
+        applyMethodCopy(method);
+        const accepted = document.getElementById("pay-accepted");
+        if (accepted) accepted.hidden = method !== "card";
       }
 
       methodButtons.forEach((b) => {

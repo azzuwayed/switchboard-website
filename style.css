@@ -1167,6 +1167,28 @@ h2 {
   color: var(--fg-muted);
 }
 
+/* Accepted payment-method badges (shown for the Card method) */
+.pay-accepted {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin: -6px 0 18px;
+}
+.pay-accepted[hidden] {
+  display: none;
+}
+.pay-accepted-label {
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+.pay-accepted img {
+  height: 24px;
+  width: auto;
+  border-radius: 5px;
+  background: #fff;
+}
+
 /* Bank-transfer details panel (shown after a bank-method submit) */
 .bank-details-panel {
   margin-top: 18px;

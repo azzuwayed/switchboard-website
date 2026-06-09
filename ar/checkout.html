@@ -23,7 +23,7 @@
       sizes="256x256"
       href="../assets/icon-256.png"
     />
-    <link rel="stylesheet" href="../style.css?v=3a348fa2f9" />
+    <link rel="stylesheet" href="../style.css?v=36b04fd246" />
   </head>
   <body>
     <header class="site-header">
@@ -54,7 +54,7 @@
         <div class="container">
           <p class="eyebrow">الدفع</p>
           <h1>شراء رخصة Switchboard Personal</h1>
-          <p class="lede">
+          <p class="lede" id="lede">
             شراء واحد يفتح المراقبة المتقدمة على ما يصل إلى 3 أجهزة Mac. بعد
             الدفع، ستعرض لك هذه الصفحة مفتاح الرخصة مباشرة.
           </p>
@@ -81,7 +81,7 @@
                     data-method="card"
                   >
                     <span class="pay-method-title">بطاقة</span>
-                    <span class="pay-method-sub">فيزا / مدى عبر Paylink</span>
+                    <span class="pay-method-sub">عبر Paylink</span>
                   </button>
                   <button
                     type="button"
@@ -94,6 +94,21 @@
                     <span class="pay-method-title">تحويل بنكي</span>
                     <span class="pay-method-sub">حوّل عبر الآيبان ونؤكّده</span>
                   </button>
+                </div>
+
+                <div class="pay-accepted" id="pay-accepted">
+                  <span class="pay-accepted-label">نقبل</span>
+                  <img
+                    src="../assets/pay-visa-mastercard.png"
+                    alt="فيزا وماستركارد"
+                    height="24"
+                  />
+                  <img src="../assets/pay-mada.png" alt="مدى" height="24" />
+                  <img
+                    src="../assets/pay-apple-pay.png"
+                    alt="Apple Pay"
+                    height="24"
+                  />
                 </div>
 
                 <div class="checkout-field">
@@ -183,8 +198,11 @@
               <ul class="checkout-list">
                 <li>
                   <span>
-                    <strong>دفع عبر Paylink</strong>
-                    ستنتقل إلى Paylink، ثم تعود إلى هذه الصفحة بعد الدفع.
+                    <strong id="aside-flow-title">دفع عبر Paylink</strong>
+                    <span id="aside-flow-desc"
+                      >ستنتقل إلى Paylink، ثم تعود إلى هذه الصفحة بعد
+                      الدفع.</span
+                    >
                   </span>
                 </li>
                 <li>
@@ -247,6 +265,36 @@
         bank: "سترى تفاصيل حسابنا البنكي ورقم مرجع. نؤكّد تحويلك يدوياً ثم نرسل مفتاحك بالبريد.",
       };
 
+      // النصوص الخاصة بمسار البطاقة/Paylink تتبدّل عند اختيار التحويل البنكي
+      // (الذي لا يمر عبر Paylink ولا يكشف المفتاح فوراً). نص البطاقة هو ما تشحنه
+      // الصفحة أصلاً؛ نعرّف نص البنك فقط.
+      const ledeEl = document.getElementById("lede");
+      const mobileHintEl = document.getElementById("mobile-hint");
+      const flowTitleEl = document.getElementById("aside-flow-title");
+      const flowDescEl = document.getElementById("aside-flow-desc");
+      const CARD_COPY = {
+        lede: ledeEl ? ledeEl.textContent : "",
+        mobileHint: mobileHintEl ? mobileHintEl.textContent : "",
+        flowTitle: flowTitleEl ? flowTitleEl.textContent : "",
+        flowDesc: flowDescEl ? flowDescEl.textContent : "",
+      };
+      const BANK_COPY = {
+        lede: "شراء واحد يفتح المراقبة المتقدمة على ما يصل إلى 3 أجهزة Mac. نرسل لك مفتاح الرخصة بالبريد بمجرد تأكيد تحويلك البنكي.",
+        mobileHint:
+          "نستخدمه للتواصل معك بشأن تحويلك. أضف رمز الدولة مع رقم جوالك.",
+        flowTitle: "تحويل بنكي",
+        flowDesc:
+          "ستظهر لك تفاصيل حسابنا ورقم مرجع هنا، ونرسل مفتاحك بالبريد بمجرد تأكيد التحويل (عادة خلال يوم عمل).",
+      };
+
+      function applyMethodCopy(m) {
+        const copy = m === "bank" ? BANK_COPY : CARD_COPY;
+        if (ledeEl) ledeEl.textContent = copy.lede;
+        if (mobileHintEl) mobileHintEl.textContent = copy.mobileHint;
+        if (flowTitleEl) flowTitleEl.textContent = copy.flowTitle;
+        if (flowDescEl) flowDescEl.textContent = copy.flowDesc;
+      }
+
       function setMethod(next) {
         method = next === "bank" ? "bank" : "card";
         methodButtons.forEach((b) => {
@@ -256,6 +304,9 @@
         });
         if (!payBtn.disabled) setPayButtonLabel(IDLE_LABEL[method]);
         if (fineprintEl) fineprintEl.textContent = FINEPRINT[method];
+        applyMethodCopy(method);
+        const accepted = document.getElementById("pay-accepted");
+        if (accepted) accepted.hidden = method !== "card";
       }
 
       methodButtons.forEach((b) => {
