@@ -831,6 +831,14 @@ h2 {
   color: var(--fg);
 }
 
+.footer-author {
+  color: inherit;
+}
+
+.footer-author:hover {
+  color: var(--fg);
+}
+
 /* Pricing and checkout */
 
 .page-hero {
@@ -1487,6 +1495,27 @@ h2 {
   border-radius: 4px;
   padding: 1px 6px;
   font-size: 0.9em;
+}
+
+.story-founder {
+  margin: 22px 0 0;
+  padding-left: 16px;
+  border-left: 2px solid var(--accent);
+  color: var(--fg-muted);
+  font-size: 15px;
+  line-height: 1.65;
+  max-width: 60ch;
+}
+
+.story-founder a {
+  color: var(--fg);
+}
+
+[dir="rtl"] .story-founder {
+  padding-right: 16px;
+  padding-left: 0;
+  border-right: 2px solid var(--accent);
+  border-left: 0;
 }
 
 .story-side {
