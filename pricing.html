@@ -16,7 +16,8 @@
       href="assets/icon-128.png"
     />
     <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
-    <link rel="stylesheet" href="style.css?v=36b04fd246" />
+    <link rel="stylesheet" href="style.css?v=24fe27b748" />
+    <script src="promo-banner.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -87,7 +88,7 @@
 
             <div class="price-card featured">
               <div class="price-head">
-                <span class="founder-badge">Founder offer · about 50% off</span>
+                <span class="founder-badge" id="promo-badge" hidden></span>
                 <span class="price-tier personal-tier">
                   <span class="personal-tier-crown" aria-hidden="true">
                     <svg viewBox="0 0 24 24" focusable="false">
@@ -96,11 +97,9 @@
                   </span>
                   <span>Personal</span>
                 </span>
-                <div class="price-amount">
-                  <span class="price-was">$39</span>$19
-                </div>
+                <div class="price-amount">$39</div>
                 <p class="price-sub">
-                  ≈ <span id="price-sar">71.25 SAR</span> · one-time · up to 3
+                  ≈ <span id="price-sar">146.25 SAR</span> · one-time · up to 3
                   Macs
                 </p>
                 <p class="price-fit">
@@ -141,10 +140,10 @@
 
           <div class="pricing-note-grid" aria-label="License details">
             <div class="pricing-note-card">
-              <strong>Founder price</strong>
+              <strong>Promo codes</strong>
               <p>
-                $19 during the founder offer, then $39 for a Personal license.
-                Payment is charged in SAR through Paylink.
+                A Personal license is $39, charged in SAR through Paylink. Got a
+                promo code? Enter it at checkout to get the discount.
               </p>
             </div>
             <div class="pricing-note-card">
@@ -180,19 +179,30 @@
     <script>
       const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
 
-      // Single source of truth for the SAR price — never hardcode it here.
+      // Single source of truth for the SAR price + featured promo — never
+      // hardcode them here. We show the full base price; the badge advertises the
+      // featured code (if any), which buyers enter at checkout.
       (async function loadPricing() {
         try {
           const res = await fetch(`${LICENSE_API}/api/checkout/pricing`);
           const p = await res.json().catch(() => ({}));
-          if (p && typeof p.amount === "number") {
+          const base = typeof p.basePrice === "number" ? p.basePrice : p.amount;
+          const currency = p.currency || "SAR";
+          if (typeof base === "number") {
             const el = document.getElementById("price-sar");
-            if (el) el.textContent = `${p.amount} ${p.currency || "SAR"}`;
-            if (p.founder === false) {
-              document
-                .querySelector(".founder-badge")
-                ?.setAttribute("hidden", "");
-            }
+            if (el) el.textContent = `${base} ${currency}`;
+          }
+          const badge = document.getElementById("promo-badge");
+          const f = p && p.featured;
+          if (badge && f && f.code) {
+            const off =
+              f.discountType === "free"
+                ? "free"
+                : f.discountType === "percent"
+                  ? `${f.discountValue}% off`
+                  : `${f.discountValue} ${currency} off`;
+            badge.textContent = `${f.label || "Offer"} · ${off} · code ${f.code}`;
+            badge.hidden = false;
           }
         } catch {
           // Leave the static price if pricing can't load.

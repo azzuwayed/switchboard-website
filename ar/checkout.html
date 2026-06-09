@@ -23,7 +23,8 @@
       sizes="256x256"
       href="../assets/icon-256.png"
     />
-    <link rel="stylesheet" href="../style.css?v=36b04fd246" />
+    <link rel="stylesheet" href="../style.css?v=24fe27b748" />
+    <script src="../promo-banner.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -63,7 +64,7 @@
             <div>
               <form class="checkout-card" id="checkout-form" novalidate>
                 <div class="checkout-summary">
-                  <span>رخصة Personal · عرض التأسيس</span>
+                  <span id="summary-label">رخصة Personal</span>
                   <span class="total" id="total">— ريال</span>
                 </div>
 
@@ -156,6 +157,37 @@
                     maxlength="254"
                     required
                   />
+                </div>
+
+                <div class="checkout-field checkout-promo">
+                  <label for="promo">كود الخصم (اختياري)</label>
+                  <div class="promo-input-row">
+                    <input
+                      id="promo"
+                      name="promo"
+                      type="text"
+                      autocomplete="off"
+                      autocapitalize="characters"
+                      spellcheck="false"
+                      dir="ltr"
+                      maxlength="32"
+                      placeholder="CODE"
+                      aria-describedby="promo-feedback"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-secondary promo-apply"
+                      id="promo-apply"
+                    >
+                      تطبيق
+                    </button>
+                  </div>
+                  <p
+                    class="promo-feedback"
+                    id="promo-feedback"
+                    role="status"
+                    aria-live="polite"
+                  ></p>
                 </div>
 
                 <button class="btn btn-primary" id="pay-btn" type="submit">
@@ -252,6 +284,41 @@
 
       let method = "card";
 
+      // حالة كود الخصم. basePrice هو السعر الكامل؛ appliedPromo يحمل الخصم
+      // المُتحقَّق منه (أو null = الدفع كاملاً).
+      let basePrice = null;
+      let baseCurrency = "SAR";
+      let appliedPromo = null; // { code, amount, currency, isFree }
+      const promoInput = document.getElementById("promo");
+      const promoApply = document.getElementById("promo-apply");
+      const promoFeedback = document.getElementById("promo-feedback");
+      const summaryLabel = document.getElementById("summary-label");
+
+      const PROMO_REJECT = {
+        invalid: "كود الخصم غير صالح.",
+        expired: "انتهت صلاحية كود الخصم.",
+        exhausted: "تم استنفاد عدد مرات استخدام الكود.",
+        already_used: "لقد استخدمت هذا الكود من قبل.",
+        below_minimum: "لا يمكن تطبيق هذا الكود على هذا الشراء.",
+      };
+      function curWord(c) {
+        return c === "SAR" ? "ريال" : c || baseCurrency || "ريال";
+      }
+      function money(a, c) {
+        return `${a} ${curWord(c)}`;
+      }
+      function setTotal(a, c) {
+        totalEl.textContent = money(a, c);
+      }
+      function resetPromoPreview(message) {
+        appliedPromo = null;
+        summaryLabel.textContent = "رخصة Personal";
+        if (basePrice != null) setTotal(basePrice, baseCurrency);
+        promoFeedback.className = "promo-feedback";
+        promoFeedback.textContent = message || "";
+        if (!payBtn.disabled) setPayButtonLabel(payIdleLabel());
+      }
+
       function setPayButtonLabel(label) {
         if (payBtnLabel) payBtnLabel.textContent = label;
       }
@@ -260,6 +327,12 @@
         card: "المتابعة إلى Paylink",
         bank: "عرض التفاصيل البنكية",
       };
+      // كود مجاني (خصم 100٪) يعني عدم وجود خطوة دفع إطلاقاً.
+      function payIdleLabel() {
+        return appliedPromo && appliedPromo.isFree
+          ? "احصل على رخصتك"
+          : IDLE_LABEL[method];
+      }
       const FINEPRINT = {
         card: "تتم عملية الدفع على صفحة Paylink الآمنة وبالريال السعودي.",
         bank: "سترى تفاصيل حسابنا البنكي ورقم مرجع. نؤكّد تحويلك يدوياً ثم نرسل مفتاحك بالبريد.",
@@ -302,7 +375,7 @@
           b.classList.toggle("is-active", on);
           b.setAttribute("aria-checked", on ? "true" : "false");
         });
-        if (!payBtn.disabled) setPayButtonLabel(IDLE_LABEL[method]);
+        if (!payBtn.disabled) setPayButtonLabel(payIdleLabel());
         if (fineprintEl) fineprintEl.textContent = FINEPRINT[method];
         applyMethodCopy(method);
         const accepted = document.getElementById("pay-accepted");
@@ -399,19 +472,97 @@
         emailInput.value = emailInput.value.trim();
       });
 
-      // المصدر الوحيد للسعر — يُجلب من الـ worker ولا يُكتب يدوياً.
+      // المصدر الوحيد للسعر — يُجلب من الـ worker ولا يُكتب يدوياً. نعرض السعر
+      // الكامل؛ ويخفّضه كود الخصم المطبَّق أدناه.
       (async function loadPricing() {
         try {
           const res = await fetch(`${LICENSE_API}/api/checkout/pricing`);
           const p = await res.json().catch(() => ({}));
-          if (p && typeof p.amount === "number") {
-            const cur = p.currency === "SAR" ? "ريال" : p.currency || "ريال";
-            totalEl.textContent = `${p.amount} ${cur}`;
+          const base = typeof p.basePrice === "number" ? p.basePrice : p.amount;
+          if (typeof base === "number") {
+            basePrice = base;
+            baseCurrency = p.currency || "SAR";
+            if (!appliedPromo) setTotal(basePrice, baseCurrency);
           }
         } catch {
           // اترك القيمة الافتراضية إذا تعذّر جلب السعر.
         }
       })();
+
+      // التحقّق من كود الخصم وتطبيقه، مع تحديث الإجمالي ورسالة الحالة.
+      async function applyPromo() {
+        const code = (promoInput.value || "").trim().toUpperCase();
+        promoInput.value = code;
+        promoFeedback.className = "promo-feedback";
+        if (!code) {
+          resetPromoPreview();
+          return;
+        }
+        promoApply.disabled = true;
+        try {
+          const res = await fetch(
+            `${LICENSE_API}/api/checkout/validate-promo`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ code, email: emailInput.value.trim() }),
+            },
+          );
+          const d = await res.json().catch(() => ({}));
+          if (!res.ok || !d.ok) {
+            appliedPromo = null;
+            summaryLabel.textContent = "رخصة Personal";
+            if (basePrice != null) setTotal(basePrice, baseCurrency);
+            promoFeedback.className = "promo-feedback is-error";
+            promoFeedback.textContent =
+              (d && PROMO_REJECT[d.reason]) || "لا يمكن تطبيق هذا الكود.";
+            if (!payBtn.disabled) setPayButtonLabel(payIdleLabel());
+            return;
+          }
+          appliedPromo = {
+            code: d.code || code,
+            amount: d.amount,
+            currency: d.currency,
+            isFree: d.isFree,
+          };
+          setTotal(d.amount, d.currency);
+          summaryLabel.textContent = `رخصة Personal · ${appliedPromo.code}`;
+          promoFeedback.className = "promo-feedback is-ok";
+          promoFeedback.textContent = d.isFree
+            ? "هذا الكود يجعل رخصتك مجانية — لا حاجة للدفع."
+            : `تم تطبيق الكود: وفّرت ${money(d.discountAmount, d.currency)}.`;
+          if (!payBtn.disabled) setPayButtonLabel(payIdleLabel());
+        } catch {
+          promoFeedback.className = "promo-feedback is-error";
+          promoFeedback.textContent = "تعذّر التحقّق من الكود. حاول مرة أخرى.";
+        } finally {
+          promoApply.disabled = false;
+        }
+      }
+      promoApply.addEventListener("click", applyPromo);
+      promoInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          applyPromo();
+        }
+      });
+      promoInput.addEventListener("input", () => {
+        const code = (promoInput.value || "").trim().toUpperCase();
+        if (appliedPromo && code !== appliedPromo.code) {
+          resetPromoPreview(
+            code ? "طبّق الكود المُحدَّث لمعاينة سعره." : "",
+          );
+        }
+      });
+
+      // تعبئة وتطبيق تلقائي لكود قادم من شريط العرض (?code=).
+      const prefillCode = new URLSearchParams(window.location.search).get(
+        "code",
+      );
+      if (prefillCode) {
+        promoInput.value = prefillCode.toUpperCase();
+        applyPromo();
+      }
 
       // إيقاف الشراء (يدوياً أو عبر مراقب بوابة الدفع): اعرض الإشعار وعطّل النموذج.
       (async function checkAvailability() {
@@ -455,6 +606,7 @@
               email: validation.email,
               locale: "ar",
               paymentMethod: method,
+              promoCode: promoInput.value.trim() || undefined,
             }),
           });
           const data = await res.json().catch(() => ({}));
@@ -465,8 +617,25 @@
             setPayButtonLabel("الشراء متوقف مؤقتاً");
             return;
           }
+          // كود خصم مرفوض: اعرضه على حقل الكود بدل اعتباره خطأً قاتلاً.
+          if (data.code === "PROMO_REJECTED") {
+            promoFeedback.className = "promo-feedback is-error";
+            promoFeedback.textContent =
+              (data.reason && PROMO_REJECT[data.reason]) ||
+              data.error ||
+              "لا يمكن تطبيق هذا الكود.";
+            payBtn.disabled = false;
+            setPayButtonLabel(payIdleLabel());
+            return;
+          }
+          // كود مجاني (خصم 100٪): صدرت الرخصة بلا دفع — انتقل لصفحة النجاح التي
+          // تعرض المفتاح.
+          if (data.method === "free" && data.orderNumber) {
+            window.location.href = `success.html?orderNumber=${encodeURIComponent(data.orderNumber)}`;
+            return;
+          }
           if (data.amount && data.currency) {
-            totalEl.textContent = `${data.amount} ${data.currency}`;
+            totalEl.textContent = `${data.amount} ${curWord(data.currency)}`;
           }
 
           // التحويل البنكي: لا إعادة توجيه — اعرض التفاصيل في الصفحة.
@@ -491,7 +660,7 @@
         } catch (err) {
           errorEl.textContent = err.message || String(err);
           payBtn.disabled = false;
-          setPayButtonLabel(IDLE_LABEL[method]);
+          setPayButtonLabel(payIdleLabel());
         }
       });
 

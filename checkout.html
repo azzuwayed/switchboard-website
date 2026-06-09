@@ -14,7 +14,8 @@
       href="assets/icon-128.png"
     />
     <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
-    <link rel="stylesheet" href="style.css?v=36b04fd246" />
+    <link rel="stylesheet" href="style.css?v=24fe27b748" />
+    <script src="promo-banner.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -54,7 +55,7 @@
             <div>
               <form class="checkout-card" id="checkout-form" novalidate>
                 <div class="checkout-summary">
-                  <span>Personal license · founder offer</span>
+                  <span id="summary-label">Personal license</span>
                   <span class="total" id="total">— SAR</span>
                 </div>
 
@@ -145,6 +146,36 @@
                     maxlength="254"
                     required
                   />
+                </div>
+
+                <div class="checkout-field checkout-promo">
+                  <label for="promo">Promo code (optional)</label>
+                  <div class="promo-input-row">
+                    <input
+                      id="promo"
+                      name="promo"
+                      type="text"
+                      autocomplete="off"
+                      autocapitalize="characters"
+                      spellcheck="false"
+                      maxlength="32"
+                      placeholder="CODE"
+                      aria-describedby="promo-feedback"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-secondary promo-apply"
+                      id="promo-apply"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                  <p
+                    class="promo-feedback"
+                    id="promo-feedback"
+                    role="status"
+                    aria-live="polite"
+                  ></p>
                 </div>
 
                 <button class="btn btn-primary" id="pay-btn" type="submit">
@@ -245,6 +276,38 @@
 
       let method = "card";
 
+      // Promo code state. basePrice is the full standing price; appliedPromo holds
+      // the validated discount (or null = pay full price).
+      let basePrice = null;
+      let baseCurrency = "SAR";
+      let appliedPromo = null; // { code, amount, currency, isFree }
+      const promoInput = document.getElementById("promo");
+      const promoApply = document.getElementById("promo-apply");
+      const promoFeedback = document.getElementById("promo-feedback");
+      const summaryLabel = document.getElementById("summary-label");
+
+      const PROMO_REJECT = {
+        invalid: "That promo code isn't valid.",
+        expired: "That promo code has expired.",
+        exhausted: "That promo code has reached its usage limit.",
+        already_used: "You've already used that promo code.",
+        below_minimum: "That code can't be applied to this purchase.",
+      };
+      function money(a, c) {
+        return `${a} ${c || baseCurrency || "SAR"}`;
+      }
+      function setTotal(a, c) {
+        totalEl.textContent = money(a, c);
+      }
+      function resetPromoPreview(message) {
+        appliedPromo = null;
+        summaryLabel.textContent = "Personal license";
+        if (basePrice != null) setTotal(basePrice, baseCurrency);
+        promoFeedback.className = "promo-feedback";
+        promoFeedback.textContent = message || "";
+        if (!payBtn.disabled) setPayButtonLabel(payIdleLabel());
+      }
+
       function setPayButtonLabel(label) {
         if (payBtnLabel) payBtnLabel.textContent = label;
       }
@@ -253,6 +316,12 @@
         card: "Continue to Paylink",
         bank: "Get bank details",
       };
+      // A free (100%-off) code means no payment step at all.
+      function payIdleLabel() {
+        return appliedPromo && appliedPromo.isFree
+          ? "Get your license"
+          : IDLE_LABEL[method];
+      }
       const FINEPRINT = {
         card: "Payment is processed on Paylink's secure hosted page. The charge is in SAR.",
         bank: "You'll see our bank details and a reference. We confirm your transfer manually, then email your key.",
@@ -295,7 +364,7 @@
           b.classList.toggle("is-active", on);
           b.setAttribute("aria-checked", on ? "true" : "false");
         });
-        if (!payBtn.disabled) setPayButtonLabel(IDLE_LABEL[method]);
+        if (!payBtn.disabled) setPayButtonLabel(payIdleLabel());
         if (fineprintEl) fineprintEl.textContent = FINEPRINT[method];
         applyMethodCopy(method);
         const accepted = document.getElementById("pay-accepted");
@@ -393,18 +462,97 @@
         emailInput.value = emailInput.value.trim();
       });
 
-      // Single source of truth for the price — fetched, never hardcoded.
+      // Single source of truth for the price — fetched, never hardcoded. We show
+      // the full base price; a promo code applied below discounts the total.
       (async function loadPricing() {
         try {
           const res = await fetch(`${LICENSE_API}/api/checkout/pricing`);
           const p = await res.json().catch(() => ({}));
-          if (p && typeof p.amount === "number") {
-            totalEl.textContent = `${p.amount} ${p.currency || "SAR"}`;
+          const base = typeof p.basePrice === "number" ? p.basePrice : p.amount;
+          if (typeof base === "number") {
+            basePrice = base;
+            baseCurrency = p.currency || "SAR";
+            if (!appliedPromo) setTotal(basePrice, baseCurrency);
           }
         } catch {
           // Leave the neutral placeholder if pricing can't load.
         }
       })();
+
+      // Validate + apply a promo code, updating the total and feedback line.
+      async function applyPromo() {
+        const code = (promoInput.value || "").trim().toUpperCase();
+        promoInput.value = code;
+        promoFeedback.className = "promo-feedback";
+        if (!code) {
+          resetPromoPreview();
+          return;
+        }
+        promoApply.disabled = true;
+        try {
+          const res = await fetch(
+            `${LICENSE_API}/api/checkout/validate-promo`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ code, email: emailInput.value.trim() }),
+            },
+          );
+          const d = await res.json().catch(() => ({}));
+          if (!res.ok || !d.ok) {
+            appliedPromo = null;
+            summaryLabel.textContent = "Personal license";
+            if (basePrice != null) setTotal(basePrice, baseCurrency);
+            promoFeedback.className = "promo-feedback is-error";
+            promoFeedback.textContent =
+              (d && PROMO_REJECT[d.reason]) ||
+              "That promo code can't be applied.";
+            if (!payBtn.disabled) setPayButtonLabel(payIdleLabel());
+            return;
+          }
+          appliedPromo = {
+            code: d.code || code,
+            amount: d.amount,
+            currency: d.currency,
+            isFree: d.isFree,
+          };
+          setTotal(d.amount, d.currency);
+          summaryLabel.textContent = `Personal license · ${appliedPromo.code}`;
+          promoFeedback.className = "promo-feedback is-ok";
+          promoFeedback.textContent = d.isFree
+            ? "This code makes your license free — no payment needed."
+            : `Code applied: you save ${money(d.discountAmount, d.currency)}.`;
+          if (!payBtn.disabled) setPayButtonLabel(payIdleLabel());
+        } catch {
+          promoFeedback.className = "promo-feedback is-error";
+          promoFeedback.textContent =
+            "Couldn't check that code. Please try again.";
+        } finally {
+          promoApply.disabled = false;
+        }
+      }
+      promoApply.addEventListener("click", applyPromo);
+      promoInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          applyPromo();
+        }
+      });
+      promoInput.addEventListener("input", () => {
+        const code = (promoInput.value || "").trim().toUpperCase();
+        if (appliedPromo && code !== appliedPromo.code) {
+          resetPromoPreview(code ? "Apply the updated code to preview its price." : "");
+        }
+      });
+
+      // Prefill + auto-apply a code passed from the promo banner (?code=).
+      const prefillCode = new URLSearchParams(window.location.search).get(
+        "code",
+      );
+      if (prefillCode) {
+        promoInput.value = prefillCode.toUpperCase();
+        applyPromo();
+      }
 
       (async function checkAvailability() {
         try {
@@ -448,6 +596,7 @@
               email: validation.email,
               locale: "en",
               paymentMethod: method,
+              promoCode: promoInput.value.trim() || undefined,
             }),
           });
           const data = await res.json().catch(() => ({}));
@@ -456,6 +605,23 @@
             errorEl.textContent =
               data.message || data.error || "Purchasing is temporarily paused.";
             setPayButtonLabel("Purchasing paused");
+            return;
+          }
+          // A rejected promo code: surface it on the promo field, not as a fatal error.
+          if (data.code === "PROMO_REJECTED") {
+            promoFeedback.className = "promo-feedback is-error";
+            promoFeedback.textContent =
+              (data.reason && PROMO_REJECT[data.reason]) ||
+              data.error ||
+              "That promo code can't be applied.";
+            payBtn.disabled = false;
+            setPayButtonLabel(payIdleLabel());
+            return;
+          }
+          // Free (100%-off) code: the license was issued with no payment — go
+          // straight to the success page, which reveals the key.
+          if (data.method === "free" && data.orderNumber) {
+            window.location.href = `success.html?orderNumber=${encodeURIComponent(data.orderNumber)}`;
             return;
           }
           if (data.amount && data.currency) {
@@ -486,7 +652,7 @@
         } catch (err) {
           errorEl.textContent = err.message || String(err);
           payBtn.disabled = false;
-          setPayButtonLabel(IDLE_LABEL[method]);
+          setPayButtonLabel(payIdleLabel());
         }
       });
 
