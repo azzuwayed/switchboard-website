@@ -3,12 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Switchboard — Recover your license</title>
+    <title>Switchboard — Reset your devices</title>
     <meta
       name="description"
-      content="Recover your Switchboard Personal license key."
+      content="Free all device slots on your Switchboard Personal license so you can re-activate on a new Mac."
     />
-    <meta name="robots" content="noindex" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
     <link
       rel="icon"
@@ -20,30 +19,11 @@
     <link rel="stylesheet" href="style.css?v=3a348fa2f9" />
     <style>
       .result-card {
-        max-width: 520px;
+        max-width: 560px;
         border: 1px solid var(--border, #2a2a2a);
         border-radius: 14px;
         padding: 24px;
         background: var(--bg-elev, rgba(255, 255, 255, 0.02));
-      }
-      .key-box {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        margin: 16px 0 6px;
-      }
-      .key-value {
-        flex: 1;
-        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-        font-size: 18px;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        padding: 11px 13px;
-        border-radius: 8px;
-        border: 1px solid var(--border, #2a2a2a);
-        background: var(--bg, #0e0e0e);
-        user-select: all;
-        word-break: break-all;
       }
       .how-to {
         font-size: 14px;
@@ -78,7 +58,7 @@
         </a>
         <nav class="site-nav" aria-label="Primary">
           <a href="pricing.html">Pricing</a>
-          <a class="lang-switch" href="ar/recover.html" hreflang="ar" lang="ar"
+          <a class="lang-switch" href="ar/reset.html" hreflang="ar" lang="ar"
             >العربية</a
           >
         </nav>
@@ -88,15 +68,19 @@
     <main>
       <section class="hero">
         <div class="container">
-          <p class="eyebrow">License recovery</p>
-          <h1>Recover your license key</h1>
+          <p class="eyebrow">Device reset</p>
+          <h1>Reset your devices</h1>
           <p class="lede">
-            Lost the key after purchase? Enter the email and the order or
-            transaction number from your invoice and we'll show it again.
+            A Personal license activates up to 3 Macs. If you still have a Mac
+            you no longer use, the cleanest way to free its slot is in the app —
+            <strong>Settings → License &amp; Access → Deactivate</strong>. Use
+            this page only when you can't get to that Mac (you sold, lost, or
+            wiped it): it frees <strong>all</strong> your slots so you can
+            re-activate on the Mac you're using now.
           </p>
 
           <div class="result-card">
-            <form id="recover-form" novalidate>
+            <form id="reset-form" novalidate>
               <div class="checkout-field">
                 <label for="email">Email</label>
                 <input
@@ -121,8 +105,8 @@
                   required
                 />
               </div>
-              <button class="btn btn-primary" id="recover-btn" type="submit">
-                <span id="recover-btn-label">Recover my key</span>
+              <button class="btn btn-primary" id="reset-btn" type="submit">
+                <span id="reset-btn-label">Reset my devices</span>
               </button>
               <p
                 class="checkout-error"
@@ -132,30 +116,18 @@
               ></p>
             </form>
 
-            <div id="key-section" hidden>
-              <p style="font-size: 14px; opacity: 0.85; margin: 0">
-                Your Switchboard Personal license key:
+            <div id="done-section" hidden>
+              <p style="font-size: 15px; margin: 0" id="done-headline">
+                All your device slots are free.
               </p>
-              <div class="key-box">
-                <code class="key-value" id="key-value">—</code>
-                <button class="btn btn-secondary" id="copy-btn" type="button">
-                  Copy
-                </button>
-              </div>
               <p class="how-to">
-                Activate in Switchboard:
-                <strong>Settings → License &amp; Access</strong>, paste the key,
-                and click <strong>Activate</strong>.
+                Open Switchboard on the Mac you want to use and activate with
+                your license key in
+                <strong>Settings → License &amp; Access</strong>.
               </p>
-              <p id="receipt-line" hidden style="margin-top: 16px">
-                <a
-                  class="btn btn-secondary"
-                  id="receipt-link"
-                  href="#"
-                  target="_blank"
-                  rel="noopener"
-                  >Download invoice</a
-                >
+              <p class="muted">
+                Lost the key too?
+                <a href="recover.html">Recover it here</a>.
               </p>
             </div>
           </div>
@@ -169,7 +141,6 @@
         <nav class="footer-nav" aria-label="Footer">
           <a href="pricing.html">Pricing</a>
           <a href="privacy.html">Privacy</a>
-          <a href="reset.html">Reset devices</a>
           <a href="contact.html">Contact</a>
         </nav>
       </div>
@@ -178,28 +149,14 @@
     <script>
       const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
 
-      const form = document.getElementById("recover-form");
+      const form = document.getElementById("reset-form");
       const emailInput = document.getElementById("email");
       const refInput = document.getElementById("ref");
-      const btn = document.getElementById("recover-btn");
-      const btnLabel = document.getElementById("recover-btn-label");
+      const btn = document.getElementById("reset-btn");
+      const btnLabel = document.getElementById("reset-btn-label");
       const errorEl = document.getElementById("error");
-      const keySection = document.getElementById("key-section");
-      const keyValue = document.getElementById("key-value");
-      const copyBtn = document.getElementById("copy-btn");
-
-      copyBtn?.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(keyValue.textContent);
-          copyBtn.textContent = "Copied";
-          setTimeout(() => (copyBtn.textContent = "Copy"), 1800);
-        } catch {
-          const range = document.createRange();
-          range.selectNodeContents(keyValue);
-          window.getSelection()?.removeAllRanges();
-          window.getSelection()?.addRange(range);
-        }
-      });
+      const doneSection = document.getElementById("done-section");
+      const doneHeadline = document.getElementById("done-headline");
 
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -211,37 +168,32 @@
             "Enter your email and your order or transaction number.";
           return;
         }
-        // The order number starts with SWBD-; anything else is the Paylink
-        // transaction number. Route each to the right field the worker checks.
+        // Order numbers start with SWBD-; anything else is the Paylink transaction.
         const body = { email };
         if (/^SWBD-/i.test(ref)) body.orderNumber = ref;
         else body.transactionNo = ref;
 
         btn.disabled = true;
-        btnLabel.textContent = "Checking…";
+        btnLabel.textContent = "Resetting…";
         try {
-          const res = await fetch(`${LICENSE_API}/api/checkout/recover`, {
+          const res = await fetch(`${LICENSE_API}/api/checkout/reset-devices`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(body),
           });
           const data = await res.json().catch(() => ({}));
-          if (res.ok && data.status === "Paid" && data.licenseKey) {
-            keyValue.textContent = data.licenseKey;
+          if (res.ok && data.ok) {
+            doneHeadline.textContent =
+              data.freed > 0
+                ? `Done — ${data.freed} device slot${data.freed === 1 ? "" : "s"} freed.`
+                : "You're all set — no active devices to free.";
             form.hidden = true;
-            keySection.hidden = false;
-            // Our own receipt, built from the order identifier they just
-            // recovered with (not Paylink's merchant/fee VAT report).
-            const inv = body.orderNumber
-              ? `${LICENSE_API}/api/checkout/invoice?orderNumber=${encodeURIComponent(body.orderNumber)}`
-              : `${LICENSE_API}/api/checkout/invoice?transactionNo=${encodeURIComponent(body.transactionNo)}`;
-            document.getElementById("receipt-link").href = inv;
-            document.getElementById("receipt-line").hidden = false;
+            doneSection.hidden = false;
             return;
           }
-          if (res.ok && data.licenseKey === null) {
+          if (res.status === 429 || data.code === "RESET_COOLDOWN") {
             errorEl.textContent =
-              "We found your order, but the payment isn't confirmed yet. Try again in a minute.";
+              "This license was reset recently. Please try again in a day.";
           } else {
             errorEl.textContent =
               "No matching paid order was found. Check that the email and number match your invoice.";
@@ -250,7 +202,7 @@
           errorEl.textContent = "Something went wrong. Please try again.";
         } finally {
           btn.disabled = false;
-          btnLabel.textContent = "Recover my key";
+          btnLabel.textContent = "Reset my devices";
         }
       });
     </script>

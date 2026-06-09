@@ -10,6 +10,29 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-06-09
+
+Switchboard 1.4.1 makes license help self-service: reset your devices yourself,
+and reach support through a proper contact form.
+
+### Added
+
+- **Reset your devices yourself.** Sold, lost, or wiped a Mac and can't free its
+  slot from the app? The new Reset my devices page frees all your activation
+  slots — enter your email and order number, then activate on the Mac you're
+  using now. When you hit the device limit, Switchboard now links you straight
+  to it.
+- **Contact form.** A new Contact page for licensing, billing, and general
+  questions — your message reaches support by email, and replies go to your
+  address. (Bug reports still go to GitHub Issues.)
+
+### Changed
+
+- **Easier to get help.** The FAQ now answers the common device questions — how
+  many Macs a license covers, freeing the slot from a Mac you no longer have, and
+  moving your license to a new Mac — and the privacy page documents what the
+  contact form collects.
+
 ## [1.4.0] - 2026-06-08
 
 Switchboard 1.4.0 introduces the free and Personal tiers, a preview of MCP

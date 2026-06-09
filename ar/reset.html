@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Switchboard — استعادة الرخصة</title>
-    <meta name="description" content="استعد مفتاح رخصة Switchboard Personal." />
-    <meta name="robots" content="noindex" />
+    <title>Switchboard — إعادة تعيين أجهزتك</title>
+    <meta
+      name="description"
+      content="حرّر جميع أجهزة رخصة Switchboard Personal لتتمكن من التفعيل على جهاز Mac جديد."
+    />
     <link
       rel="icon"
       type="image/png"
@@ -26,32 +28,11 @@
     <link rel="stylesheet" href="../style.css?v=3a348fa2f9" />
     <style>
       .result-card {
-        max-width: 520px;
+        max-width: 560px;
         border: 1px solid var(--border, #2a2a2a);
         border-radius: 14px;
         padding: 24px;
         background: var(--bg-elev, rgba(255, 255, 255, 0.02));
-      }
-      .key-box {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        margin: 16px 0 6px;
-      }
-      .key-value {
-        flex: 1;
-        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-        font-size: 18px;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        padding: 11px 13px;
-        border-radius: 8px;
-        border: 1px solid var(--border, #2a2a2a);
-        background: var(--bg, #0e0e0e);
-        user-select: all;
-        word-break: break-all;
-        direction: ltr;
-        text-align: left;
       }
       .how-to {
         font-size: 14px;
@@ -86,7 +67,7 @@
         </a>
         <nav class="site-nav" aria-label="التنقل">
           <a href="pricing.html">الأسعار</a>
-          <a class="lang-switch" href="../recover.html" hreflang="en" lang="en"
+          <a class="lang-switch" href="../reset.html" hreflang="en" lang="en"
             >English</a
           >
         </nav>
@@ -96,15 +77,19 @@
     <main>
       <section class="hero">
         <div class="container">
-          <p class="eyebrow">استعادة الرخصة</p>
-          <h1>استعد مفتاح رخصتك</h1>
+          <p class="eyebrow">إعادة تعيين الأجهزة</p>
+          <h1>أعد تعيين أجهزتك</h1>
           <p class="lede">
-            فقدت المفتاح بعد الشراء؟ أدخل بريدك الإلكتروني ورقم الطلب أو رقم
-            العملية من فاتورتك وسنعرضه لك مرة أخرى.
+            تعمل رخصة Personal على ثلاثة أجهزة Mac كحد أقصى. إن كان لديك جهاز لم
+            تعد تستخدمه، فأسهل طريقة لتحرير مكانه هي من داخل التطبيق:
+            <strong>الإعدادات ← الرخصة والوصول ← إلغاء التفعيل</strong>. استخدم
+            هذه الصفحة فقط إذا تعذّر عليك الوصول إلى ذلك الجهاز (بعته أو فقدته
+            أو مسحته): فهي تحرّر <strong>جميع</strong> الأماكن لتفعّل الرخصة على
+            الجهاز الذي تستخدمه الآن.
           </p>
 
           <div class="result-card">
-            <form id="recover-form" novalidate>
+            <form id="reset-form" novalidate>
               <div class="checkout-field">
                 <label for="email">البريد الإلكتروني</label>
                 <input
@@ -131,8 +116,8 @@
                   required
                 />
               </div>
-              <button class="btn btn-primary" id="recover-btn" type="submit">
-                <span id="recover-btn-label">استعادة مفتاحي</span>
+              <button class="btn btn-primary" id="reset-btn" type="submit">
+                <span id="reset-btn-label">إعادة تعيين أجهزتي</span>
               </button>
               <p
                 class="checkout-error"
@@ -142,30 +127,18 @@
               ></p>
             </form>
 
-            <div id="key-section" hidden>
-              <p style="font-size: 14px; opacity: 0.85; margin: 0">
-                مفتاح رخصة Switchboard Personal:
+            <div id="done-section" hidden>
+              <p style="font-size: 15px; margin: 0" id="done-headline">
+                جميع أماكن أجهزتك أصبحت متاحة.
               </p>
-              <div class="key-box">
-                <code class="key-value" id="key-value">—</code>
-                <button class="btn btn-secondary" id="copy-btn" type="button">
-                  نسخ
-                </button>
-              </div>
               <p class="how-to">
-                للتفعيل في Switchboard:
-                <strong>الإعدادات ← الرخصة والوصول</strong>، الصق المفتاح واضغط
-                <strong>تفعيل</strong>.
+                افتح Switchboard على الجهاز الذي تريد استخدامه وفعّل بمفتاح
+                رخصتك من
+                <strong>الإعدادات ← الرخصة والوصول</strong>.
               </p>
-              <p id="receipt-line" hidden style="margin-top: 16px">
-                <a
-                  class="btn btn-secondary"
-                  id="receipt-link"
-                  href="#"
-                  target="_blank"
-                  rel="noopener"
-                  >تنزيل الفاتورة</a
-                >
+              <p class="muted">
+                فقدت المفتاح أيضاً؟
+                <a href="recover.html">استعِده من هنا</a>.
               </p>
             </div>
           </div>
@@ -179,7 +152,6 @@
         <nav class="footer-nav" aria-label="تذييل">
           <a href="pricing.html">الأسعار</a>
           <a href="privacy.html">الخصوصية</a>
-          <a href="reset.html">إعادة تعيين الأجهزة</a>
           <a href="contact.html">تواصل معنا</a>
         </nav>
       </div>
@@ -188,28 +160,14 @@
     <script>
       const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
 
-      const form = document.getElementById("recover-form");
+      const form = document.getElementById("reset-form");
       const emailInput = document.getElementById("email");
       const refInput = document.getElementById("ref");
-      const btn = document.getElementById("recover-btn");
-      const btnLabel = document.getElementById("recover-btn-label");
+      const btn = document.getElementById("reset-btn");
+      const btnLabel = document.getElementById("reset-btn-label");
       const errorEl = document.getElementById("error");
-      const keySection = document.getElementById("key-section");
-      const keyValue = document.getElementById("key-value");
-      const copyBtn = document.getElementById("copy-btn");
-
-      copyBtn?.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(keyValue.textContent);
-          copyBtn.textContent = "تم النسخ";
-          setTimeout(() => (copyBtn.textContent = "نسخ"), 1800);
-        } catch {
-          const range = document.createRange();
-          range.selectNodeContents(keyValue);
-          window.getSelection()?.removeAllRanges();
-          window.getSelection()?.addRange(range);
-        }
-      });
+      const doneSection = document.getElementById("done-section");
+      const doneHeadline = document.getElementById("done-headline");
 
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -221,37 +179,32 @@
             "أدخل بريدك الإلكتروني ورقم الطلب أو رقم العملية.";
           return;
         }
-        // رقم الطلب يبدأ بـ SWBD-؛ وأي شيء آخر هو رقم عملية Paylink. نوجّه كلاً
-        // منهما إلى الحقل الصحيح الذي يفحصه الـ worker.
+        // رقم الطلب يبدأ بـ SWBD-؛ وأي شيء آخر هو رقم عملية Paylink.
         const body = { email };
         if (/^SWBD-/i.test(ref)) body.orderNumber = ref;
         else body.transactionNo = ref;
 
         btn.disabled = true;
-        btnLabel.textContent = "جارٍ التحقق…";
+        btnLabel.textContent = "جارٍ إعادة التعيين…";
         try {
-          const res = await fetch(`${LICENSE_API}/api/checkout/recover`, {
+          const res = await fetch(`${LICENSE_API}/api/checkout/reset-devices`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(body),
           });
           const data = await res.json().catch(() => ({}));
-          if (res.ok && data.status === "Paid" && data.licenseKey) {
-            keyValue.textContent = data.licenseKey;
+          if (res.ok && data.ok) {
+            doneHeadline.textContent =
+              data.freed > 0
+                ? `تم — تم تحرير ${data.freed} من أماكن الأجهزة.`
+                : "كل شيء جاهز — لا توجد أجهزة نشطة لتحريرها.";
             form.hidden = true;
-            keySection.hidden = false;
-            // فاتورتنا نحن، مبنية من معرّف الطلب الذي استعاد به العميل (وليست
-            // فاتورة الرسوم من Paylink).
-            const inv = body.orderNumber
-              ? `${LICENSE_API}/api/checkout/invoice?orderNumber=${encodeURIComponent(body.orderNumber)}`
-              : `${LICENSE_API}/api/checkout/invoice?transactionNo=${encodeURIComponent(body.transactionNo)}`;
-            document.getElementById("receipt-link").href = inv;
-            document.getElementById("receipt-line").hidden = false;
+            doneSection.hidden = false;
             return;
           }
-          if (res.ok && data.licenseKey === null) {
+          if (res.status === 429 || data.code === "RESET_COOLDOWN") {
             errorEl.textContent =
-              "عثرنا على طلبك، لكن لم يتأكد الدفع بعد. حاول مجدداً بعد دقيقة.";
+              "تمت إعادة تعيين هذه الرخصة مؤخراً. حاول مرة أخرى بعد يوم.";
           } else {
             errorEl.textContent =
               "لم نعثر على طلب مدفوع مطابق. تأكد من تطابق البريد والرقم مع فاتورتك.";
@@ -260,7 +213,7 @@
           errorEl.textContent = "حدث خطأ ما. حاول مرة أخرى.";
         } finally {
           btn.disabled = false;
-          btnLabel.textContent = "استعادة مفتاحي";
+          btnLabel.textContent = "إعادة تعيين أجهزتي";
         }
       });
     </script>

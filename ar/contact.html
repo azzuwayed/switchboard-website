@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Switchboard — تواصل معنا</title>
+    <meta
+      name="description"
+      content="احصل على المساعدة في Switchboard — الرخصة أو الدفع أو أي استفسار عام."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/icon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="128x128"
+      href="../assets/icon-128.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="256x256"
+      href="../assets/icon-256.png"
+    />
+    <link rel="stylesheet" href="../style.css?v=3a348fa2f9" />
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
+    <style>
+      .result-card {
+        max-width: 560px;
+        border: 1px solid var(--border, #2a2a2a);
+        border-radius: 14px;
+        padding: 24px;
+        background: var(--bg-elev, rgba(255, 255, 255, 0.02));
+      }
+      .checkout-field textarea,
+      .checkout-field select {
+        width: 100%;
+        font: inherit;
+        color: inherit;
+        padding: 11px 13px;
+        border-radius: 8px;
+        border: 1px solid var(--border, #2a2a2a);
+        background: var(--bg, #0e0e0e);
+      }
+      .checkout-field textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+      .hp-field {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .how-to {
+        font-size: 14px;
+        opacity: 0.85;
+        margin-top: 18px;
+        line-height: 1.6;
+      }
+      .cf-turnstile {
+        margin: 4px 0 14px;
+      }
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="../">
+          <img
+            class="brand-mark"
+            src="../assets/icon-256.png"
+            srcset="../assets/icon-128.png 1x, ../assets/icon-256.png 2x"
+            alt=""
+            width="28"
+            height="28"
+          />
+          <span class="brand-name">Switchboard</span>
+          <span class="brand-by">by Azzuwayed</span>
+        </a>
+        <nav class="site-nav" aria-label="التنقل">
+          <a href="pricing.html">الأسعار</a>
+          <a class="lang-switch" href="../contact.html" hreflang="en" lang="en"
+            >English</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <p class="eyebrow">تواصل معنا</p>
+          <h1>تواصل معنا</h1>
+          <p class="lede">
+            لديك سؤال عن الرخصة أو الدفع أو أي شيء آخر؟ أرسل رسالة وسنرد عليك
+            عبر البريد الإلكتروني. للإبلاغ عن خلل، استخدم
+            <a
+              href="https://github.com/azzuwayed/switchboard-website/issues"
+              rel="noopener"
+              target="_blank"
+              >GitHub Issues</a
+            >
+            حتى تبقى نسخة البناء وخطوات التكرار معاً.
+          </p>
+
+          <div class="result-card">
+            <form id="contact-form" novalidate>
+              <div class="checkout-field">
+                <label for="name">الاسم</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+              <div class="checkout-field">
+                <label for="email">البريد الإلكتروني</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  dir="ltr"
+                  required
+                />
+              </div>
+              <div class="checkout-field">
+                <label for="category">الموضوع</label>
+                <select id="category" name="category" required>
+                  <option value="general">سؤال عام</option>
+                  <option value="license">الرخصة / التفعيل</option>
+                  <option value="billing">الدفع / الفوترة</option>
+                  <option value="bug">الإبلاغ عن خلل</option>
+                  <option value="other">أخرى</option>
+                </select>
+              </div>
+              <div class="checkout-field">
+                <label for="message">الرسالة</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  minlength="10"
+                  maxlength="5000"
+                ></textarea>
+              </div>
+
+              <!-- حقل فخّ للبريد المزعج: لا يملؤه الزوّار الحقيقيون. -->
+              <div class="hp-field" aria-hidden="true">
+                <label for="company">الشركة</label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+
+              <!-- مفتاح موقع Cloudflare Turnstile (عام). مقترن بسرّ الـ worker
+                   TURNSTILE_SECRET. -->
+              <div
+                class="cf-turnstile"
+                data-sitekey="0x4AAAAAADhMJv8Bncc-4gNJ"
+              ></div>
+
+              <button class="btn btn-primary" id="contact-btn" type="submit">
+                <span id="contact-btn-label">أرسل</span>
+              </button>
+              <p
+                class="checkout-error"
+                id="error"
+                role="alert"
+                aria-live="polite"
+              ></p>
+            </form>
+
+            <div id="done-section" hidden>
+              <p style="font-size: 15px; margin: 0">
+                شكراً — رسالتك في طريقها إلينا.
+              </p>
+              <p class="how-to">
+                سنرد على البريد الإلكتروني الذي أدخلته. يمكنك إغلاق هذه الصفحة.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 عبدالله الزويد. جميع الحقوق محفوظة.</p>
+        <nav class="footer-nav" aria-label="تذييل">
+          <a href="pricing.html">الأسعار</a>
+          <a href="privacy.html">الخصوصية</a>
+          <a href="recover.html">استعادة المفتاح</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
+
+      const form = document.getElementById("contact-form");
+      const btn = document.getElementById("contact-btn");
+      const btnLabel = document.getElementById("contact-btn-label");
+      const errorEl = document.getElementById("error");
+      const doneSection = document.getElementById("done-section");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        errorEl.textContent = "";
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const category = document.getElementById("category").value;
+        const message = document.getElementById("message").value.trim();
+        const company = document.getElementById("company").value;
+        if (!name || !email || message.length < 10) {
+          errorEl.textContent =
+            "يرجى إضافة اسمك وبريدك الإلكتروني ورسالة قصيرة.";
+          return;
+        }
+
+        const tokenField = form.querySelector('[name="cf-turnstile-response"]');
+        const turnstileToken =
+          (tokenField && tokenField.value) ||
+          (window.turnstile && window.turnstile.getResponse()) ||
+          "";
+
+        btn.disabled = true;
+        btnLabel.textContent = "جارٍ الإرسال…";
+        try {
+          const res = await fetch(`${LICENSE_API}/api/contact`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name,
+              email,
+              category,
+              message,
+              company,
+              turnstileToken,
+            }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (res.ok && data.ok) {
+            form.hidden = true;
+            doneSection.hidden = false;
+            return;
+          }
+          if (data.code === "CAPTCHA_FAILED") {
+            errorEl.textContent = "يرجى إكمال التحقق ثم المحاولة مرة أخرى.";
+          } else if (data.code === "RATE_LIMITED") {
+            errorEl.textContent = "رسائل كثيرة — انتظر دقيقة ثم أعد المحاولة.";
+          } else {
+            errorEl.textContent = "يرجى التحقق من بياناتك والمحاولة مرة أخرى.";
+          }
+          if (window.turnstile) window.turnstile.reset();
+        } catch {
+          errorEl.textContent = "حدث خطأ ما. حاول مرة أخرى.";
+        } finally {
+          btn.disabled = false;
+          btnLabel.textContent = "أرسل";
+        }
+      });
+    </script>
+  </body>
+</html>

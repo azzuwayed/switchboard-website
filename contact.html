@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Switchboard — Contact</title>
+    <meta
+      name="description"
+      content="Get help with Switchboard — licensing, billing, or general questions."
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="128x128"
+      href="assets/icon-128.png"
+    />
+    <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
+    <link rel="stylesheet" href="style.css?v=3a348fa2f9" />
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
+    <style>
+      .result-card {
+        max-width: 560px;
+        border: 1px solid var(--border, #2a2a2a);
+        border-radius: 14px;
+        padding: 24px;
+        background: var(--bg-elev, rgba(255, 255, 255, 0.02));
+      }
+      .checkout-field textarea,
+      .checkout-field select {
+        width: 100%;
+        font: inherit;
+        color: inherit;
+        padding: 11px 13px;
+        border-radius: 8px;
+        border: 1px solid var(--border, #2a2a2a);
+        background: var(--bg, #0e0e0e);
+      }
+      .checkout-field textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+      /* Honeypot: kept in the DOM and focusable by bots, hidden from humans and AT. */
+      .hp-field {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .how-to {
+        font-size: 14px;
+        opacity: 0.85;
+        margin-top: 18px;
+        line-height: 1.5;
+      }
+      .cf-turnstile {
+        margin: 4px 0 14px;
+      }
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./">
+          <img
+            class="brand-mark"
+            src="assets/icon-256.png"
+            srcset="assets/icon-128.png 1x, assets/icon-256.png 2x"
+            alt=""
+            width="28"
+            height="28"
+          />
+          <span class="brand-name">Switchboard</span>
+          <span class="brand-by">by Azzuwayed</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="pricing.html">Pricing</a>
+          <a class="lang-switch" href="ar/contact.html" hreflang="ar" lang="ar"
+            >العربية</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <p class="eyebrow">Contact</p>
+          <h1>Get in touch</h1>
+          <p class="lede">
+            Questions about licensing, billing, or anything else? Send a message
+            and we'll reply by email. For bug reports, please use
+            <a
+              href="https://github.com/azzuwayed/switchboard-website/issues"
+              rel="noopener"
+              target="_blank"
+              >GitHub Issues</a
+            >
+            so the build version and steps stay together.
+          </p>
+
+          <div class="result-card">
+            <form id="contact-form" novalidate>
+              <div class="checkout-field">
+                <label for="name">Name</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+              <div class="checkout-field">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="checkout-field">
+                <label for="category">Topic</label>
+                <select id="category" name="category" required>
+                  <option value="general">General question</option>
+                  <option value="license">License / activation</option>
+                  <option value="billing">Billing / payment</option>
+                  <option value="bug">Bug report</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="checkout-field">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  minlength="10"
+                  maxlength="5000"
+                ></textarea>
+              </div>
+
+              <!-- Honeypot: real visitors never fill this; bots that do are dropped. -->
+              <div class="hp-field" aria-hidden="true">
+                <label for="company">Company</label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+
+              <!-- Cloudflare Turnstile SITE key (public). Paired with the
+                   TURNSTILE_SECRET worker secret. -->
+              <div
+                class="cf-turnstile"
+                data-sitekey="0x4AAAAAADhMJv8Bncc-4gNJ"
+              ></div>
+
+              <button class="btn btn-primary" id="contact-btn" type="submit">
+                <span id="contact-btn-label">Send message</span>
+              </button>
+              <p
+                class="checkout-error"
+                id="error"
+                role="alert"
+                aria-live="polite"
+              ></p>
+            </form>
+
+            <div id="done-section" hidden>
+              <p style="font-size: 15px; margin: 0">
+                Thanks — your message is on its way.
+              </p>
+              <p class="how-to">
+                We'll reply to the email you gave us. You can close this page.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Abdullah Alzuwayed. All rights reserved.</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="pricing.html">Pricing</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="recover.html">Recover key</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
+
+      const form = document.getElementById("contact-form");
+      const btn = document.getElementById("contact-btn");
+      const btnLabel = document.getElementById("contact-btn-label");
+      const errorEl = document.getElementById("error");
+      const doneSection = document.getElementById("done-section");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        errorEl.textContent = "";
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const category = document.getElementById("category").value;
+        const message = document.getElementById("message").value.trim();
+        const company = document.getElementById("company").value;
+        if (!name || !email || message.length < 10) {
+          errorEl.textContent =
+            "Please add your name, email, and a short message.";
+          return;
+        }
+
+        // Turnstile renders a hidden input named cf-turnstile-response; read it
+        // (or the JS API) so we can send the token to the worker.
+        const tokenField = form.querySelector('[name="cf-turnstile-response"]');
+        const turnstileToken =
+          (tokenField && tokenField.value) ||
+          (window.turnstile && window.turnstile.getResponse()) ||
+          "";
+
+        btn.disabled = true;
+        btnLabel.textContent = "Sending…";
+        try {
+          const res = await fetch(`${LICENSE_API}/api/contact`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name,
+              email,
+              category,
+              message,
+              company,
+              turnstileToken,
+            }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (res.ok && data.ok) {
+            form.hidden = true;
+            doneSection.hidden = false;
+            return;
+          }
+          if (data.code === "CAPTCHA_FAILED") {
+            errorEl.textContent =
+              "Please complete the verification and try again.";
+          } else if (data.code === "RATE_LIMITED") {
+            errorEl.textContent =
+              "Too many messages — please wait a minute and retry.";
+          } else {
+            errorEl.textContent = "Please check your details and try again.";
+          }
+          if (window.turnstile) window.turnstile.reset();
+        } catch {
+          errorEl.textContent = "Something went wrong. Please try again.";
+        } finally {
+          btn.disabled = false;
+          btnLabel.textContent = "Send message";
+        }
+      });
+    </script>
+  </body>
+</html>
