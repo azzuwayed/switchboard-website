@@ -12,7 +12,7 @@ I kept losing track of services I'd started. A dev server here, a database there
 
 The problem got worse with AI coding agents. They're great at spinning up dev servers and not always great at stopping the previous one. Sometimes the agent is smart enough to free the port it needs; sometimes it just walks to the next available one. After a few hours of iteration you can end up with six copies of the same Vite server competing for memory, the laptop running hot, the battery draining fast, and nothing in macOS surfacing any of it.
 
-There's another version of the problem: you build a service yourself and then forget where in your dev folders it lives. Or you're running a mix of local services and AI tooling — Claude Code, Ollama, LM Studio, [OpenClaw](https://github.com/openclaw/openclaw), your own Hermes dashboard, local LLM runtimes — each with its own log stream in its own corner of disk. Switchboard's unified Logs screen brings service logs and Switchboard activity into one timeline, with Personal adding arbitrary manual files, so following what your local stack is doing doesn't require five terminal panes and a good memory.
+There's another version of the problem: you build a service yourself and then forget where in your dev folders it lives. Or you're running a mix of local services and AI tooling — Claude Code, Ollama, LM Studio, [OpenClaw](https://github.com/openclaw/openclaw), your own Hermes dashboard, local LLM runtimes — each with its own log stream in its own corner of disk. Switchboard's unified Logs screen brings service logs and Switchboard activity into one timeline, with Switchboard Personal adding arbitrary manual files, so following what your local stack is doing doesn't require five terminal panes and a good memory.
 
 Switchboard is the thing I wanted: one place where every local service shows up, every forgotten process gets surfaced, every port flood gets named with its actual cause, and every log stream lands on one screen.
 
@@ -24,6 +24,7 @@ Switchboard is the thing I wanted: one place where every local service shows up,
 - **Risk-aware actions.** Every command is allowlisted and explicitly approved before it runs. No arbitrary shell from the UI.
 - **Local-first.** No background HTTP server. The only telemetry it sends is an anonymous active-install count over the update check — no identifiers, no raw IP stored, opt out in Settings → Privacy. Your config and logs live in `~/Library/Application Support/`.
 - **Templates that actually work.** Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx, and more — reviewed and ready out of the box.
+- **AI-agent setup help.** Switchboard Personal lets agents connect through MCP, run read-only guard checks, and create organized custom services from schemas and examples instead of ad-hoc shell commands.
 
 ## What's inside
 
@@ -32,6 +33,7 @@ Switchboard is the thing I wanted: one place where every local service shows up,
 - Port inspector with conflict detection and service linking — no more `lsof`.
 - Live log viewer for file and command-backed logs.
 - Markdown docs viewer for your local runbooks.
+- MCP integration for AI agents, including service inspection/control, docs lookup, guard reports, and custom-service creation helpers.
 - First-run onboarding that detects what's already running on your machine.
 
 ## System requirements
@@ -47,11 +49,11 @@ macOS 12 (Monterey) or later on Apple Silicon or Intel Macs.
 Switchboard stays useful for free: up to 5 active services, safe start/stop,
 service command logs, recent Activity, a counts-only Observer teaser, basic
 ports, service-down alerts, and new-arrival notifications. Fresh installs get a
-7-day full-feature trial, then return to free use. A Personal license ($39, with
+7-day full-feature trial, then return to free use. A Switchboard Personal license ($39, with
 promo codes from time to time) unlocks the rest — services beyond 5, full
 Observer details and actions, Resources, manual log sources, full Activity,
 diagnostics export, backup restore, config import/export, deeper port tools, and
-the tray port console — and activates up to 3 Macs. See
+the tray port console, plus MCP integration for AI agents — and activates up to 3 Macs. See
 [pricing](https://azzuwayed.github.io/switchboard-website/pricing.html).
 
 ## Stay in the loop

@@ -64,7 +64,7 @@
             <div>
               <form class="checkout-card" id="checkout-form" novalidate>
                 <div class="checkout-summary">
-                  <span id="summary-label">رخصة Personal</span>
+                  <span id="summary-label">رخصة Switchboard Personal</span>
                   <span class="total" id="total">— ريال</span>
                 </div>
 
@@ -321,7 +321,7 @@
       }
       function resetPromoPreview(message) {
         appliedPromo = null;
-        summaryLabel.textContent = "رخصة Personal";
+        summaryLabel.textContent = "رخصة Switchboard Personal";
         if (basePrice != null) setTotal(basePrice, baseCurrency);
         promoFeedback.className = "promo-feedback";
         promoFeedback.textContent = message || "";
@@ -520,7 +520,7 @@
           const d = await res.json().catch(() => ({}));
           if (!res.ok || !d.ok) {
             appliedPromo = null;
-            summaryLabel.textContent = "رخصة Personal";
+            summaryLabel.textContent = "رخصة Switchboard Personal";
             if (basePrice != null) setTotal(basePrice, baseCurrency);
             promoFeedback.className = "promo-feedback is-error";
             promoFeedback.textContent =
@@ -535,7 +535,7 @@
             isFree: d.isFree,
           };
           setTotal(d.amount, d.currency);
-          summaryLabel.textContent = `رخصة Personal · ${appliedPromo.code}`;
+          summaryLabel.textContent = `رخصة Switchboard Personal · ${appliedPromo.code}`;
           promoFeedback.className = "promo-feedback is-ok";
           promoFeedback.textContent = d.isFree
             ? "هذا الكود يجعل رخصتك مجانية — لا حاجة للدفع."

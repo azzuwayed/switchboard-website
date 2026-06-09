@@ -10,6 +10,13 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+### Added
+
+- **Smarter AI-agent setup.** The MCP integration now gives agents a read-only
+  guard report for suspicious local-service state and built-in examples for
+  creating organized custom services such as HTTP dev servers, Docker
+  containers, Docker Compose stacks, and Homebrew services. (Switchboard Personal)
+
 ## [1.5.0] - 2026-06-09
 
 Switchboard 1.5.0 adds a System logs tab that surfaces the crashes and noisy
@@ -28,7 +35,7 @@ and brings discount codes to checkout.
   control your services through Switchboard's guardrails instead of running raw
   shell commands. One click installs it into the agents you already have. Every
   AI-driven action shows up in the Activity timeline with an "AI" badge.
-  (Personal)
+  (Switchboard Personal)
 - **Discount codes.** Checkout now has a promo-code field with a live discount
   preview, and a dismissible banner advertises the current offer.
 
@@ -57,14 +64,14 @@ and reach support through a proper contact form.
 
 ## [1.4.0] - 2026-06-08
 
-Switchboard 1.4.0 introduces the free and Personal tiers, a preview of MCP
+Switchboard 1.4.0 introduces the free and Switchboard Personal tiers, a preview of MCP
 support, and a thorough Arabic polish pass.
 
 ### Added
 
-- **Free and Personal tiers.** Switchboard is now free to use for up to 5 active
+- **Free and Switchboard Personal tiers.** Switchboard is now free to use for up to 5 active
   services, with service-down and new-listener alerts and basic start/stop
-  included. A one-time **Personal** license (or the 7-day trial) unlocks the rest:
+  included. A one-time **Switchboard Personal** license (or the 7-day trial) unlocks the rest:
   unlimited services, per-service CPU/memory, full activity history, manual log
   sources and diagnostics export, backup restore and config import/export, the
   port intelligence layer and tray port console, the Observer detail view and
@@ -77,9 +84,9 @@ support, and a thorough Arabic polish pass.
 
 ### Changed
 
-- **Personal is easier to recognize.** The app's title-bar Personal badge is now
+- **Switchboard Personal is easier to recognize.** The app's title-bar Switchboard Personal badge is now
   a small yellow crown instead of another text pill, with the same accessible
-  license label. The pricing page uses the same crown cue for the Personal plan.
+  license label. The pricing page uses the same crown cue for the Switchboard Personal plan.
 - **Arabic, polished throughout.** Right-to-left layout is corrected across
   service details, onboarding, logs, docs, ports, the tray, the Command Center,
   and the About window, and observer, discovery, and port messages now read in
@@ -293,7 +300,7 @@ still running, and makes the busiest surfaces easier to scan.
   attached instead of rerunning on every refresh, busy bursts are paced into the
   UI, and log work stops when the page is closed or paused.
 - **Monitoring controls are clearer.** Settings now separates free new-arrival
-  awareness from Personal-only continuous Observer automation.
+  awareness from Switchboard Personal-only continuous Observer automation.
 
 ### Fixed
 
@@ -310,14 +317,14 @@ Switchboard 1.0 — the first stable release.
 - **Pricing is live, and the free tier stays free.** Switchboard is genuinely
   useful for free: custom services, start/stop/restart with approval review, the
   central log viewer, basic port visibility and health, a manual "Scan now," and
-  service-down notifications. A one-time **Personal license** unlocks the advanced
+  service-down notifications. A one-time **Switchboard Personal license** unlocks the advanced
   monitoring — the continuous Observer, resource-anomaly detection, deeper port
   intelligence, and advanced notifications. One purchase covers up to 3 Macs, with
   updates and support through the next major release.
 - **7-day full-feature trial on first launch.** Every fresh install starts with
   everything unlocked for 7 days — no account, no card — then returns to free use.
   A small access badge by the app name shows Free, Trial (with days remaining),
-  or full Personal access at a glance, and Settings → License & Access handles
+  or full Switchboard Personal access at a glance, and Settings → License & Access handles
   activation, the trial countdown, and the upgrade.
 - **Follow one incident across surfaces.** Focused links now connect the Observer,
   Activity log, Services, and Logs, so you can jump straight to the same finding in
