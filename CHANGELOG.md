@@ -10,12 +10,26 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-06-10
+
+Switchboard 1.6.0 polishes the AI-agent integration, adds two new privacy and update settings, and fixes system-log accuracy.
+
 ### Added
 
-- **Smarter AI-agent setup.** The MCP integration now gives agents a read-only
-  guard report for suspicious local-service state and built-in examples for
-  creating organized custom services such as HTTP dev servers, Docker
-  containers, Docker Compose stacks, and Homebrew services. (Switchboard Personal)
+- **AI agent improvements** — configured agents (Claude Code, Cursor, etc.) can now be removed from the MCP page, and their config files opened for editing directly (Switchboard Personal)
+- **AI health check** — AI agents can run a read-only guard report to surface forgotten services, port conflicts, and recent failures before acting — no scans or mutations triggered (Switchboard Personal)
+- **Auto-install updates** — optional setting (Settings → Updates, off by default) auto-applies a downloaded update with a 10-second cancelable countdown
+- **Redact command output** — new privacy setting (Settings → Security, off by default) replaces all stdout/stderr in Activity, AI results, and diagnostics with `[output omitted]`
+- **Replace-mode config import** — Config Import dialog now has a Replace toggle that makes your config exactly match the imported bundle, removing unrecognized services and commands
+
+### Changed
+
+- Observer inbox now groups by service — one entry per underlying service instead of one per detection signal, reducing noise when a single service triggers multiple signals
+
+### Fixed
+
+- System logs no longer mis-flags benign lines as errors (e.g., "Default" was incorrectly matching "fault") — error counts and offender rankings are now accurate
+- Deleting a service now cleans up its orphaned command configurations and approvals
 
 ## [1.5.0] - 2026-06-09
 
