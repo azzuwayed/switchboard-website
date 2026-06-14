@@ -10,6 +10,23 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-06-15
+
+Switchboard 1.7.0 is a broad interface refresh: a more consistent, more compact UI across every screen, a sidebar that adapts to your window size, and new density controls — plus reliability fixes for the AI-agent integration.
+
+### Changed
+
+- **Consistent interface across every screen** — toolbars, headers, and controls now look and behave the same way everywhere, so the same action always lives in the same place.
+- **Adaptive sidebar** — the sidebar now fits your window: full labels when there's room, an icon-only rail when space is tight, and a slide-over drawer on narrow windows.
+- **Density controls** — a new global density setting lets you fit more on screen, with per-screen overrides for Logs and Ports.
+- **Decluttered Logs** — the Logs surface is cleaner and easier to scan.
+- **Fewer upgrade prompts** — locked features nag less, with the upgrade prompt consolidated instead of repeated on every row.
+
+### Fixed
+
+- More reliable AI-agent (MCP) health checks and diagnostics.
+- Logs control fixes.
+
 ## [1.6.0] - 2026-06-10
 
 Switchboard 1.6.0 polishes the AI-agent integration, adds two new privacy and update settings, and fixes system-log accuracy.
