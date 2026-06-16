@@ -10,6 +10,29 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-06-17
+
+Switchboard 1.8.0 makes the app modular: turn individual tools on or off from a new Tools page, with clearer pricing built around Switchboard Pro. Plus smarter sidebar badges, better AI-agent session management, and lifecycle insight into every service.
+
+### Added
+
+- **Tools page** — enable or disable individual tools (Stream, Activity, System Logs, Observer, Resources, Ports, AI agents, Maintenance) independently, each with its own settings. Core service management stays free and always on.
+- **Resources tool** — a per-service live CPU and memory lens (Switchboard Pro).
+- **Maintenance tool** — config folder, diagnostics export, config import/export, and backup restore, now grouped together and free.
+- **AI agent session cleanup** — the AI agents page now groups bridge helpers and their parent AI sessions, flags stale ones, and offers a confirmed cleanup.
+- **Configurable AI launch** — choose whether Switchboard must already be running for AI clients, or auto-start hidden in the tray.
+
+### Changed
+
+- **Switchboard Pro** — the paid license is now "Switchboard Pro", with pricing organized per tool. Free tools (Activity, Docs, Observer, Ports, Maintenance) are fully free and unlimited; paid tools are Stream, System Logs, Resources, and AI agents.
+- **Smarter sidebar badges** — badges now appear only when something needs you, color-toned by urgency, instead of always-on counts. The sidebar is grouped for easier scanning.
+- **Service lifecycle insight** — services show a lifecycle state (Monitor only / Status only / Partial / Needs config) so you can see at a glance what still needs setup.
+- **Unlimited services and docs folders** on the free tier.
+
+### Fixed
+
+- Diagnostics export, config import/export, and backup restore are no longer gated behind a license.
+
 ## [1.7.0] - 2026-06-15
 
 Switchboard 1.7.0 is a broad interface refresh: a more consistent, more compact UI across every screen, a sidebar that adapts to your window size, and new density controls — plus reliability fixes for the AI-agent integration.
