@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Switchboard — الدفع</title>
-    <meta name="description" content="اشترِ رخصة Switchboard Personal." />
+    <meta name="description" content="اشترِ ترخيص Switchboard Pro." />
     <meta name="robots" content="noindex" />
     <link
       rel="icon"
@@ -23,7 +23,7 @@
       sizes="256x256"
       href="../assets/icon-256.png"
     />
-    <link rel="stylesheet" href="../style.css?v=430d92bb0d" />
+    <link rel="stylesheet" href="../style.css?v=729a30bd4e" />
     <script src="../promo-banner.js" defer></script>
   </head>
   <body>
@@ -41,8 +41,11 @@
           <span class="brand-name">Switchboard</span>
           <span class="brand-by">by Azzuwayed</span>
         </a>
-        <nav class="site-nav" aria-label="التنقّل الرئيسي">
-          <a href="pricing.html">الأسعار</a>
+        <nav class="site-nav" aria-label="التنقل الرئيسي">
+          <a href="./#features">كيف يساعدك</a>
+          <a href="./#use-cases">متى أستخدمه</a>
+          <a href="./#pricing">الأسعار</a>
+          <a href="./#install">التثبيت</a>
           <a class="lang-switch" href="../checkout.html" hreflang="en" lang="en"
             >English</a
           >
@@ -54,17 +57,17 @@
       <section class="hero page-hero checkout-hero">
         <div class="container">
           <p class="eyebrow">الدفع</p>
-          <h1>شراء رخصة Switchboard Personal</h1>
+          <h1>شراء ترخيص Switchboard Pro</h1>
           <p class="lede" id="lede">
             شراء واحد يفتح المراقبة المتقدمة على ما يصل إلى 3 أجهزة Mac. بعد
-            الدفع، ستعرض لك هذه الصفحة مفتاح الرخصة مباشرة.
+            الدفع، ستعرض لك هذه الصفحة مفتاح الترخيص مباشرة.
           </p>
 
           <div class="checkout-shell">
             <div>
               <form class="checkout-card" id="checkout-form" novalidate>
                 <div class="checkout-summary">
-                  <span id="summary-label">رخصة Switchboard Personal</span>
+                  <span id="summary-label">ترخيص Switchboard Pro</span>
                   <span class="total" id="total">— ريال</span>
                 </div>
 
@@ -145,7 +148,7 @@
                 <div class="checkout-field">
                   <label for="email">البريد الإلكتروني</label>
                   <span class="hint" id="email-hint"
-                    >سنرسل مفتاح الرخصة والإيصال إلى هذا البريد.</span
+                    >سنرسل مفتاح الترخيص والإيصال إلى هذا البريد.</span
                   >
                   <input
                     id="email"
@@ -239,14 +242,14 @@
                 </li>
                 <li>
                   <span>
-                    <strong>مفتاح رخصة فقط</strong>
+                    <strong>مفتاح ترخيص فقط</strong>
                     لن ننشئ حساباً. احفظ المفتاح في مكان آمن عندما يظهر.
                   </span>
                 </li>
                 <li>
                   <span>
                     <strong>حتى 3 أجهزة Mac</strong>
-                    فعّل نفس الرخصة من الإعدادات ← الرخصة والوصول على كل جهاز.
+                    فعّل نفس الترخيص من الإعدادات ← الترخيص والوصول على كل جهاز.
                   </span>
                 </li>
               </ul>
@@ -269,7 +272,7 @@
           >. جميع الحقوق محفوظة.
         </p>
         <nav class="footer-nav" aria-label="تذييل">
-          <a href="pricing.html">الأسعار</a>
+          <a href="./#pricing">الأسعار</a>
           <a href="privacy.html">الخصوصية</a>
         </nav>
       </div>
@@ -321,7 +324,7 @@
       }
       function resetPromoPreview(message) {
         appliedPromo = null;
-        summaryLabel.textContent = "رخصة Switchboard Personal";
+        summaryLabel.textContent = "ترخيص Switchboard Pro";
         if (basePrice != null) setTotal(basePrice, baseCurrency);
         promoFeedback.className = "promo-feedback";
         promoFeedback.textContent = message || "";
@@ -339,7 +342,7 @@
       // كود مجاني (خصم 100٪) يعني عدم وجود خطوة دفع إطلاقاً.
       function payIdleLabel() {
         return appliedPromo && appliedPromo.isFree
-          ? "احصل على رخصتك"
+          ? "احصل على ترخيصك"
           : IDLE_LABEL[method];
       }
       const FINEPRINT = {
@@ -361,7 +364,7 @@
         flowDesc: flowDescEl ? flowDescEl.textContent : "",
       };
       const BANK_COPY = {
-        lede: "شراء واحد يفتح المراقبة المتقدمة على ما يصل إلى 3 أجهزة Mac. نرسل لك مفتاح الرخصة بالبريد بمجرد تأكيد تحويلك البنكي.",
+        lede: "شراء واحد يفتح المراقبة المتقدمة على ما يصل إلى 3 أجهزة Mac. نرسل لك مفتاح الترخيص بالبريد بمجرد تأكيد تحويلك البنكي.",
         mobileHint:
           "نستخدمه للتواصل معك بشأن تحويلك. أضف رمز الدولة مع رقم جوالك.",
         flowTitle: "تحويل بنكي",
@@ -520,7 +523,7 @@
           const d = await res.json().catch(() => ({}));
           if (!res.ok || !d.ok) {
             appliedPromo = null;
-            summaryLabel.textContent = "رخصة Switchboard Personal";
+            summaryLabel.textContent = "ترخيص Switchboard Pro";
             if (basePrice != null) setTotal(basePrice, baseCurrency);
             promoFeedback.className = "promo-feedback is-error";
             promoFeedback.textContent =
@@ -535,10 +538,10 @@
             isFree: d.isFree,
           };
           setTotal(d.amount, d.currency);
-          summaryLabel.textContent = `رخصة Switchboard Personal · ${appliedPromo.code}`;
+          summaryLabel.textContent = `ترخيص Switchboard Pro · ${appliedPromo.code}`;
           promoFeedback.className = "promo-feedback is-ok";
           promoFeedback.textContent = d.isFree
-            ? "هذا الكود يجعل رخصتك مجانية — لا حاجة للدفع."
+            ? "هذا الكود يجعل ترخيصك مجانياً — لا حاجة للدفع."
             : `تم تطبيق الكود: وفّرت ${money(d.discountAmount, d.currency)}.`;
           if (!payBtn.disabled) setPayButtonLabel(payIdleLabel());
         } catch {
@@ -558,9 +561,7 @@
       promoInput.addEventListener("input", () => {
         const code = (promoInput.value || "").trim().toUpperCase();
         if (appliedPromo && code !== appliedPromo.code) {
-          resetPromoPreview(
-            code ? "طبّق الكود المُحدَّث لمعاينة سعره." : "",
-          );
+          resetPromoPreview(code ? "طبّق الكود المُحدَّث لمعاينة سعره." : "");
         }
       });
 
@@ -637,7 +638,7 @@
             setPayButtonLabel(payIdleLabel());
             return;
           }
-          // كود مجاني (خصم 100٪): صدرت الرخصة بلا دفع — انتقل لصفحة النجاح التي
+          // كود مجاني (خصم 100٪): صدر الترخيص بلا دفع — انتقل لصفحة النجاح التي
           // تعرض المفتاح.
           if (data.method === "free" && data.orderNumber) {
             window.location.href = `success.html?orderNumber=${encodeURIComponent(data.orderNumber)}`;

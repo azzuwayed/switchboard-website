@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Switchboard — Checkout</title>
-    <meta name="description" content="Buy a Switchboard Personal license." />
+    <meta name="description" content="Buy a Switchboard Pro license." />
     <meta name="robots" content="noindex" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
     <link
@@ -14,7 +14,7 @@
       href="assets/icon-128.png"
     />
     <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
-    <link rel="stylesheet" href="style.css?v=430d92bb0d" />
+    <link rel="stylesheet" href="style.css?v=729a30bd4e" />
     <script src="promo-banner.js" defer></script>
   </head>
   <body>
@@ -33,7 +33,10 @@
           <span class="brand-by">by Azzuwayed</span>
         </a>
         <nav class="site-nav" aria-label="Primary">
-          <a href="pricing.html">Pricing</a>
+          <a href="./#features">Features</a>
+          <a href="./#use-cases">Use cases</a>
+          <a href="./#pricing">Pricing</a>
+          <a href="./#install">Install</a>
           <a class="lang-switch" href="ar/checkout.html" hreflang="ar" lang="ar"
             >العربية</a
           >
@@ -45,7 +48,7 @@
       <section class="hero page-hero checkout-hero">
         <div class="container">
           <p class="eyebrow">Checkout</p>
-          <h1>Buy Switchboard Personal</h1>
+          <h1>Buy Switchboard Pro</h1>
           <p class="lede" id="lede">
             One purchase unlocks advanced monitoring on up to 3 Macs. After
             payment, this page shows your license key immediately.
@@ -55,7 +58,7 @@
             <div>
               <form class="checkout-card" id="checkout-form" novalidate>
                 <div class="checkout-summary">
-                  <span id="summary-label">Switchboard Personal license</span>
+                  <span id="summary-label">Switchboard Pro license</span>
                   <span class="total" id="total">— SAR</span>
                 </div>
 
@@ -237,8 +240,8 @@
                 <li>
                   <span>
                     <strong>Up to 3 Macs</strong>
-                    Activate the same Switchboard Personal license from Settings → License
-                    &amp; Access on each Mac.
+                    Activate the same Switchboard Pro license from Settings
+                    → License &amp; Access on each Mac.
                   </span>
                 </li>
               </ul>
@@ -261,7 +264,7 @@
           >. All rights reserved.
         </p>
         <nav class="footer-nav" aria-label="Footer">
-          <a href="pricing.html">Pricing</a>
+          <a href="./#pricing">Pricing</a>
           <a href="privacy.html">Privacy</a>
         </nav>
       </div>
@@ -310,7 +313,7 @@
       }
       function resetPromoPreview(message) {
         appliedPromo = null;
-        summaryLabel.textContent = "Switchboard Personal license";
+        summaryLabel.textContent = "Switchboard Pro license";
         if (basePrice != null) setTotal(basePrice, baseCurrency);
         promoFeedback.className = "promo-feedback";
         promoFeedback.textContent = message || "";
@@ -510,7 +513,7 @@
           const d = await res.json().catch(() => ({}));
           if (!res.ok || !d.ok) {
             appliedPromo = null;
-            summaryLabel.textContent = "Switchboard Personal license";
+            summaryLabel.textContent = "Switchboard Pro license";
             if (basePrice != null) setTotal(basePrice, baseCurrency);
             promoFeedback.className = "promo-feedback is-error";
             promoFeedback.textContent =
@@ -526,7 +529,7 @@
             isFree: d.isFree,
           };
           setTotal(d.amount, d.currency);
-          summaryLabel.textContent = `Switchboard Personal license · ${appliedPromo.code}`;
+          summaryLabel.textContent = `Switchboard Pro license · ${appliedPromo.code}`;
           promoFeedback.className = "promo-feedback is-ok";
           promoFeedback.textContent = d.isFree
             ? "This code makes your license free — no payment needed."
@@ -550,7 +553,9 @@
       promoInput.addEventListener("input", () => {
         const code = (promoInput.value || "").trim().toUpperCase();
         if (appliedPromo && code !== appliedPromo.code) {
-          resetPromoPreview(code ? "Apply the updated code to preview its price." : "");
+          resetPromoPreview(
+            code ? "Apply the updated code to preview its price." : "",
+          );
         }
       });
 

@@ -6,7 +6,7 @@
     <title>Switchboard — إعادة تعيين أجهزتك</title>
     <meta
       name="description"
-      content="حرّر جميع أجهزة رخصة Switchboard Personal لتتمكن من التفعيل على جهاز Mac جديد."
+      content="حرّر جميع أجهزة ترخيص Switchboard Pro لتتمكن من التفعيل على جهاز Mac جديد."
     />
     <link
       rel="icon"
@@ -25,7 +25,7 @@
       sizes="256x256"
       href="../assets/icon-256.png"
     />
-    <link rel="stylesheet" href="../style.css?v=430d92bb0d" />
+    <link rel="stylesheet" href="../style.css?v=729a30bd4e" />
     <style>
       .result-card {
         max-width: 560px;
@@ -65,8 +65,11 @@
           <span class="brand-name">Switchboard</span>
           <span class="brand-by">by Azzuwayed</span>
         </a>
-        <nav class="site-nav" aria-label="التنقل">
-          <a href="pricing.html">الأسعار</a>
+        <nav class="site-nav" aria-label="التنقل الرئيسي">
+          <a href="./#features">كيف يساعدك</a>
+          <a href="./#use-cases">متى أستخدمه</a>
+          <a href="./#pricing">الأسعار</a>
+          <a href="./#install">التثبيت</a>
           <a class="lang-switch" href="../reset.html" hreflang="en" lang="en"
             >English</a
           >
@@ -80,12 +83,13 @@
           <p class="eyebrow">إعادة تعيين الأجهزة</p>
           <h1>أعد تعيين أجهزتك</h1>
           <p class="lede">
-            تعمل رخصة Switchboard Personal على ثلاثة أجهزة Mac كحد أقصى. إن كان لديك جهاز لم
-            تعد تستخدمه، فأسهل طريقة لتحرير مكانه هي من داخل التطبيق:
-            <strong>الإعدادات ← الرخصة والوصول ← إلغاء التفعيل</strong>. استخدم
+            يعمل ترخيص Switchboard Pro على ثلاثة أجهزة Mac كحد أقصى. إن كان
+            لديك جهاز لم تعد تستخدمه، فأسهل طريقة لتحرير مكانه هي من داخل
+            التطبيق:
+            <strong>الإعدادات ← الترخيص والوصول ← إلغاء التفعيل</strong>. استخدم
             هذه الصفحة فقط إذا تعذّر عليك الوصول إلى ذلك الجهاز (بعته أو فقدته
-            أو مسحته): فهي تحرّر <strong>جميع</strong> الأماكن لتفعّل الرخصة على
-            الجهاز الذي تستخدمه الآن.
+            أو مسحته): فهي تحرّر <strong>جميع</strong> الأماكن لتفعّل الترخيص
+            على الجهاز الذي تستخدمه الآن.
           </p>
 
           <div class="result-card">
@@ -133,8 +137,8 @@
               </p>
               <p class="how-to">
                 افتح Switchboard على الجهاز الذي تريد استخدامه وفعّل بمفتاح
-                رخصتك من
-                <strong>الإعدادات ← الرخصة والوصول</strong>.
+                ترخيصك من
+                <strong>الإعدادات ← الترخيص والوصول</strong>.
               </p>
               <p class="muted">
                 فقدت المفتاح أيضاً؟
@@ -159,7 +163,7 @@
           >. جميع الحقوق محفوظة.
         </p>
         <nav class="footer-nav" aria-label="تذييل">
-          <a href="pricing.html">الأسعار</a>
+          <a href="./#pricing">الأسعار</a>
           <a href="privacy.html">الخصوصية</a>
           <a href="contact.html">تواصل معنا</a>
         </nav>
@@ -206,14 +210,14 @@
             doneHeadline.textContent =
               data.freed > 0
                 ? `تم — تم تحرير ${data.freed} من أماكن الأجهزة.`
-                : "كل شيء جاهز — لا توجد أجهزة نشطة لتحريرها.";
+                : "مفتاح الترخيص جاهز — لا توجد أجهزة نشطة لتحريرها.";
             form.hidden = true;
             doneSection.hidden = false;
             return;
           }
           if (res.status === 429 || data.code === "RESET_COOLDOWN") {
             errorEl.textContent =
-              "تمت إعادة تعيين هذه الرخصة مؤخراً. حاول مرة أخرى بعد يوم.";
+              "تمت إعادة تعيين هذا الترخيص مؤخراً. حاول مرة أخرى بعد يوم.";
           } else {
             errorEl.textContent =
               "لم نعثر على طلب مدفوع مطابق. تأكد من تطابق البريد والرقم مع فاتورتك.";

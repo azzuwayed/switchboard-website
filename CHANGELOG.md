@@ -33,8 +33,8 @@ Switchboard 1.6.0 polishes the AI-agent integration, adds two new privacy and up
 
 ### Added
 
-- **AI agent improvements** — configured agents (Claude Code, Cursor, etc.) can now be removed from the MCP page, and their config files opened for editing directly (Switchboard Personal)
-- **AI health check** — AI agents can run a read-only guard report to surface forgotten services, port conflicts, and recent failures before acting — no scans or mutations triggered (Switchboard Personal)
+- **AI agent improvements** — configured agents (Claude Code, Cursor, etc.) can now be removed from the MCP page, and their config files opened for editing directly (Switchboard Pro)
+- **AI health check** — AI agents can run a read-only guard report to surface forgotten services, port conflicts, and recent failures before acting — no scans or mutations triggered (Switchboard Pro)
 - **Auto-install updates** — optional setting (Settings → Updates, off by default) auto-applies a downloaded update with a 10-second cancelable countdown
 - **Redact command output** — new privacy setting (Settings → Security, off by default) replaces all stdout/stderr in Activity, AI results, and diagnostics with `[output omitted]`
 - **Replace-mode config import** — Config Import dialog now has a Replace toggle that makes your config exactly match the imported bundle, removing unrecognized services and commands
@@ -66,7 +66,7 @@ and brings discount codes to checkout.
   control your services through Switchboard's guardrails instead of running raw
   shell commands. One click installs it into the agents you already have. Every
   AI-driven action shows up in the Activity timeline with an "AI" badge.
-  (Switchboard Personal)
+  (Switchboard Pro)
 - **Discount codes.** Checkout now has a promo-code field with a live discount
   preview, and a dismissible banner advertises the current offer.
 
@@ -95,14 +95,14 @@ and reach support through a proper contact form.
 
 ## [1.4.0] - 2026-06-08
 
-Switchboard 1.4.0 introduces the free and Switchboard Personal tiers, a preview of MCP
+Switchboard 1.4.0 introduces the free and Switchboard Pro tiers, a preview of MCP
 support, and a thorough Arabic polish pass.
 
 ### Added
 
-- **Free and Switchboard Personal tiers.** Switchboard is now free to use for up to 5 active
+- **Free and Switchboard Pro tiers.** Switchboard is now free to use for up to 5 active
   services, with service-down and new-listener alerts and basic start/stop
-  included. A one-time **Switchboard Personal** license (or the 7-day trial) unlocks the rest:
+  included. A one-time **Switchboard Pro** license (or the 7-day trial) unlocks the rest:
   unlimited services, per-service CPU/memory, full activity history, manual log
   sources and diagnostics export, backup restore and config import/export, the
   port intelligence layer and tray port console, the Observer detail view and
@@ -115,9 +115,9 @@ support, and a thorough Arabic polish pass.
 
 ### Changed
 
-- **Switchboard Personal is easier to recognize.** The app's title-bar Switchboard Personal badge is now
+- **Switchboard Pro is easier to recognize.** The app's title-bar Switchboard Pro badge is now
   a small yellow crown instead of another text pill, with the same accessible
-  license label. The pricing page uses the same crown cue for the Switchboard Personal plan.
+  license label. The pricing page uses the same crown cue for the Switchboard Pro plan.
 - **Arabic, polished throughout.** Right-to-left layout is corrected across
   service details, onboarding, logs, docs, ports, the tray, the Command Center,
   and the About window, and observer, discovery, and port messages now read in
@@ -331,7 +331,7 @@ still running, and makes the busiest surfaces easier to scan.
   attached instead of rerunning on every refresh, busy bursts are paced into the
   UI, and log work stops when the page is closed or paused.
 - **Monitoring controls are clearer.** Settings now separates free new-arrival
-  awareness from Switchboard Personal-only continuous Observer automation.
+  awareness from Switchboard Pro-only continuous Observer automation.
 
 ### Fixed
 
@@ -348,14 +348,14 @@ Switchboard 1.0 — the first stable release.
 - **Pricing is live, and the free tier stays free.** Switchboard is genuinely
   useful for free: custom services, start/stop/restart with approval review, the
   central log viewer, basic port visibility and health, a manual "Scan now," and
-  service-down notifications. A one-time **Switchboard Personal license** unlocks the advanced
+  service-down notifications. A one-time **Switchboard Pro license** unlocks the advanced
   monitoring — the continuous Observer, resource-anomaly detection, deeper port
   intelligence, and advanced notifications. One purchase covers up to 3 Macs, with
   updates and support through the next major release.
 - **7-day full-feature trial on first launch.** Every fresh install starts with
   everything unlocked for 7 days — no account, no card — then returns to free use.
   A small access badge by the app name shows Free, Trial (with days remaining),
-  or full Switchboard Personal access at a glance, and Settings → License & Access handles
+  or full Switchboard Pro access at a glance, and Settings → License & Access handles
   activation, the trial countdown, and the upgrade.
 - **Follow one incident across surfaces.** Focused links now connect the Observer,
   Activity log, Services, and Logs, so you can jump straight to the same finding in

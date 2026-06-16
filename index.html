@@ -73,8 +73,9 @@
       hreflang="x-default"
       href="https://azzuwayed.github.io/switchboard-website/"
     />
-    <link rel="stylesheet" href="style.css?v=430d92bb0d" />
+    <link rel="stylesheet" href="style.css?v=729a30bd4e" />
     <script src="promo-banner.js" defer></script>
+    <script src="pricing.js" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -91,7 +92,13 @@
           "url": "https://www.linkedin.com/in/abdullah-alzuwayed/",
           "sameAs": ["https://www.linkedin.com/in/abdullah-alzuwayed/"]
         },
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "lowPrice": "0",
+          "highPrice": "39",
+          "offerCount": "2"
+        }
       }
     </script>
   </head>
@@ -113,7 +120,7 @@
         <nav class="site-nav" aria-label="Primary">
           <a href="#features">Features</a>
           <a href="#use-cases">Use cases</a>
-          <a href="pricing.html">Pricing</a>
+          <a href="#pricing">Pricing</a>
           <a href="#install">Install</a>
           <a class="lang-switch" href="ar/" hreflang="ar" lang="ar">العربية</a>
         </nav>
@@ -135,19 +142,7 @@
               need.
             </p>
             <div class="cta-row">
-              <a
-                class="btn btn-primary btn-mac"
-                id="download-btn"
-                href="https://github.com/azzuwayed/switchboard-website/releases/latest"
-                rel="noopener"
-              >
-                <span class="btn-label"
-                  ><span>Download</span
-                  ><span class="btn-version" id="version-chip"
-                    >Latest</span
-                  ></span
-                ></a
-              >
+              <a class="btn btn-primary btn-mac" href="#pricing">Get It Now!</a>
               <span class="promo-badge">
                 <span class="promo-free">Free to use</span>
                 <span class="promo-note">Apple notarized</span>
@@ -281,12 +276,14 @@
                   <rect x="14" y="14" width="7" height="7" rx="1.5" />
                 </svg>
               </span>
-              <h3>One dashboard for every service kind</h3>
+              <h3>A Command Center that leads with what needs attention</h3>
               <p>
-                Running, degraded, stopped, and unknown — the same status
-                vocabulary whether it's Postgres under Homebrew, a dev server on
-                port 5173, a launchd agent, or a Docker container. No
-                tab-switching between four different tools.
+                The home screen surfaces new arrivals, port conflicts, and
+                anything off-kilter first — with the same status vocabulary
+                (running, degraded, stopped, unknown) across Homebrew, dev
+                servers, launchd, and Docker. A Tools panel lets you switch on
+                just the modules you use, so the app stays as light or as
+                complete as your stack.
               </p>
             </article>
             <article class="feature">
@@ -356,8 +353,8 @@
                 Launchd plist <code>StandardOutPath</code> /
                 <code>StandardErrorPath</code>, Docker logs, command output,
                 service log files, command output, and Switchboard activity —
-                all merged into one live timeline. Switchboard Personal adds arbitrary
-                manual log files.
+                all merged into one live timeline with the optional Stream tool,
+                including arbitrary manual log files.
               </p>
             </article>
             <article class="feature">
@@ -510,7 +507,7 @@
                 data-lightbox-src="assets/screenshots/logs-viewer.webp"
                 data-lightbox-fallback="assets/screenshots/logs-viewer.png"
                 data-lightbox-alt="Switchboard Logs view showing multiple local service log sources in one timeline."
-                data-lightbox-caption="Logs — service files, command logs, and activity together; Switchboard Personal adds manual files."
+                data-lightbox-caption="Logs — service files, command logs, manual files, and activity together in the Stream tool."
                 aria-label="Open Logs screenshot"
               >
                 <picture>
@@ -530,8 +527,8 @@
               <figcaption>
                 <strong>Logs</strong>
                 <span
-                  >Service files, command logs, and activity together; Switchboard Personal
-                  adds manual files.</span
+                  >Service files, command logs, and activity together; manual
+                  files are included in Stream.</span
                 >
               </figcaption>
             </figure>
@@ -596,6 +593,131 @@
                 services with actions, links, logs, and resource hints.
               </p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="pricing-band">
+        <div class="container">
+          <p class="eyebrow">Pricing</p>
+          <h2>Pay once. No subscription, ever.</h2>
+          <p class="features-lede">
+            Switchboard stays useful for free. A one-time Switchboard Pro
+            license unlocks the paid tools — Stream, System Logs, Resources, and
+            MCP — as a lifetime license, not a recurring bill.
+          </p>
+          <div class="pricing-grid">
+            <div class="price-card">
+              <div class="price-head">
+                <span class="price-tier">Free</span>
+                <div class="price-amount">$0</div>
+                <p class="price-sub">No account. No key. Forever.</p>
+                <p class="price-fit">
+                  Keep your own services visible and under control.
+                </p>
+              </div>
+              <ul class="price-features">
+                <li>
+                  Unlimited services — start, stop, restart, and update with
+                  approval review
+                </li>
+                <li>
+                  Complete free tools: Activity, Docs, Observer, Ports, and
+                  Maintenance
+                </li>
+                <li>
+                  New-arrival and forgotten-service awareness with Observer
+                  actions
+                </li>
+                <li>Basic listening-ports list and health/status</li>
+                <li>Service-down and new-arrival notifications</li>
+              </ul>
+              <a
+                class="btn btn-secondary"
+                id="download-btn"
+                href="https://github.com/azzuwayed/switchboard-website/releases/latest"
+                rel="noopener"
+                >Download Free</a
+              >
+            </div>
+
+            <div class="price-card featured">
+              <div class="price-head">
+                <span class="founder-badge" data-sb-promo-badge hidden></span>
+                <span class="price-tier pro-tier">
+                  <span class="pro-tier-crown" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="m2 7 5 5 5-9 5 9 5-5-2 13H4L2 7Z" />
+                    </svg>
+                  </span>
+                  <span>Switchboard Pro</span>
+                </span>
+                <div class="price-amount">
+                  <span data-sb-price="usd">$39</span>
+                </div>
+                <p class="price-sub">
+                  ≈ <span data-sb-price="sar">146.25 SAR</span> · one-time ·
+                  lifetime license · up to 3 Macs
+                </p>
+                <p class="price-fit">
+                  No subscription, ever. Includes all Switchboard 1.x updates
+                  and support for at least 2 years.
+                </p>
+              </div>
+              <ul class="price-features">
+                <li>Everything in Free, plus paid tools</li>
+                <li>
+                  Stream — service logs, command logs, manual files, and
+                  activity overlay in one timeline
+                </li>
+                <li>System Logs — crash reports and machine log triage</li>
+                <li>
+                  Resources — per-service CPU / memory and anomaly detection
+                </li>
+                <li>
+                  MCP — AI-agent integration for guard reports, service control,
+                  docs lookup, and custom-service creation helpers
+                </li>
+                <li>
+                  Switchboard 1.x updates and support for at least 2 years
+                </li>
+              </ul>
+              <a class="btn btn-primary" id="buy-cta" href="checkout.html"
+                >Get Switchboard Pro</a
+              >
+              <p
+                class="pricing-note"
+                id="purchase-paused"
+                role="status"
+                hidden
+              ></p>
+            </div>
+          </div>
+
+          <div class="pricing-note-grid" aria-label="License details">
+            <div class="pricing-note-card">
+              <strong>Promo codes</strong>
+              <p>
+                A Switchboard Pro license is
+                <span data-sb-price="usd">$39</span>, charged in SAR through
+                Paylink — one-time, no subscription. Got a promo code? Enter it
+                at checkout to get the discount.
+              </p>
+            </div>
+            <div class="pricing-note-card">
+              <strong>No account</strong>
+              <p>
+                Activation uses a license key only. New installs include a 7-day
+                full-feature trial, then return to Free.
+              </p>
+            </div>
+            <div class="pricing-note-card">
+              <strong>Offline-friendly</strong>
+              <p>
+                Licensed Macs keep working offline for up to 30 days. If access
+                lapses, Switchboard simply returns to Free.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -751,22 +873,21 @@
               <summary>Is Switchboard free?</summary>
               <div class="faq-body">
                 <p>
-                  Yes — Switchboard stays useful for free: manage up to 5 active
-                  services (start/stop/restart/update with approval review),
-                  live command logs, recent Activity, locked Observer counts,
-                  the basic listening-ports list, and service-down plus
-                  new-arrival notifications. No account, no card, no ads. New
-                  installs get a 7-day full-feature trial, then return to free
-                  use.
+                  Yes — Switchboard stays useful for free: manage unlimited
+                  services (start/stop/restart/update with approval review), use
+                  the complete Activity, Docs, Observer, Ports, and Maintenance
+                  tools, and get service-down plus new-arrival notifications. No
+                  account, no card, no ads. New installs get a 7-day
+                  full-feature trial, then return to free use.
                 </p>
                 <p>
-                  A <strong>Switchboard Personal license</strong> ($39, with promo codes
-                  from time to time) unlocks the rest — services beyond 5, full
-                  Observer detail and actions, Resources, manual log sources,
-                  full activity history, diagnostics export, backup restore,
-                  config import/export, deeper port tools, and the tray port
-                  console — and activates up to 3 Macs. See
-                  <a href="pricing.html">pricing</a>.
+                  A <strong>Switchboard Pro license</strong> is a one-time
+                  <span data-sb-price="usd">$39</span> purchase (with promo
+                  codes from time to time) — a lifetime license, not a
+                  subscription. It unlocks the paid tools — Stream, System Logs,
+                  Resources, and MCP — activates up to 3 Macs, and includes all
+                  Switchboard 1.x updates and support for at least 2 years. See
+                  <a href="./#pricing">pricing</a>.
                 </p>
               </div>
             </details>
@@ -775,9 +896,9 @@
               <summary>How many Macs can I use one license on?</summary>
               <div class="faq-body">
                 <p>
-                  A <strong>Switchboard Personal license</strong> activates up to 3 Macs at
-                  once. There's no account — activation is just your license key
-                  plus the Mac it runs on.
+                  A <strong>Switchboard Pro license</strong> activates up
+                  to 3 Macs at once. There's no account — activation is just
+                  your license key plus the Mac it runs on.
                 </p>
               </div>
             </details>
@@ -867,7 +988,7 @@
                   started it.
                 </p>
                 <p>
-                  With Switchboard Personal, Switchboard also exposes an MCP
+                  With Switchboard Pro, Switchboard also exposes an MCP
                   server: agents can run a read-only guard check, inspect your
                   services, and create organized custom service entries through
                   Switchboard's schemas and examples instead of guessing shell
@@ -906,8 +1027,8 @@
                   and launch it — free use needs nothing to sign up for.
                 </p>
                 <p>
-                  If you buy the Switchboard Personal license, activation is by license key
-                  only (no account): paste the key into
+                  If you buy the Switchboard Pro license, activation is by
+                  license key only (no account): paste the key into
                   <em>Settings → License &amp; Access</em>. One license
                   activates up to 3 Macs.
                 </p>

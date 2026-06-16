@@ -11,6 +11,7 @@
   --border-strong: #2f3848;
   --accent: #5b8def;
   --accent-fg: #ffffff;
+  --promo-bg: #2e4c88;
 
   --radius-sm: 6px;
   --radius: 10px;
@@ -34,6 +35,7 @@
     --fg-dim: #6c7689;
     --border: #e3e6ec;
     --border-strong: #c8cdd6;
+    --promo-bg: var(--accent);
     --shadow:
       0 1px 2px rgba(20, 24, 31, 0.06), 0 8px 24px -10px rgba(20, 24, 31, 0.18);
   }
@@ -338,6 +340,32 @@ h1 {
   font-family: var(--font-mono);
   font-weight: 400;
   line-height: 1;
+}
+
+/* Hero CTA: one button (label + value sub-line) with a note beneath it. */
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.cta-stack > .btn-primary {
+  align-self: flex-start;
+}
+
+.btn-sub {
+  font-size: 12.5px;
+  color: color-mix(in srgb, var(--accent-fg) 80%, transparent);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.cta-note {
+  margin: 0;
+  font-size: 13px;
+  color: var(--fg-muted);
 }
 
 .btn-primary:hover {
@@ -853,6 +881,11 @@ h2 {
   max-width: 64ch;
 }
 
+.pricing-band {
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+}
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -893,14 +926,14 @@ h2 {
   color: var(--fg-muted);
 }
 
-.personal-tier {
+.pro-tier {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   color: var(--fg);
 }
 
-.personal-tier-crown {
+.pro-tier-crown {
   display: inline-flex;
   width: 16px;
   height: 16px;
@@ -911,7 +944,7 @@ h2 {
   color: #000;
 }
 
-.personal-tier-crown svg {
+.pro-tier-crown svg {
   width: 10px;
   height: 10px;
   fill: none;
@@ -1627,7 +1660,7 @@ h2 {
   flex-wrap: wrap;
   gap: 8px 14px;
   padding: 9px 18px;
-  background: var(--accent);
+  background: var(--promo-bg);
   color: var(--accent-fg);
   font-size: 14px;
   line-height: 1.4;

@@ -82,8 +82,9 @@
       hreflang="x-default"
       href="https://azzuwayed.github.io/switchboard-website/"
     />
-    <link rel="stylesheet" href="../style.css?v=430d92bb0d" />
+    <link rel="stylesheet" href="../style.css?v=729a30bd4e" />
     <script src="../promo-banner.js" defer></script>
+    <script src="../pricing.js" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -101,7 +102,13 @@
           "url": "https://www.linkedin.com/in/abdullah-alzuwayed/",
           "sameAs": ["https://www.linkedin.com/in/abdullah-alzuwayed/"]
         },
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "lowPrice": "0",
+          "highPrice": "39",
+          "offerCount": "2"
+        }
       }
     </script>
   </head>
@@ -123,7 +130,7 @@
         <nav class="site-nav" aria-label="التنقل الرئيسي">
           <a href="#features">كيف يساعدك</a>
           <a href="#use-cases">متى أستخدمه</a>
-          <a href="pricing.html">الأسعار</a>
+          <a href="#pricing">الأسعار</a>
           <a href="#install">التثبيت</a>
           <a class="lang-switch" href="../" hreflang="en" lang="en">English</a>
         </nav>
@@ -144,18 +151,8 @@
               المتفرقة، ويعطيك طريقة إيقاف واضحة لما لم تعد تحتاجه.
             </p>
             <div class="cta-row">
-              <a
-                class="btn btn-primary btn-mac"
-                id="download-btn"
-                href="https://github.com/azzuwayed/switchboard-website/releases/latest"
-                rel="noopener"
-              >
-                <span class="btn-label"
-                  ><span>تحميل</span
-                  ><span class="btn-version" id="version-chip"
-                    >Latest</span
-                  ></span
-                ></a
+              <a class="btn btn-primary btn-mac" href="#pricing"
+                >احصل عليه الآن!</a
               >
               <span class="promo-badge">
                 <span class="promo-free">مجاني للاستخدام</span>
@@ -289,11 +286,13 @@
                   <rect x="14" y="14" width="7" height="7" rx="1.5" />
                 </svg>
               </span>
-              <h3>شاشة واحدة بدل أدوات كثيرة</h3>
+              <h3>مركز تحكّم يبدأ بما يحتاج انتباهك</h3>
               <p>
-                الأشياء التي تعمل، والمتوقفة، والتي تحتاج انتباهاً تظهر
-                بالمفردات نفسها في مكان واحد. لا تحتاج أن تعرف أين بدأ كل شيء أو
-                أي أداة شغّلته.
+                الشاشة الرئيسية تُبرز الوافدين الجدد وتعارضات المنافذ وأي شيء
+                غير طبيعي أولاً — وبالمفردات نفسها (يعمل، متعثّر، متوقف، غير
+                معروف) عبر Homebrew وخوادم التطوير وlaunchd وDocker. ولوحة
+                الأدوات تتيح لك تشغيل ما تستخدمه فقط من الوحدات، فيبقى التطبيق
+                خفيفاً أو كاملاً بحسب حاجتك.
               </p>
             </article>
             <article class="feature">
@@ -584,11 +583,129 @@
             <article class="use-case-card">
               <h3>عندما يجهّز الوكيل خدماتك</h3>
               <p>
-                اطلب من وكيل الذكاء الاصطناعي إنشاء خدمات مرتبة داخل
-                Switchboard لخوادم التطوير وحاويات Docker وCompose وخدمات
-                Homebrew، مع الأوامر والروابط والسجلات وحدود الموارد.
+                اطلب من وكيل الذكاء الاصطناعي إنشاء خدمات مرتبة داخل Switchboard
+                لخوادم التطوير وحاويات Docker وCompose وخدمات Homebrew، مع
+                الأوامر والروابط والسجلات وحدود الموارد.
               </p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="pricing-band">
+        <div class="container">
+          <p class="eyebrow">الأسعار</p>
+          <h2>ادفع مرة واحدة. بدون اشتراك.</h2>
+          <p class="features-lede">
+            يبقى Switchboard مفيداً مجاناً. ويفتح ترخيص Switchboard Pro
+            لمرة واحدة الأدوات المدفوعة — البث، وسجلات النظام، والموارد، وMCP —
+            كترخيص مدى الحياة، لا فاتورة متكررة.
+          </p>
+          <div class="pricing-grid">
+            <div class="price-card">
+              <div class="price-head">
+                <span class="price-tier">مجاني</span>
+                <div class="price-amount"><span dir="ltr">$0</span></div>
+                <p class="price-sub">بدون حساب. بدون مفتاح. بشكل دائم.</p>
+                <p class="price-fit">لإبقاء خدماتك ظاهرة وتحت السيطرة.</p>
+              </div>
+              <ul class="price-features">
+                <li>
+                  خدمات غير محدودة — تشغيل وإيقاف وإعادة تشغيل وتحديث مع مراجعة
+                  الموافقات
+                </li>
+                <li>
+                  أدوات مجانية كاملة: النشاط، والمستندات، والمراقب، والمنافذ،
+                  والصيانة
+                </li>
+                <li>
+                  تنبيه للخدمات الجديدة والخدمات التي نسيتها مع إجراءات المراقب
+                </li>
+                <li>منافذ وتفاصيل وإجراءات عمليات ضمن أداة المنافذ المجانية</li>
+                <li>تنبيهات عند توقّف الخدمات وعند ظهور منفذ جديد</li>
+              </ul>
+              <a
+                class="btn btn-secondary"
+                id="download-btn"
+                href="https://github.com/azzuwayed/switchboard-website/releases/latest"
+                rel="noopener"
+                >التحميل مجاناً</a
+              >
+            </div>
+
+            <div class="price-card featured">
+              <div class="price-head">
+                <span class="founder-badge" data-sb-promo-badge hidden></span>
+                <span class="price-tier pro-tier">
+                  <span class="pro-tier-crown" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="m2 7 5 5 5-9 5 9 5-5-2 13H4L2 7Z" />
+                    </svg>
+                  </span>
+                  <span>Switchboard Pro</span>
+                </span>
+                <div class="price-amount">
+                  <span dir="ltr" data-sb-price="usd">$39</span>
+                </div>
+                <p class="price-sub">
+                  حوالي <span data-sb-price="sar">146.25 ريالاً</span> · دفعة
+                  واحدة · ترخيص مدى الحياة · حتى 3 أجهزة Mac
+                </p>
+                <p class="price-fit">
+                  بدون اشتراك. تشمل جميع تحديثات Switchboard 1.x والدعم لمدة
+                  سنتين على الأقل.
+                </p>
+              </div>
+              <ul class="price-features">
+                <li>كل ما في الاستخدام المجاني، مع الأدوات المدفوعة</li>
+                <li>
+                  البث — سجلات الخدمات والأوامر والملفات اليدوية ونشاط التطبيق
+                  في خط زمني واحد
+                </li>
+                <li>سجلات النظام — تقارير الأعطال وفرز سجلات الجهاز</li>
+                <li>رصد ارتفاعات الموارد ومراقبة المعالج / الذاكرة لكل خدمة</li>
+                <li>
+                  MCP — تكامل وكلاء الذكاء الاصطناعي: فحص حراسة، والتحكم
+                  بالخدمات، والبحث في المستندات، ومساعدات إنشاء الخدمات المخصصة
+                </li>
+                <li>تحديثات ودعم Switchboard 1.x لمدة سنتين على الأقل</li>
+              </ul>
+              <a class="btn btn-primary" id="buy-cta" href="checkout.html"
+                >احصل على ترخيص Switchboard Pro</a
+              >
+              <p
+                class="pricing-note"
+                id="purchase-paused"
+                role="status"
+                hidden
+              ></p>
+            </div>
+          </div>
+
+          <div class="pricing-note-grid" aria-label="تفاصيل الترخيص">
+            <div class="pricing-note-card">
+              <strong>أكواد الخصم</strong>
+              <p>
+                سعر ترخيص Switchboard Pro هو
+                <span dir="ltr" data-sb-price="usd">$39</span>، ويُدفع بالريال
+                السعودي عبر Paylink — دفعة واحدة، بدون اشتراك. لديك كود خصم؟
+                أدخله عند الدفع للحصول على الخصم.
+              </p>
+            </div>
+            <div class="pricing-note-card">
+              <strong>بدون حساب</strong>
+              <p>
+                التفعيل بمفتاح ترخيص فقط. كل تثبيت جديد يتضمن تجربة كاملة لمدة 7
+                أيام، ثم يعود إلى الاستخدام المجاني.
+              </p>
+            </div>
+            <div class="pricing-note-card">
+              <strong>يعمل دون اتصال</strong>
+              <p>
+                يستمر جهاز Mac المفعّل بالعمل دون اتصال حتى 30 يوماً. إذا انتهت
+                الترخيص، يعود Switchboard ببساطة إلى الاستخدام المجاني.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -707,32 +824,31 @@
               <summary>هل Switchboard مجاني؟</summary>
               <div class="faq-body">
                 <p>
-                  نعم — يبقى Switchboard مفيداً مجاناً: إدارة حتى 5 خدمات نشطة
-                  (تشغيل/إيقاف/إعادة تشغيل/تحديث مع مراجعة الموافقات)، وسجلات
-                  أوامر مباشرة، ونشاط حديث، وعدّاد مراقب مقفل، وقائمة أساسية
-                  بالمنافذ المستخدمة، وإشعارات توقّف الخدمات وظهور منفذ جديد.
-                  بدون حساب أو بطاقة أو إعلانات. تحصل التثبيتات الجديدة على
-                  تجربة كاملة لمدة 7 أيام، ثم تعود إلى الاستخدام المجاني.
+                  نعم — يبقى Switchboard مفيداً مجاناً: إدارة خدمات غير محدودة
+                  (تشغيل/إيقاف/إعادة تشغيل/تحديث مع مراجعة الموافقات)، واستخدام
+                  أدوات النشاط والمستندات والمراقب والمنافذ والصيانة كاملة،
+                  وإشعارات توقّف الخدمات وظهور منفذ جديد. بدون حساب أو بطاقة أو
+                  إعلانات. تحصل التثبيتات الجديدة على تجربة كاملة لمدة 7 أيام،
+                  ثم تعود إلى الاستخدام المجاني.
                 </p>
                 <p>
-                  تفتح <strong>رخصة Switchboard Personal</strong> (<span dir="ltr">$39</span
-                  >، مع أكواد خصم من وقت لآخر) باقي الميزات — الخدمات التي
-                  تتجاوز 5، وتفاصيل المراقب وإجراءاته، والموارد، ومصادر السجل
-                  اليدوية، وسجل النشاط الكامل، وتصدير التشخيصات، واستعادة النسخ
-                  الاحتياطية، واستيراد / تصدير الإعدادات، وأدوات منافذ أعمق،
-                  ووحدة المنافذ في الشريط — وتفعّل حتى 3 أجهزة Mac. اطّلع على
-                  <a href="pricing.html">الأسعار</a>.
+                  <strong>ترخيص Switchboard Pro</strong> شراء لمرة واحدة بـ
+                  <span dir="ltr" data-sb-price="usd">$39</span> (مع أكواد خصم
+                  من وقت لآخر) — ترخيص مدى الحياة، وليس اشتراكاً. ويفتح الأدوات
+                  المدفوعة — البث، وسجلات النظام، والموارد، وMCP — ويعمل على حتى
+                  3 أجهزة Mac، وتشمل جميع تحديثات Switchboard 1.x والدعم لمدة
+                  سنتين على الأقل. اطّلع على <a href="./#pricing">الأسعار</a>.
                 </p>
               </div>
             </details>
 
             <details>
-              <summary>على كم جهاز Mac تعمل الرخصة الواحدة؟</summary>
+              <summary>على كم جهاز Mac يعمل الترخيص الواحد؟</summary>
               <div class="faq-body">
                 <p>
-                  تعمل <strong>رخصة Switchboard Personal</strong> على 3 أجهزة Mac كحد أقصى
-                  في آنٍ واحد. لا يوجد حساب — التفعيل هو مفتاح رخصتك مع الجهاز
-                  الذي يعمل عليه فقط.
+                  يعمل <strong>ترخيص Switchboard Pro</strong> على 3 أجهزة
+                  Mac كحد أقصى في آنٍ واحد. لا يوجد حساب — التفعيل هو مفتاح
+                  ترخيصك مع الجهاز الذي يعمل عليه فقط.
                 </p>
               </div>
             </details>
@@ -744,7 +860,7 @@
               <div class="faq-body">
                 <p>
                   إن كان الجهاز لا يزال لديك، حرّر مكانه من التطبيق:
-                  <strong>الإعدادات ← الرخصة والوصول ← إلغاء التفعيل</strong>،
+                  <strong>الإعدادات ← الترخيص والوصول ← إلغاء التفعيل</strong>،
                   ثم فعّل على الجهاز الجديد.
                 </p>
                 <p>
@@ -756,11 +872,11 @@
             </details>
 
             <details>
-              <summary>كيف أنقل رخصتي إلى جهاز Mac جديد؟</summary>
+              <summary>كيف أنقل تراخيصتي إلى جهاز Mac جديد؟</summary>
               <div class="faq-body">
                 <p>
                   ألغِ التفعيل على الجهاز القديم (<strong
-                    >الإعدادات ← الرخصة والوصول ← إلغاء التفعيل</strong
+                    >الإعدادات ← الترخيص والوصول ← إلغاء التفعيل</strong
                   >)، أو استخدم <a href="reset.html">إعادة تعيين أجهزتي</a> إن
                   تعذّر الوصول إليه، ثم أدخل مفتاحك على الجهاز الجديد. فقدت
                   المفتاح؟ <a href="recover.html">استعِده من هنا</a>.
@@ -772,7 +888,7 @@
               <summary>كيف أحصل على المساعدة أو أتواصل مع الدعم؟</summary>
               <div class="faq-body">
                 <p>
-                  لأسئلة الرخصة أو الدفع أو الاستفسارات العامة، استخدم صفحة
+                  لأسئلة الترخيص أو الدفع أو الاستفسارات العامة، استخدم صفحة
                   <a href="contact.html">تواصل معنا</a> — نرد عبر البريد
                   الإلكتروني. للإبلاغ عن خلل، افتح مشكلة على
                   <a
@@ -816,9 +932,9 @@
                   تأكيد.
                 </p>
                 <p>
-                  ومع رخصة Switchboard Personal، يوفّر Switchboard خادم MCP: يمكن للوكيل
-                  تشغيل فحص قراءة فقط للحالة، وفحص الخدمات، وإنشاء خدمات مخصصة
-                  مرتبة من أمثلة جاهزة بدل تخمين أوامر عشوائية.
+                  ومع ترخيص Switchboard Pro، يوفّر Switchboard خادم MCP:
+                  يمكن للوكيل تشغيل فحص قراءة فقط للحالة، وفحص الخدمات، وإنشاء
+                  خدمات مخصصة مرتبة من أمثلة جاهزة بدل تخمين أوامر عشوائية.
                 </p>
               </div>
             </details>
@@ -844,7 +960,7 @@
             </details>
 
             <details>
-              <summary>هل أحتاج حساباً أو مفتاح رخصة؟</summary>
+              <summary>هل أحتاج حساباً أو مفتاح ترخيص؟</summary>
               <div class="faq-body">
                 <p>
                   لا حساب على الإطلاق. حمّل ملف <code>.dmg</code>، اسحب
@@ -852,9 +968,9 @@
                   ثم شغّله — الاستخدام المجاني لا يحتاج أي تسجيل.
                 </p>
                 <p>
-                  إذا اشتريت رخصة Switchboard Personal، فالتفعيل بمفتاح الرخصة فقط (بدون
-                  حساب): الصق المفتاح في
-                  <em>الإعدادات ← الرخصة والوصول</em>. تفعّل الرخصة الواحدة حتى
+                  إذا اشتريت ترخيص Switchboard Pro، فالتفعيل بمفتاح الترخيص
+                  فقط (بدون حساب): الصق المفتاح في
+                  <em>الإعدادات ← الترخيص والوصول</em>. يفعّل الترخيص الواحد حتى
                   3 أجهزة Mac.
                 </p>
               </div>

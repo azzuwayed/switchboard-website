@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Switchboard — رخصتك</title>
+    <title>Switchboard — ترخيصك</title>
     <meta name="robots" content="noindex" />
     <link
       rel="icon"
@@ -22,7 +22,7 @@
       sizes="256x256"
       href="../assets/icon-256.png"
     />
-    <link rel="stylesheet" href="../style.css?v=430d92bb0d" />
+    <link rel="stylesheet" href="../style.css?v=729a30bd4e" />
     <style>
       .result-card {
         max-width: 520px;
@@ -116,6 +116,15 @@
           <span class="brand-name">Switchboard</span>
           <span class="brand-by">by Azzuwayed</span>
         </a>
+        <nav class="site-nav" aria-label="التنقل الرئيسي">
+          <a href="./#features">كيف يساعدك</a>
+          <a href="./#use-cases">متى أستخدمه</a>
+          <a href="./#pricing">الأسعار</a>
+          <a href="./#install">التثبيت</a>
+          <a class="lang-switch" href="../success.html" hreflang="en" lang="en"
+            >English</a
+          >
+        </nav>
       </div>
     </header>
 
@@ -133,7 +142,7 @@
 
             <div id="key-section" hidden>
               <p style="font-size: 14px; opacity: 0.85; margin: 0">
-                مفتاح رخصة Switchboard Personal:
+                مفتاح ترخيص Switchboard Pro:
               </p>
               <div class="key-box">
                 <code class="key-value" id="key-value">—</code>
@@ -147,8 +156,8 @@
               </p>
               <p class="how-to">
                 للتفعيل: افتح Switchboard، واذهب إلى
-                <strong>الإعدادات ← الرخصة والوصول</strong>، ثم الصق مفتاحك
-                واضغط <strong>تفعيل</strong>. تعمل الرخصة الواحدة على ما يصل إلى
+                <strong>الإعدادات ← الترخيص والوصول</strong>، ثم الصق مفتاحك
+                واضغط <strong>تفعيل</strong>. يعمل الترخيص الواحد على ما يصل إلى
                 3 أجهزة Mac.
               </p>
               <p id="receipt-line" hidden style="margin-top: 16px">
@@ -203,7 +212,7 @@
           >. جميع الحقوق محفوظة.
         </p>
         <nav class="footer-nav" aria-label="تذييل">
-          <a href="pricing.html">الأسعار</a>
+          <a href="./#pricing">الأسعار</a>
           <a href="privacy.html">الخصوصية</a>
         </nav>
       </div>
@@ -271,7 +280,7 @@
       function showKey(key) {
         statusEl.hidden = true;
         pendingSection.hidden = true;
-        headingEl.textContent = "كل شيء جاهز";
+        headingEl.textContent = "مفتاح الترخيص جاهز";
         keyValue.textContent = key;
         keySection.hidden = false;
         showReceipt();
@@ -339,7 +348,7 @@
         document.getElementById("bank-pending-rows").innerHTML = rows.join("");
         if (stopped) {
           document.getElementById("bank-pending-message").textContent =
-            "ما زال معلّقاً. سنرسل مفتاح رخصتك بالبريد بمجرد تأكيد تحويلك — يمكنك إغلاق هذه الصفحة.";
+            "ما زال معلّقاً. سنرسل مفتاح ترخيصك بالبريد بمجرد تأكيد تحويلك — يمكنك إغلاق هذه الصفحة.";
         }
         bankPendingSection.hidden = false;
       }
