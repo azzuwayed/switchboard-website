@@ -10,6 +10,30 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.9.0] - 2026-06-19
+
+Switchboard 1.9.0 adds service groups, external uptime monitoring, a revamped Tools page, and per-tool AI access controls — plus bundled Switchboard documentation and a batch of reliability fixes.
+
+### Added
+
+- **Service Groups** — group services into ordered stacks from the Services dashboard. Start a group and Switchboard brings each member up in sequence, waiting for readiness before moving on. Groups carry their own approval policy (confirm, trust, or skip risky actions).
+- **Uptime monitoring** — a new Uptime tool (Switchboard Pro) lets you register external URLs and APIs to watch. Switchboard checks them on your chosen interval, tracks 24h and 7d availability, and notifies you when a site goes down or comes back up.
+- **Bundled Switchboard docs** — the Docs tool now ships Switchboard's own documentation built in, so you can look things up without leaving the app. Your own registered doc sources appear alongside in a separate corpus.
+
+### Changed
+
+- **Tools page** — the Tools surface is now organized into sections (Core / Observability / System), searchable and filterable by status or MCP availability, with a card grid and a slide-out detail drawer per tool. Beta tools are hidden by default.
+- **Per-tool AI access control** — each AI-capable tool now has a dedicated AI access toggle. Opt a tool out of MCP exposure without disabling it in-app. The control lives in the tool's drawer on the Tools page.
+- **Stream log sources** — log output is now opt-in per source; the stream check gate output is more compact.
+- **MCP agent support** — Qwen Code is now a detected agent with full installer support. Stale install paths are detected and surfaced in the connector UX. Structured-content wrapping and capability-aware instructions are fixed.
+
+### Fixed
+
+- Disabled tools no longer surface data to AI agents.
+- Stale observer adoption decisions are now retained safely across restarts.
+- Label editor controls and timeline action localization corrected.
+- Exponential backoff added for repeatedly-panicking log-source streams.
+
 ## [1.8.0] - 2026-06-17
 
 Switchboard 1.8.0 makes the app modular: turn individual tools on or off from a new Tools page, with clearer pricing built around Switchboard Pro. Plus smarter sidebar badges, better AI-agent session management, and lifecycle insight into every service.
