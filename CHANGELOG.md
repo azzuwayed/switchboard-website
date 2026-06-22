@@ -10,6 +10,34 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.10.0] - 2026-06-22
+
+Switchboard 1.10.0 refines stacks (formerly service groups) with a management UI and import/export, adds user presets and service ownership declarations, upgrades the Observer with port-attention signals and vendor grouping, and brings health-check output to the detail panel — plus a batch of fixes.
+
+### Added
+
+- **Stacks management UI** — a dedicated Stack Editor for assembling, reordering, and saving service stacks. Complemented by stack cards on the dashboard and stack-aware config import/export.
+- **Stop order overrides** — give stack members an explicit stop-order number when the default reverse-start sequence isn't right (e.g. proxy before database).
+- **Stacks in config import/export** — a config bundle can now include its stacks so importing a set of services also wires up their start/stop sequence.
+- **User presets** — save any reviewed service as a reusable preset, then insert it with one click. Manage presets from the Services page.
+- **Service ownership** — a service can declare the launchd labels it owns, so the Observer automatically adopts matching discoveries instead of flagging them as new.
+- **Observer port attention** — the Observer now detects three port signals: when a service's port is blocked by another process (PortBlocked), when a dev server fell back to its +1 port (PortDrift), and duplicate listeners.
+- **Observer vendor grouping** — same-vendor findings collapse into a collapsible group with a dismiss-all action, cutting inbox noise from multi-process services.
+- **Health-check output** — the service detail panel now shows the health-check command and its last output, plus supports "degraded" exit codes for a three-way health state.
+- **Last-command line** — dashboard cards and rows now show who last acted on a service and when (e.g. "Stopped 3 hours ago · MCP"), without opening the detail view.
+- **Select-all for approvals** — importing a config bundle with many commands? Approve them all with one click instead of checkbox-by-checkbox.
+
+### Changed
+
+- **Service Groups → Stacks** — the grouping feature is now called "Stacks" everywhere, and `service.group` has been renamed to `service.category`. Your existing `groups.yaml` file is automatically migrated to `stacks.yaml`.
+
+### Fixed
+
+- Launchd discoveries now set the service's ownership label automatically, so follow-up Observer scans adopt sibling findings without extra steps.
+- Unplugging an external monitor while maximised no longer strands the window off-screen; the window re-centres automatically.
+- Claude Code is now detected regardless of where it's installed (npm global prefix, Volta, or elsewhere).
+- Update notification badges and banners render correctly across all surfaces.
+
 ## [1.9.0] - 2026-06-19
 
 Switchboard 1.9.0 adds service groups, external uptime monitoring, a revamped Tools page, and per-tool AI access controls — plus bundled Switchboard documentation and a batch of reliability fixes.
