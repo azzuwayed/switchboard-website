@@ -26,6 +26,8 @@ Switchboard 1.11.0 introduces Numerics — a new paid tool for building live met
 - Numerics: export and import hardened against edge cases; pause-when-unfocused works correctly.
 - The app now launches with zero compiler and linter warnings.
 
+## [1.10.0] - 2026-06-22
+
 Switchboard 1.10.0 refines stacks (formerly service groups) with a management UI and import/export, adds user presets and service ownership declarations, upgrades the Observer with port-attention signals and vendor grouping, and brings health-check output to the detail panel — plus a batch of fixes.
 
 ### Added
