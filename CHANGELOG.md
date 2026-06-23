@@ -10,7 +10,21 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
-## [1.10.0] - 2026-06-22
+## [1.11.0] - 2026-06-23
+
+Switchboard 1.11.0 introduces Numerics — a new paid tool for building live metric dashboards from JSON HTTP endpoints — and adds crash-report surfacing in the Activity page.
+
+### Added
+
+- **Numerics tool** — create live metric dashboards powered by JSON HTTP endpoints. Organise dashboards with drag-to-reorder cards; configure per-card endpoint, auth headers, poll interval, value format (number, duration, bytes, percentage), breach thresholds with sidebar badge, and optional secrets. Export and import dashboards with merge preview. Sample data for quick evaluation. Cards dim when disabled and show a freshness footer.
+- **Crash reports in Activity** — the Activity page now surfaces crash reports and shows a cold-start liveness baseline so you can tell whether a launch succeeded or crashed before the UI appeared.
+
+### Fixed
+
+- Numerics: closed 8 race conditions, resource leaks, and correctness bugs in the poll/refresh pipeline.
+- Numerics: card editor fields now disable correctly when master toggles are off.
+- Numerics: export and import hardened against edge cases; pause-when-unfocused works correctly.
+- The app now launches with zero compiler and linter warnings.
 
 Switchboard 1.10.0 refines stacks (formerly service groups) with a management UI and import/export, adds user presets and service ownership declarations, upgrades the Observer with port-attention signals and vendor grouping, and brings health-check output to the detail panel — plus a batch of fixes.
 
