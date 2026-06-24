@@ -317,6 +317,108 @@
         </div>
       </section>
 
+      <section id="agent-sees" class="features">
+        <div class="container">
+          <p class="eyebrow">Local context</p>
+          <h2>Your agent can see what it usually misses.</h2>
+          <p class="features-lede">
+            Without Switchboard, AI clients start blind — no idea what time it
+            is locally, what owns port 3000, whether a model runtime is already
+            running, or whether a service from yesterday is still holding
+            resources.
+          </p>
+          <div class="feature-grid">
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M12 7v5l3 3" />
+                </svg>
+              </span>
+              <h3>Local time and timezone</h3>
+              <p>
+                Agents always know the local date, time, and timezone — so log
+                timestamps, cron schedules, and "run this now" make sense
+                without guessing.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <path d="M8 21h8M12 17v4" />
+                  <path d="M6 8h4M6 11h6" />
+                </svg>
+              </span>
+              <h3>Model runtimes already running</h3>
+              <p>
+                Ollama, LM Studio, llama.cpp, and MLX servers are identified
+                before an agent tries to spin up a duplicate — saving memory and
+                avoiding port collisions.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"
+                  />
+                  <circle cx="12" cy="12" r="4" />
+                </svg>
+              </span>
+              <h3>Port conflicts before they happen</h3>
+              <p>
+                Port attention items — blocked ports, drifted listeners, and
+                duplicate dev servers — surface in the briefing so agents check
+                before starting anything new.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M3 3v18h18" />
+                  <path d="M7 16l4-4 4 4 4-6" />
+                </svg>
+              </span>
+              <h3>Resource pressure</h3>
+              <p>
+                CPU load, memory pressure, swap use, and battery state are
+                included — so an agent knows whether the machine can handle
+                another build or model inference before it tries.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="features" class="features">
         <div class="container">
           <h2>How Switchboard helps</h2>
