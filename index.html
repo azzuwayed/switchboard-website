@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Switchboard — the missing dashboard for Mac devs</title>
+    <title>Switchboard — the Mac AI-dev command center</title>
     <meta
       name="description"
-      content="Switchboard is the local service monitor for Mac developers: find forgotten dev servers, port conflicts, local AI tools, logs, and services your AI coding session left behind."
+      content="Switchboard is the Mac command center for AI developers: give your AI tools and yourself the local context macOS doesn't — services, ports, runtimes, stale sessions, and safe controls."
     />
     <meta
       property="og:title"
-      content="Switchboard — the missing dashboard for Mac devs"
+      content="Switchboard — the Mac AI-dev command center"
     />
     <meta
       property="og:description"
-      content="Activity Monitor says 'node.' Switchboard says which server it is, why it's still running, and what owns the port — one menu bar for Homebrew, Docker, dev servers, and local AI tools."
+      content="Activity Monitor says 'node.' Switchboard says which project, which agent session, which port, how long it has been running, and what safe action exists — one menu bar for your whole local AI-dev stack."
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
@@ -48,11 +48,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Switchboard — the missing dashboard for Mac devs"
+      content="Switchboard — the Mac AI-dev command center"
     />
     <meta
       name="twitter:description"
-      content="Find the local dev servers, Docker containers, and AI tools your Mac is still running — and see what owns each port."
+      content="Give your AI tools and yourself the local context macOS doesn't: services, ports, runtimes, stale sessions, and safe controls — all in one menu bar app."
     />
     <meta
       name="twitter:image"
@@ -83,7 +83,7 @@
         "name": "Switchboard",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS 12 or later",
-        "description": "A native macOS menu-bar app that finds the local services your Mac is running — Homebrew services, Docker containers, launchd agents, dev servers, and local AI tools — names what owns each port, and brings controls, health checks, and logs into one local-first dashboard.",
+        "description": "The Mac command center for AI developers: a native macOS menu-bar app that gives your AI tools and yourself the local context macOS doesn't — services, ports, runtimes, stale sessions, and safe controls — all local-first, no network listener.",
         "url": "https://azzuwayed.github.io/switchboard-website/",
         "image": "https://azzuwayed.github.io/switchboard-website/assets/screenshots/services-dashboard.png",
         "author": {
@@ -134,12 +134,12 @@
             <p class="eyebrow platform-eyebrow">
               macOS · Apple Silicon + Intel
             </p>
-            <h1>Stop losing track of what's running on your Mac.</h1>
+            <h1>The Mac command center for AI developers.</h1>
             <p class="lede">
-              Switchboard is the local service monitor for Mac developers: it
-              finds forgotten dev servers, names port conflicts, tails scattered
-              logs, and gives you a clear stop flow for the things you no longer
-              need.
+              Switchboard gives your AI tools and your own eyes the local
+              context macOS doesn't: services, ports, logs, resources, model
+              runtimes, stale sessions, and safe controls — all local-first, no
+              built-in AI assistant.
             </p>
             <div class="cta-row">
               <a class="btn btn-primary btn-mac" href="#pricing">Get It Now!</a>
@@ -205,6 +205,115 @@
             Universal build for Apple Silicon and Intel Macs, macOS 12
             (Monterey) or later.
           </p>
+        </div>
+      </section>
+
+      <section id="ai-awareness" class="features">
+        <div class="container">
+          <p class="eyebrow">AI-dev command center</p>
+          <h2>Every AI session starts with local awareness.</h2>
+          <p class="features-lede">
+            Before an agent acts on your Mac, Switchboard can tell it — and you
+            — what is running, what is hot, what is stale, what owns each port,
+            and what local stack it is about to touch.
+          </p>
+          <div class="feature-grid">
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                </svg>
+              </span>
+              <h3>Environment briefing</h3>
+              <p>
+                One structured read covers current time and timezone, memory and
+                CPU pressure, hot local AI runtimes, stale coding-agent
+                sessions, port attention, and recent service failures. Agents
+                can call it at session start and know what they're walking into.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 8V4H8" />
+                  <rect width="16" height="12" x="4" y="8" rx="2" />
+                  <path d="M2 14h2M20 14h2M15 13v2M9 13v2" />
+                </svg>
+              </span>
+              <h3>AI runtime inventory</h3>
+              <p>
+                Switchboard detects Ollama, LM Studio, llama.cpp, MLX model
+                servers, and coding-agent helpers like Claude Code, Cursor,
+                Codex, and VS Code — with ports, CPU/memory, and project path
+                attached.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+                  <line x1="12" y1="20" x2="12.01" y2="20" />
+                </svg>
+              </span>
+              <h3>MCP integration (Pro)</h3>
+              <p>
+                Connect Claude Code, Cursor, Codex, Claude Desktop, Gemini CLI,
+                Qwen Code, OpenCode, and others via a private local MCP server —
+                agents get read-only environment context, service controls, port
+                inspection, and workspace groups — all structured, audited, and
+                bounded.
+              </p>
+            </article>
+            <article class="feature">
+              <span class="feature-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2z"
+                  />
+                </svg>
+              </span>
+              <h3>Workspace map</h3>
+              <p>
+                Services, ports, logs, runtimes, and agent sessions are grouped
+                by project path into workspace stacks — so you and your agent
+                both see what belongs to the same codebase right now, not just a
+                flat process list.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -539,11 +648,11 @@
       <section id="use-cases" class="use-cases">
         <div class="container">
           <p class="eyebrow">Where it fits</p>
-          <h2>For the messy, long-lived local machine.</h2>
+          <h2>For the Mac that runs your whole AI-dev stack.</h2>
           <p class="features-lede">
-            macOS ships with Activity Monitor, and it can tell you that a
-            process exists. Switchboard connects that process to the service,
-            port, logs, history, and action you actually care about.
+            Activity Monitor says <code>node</code>. Switchboard says which
+            project, which agent session, which port, how long it has been
+            running, whether it is abnormal, and what safe action exists.
           </p>
           <div class="use-case-grid">
             <article class="use-case-card">
@@ -602,9 +711,10 @@
           <p class="eyebrow">Pricing</p>
           <h2>Pay once. No subscription, ever.</h2>
           <p class="features-lede">
-            Switchboard stays useful for free. A one-time Switchboard Pro
-            license unlocks the paid tools — Stream, System Logs, Resources, and
-            MCP — as a lifetime license, not a recurring bill.
+            Switchboard stays useful for free. Switchboard Pro unlocks the
+            AI-dev command center mode: MCP integration, resource pressure
+            monitoring, live log streaming, and system log triage — one-time
+            purchase, lifetime license, no subscription.
           </p>
           <div class="pricing-grid">
             <div class="price-card">
@@ -636,7 +746,7 @@
                 class="btn btn-secondary"
                 id="download-btn"
                 href="https://github.com/azzuwayed/switchboard-website/releases/latest"
-                rel="noopener"
+                rel="noopener noreferrer"
                 >Download Free</a
               >
             </div>
@@ -660,24 +770,27 @@
                   lifetime license · up to 3 Macs
                 </p>
                 <p class="price-fit">
-                  No subscription, ever. Includes all Switchboard 1.x updates
-                  and support for at least 2 years.
+                  AI-dev command center mode. No subscription, ever. Includes
+                  all Switchboard 1.x updates and support for at least 2 years.
                 </p>
               </div>
               <ul class="price-features">
                 <li>Everything in Free, plus paid tools</li>
                 <li>
+                  MCP — connect Claude Code, Cursor, Codex, Claude Desktop,
+                  Gemini CLI, Qwen Code, OpenCode, and others via a private
+                  local MCP server; agents get environment briefing, service
+                  control, port inspection, and workspace context
+                </li>
+                <li>
+                  Resources — machine-level CPU, memory, and runtime pressure
+                  with anomaly detection for AI-dev workloads
+                </li>
+                <li>
                   Stream — service logs, command logs, manual files, and
                   activity overlay in one timeline
                 </li>
                 <li>System Logs — crash reports and machine log triage</li>
-                <li>
-                  Resources — per-service CPU / memory and anomaly detection
-                </li>
-                <li>
-                  MCP — AI-agent integration for guard reports, service control,
-                  docs lookup, and custom-service creation helpers
-                </li>
                 <li>
                   Switchboard 1.x updates and support for at least 2 years
                 </li>
@@ -737,14 +850,14 @@
             </p>
             <p class="story-lede">
               The problem got worse when I started building with AI coding tools
-              — Cursor, Claude Code, Windsurf, Cline, the whole crowd. They're
-              great at spinning up dev servers; they're not always great at
-              stopping the previous one before starting the next. Sometimes the
-              agent is smart enough to free the port it needs — sometimes it
-              just walks to the next available one. After a few hours of
-              iteration you can end up with six copies of the same Vite server
-              competing for memory, the laptop running hot, the battery draining
-              fast, and nothing in macOS surfacing any of it.
+              — Cursor, Claude Code, VS Code, the whole crowd. They're great at
+              spinning up dev servers; they're not always great at stopping the
+              previous one before starting the next. Sometimes the agent is
+              smart enough to free the port it needs — sometimes it just walks
+              to the next available one. After a few hours of iteration you can
+              end up with six copies of the same Vite server competing for
+              memory, the laptop running hot, the battery draining fast, and
+              nothing in macOS surfacing any of it.
             </p>
             <p class="story-lede">
               You know roughly what you run — you just lose track of what's
@@ -754,9 +867,10 @@
             </p>
             <p class="story-lede">
               Switchboard is the thing I wanted: one place where every local
-              service shows up, every forgotten process gets surfaced, and every
-              port flood gets named with its actual cause. The OS won't tell
-              you. The dev tools won't tell you. This will.
+              service shows up, every forgotten process gets surfaced, every
+              port flood gets named with its actual cause, and every AI tool I
+              use can read the local context before it acts. The OS won't tell
+              you. The AI tools won't ask. This will.
             </p>
             <p class="story-founder">
               Switchboard is built by Abdullah Alzuwayed, an independent
@@ -764,7 +878,7 @@
               on my own Mac. You can verify the builder on
               <a
                 href="https://www.linkedin.com/in/abdullah-alzuwayed/"
-                rel="me noopener"
+                rel="me noopener noreferrer"
                 target="_blank"
                 >LinkedIn</a
               >.
@@ -826,13 +940,13 @@
           <h2>Trust model</h2>
           <p>
             Switchboard is designed to be useful without becoming a
-            shell-in-a-webview.
+            shell-in-a-webview — and without giving AI clients raw shell access
+            to your Mac.
           </p>
           <ul class="trust-list">
-            <li>Runs entirely on your Mac.</li>
+            <li>Runs entirely on your Mac. No network listener.</li>
             <li>Your configuration and logs stay on your Mac.</li>
-            <li>No background HTTP server.</li>
-            <li>No arbitrary shell from the UI.</li>
+            <li>No arbitrary shell from the UI or from MCP clients.</li>
             <li>
               The webview sends only <code>serviceId</code>,
               <code>action</code>, and explicit confirmation state.
@@ -846,11 +960,18 @@
               <code>sh -c</code>.
             </li>
             <li>
-              Imported commands are previewed command-by-command before they can
-              run.
+              External AI clients (MCP) are treated as the user: they can use
+              structured service actions and read local context, but cannot
+              execute arbitrary commands or bypass blocked patterns.
             </li>
             <li>
-              New or changed imported commands stay unapproved until reviewed.
+              MCP uses a private Unix socket under the app config dir — not a
+              network port. No external client can reach it.
+            </li>
+            <li>Every MCP action is tagged in the Activity log.</li>
+            <li>
+              Imported commands are previewed command-by-command before they can
+              run. New or changed ones stay unapproved until reviewed.
             </li>
             <li>
               Command output is bounded; secret redaction defaults to
@@ -896,9 +1017,9 @@
               <summary>How many Macs can I use one license on?</summary>
               <div class="faq-body">
                 <p>
-                  A <strong>Switchboard Pro license</strong> activates up
-                  to 3 Macs at once. There's no account — activation is just
-                  your license key plus the Mac it runs on.
+                  A <strong>Switchboard Pro license</strong> activates up to 3
+                  Macs at once. There's no account — activation is just your
+                  license key plus the Mac it runs on.
                 </p>
               </div>
             </details>
@@ -944,7 +1065,7 @@
                   For bug reports, open an issue on
                   <a
                     href="https://github.com/azzuwayed/switchboard-website/issues"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                     target="_blank"
                     >GitHub Issues</a
                   >
@@ -975,24 +1096,27 @@
 
             <details>
               <summary>
-                Does it work with Cursor, Claude Code, Windsurf, Cline, …?
+                Does it work with Cursor, Claude Code, VS Code, Codex, …?
               </summary>
               <div class="faq-body">
                 <p>
-                  Yes — Switchboard is agnostic about what started a process. It
-                  watches ports and processes directly, so when your AI coding
-                  tool spawns a Vite dev server (or a FastAPI server, or
-                  anything else listening locally), Switchboard auto-detects it,
-                  tags it <em>Discovered</em>, and gives you a Stop button with
-                  confirmation. Doesn't matter which agent or which editor
-                  started it.
+                  Yes on two levels. First, Switchboard is agnostic about what
+                  started a process — it watches ports and processes directly,
+                  so when your AI coding tool spawns a Vite dev server (or a
+                  FastAPI server, or anything else listening locally),
+                  Switchboard auto-detects it, tags it <em>Discovered</em>, and
+                  gives you a Stop button with confirmation. Doesn't matter
+                  which agent or which editor started it.
                 </p>
                 <p>
-                  With Switchboard Pro, Switchboard also exposes an MCP
-                  server: agents can run a read-only guard check, inspect your
-                  services, and create organized custom service entries through
-                  Switchboard's schemas and examples instead of guessing shell
-                  commands.
+                  Second, with Switchboard Pro, those same AI tools can connect
+                  to Switchboard via MCP. Supported clients include Claude Code,
+                  Cursor, VS Code, Codex, Claude Desktop, Gemini CLI, Qwen Code,
+                  OpenCode, and any MCP-compatible harness. They get an
+                  environment briefing, service inspection and control, port
+                  details, AI runtime inventory, workspace groupings, and
+                  structured service creation — all through a private local
+                  socket, never a network port.
                 </p>
               </div>
             </details>
@@ -1093,7 +1217,7 @@
                   the <code>.dmg</code> from the
                   <a
                     href="https://github.com/azzuwayed/switchboard-website/releases"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                     target="_blank"
                     >releases page</a
                   >
@@ -1134,10 +1258,10 @@
                   Open an issue on
                   <a
                     href="https://github.com/azzuwayed/switchboard-website/issues"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                     target="_blank"
                     >GitHub Issues</a
-                  >. Include the build version (Help → About) and a short
+                  >. Include the build version (Switchboard → About) and a short
                   reproduction when you can.
                 </p>
               </div>
@@ -1154,7 +1278,7 @@
           <a
             class="footer-author"
             href="https://www.linkedin.com/in/abdullah-alzuwayed/"
-            rel="me noopener"
+            rel="me noopener noreferrer"
             target="_blank"
             >Abdullah Alzuwayed</a
           >. All rights reserved.
@@ -1166,13 +1290,13 @@
           <a href="contact.html">Contact</a>
           <a
             href="https://github.com/azzuwayed/switchboard-website/releases"
-            rel="noopener"
+            rel="noopener noreferrer"
             target="_blank"
             >Changelog</a
           >
           <a
             href="https://github.com/azzuwayed/switchboard-website/issues"
-            rel="noopener"
+            rel="noopener noreferrer"
             target="_blank"
             >Support</a
           >
@@ -1203,7 +1327,7 @@
         >
           ×
         </button>
-        <img id="lightbox-image" src="" alt="" />
+        <img id="lightbox-image" src="" alt="Switchboard screenshot preview" />
         <figcaption id="lightbox-caption"></figcaption>
       </figure>
     </div>
