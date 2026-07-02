@@ -133,7 +133,7 @@
           note.textContent =
             data.message ||
             (isAr
-              ? "الشراء متوقف مؤقتاً — يرجى المحاولة لاحقاً."
+              ? "الشراء متوقف مؤقتاً — حاول لاحقاً."
               : "Purchasing is temporarily paused — please check back soon.");
           note.hidden = false;
         }

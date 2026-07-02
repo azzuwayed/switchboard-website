@@ -10,6 +10,26 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.12.0] - 2026-07-02
+
+Switchboard 1.12.0 turns the app into a sharper Mac command center for AI-assisted development, with richer MCP context, notification history, in-app feedback, and a full Arabic product-copy sweep.
+
+### Added
+
+- **AI-dev command center** — new home, onboarding, and MCP surfaces help you see local services, ports, logs, resources, AI runtimes, and workspace context before an AI tool acts on your Mac.
+- **Richer MCP access** — exposure profiles, search-first service discovery, prompts, uptime tools, split log access, environment briefing, AI runtime inventory, workspace map, and structured service creation give Claude Code, Cursor, Codex, and other tools more useful local context without direct shell access.
+- **Notification history** — Activity now includes a notification sub-view, backed by a local history log and MCP access, so missed service/update/observer alerts are still visible later.
+- **Feedback and crash reporting** — send a reviewed bug, crash, or suggestion report from inside the app, choosing which logs, service snapshot, and error details to include.
+
+### Changed
+
+- **Interface polish** — app toolbars, sidebar grouping, density controls, popovers, panels, and RTL layering are more consistent across the main surfaces.
+- **Arabic copy refresh** — Arabic app and website text now uses a consistent product glossary for AI tools, MCP, Observer, Numerics, uptime checks, service stacks, feedback reports, and licensing.
+
+### Fixed
+
+- The main window now stays on-screen after display changes, including external monitor disconnects.
+
 ## [1.11.0] - 2026-06-23
 
 Switchboard 1.11.0 introduces Numerics — a new paid tool for building live metric dashboards from JSON HTTP endpoints — and adds crash-report surfacing in the Activity page.

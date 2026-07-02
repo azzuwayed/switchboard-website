@@ -245,7 +245,7 @@
         const company = document.getElementById("company").value;
         if (!name || !email || message.length < 10) {
           errorEl.textContent =
-            "يرجى إضافة اسمك وبريدك الإلكتروني ورسالة قصيرة.";
+            "أضف اسمك وبريدك الإلكتروني ورسالة قصيرة.";
           return;
         }
 
@@ -277,11 +277,11 @@
             return;
           }
           if (data.code === "CAPTCHA_FAILED") {
-            errorEl.textContent = "يرجى إكمال التحقق ثم المحاولة مرة أخرى.";
+            errorEl.textContent = "أكمل التحقق ثم حاول مرة أخرى.";
           } else if (data.code === "RATE_LIMITED") {
             errorEl.textContent = "رسائل كثيرة — انتظر دقيقة ثم أعد المحاولة.";
           } else {
-            errorEl.textContent = "يرجى التحقق من بياناتك والمحاولة مرة أخرى.";
+            errorEl.textContent = "تحقق من بياناتك ثم حاول مرة أخرى.";
           }
           if (window.turnstile) window.turnstile.reset();
         } catch {
