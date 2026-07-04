@@ -10,6 +10,15 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.12.1] - 2026-07-04
+
+Switchboard 1.12.1 makes the AI Integration disabled state clearer and moves licensing email to the Switchboard address.
+
+### Changed
+
+- **Clearer AI Integration disabled state** — AI clients now get a more actionable message when MCP access is disabled, and Switchboard can still show configured-client warnings in the Tools drawer while AI Integration is off.
+- **Switchboard licensing email** — license receipts and support/admin messages now come from `switchboard@azzuwayed.com`.
+
 ## [1.12.0] - 2026-07-02
 
 Switchboard 1.12.0 turns the app into a sharper Mac command center for AI-assisted development, with richer MCP context, notification history, in-app feedback, and a full Arabic product-copy sweep.
