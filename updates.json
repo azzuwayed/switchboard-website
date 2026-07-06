@@ -28,7 +28,7 @@
     }
   },
   "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.12.1",
-  "downloadPageUrl": "https://azzuwayed.github.io/switchboard-website/",
+  "downloadPageUrl": "https://switchboard.azzuwayed.com/",
   "notes": "Switchboard 1.12.1 — see release notes for details.",
   "highlights": [
     "Clearer AI Integration disabled state — AI clients now get a more actionable message when MCP access is disabled, and Switchboard can still show configured-client warnings in the Tools drawer while AI Integration is off.",

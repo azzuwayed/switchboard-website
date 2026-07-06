@@ -2,7 +2,7 @@
 
 **The local service monitor for Mac developers.** One menu-bar app for forgotten dev servers, Homebrew services, Docker containers, launchd agents, HTTP endpoints, local AI tools, ports, and logs.
 
-[**Download for macOS →**](https://azzuwayed.github.io/switchboard-website/) · [Changelog](https://github.com/azzuwayed/switchboard-website/releases) · [Support](https://github.com/azzuwayed/switchboard-website/issues)
+[**Download for macOS →**](https://switchboard.azzuwayed.com/) · [Changelog](https://github.com/azzuwayed/switchboard-website/releases) · [Support](https://github.com/azzuwayed/switchboard-website/issues)
 
 ---
 
@@ -42,7 +42,7 @@ macOS 12 (Monterey) or later on Apple Silicon or Intel Macs.
 
 ## Get it
 
-→ [**azzuwayed.github.io/switchboard-website**](https://azzuwayed.github.io/switchboard-website/)
+→ [**switchboard.azzuwayed.com**](https://switchboard.azzuwayed.com/)
 
 ## Pricing
 
@@ -52,7 +52,7 @@ Activity, Docs, Observer, Ports, and Maintenance. Fresh installs get a 7-day
 full-feature trial, then return to free use. A Switchboard Pro license
 ($39, with promo codes from time to time) unlocks the paid tools — Stream,
 System Logs, Resources, and MCP — and activates up to 3 Macs. See
-[pricing](https://azzuwayed.github.io/switchboard-website/pricing.html).
+[pricing](https://switchboard.azzuwayed.com/pricing.html).
 
 ## Stay in the loop
 

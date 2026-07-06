@@ -522,7 +522,7 @@ Switchboard 1.0 — the first stable release.
   people actively use Switchboard, the daily update check now reports an
   anonymous, aggregate count — no account, no identifiers, and no IP address is
   stored. It's on by default; turn it off anytime in **Settings → Privacy**. See
-  the [privacy page](https://azzuwayed.github.io/switchboard-website/privacy.html)
+  the [privacy page](https://switchboard.azzuwayed.com/privacy.html)
   for exactly what is and isn't collected.
 
 ## [1.0.0-beta.22] - 2026-06-02
@@ -1139,7 +1139,7 @@ rogue-process actions, and finally lets you restore from a backup at first run.
 ### Added
 
 - **Privacy & trust page** on the website at
-  [`/privacy.html`](https://azzuwayed.github.io/switchboard-website/privacy.html),
+  [`/privacy.html`](https://switchboard.azzuwayed.com/privacy.html),
   linked from the new **Privacy** tab in the About dialog and from the website's
   primary nav. The page documents that the app does not collect telemetry, does
   not have a cloud account, and has exactly one outbound network request (the
@@ -1284,7 +1284,7 @@ First public release.
   time, density and follow controls, redaction badges, and JSON export
   for diagnostics.
 - **Public website + download page** at
-  [azzuwayed.github.io/switchboard-website](https://azzuwayed.github.io/switchboard-website/)
+  [switchboard.azzuwayed.com](https://switchboard.azzuwayed.com/)
   with verifiable SHA-256 checksums on every release.
 - **Arabic UI** with full RTL support, alongside English. Switch in
   Settings → Language.
