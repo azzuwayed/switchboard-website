@@ -10,6 +10,44 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.13.0] - 2026-07-07
+
+Switchboard 1.13.0 makes the app quieter in the background, easier to recover
+when something fails, and sharper at explaining noisy Mac system logs.
+
+### Added
+
+- **Monitoring load guidance** — Home, Settings, and the tray can now warn when
+  Switchboard's own monitoring work looks heavy, with a one-click switch to the
+  Balanced profile.
+- **Backup cleanup** — Maintenance can now clean old Switchboard backups from
+  inside the app.
+
+### Changed
+
+- **Lighter tray behavior** — when the main window is hidden, Switchboard now
+  slows background scans and pauses hidden frontend polling, then refreshes when
+  the window returns.
+- **Balanced by default** — new setups now start with the Balanced resource
+  profile instead of the heavier Active profile.
+- **Clearer System Logs triage** — error offenders now roll up per app, group
+  related rotated files, show stale entries more honestly, and name the matched
+  problem word in samples.
+- **Cleaner System Logs sources** — discovered system log sources are grouped by
+  app with filtering, hide/undo controls, and a pinned unified-log snapshot row.
+- **Opt-in system log discovery** — System Logs discovery is tool-gated, and
+  unified-log polling stays opt-in.
+- **Switchboard web home** — release, update, and support links now use
+  `https://switchboard.azzuwayed.com/`.
+
+### Fixed
+
+- **Better failure recovery** — Switchboard now reports and recovers from more
+  backend loop failures, frontend render crashes, stalled MCP socket reads, and
+  malformed process names without silently dropping app features.
+- **Bounded log work** — large log streams and cleared-line tracking now stay
+  bounded during long sessions.
+
 ## [1.12.1] - 2026-07-04
 
 Switchboard 1.12.1 makes the AI Integration disabled state clearer and moves licensing email to the Switchboard address.
