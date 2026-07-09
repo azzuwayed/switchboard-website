@@ -10,6 +10,45 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.14.0] - 2026-07-09
+
+Switchboard 1.14.0 turns Docs into a richer local runbook hub, makes the Home
+screen better at explaining what needs attention, and tightens command safety
+around imports, AI access, and privileged launchd services.
+
+### Added
+
+- **Runbook-style Docs** — registered docs now build a richer local index with
+  folder filters, related-document suggestions, Mermaid diagram rendering, image
+  support, safe attachment opening, and better deep links.
+- **Workspaces view** — Home can group services into workspace-oriented rows so
+  it is easier to see which local projects are active, noisy, or waiting.
+- **Safer sensitive commands** — individual commands can now force output
+  redaction, and Switchboard recognizes more common secret shapes before showing
+  command output in app surfaces or AI results.
+
+### Changed
+
+- **Clearer attention queue** — Home now explains more service states directly,
+  including why a service needs attention and which action is most relevant.
+- **Stricter command imports** — imported command bundles are checked against
+  the same runnability rules Switchboard uses when launching actions, so refused
+  shell/script/relative-path forms are blocked earlier.
+- **More honest launchd controls** — system services that require elevated
+  launchd access now show as privileged instead of appearing fully manageable.
+- **Richer AI context for Docs and exposure** — AI clients can receive better
+  runbook-hub metadata, filtering, related-doc hints, and exposure
+  recommendations when the selected MCP profile allows it.
+
+### Fixed
+
+- **More resilient config loading** — malformed service or command entries no
+  longer blank the whole setup at startup; Switchboard keeps the valid entries
+  available and reports what needs repair.
+- **Cleaner crash and observer triage** — repeated crash findings are grouped
+  more clearly, and observer prompts now name only the actions available in the
+  current profile.
+
 ## [1.13.0] - 2026-07-07
 
 Switchboard 1.13.0 makes the app quieter in the background, easier to recover
