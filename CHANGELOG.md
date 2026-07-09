@@ -10,6 +10,19 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.15.0] - 2026-07-09
+
+Switchboard 1.15.0 makes notifications actually useful — clicking one takes
+you straight to what changed.
+
+### Added
+
+- **Clickable notifications** — native and in-app notifications now jump
+  straight to the relevant uptime monitor, numeric card, port, or log view
+  instead of just showing an alert.
+- **Crash report shortcuts** — crash notifications and the System Logs view
+  now let you open the actual crash report in one click.
+
 ## [1.14.0] - 2026-07-09
 
 Switchboard 1.14.0 turns Docs into a richer local runbook hub, makes the Home
