@@ -29,17 +29,13 @@ Website screenshots live in `assets/screenshots/`. Each capture is stored as a
 real PNG source plus a WebP sibling used by the landing pages through
 `<picture>`:
 
-| File                         | Use                                      |
-| ---------------------------- | ---------------------------------------- |
-| `services-dashboard.webp`    | Hero product screenshot                  |
-| `install-dmg.webp`           | First-time install screenshot            |
-| `observer-inbox.webp`        | Screenshot gallery: discovered services  |
-| `ports-inspector.webp`       | Screenshot gallery: port/process view    |
-| `logs-viewer.webp`           | Screenshot gallery: unified logs         |
-| `detect-services.webp`       | Screenshot gallery: reviewed detection   |
-| `activity.webp`              | Supporting/docs screenshot               |
-| `new-service.webp`           | Supporting/docs screenshot               |
-| `service-detail.webp`        | Supporting/docs screenshot               |
+| File                      | Use                                     |
+| ------------------------- | --------------------------------------- |
+| `services-dashboard.webp` | Hero product screenshot                 |
+| `install-dmg.webp`        | First-time install screenshot           |
+| `observer-inbox.webp`     | Screenshot gallery: discovered services |
+| `ports-inspector.webp`    | Screenshot gallery: port/process view   |
+| `logs-viewer.webp`        | Screenshot gallery: unified logs        |
 
 Regenerate from the PNG sources after recapturing:
 

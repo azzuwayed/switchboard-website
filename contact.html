@@ -6,7 +6,7 @@
     <title>Switchboard — Contact</title>
     <meta
       name="description"
-      content="Get help with Switchboard — licensing, billing, or general questions."
+      content="Get Switchboard help through private account support or send a general guest message."
     />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
     <link
@@ -16,12 +16,22 @@
       href="assets/icon-128.png"
     />
     <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
-    <link rel="stylesheet" href="style.css?v=ae27d3deb2" />
-    <script
-      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-      async
-      defer
-    ></script>
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://switchboard.azzuwayed.com/contact.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="ar"
+      href="https://switchboard.azzuwayed.com/ar/contact.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://switchboard.azzuwayed.com/contact.html"
+    />
+    <link rel="stylesheet" href="style.css?v=9336f87a5c" />
     <style>
       .result-card {
         max-width: 560px;
@@ -44,7 +54,6 @@
         min-height: 140px;
         resize: vertical;
       }
-      /* Honeypot: kept in the DOM and focusable by bots, hidden from humans and AT. */
       .hp-field {
         position: absolute;
         left: -9999px;
@@ -57,9 +66,6 @@
         opacity: 0.85;
         margin-top: 18px;
         line-height: 1.5;
-      }
-      .cf-turnstile {
-        margin: 4px 0 14px;
       }
       [hidden] {
         display: none !important;
@@ -86,6 +92,7 @@
           <a href="./#use-cases">Use cases</a>
           <a href="./#pricing">Pricing</a>
           <a href="./#install">Install</a>
+          <a href="https://azzuwayed.com/en/account">Account</a>
           <a class="lang-switch" href="ar/contact.html" hreflang="ar" lang="ar"
             >العربية</a
           >
@@ -99,15 +106,21 @@
           <p class="eyebrow">Contact</p>
           <h1>Get in touch</h1>
           <p class="lede">
-            Questions about licensing, billing, or anything else? Send a message
-            and we'll reply by email. For bug reports, please use
+            For billing, paid-access recovery, connected-Mac help, or a bug,
+            sign in for a private priority support thread. You can also use
+            <strong>Send Feedback</strong> inside Switchboard so your version
+            and selected diagnostics ride along automatically.
+          </p>
+          <p>
             <a
-              href="https://github.com/azzuwayed/switchboard-website/issues"
-              rel="noopener"
-              target="_blank"
-              >GitHub Issues</a
+              class="btn btn-secondary"
+              href="https://azzuwayed.com/en/account/support/new"
+              >Open priority support</a
             >
-            so the build version and steps stay together.
+          </p>
+          <p class="how-to">
+            Cannot sign in, or have a general question? Send a guest message
+            below and we'll reply by email.
           </p>
 
           <div class="result-card">
@@ -119,6 +132,7 @@
                   name="name"
                   type="text"
                   autocomplete="name"
+                  maxlength="200"
                   required
                 />
               </div>
@@ -129,17 +143,20 @@
                   name="email"
                   type="email"
                   autocomplete="email"
+                  maxlength="320"
                   required
                 />
               </div>
               <div class="checkout-field">
                 <label for="category">Topic</label>
                 <select id="category" name="category" required>
-                  <option value="general">General question</option>
-                  <option value="license">License / activation</option>
-                  <option value="billing">Billing / payment</option>
-                  <option value="bug">Bug report</option>
-                  <option value="other">Other</option>
+                  <option value="General question">General question</option>
+                  <option value="License / activation">
+                    License / activation
+                  </option>
+                  <option value="Billing / payment">Billing / payment</option>
+                  <option value="Bug report">Bug report</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
               <div class="checkout-field">
@@ -149,28 +166,20 @@
                   name="message"
                   required
                   minlength="10"
-                  maxlength="5000"
+                  maxlength="4800"
                 ></textarea>
               </div>
 
-              <!-- Honeypot: real visitors never fill this; bots that do are dropped. -->
               <div class="hp-field" aria-hidden="true">
-                <label for="company">Company</label>
+                <label for="company_website">Company website</label>
                 <input
-                  id="company"
-                  name="company"
+                  id="company_website"
+                  name="company_website"
                   type="text"
                   tabindex="-1"
                   autocomplete="off"
                 />
               </div>
-
-              <!-- Cloudflare Turnstile SITE key (public). Paired with the
-                   TURNSTILE_SECRET worker secret. -->
-              <div
-                class="cf-turnstile"
-                data-sitekey="0x4AAAAAADhMJv8Bncc-4gNJ"
-              ></div>
 
               <button class="btn btn-primary" id="contact-btn" type="submit">
                 <span id="contact-btn-label">Send message</span>
@@ -183,10 +192,17 @@
               ></p>
             </form>
 
-            <div id="done-section" hidden>
+            <div
+              id="done-section"
+              role="status"
+              aria-live="polite"
+              tabindex="-1"
+              hidden
+            >
               <p style="font-size: 15px; margin: 0">
                 Thanks — your message is on its way.
               </p>
+              <p class="how-to" id="done-reference"></p>
               <p class="how-to">
                 We'll reply to the email you gave us. You can close this page.
               </p>
@@ -211,74 +227,62 @@
         <nav class="footer-nav" aria-label="Footer">
           <a href="./#pricing">Pricing</a>
           <a href="privacy.html">Privacy</a>
-          <a href="recover.html">Recover key</a>
+          <a href="https://azzuwayed.com/en/account">Account</a>
         </nav>
       </div>
     </footer>
 
     <script>
-      const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
+      const CONTACT_API = "https://azzuwayed.com/api/v1/contact";
 
       const form = document.getElementById("contact-form");
       const btn = document.getElementById("contact-btn");
       const btnLabel = document.getElementById("contact-btn-label");
       const errorEl = document.getElementById("error");
       const doneSection = document.getElementById("done-section");
+      const doneReference = document.getElementById("done-reference");
 
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorEl.textContent = "";
 
         const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
+        const emailInput = document.getElementById("email");
+        const email = emailInput.value.trim();
         const category = document.getElementById("category").value;
         const message = document.getElementById("message").value.trim();
-        const company = document.getElementById("company").value;
-        if (!name || !email || message.length < 10) {
+        const companyWebsite = document.getElementById("company_website").value;
+        if (!name || !emailInput.validity.valid || message.length < 10) {
           errorEl.textContent =
             "Please add your name, email, and a short message.";
           return;
         }
 
-        // Turnstile renders a hidden input named cf-turnstile-response; read it
-        // (or the JS API) so we can send the token to the worker.
-        const tokenField = form.querySelector('[name="cf-turnstile-response"]');
-        const turnstileToken =
-          (tokenField && tokenField.value) ||
-          (window.turnstile && window.turnstile.getResponse()) ||
-          "";
-
         btn.disabled = true;
         btnLabel.textContent = "Sending…";
         try {
-          const res = await fetch(`${LICENSE_API}/api/contact`, {
+          const res = await fetch(CONTACT_API, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               name,
               email,
-              category,
-              message,
-              company,
-              turnstileToken,
+              message: `[${category}] ${message}`,
+              locale: "en",
+              company_website: companyWebsite,
             }),
           });
           const data = await res.json().catch(() => ({}));
-          if (res.ok && data.ok) {
+          const reference =
+            typeof data.reference === "string" ? data.reference.trim() : "";
+          if (res.status === 201 && data.status === "sent" && reference) {
+            doneReference.textContent = `Reference: ${reference}`;
             form.hidden = true;
             doneSection.hidden = false;
+            doneSection.focus();
             return;
           }
-          if (data.code === "CAPTCHA_FAILED") {
-            errorEl.textContent =
-              "Please complete the verification and try again.";
-          } else if (data.code === "RATE_LIMITED") {
-            errorEl.textContent =
-              "Too many messages — please wait a minute and retry.";
-          } else {
-            errorEl.textContent = "Please check your details and try again.";
-          }
-          if (window.turnstile) window.turnstile.reset();
+          errorEl.textContent = "Please check your details and try again.";
         } catch {
           errorEl.textContent = "Something went wrong. Please try again.";
         } finally {

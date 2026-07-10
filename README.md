@@ -2,7 +2,7 @@
 
 **The local service monitor for Mac developers.** One menu-bar app for forgotten dev servers, Homebrew services, Docker containers, launchd agents, HTTP endpoints, local AI tools, ports, and logs.
 
-[**Download for macOS →**](https://switchboard.azzuwayed.com/) · [Changelog](https://github.com/azzuwayed/switchboard-website/releases) · [Support](https://github.com/azzuwayed/switchboard-website/issues)
+[**Download for macOS →**](https://switchboard.azzuwayed.com/) · [Changelog](https://github.com/azzuwayed/switchboard-website/releases) · [Support](https://switchboard.azzuwayed.com/contact.html)
 
 ---
 
@@ -52,9 +52,23 @@ Activity, Docs, Observer, Ports, and Maintenance. Fresh installs get a 7-day
 full-feature trial, then return to free use. A Switchboard Pro license
 ($39, with promo codes from time to time) unlocks the paid tools — Stream,
 System Logs, Resources, and MCP — and activates up to 3 Macs. See
-[pricing](https://switchboard.azzuwayed.com/pricing.html).
+[pricing](https://azzuwayed.com/en/products/switchboard).
+
+Free use needs no account. Purchasing Pro requires an azzuwayed.com account,
+which provides billing and access history, purchase recovery, connected-Mac
+help, and private priority support. Sign in inside Switchboard to claim paid
+access, or activate manually with the emailed license key.
 
 ## Stay in the loop
 
 - **Releases** — [Changelog](https://github.com/azzuwayed/switchboard-website/releases). The app also checks once a day and shows an in-app banner when a new release is available.
-- **Bugs and ideas** — [Issues](https://github.com/azzuwayed/switchboard-website/issues).
+- **Bugs and ideas** — use **Send Feedback** inside Switchboard, open
+  [private account support](https://azzuwayed.com/en/account/support/new), or
+  use the [guest contact form](https://switchboard.azzuwayed.com/contact.html).
+
+## Website development
+
+This is a static GitHub Pages site. Install its pinned development dependency
+with `pnpm install --frozen-lockfile`, then run `pnpm check` before committing.
+The gate checks formatting, the stylesheet cache key, local links and assets,
+localized account handoffs, contact-form contracts, and retired references.

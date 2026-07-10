@@ -70,9 +70,7 @@
       hreflang="x-default"
       href="https://switchboard.azzuwayed.com/"
     />
-    <link rel="stylesheet" href="style.css?v=ae27d3deb2" />
-    <script src="promo-banner.js" defer></script>
-    <script src="pricing.js" defer></script>
+    <link rel="stylesheet" href="style.css?v=9336f87a5c" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -119,6 +117,7 @@
           <a href="#use-cases">Use cases</a>
           <a href="#pricing">Pricing</a>
           <a href="#install">Install</a>
+          <a href="https://azzuwayed.com/en/account">Account</a>
           <a class="lang-switch" href="ar/" hreflang="ar" lang="ar">العربية</a>
         </nav>
       </div>
@@ -870,7 +869,8 @@
                 </p>
                 <p class="price-fit">
                   AI-dev command center mode. No subscription, ever. Includes
-                  all Switchboard 1.x updates and support for at least 2 years.
+                  all Switchboard 1.x updates and account-backed support for at
+                  least 2 years.
                 </p>
               </div>
               <ul class="price-features">
@@ -891,11 +891,19 @@
                 </li>
                 <li>System Logs — crash reports and machine log triage</li>
                 <li>
+                  Account experience — billing history, purchase recovery,
+                  paid-access claiming, connected-Mac help, and private priority
+                  support
+                </li>
+                <li>
                   Switchboard 1.x updates and support for at least 2 years
                 </li>
               </ul>
-              <a class="btn btn-primary" id="buy-cta" href="checkout.html"
-                >Get Switchboard Pro</a
+              <a
+                class="btn btn-primary"
+                id="buy-cta"
+                href="https://azzuwayed.com/en/products/switchboard"
+                >Sign in to get Switchboard Pro</a
               >
               <p
                 class="pricing-note"
@@ -913,20 +921,22 @@
                 A Switchboard Pro license is
                 <span data-sb-price="usd">$39</span>, charged in SAR through
                 Paylink — one-time, no subscription. Got a promo code? Enter it
-                at checkout to get the discount. You can also buy with your
+                at checkout to get the discount. Purchase requires an
                 azzuwayed.com account at
-                <a href="https://azzuwayed.com/products/switchboard"
+                <a href="https://azzuwayed.com/en/products/switchboard"
                   >azzuwayed.com</a
                 >
-                — the key is emailed once payment is confirmed.
+                — your billing and access history stay with your account, and
+                the key is emailed once payment is confirmed.
               </p>
             </div>
             <div class="pricing-note-card">
-              <strong>No account in the app</strong>
+              <strong>One account for customer care</strong>
               <p>
-                Activation uses a license key only — the app never asks you to
-                sign up. New installs include a 7-day full-feature trial, then
-                return to Free.
+                Free use still needs no account. Sign in to buy Pro, claim paid
+                access inside Switchboard, review billing, recover a purchase,
+                get help with connected Macs, and use private priority support.
+                Manual license-key activation remains available.
               </p>
             </div>
             <div class="pricing-note-card">
@@ -1053,30 +1063,17 @@
             <li>Your configuration and logs stay on your Mac.</li>
             <li>No arbitrary shell from the UI or from MCP clients.</li>
             <li>
-              The webview sends only <code>serviceId</code>,
-              <code>action</code>, and explicit confirmation state.
+              Service actions use reviewed local command definitions. Risky,
+              imported, or changed actions require your review before they can
+              run.
             </li>
             <li>
-              Rust maps actions to exact allowlisted <code>cmd</code> +
-              <code>args</code> definitions.
+              AI clients connected through MCP get the same structured actions
+              and safeguards as the app; they cannot execute arbitrary commands.
             </li>
             <li>
-              Commands run through <code>tokio::process::Command</code>, never
-              <code>sh -c</code>.
-            </li>
-            <li>
-              External AI clients (MCP) are treated as the user: they can use
-              structured service actions and read local context, but cannot
-              execute arbitrary commands or bypass blocked patterns.
-            </li>
-            <li>
-              MCP uses a private Unix socket under the app config dir — not a
-              network port. No external client can reach it.
-            </li>
-            <li>Every MCP action is tagged in the Activity log.</li>
-            <li>
-              Imported commands are previewed command-by-command before they can
-              run. New or changed ones stay unapproved until reviewed.
+              MCP stays local to your Mac and does not open a network port. Its
+              actions appear in Switchboard's Activity history.
             </li>
             <li>
               Command output is bounded; secret redaction defaults to
@@ -1123,8 +1120,9 @@
               <div class="faq-body">
                 <p>
                   A <strong>Switchboard Pro license</strong> activates up to 3
-                  Macs at once. Activation doesn't need an account — it's just
-                  your license key plus the Mac it runs on.
+                  Macs at once. After signing in, Switchboard can claim the
+                  purchase from your account; you can also activate manually
+                  with the emailed license key.
                 </p>
               </div>
             </details>
@@ -1140,10 +1138,12 @@
                   Then activate on the new Mac.
                 </p>
                 <p>
-                  If you can't get to that Mac, use the
-                  <a href="reset.html">Reset my devices</a> page — enter your
-                  email and order number and it frees all your slots so you can
-                  re-activate on the Mac you're using now.
+                  If you can't get to that Mac, sign in and
+                  <a href="https://azzuwayed.com/en/account/support/new"
+                    >open a private support request</a
+                  >
+                  so the connected-device slots can be verified and reset
+                  safely.
                 </p>
               </div>
             </details>
@@ -1154,9 +1154,12 @@
                 <p>
                   Deactivate on the old Mac (<strong
                     >Settings → License &amp; Access → Deactivate</strong
-                  >), or use <a href="reset.html">Reset my devices</a> if you
-                  can't reach it, then enter your key on the new Mac. Lost the
-                  key? <a href="recover.html">Recover it here</a>.
+                  >), then sign in inside Switchboard on the new Mac and claim
+                  your paid access. You can also enter the emailed key manually.
+                  If the old Mac is unavailable, use
+                  <a href="https://azzuwayed.com/en/account/support/new"
+                    >private account support</a
+                  >.
                 </p>
               </div>
             </details>
@@ -1165,16 +1168,14 @@
               <summary>How do I get help or reach support?</summary>
               <div class="faq-body">
                 <p>
-                  For licensing, billing, or general questions, use the
-                  <a href="contact.html">Contact</a> page — we reply by email.
-                  For bug reports, open an issue on
-                  <a
-                    href="https://github.com/azzuwayed/switchboard-website/issues"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    >GitHub Issues</a
-                  >
-                  so the build version and steps stay together.
+                  Pro customers can sign in for
+                  <a href="https://azzuwayed.com/en/account/support/new"
+                    >private priority support</a
+                  >. For bugs and suggestions,
+                  <strong>Send Feedback</strong> inside Switchboard includes the
+                  app version and only the diagnostics you choose. If you cannot
+                  sign in or have a general question, use the
+                  <a href="contact.html">guest contact form</a>.
                 </p>
               </div>
             </details>
@@ -1256,15 +1257,16 @@
                   and launch it — free use needs nothing to sign up for.
                 </p>
                 <p>
-                  If you buy the Switchboard Pro license, activation is by
-                  license key only (no in-app account): paste the key into
+                  Buying Switchboard Pro requires an azzuwayed.com account. That
+                  account keeps your billing and access history together and is
+                  used for purchase recovery, connected-Mac help, and private
+                  priority support. After buying, sign in inside Switchboard to
+                  claim paid access, or paste the emailed key into
                   <em>Settings → License &amp; Access</em>. One license
-                  activates up to 3 Macs. Buying through
-                  <a href="https://azzuwayed.com/products/switchboard"
+                  activates up to 3 Macs. Buy through
+                  <a href="https://azzuwayed.com/en/products/switchboard"
                     >azzuwayed.com</a
-                  >
-                  uses your azzuwayed.com account for the order and receipt —
-                  the app itself still activates with the key alone.
+                  >.
                 </p>
               </div>
             </details>
@@ -1365,14 +1367,13 @@
               <summary>Where do I report bugs or request features?</summary>
               <div class="faq-body">
                 <p>
-                  Open an issue on
-                  <a
-                    href="https://github.com/azzuwayed/switchboard-website/issues"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    >GitHub Issues</a
-                  >. Include the build version (Switchboard → About) and a short
-                  reproduction when you can.
+                  Use <strong>Send Feedback</strong> inside Switchboard to open
+                  a private support thread with your app version and the
+                  diagnostics you choose. You can also
+                  <a href="https://azzuwayed.com/en/account/support/new"
+                    >open priority support on your account</a
+                  >, or use the <a href="contact.html">guest contact form</a> if
+                  you cannot sign in.
                 </p>
               </div>
             </details>
@@ -1398,18 +1399,14 @@
           <a href="privacy.html">Privacy</a>
           <a href="#faq">FAQ</a>
           <a href="contact.html">Contact</a>
+          <a href="https://azzuwayed.com/en/account">Account</a>
           <a
             href="https://github.com/azzuwayed/switchboard-website/releases"
             rel="noopener noreferrer"
             target="_blank"
             >Changelog</a
           >
-          <a
-            href="https://github.com/azzuwayed/switchboard-website/issues"
-            rel="noopener noreferrer"
-            target="_blank"
-            >Support</a
-          >
+          <a href="contact.html">Support</a>
         </nav>
       </div>
     </footer>

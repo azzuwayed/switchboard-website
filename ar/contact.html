@@ -6,7 +6,7 @@
     <title>Switchboard — تواصل معنا</title>
     <meta
       name="description"
-      content="احصل على المساعدة في Switchboard — الترخيص أو الدفع أو أي استفسار عام."
+      content="احصل على دعم Switchboard عبر حسابك الخاص أو أرسل رسالة عامة كزائر."
     />
     <link
       rel="icon"
@@ -25,12 +25,22 @@
       sizes="256x256"
       href="../assets/icon-256.png"
     />
-    <link rel="stylesheet" href="../style.css?v=ae27d3deb2" />
-    <script
-      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-      async
-      defer
-    ></script>
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://switchboard.azzuwayed.com/contact.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="ar"
+      href="https://switchboard.azzuwayed.com/ar/contact.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://switchboard.azzuwayed.com/contact.html"
+    />
+    <link rel="stylesheet" href="../style.css?v=9336f87a5c" />
     <style>
       .result-card {
         max-width: 560px;
@@ -66,9 +76,6 @@
         margin-top: 18px;
         line-height: 1.6;
       }
-      .cf-turnstile {
-        margin: 4px 0 14px;
-      }
       [hidden] {
         display: none !important;
       }
@@ -94,6 +101,7 @@
           <a href="./#use-cases">متى أستخدمه</a>
           <a href="./#pricing">الأسعار</a>
           <a href="./#install">التثبيت</a>
+          <a href="https://azzuwayed.com/ar/account">الحساب</a>
           <a class="lang-switch" href="../contact.html" hreflang="en" lang="en"
             >English</a
           >
@@ -107,15 +115,21 @@
           <p class="eyebrow">تواصل معنا</p>
           <h1>تواصل معنا</h1>
           <p class="lede">
-            لديك سؤال عن الترخيص أو الدفع أو أي شيء آخر؟ أرسل رسالة وسنرد عليك
-            عبر البريد الإلكتروني. للإبلاغ عن خلل، استخدم
+            للفوترة أو استعادة الوصول المدفوع أو المساعدة في أجهزة Mac المرتبطة
+            أو الإبلاغ عن خلل، سجّل الدخول وافتح محادثة دعم أولوية خاصة. ويمكنك
+            أيضاً استخدام <strong>إرسال ملاحظات</strong> داخل Switchboard حتى
+            تُرفق نسخة التطبيق والتشخيصات التي تختارها تلقائياً.
+          </p>
+          <p>
             <a
-              href="https://github.com/azzuwayed/switchboard-website/issues"
-              rel="noopener"
-              target="_blank"
-              >GitHub Issues</a
+              class="btn btn-secondary"
+              href="https://azzuwayed.com/ar/account/support/new"
+              >فتح دعم الأولوية</a
             >
-            حتى تبقى نسخة البناء وخطوات التكرار معاً.
+          </p>
+          <p class="how-to">
+            لا تستطيع تسجيل الدخول، أو لديك سؤال عام؟ أرسل رسالة كزائر أدناه
+            وسنرد عليك عبر البريد الإلكتروني.
           </p>
 
           <div class="result-card">
@@ -127,6 +141,7 @@
                   name="name"
                   type="text"
                   autocomplete="name"
+                  maxlength="200"
                   required
                 />
               </div>
@@ -138,17 +153,18 @@
                   type="email"
                   autocomplete="email"
                   dir="ltr"
+                  maxlength="320"
                   required
                 />
               </div>
               <div class="checkout-field">
                 <label for="category">الموضوع</label>
                 <select id="category" name="category" required>
-                  <option value="general">سؤال عام</option>
-                  <option value="license">الترخيص / التفعيل</option>
-                  <option value="billing">الدفع / الفوترة</option>
-                  <option value="bug">الإبلاغ عن خلل</option>
-                  <option value="other">أخرى</option>
+                  <option value="سؤال عام">سؤال عام</option>
+                  <option value="الترخيص / التفعيل">الترخيص / التفعيل</option>
+                  <option value="الدفع / الفوترة">الدفع / الفوترة</option>
+                  <option value="الإبلاغ عن خلل">الإبلاغ عن خلل</option>
+                  <option value="أخرى">أخرى</option>
                 </select>
               </div>
               <div class="checkout-field">
@@ -158,28 +174,20 @@
                   name="message"
                   required
                   minlength="10"
-                  maxlength="5000"
+                  maxlength="4800"
                 ></textarea>
               </div>
 
-              <!-- حقل فخّ للبريد المزعج: لا يملؤه الزوّار الحقيقيون. -->
               <div class="hp-field" aria-hidden="true">
-                <label for="company">الشركة</label>
+                <label for="company_website">موقع الشركة</label>
                 <input
-                  id="company"
-                  name="company"
+                  id="company_website"
+                  name="company_website"
                   type="text"
                   tabindex="-1"
                   autocomplete="off"
                 />
               </div>
-
-              <!-- مفتاح موقع Cloudflare Turnstile (عام). مقترن بسرّ الـ worker
-                   TURNSTILE_SECRET. -->
-              <div
-                class="cf-turnstile"
-                data-sitekey="0x4AAAAAADhMJv8Bncc-4gNJ"
-              ></div>
 
               <button class="btn btn-primary" id="contact-btn" type="submit">
                 <span id="contact-btn-label">أرسل</span>
@@ -192,10 +200,17 @@
               ></p>
             </form>
 
-            <div id="done-section" hidden>
+            <div
+              id="done-section"
+              role="status"
+              aria-live="polite"
+              tabindex="-1"
+              hidden
+            >
               <p style="font-size: 15px; margin: 0">
                 شكراً — رسالتك في طريقها إلينا.
               </p>
+              <p class="how-to" id="done-reference" dir="ltr"></p>
               <p class="how-to">
                 سنرد على البريد الإلكتروني الذي أدخلته. يمكنك إغلاق هذه الصفحة.
               </p>
@@ -220,70 +235,61 @@
         <nav class="footer-nav" aria-label="تذييل">
           <a href="./#pricing">الأسعار</a>
           <a href="privacy.html">الخصوصية</a>
-          <a href="recover.html">استعادة المفتاح</a>
+          <a href="https://azzuwayed.com/ar/account">الحساب</a>
         </nav>
       </div>
     </footer>
 
     <script>
-      const LICENSE_API = "https://switchboard-licenses.azzuwayed.workers.dev";
+      const CONTACT_API = "https://azzuwayed.com/api/v1/contact";
 
       const form = document.getElementById("contact-form");
       const btn = document.getElementById("contact-btn");
       const btnLabel = document.getElementById("contact-btn-label");
       const errorEl = document.getElementById("error");
       const doneSection = document.getElementById("done-section");
+      const doneReference = document.getElementById("done-reference");
 
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorEl.textContent = "";
 
         const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
+        const emailInput = document.getElementById("email");
+        const email = emailInput.value.trim();
         const category = document.getElementById("category").value;
         const message = document.getElementById("message").value.trim();
-        const company = document.getElementById("company").value;
-        if (!name || !email || message.length < 10) {
-          errorEl.textContent =
-            "أضف اسمك وبريدك الإلكتروني ورسالة قصيرة.";
+        const companyWebsite = document.getElementById("company_website").value;
+        if (!name || !emailInput.validity.valid || message.length < 10) {
+          errorEl.textContent = "أضف اسمك وبريدك الإلكتروني ورسالة قصيرة.";
           return;
         }
-
-        const tokenField = form.querySelector('[name="cf-turnstile-response"]');
-        const turnstileToken =
-          (tokenField && tokenField.value) ||
-          (window.turnstile && window.turnstile.getResponse()) ||
-          "";
 
         btn.disabled = true;
         btnLabel.textContent = "جارٍ الإرسال…";
         try {
-          const res = await fetch(`${LICENSE_API}/api/contact`, {
+          const res = await fetch(CONTACT_API, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               name,
               email,
-              category,
-              message,
-              company,
-              turnstileToken,
+              message: `[${category}] ${message}`,
+              locale: "ar",
+              company_website: companyWebsite,
             }),
           });
           const data = await res.json().catch(() => ({}));
-          if (res.ok && data.ok) {
+          const reference =
+            typeof data.reference === "string" ? data.reference.trim() : "";
+          if (res.status === 201 && data.status === "sent" && reference) {
+            doneReference.textContent = `المرجع: ${reference}`;
             form.hidden = true;
             doneSection.hidden = false;
+            doneSection.focus();
             return;
           }
-          if (data.code === "CAPTCHA_FAILED") {
-            errorEl.textContent = "أكمل التحقق ثم حاول مرة أخرى.";
-          } else if (data.code === "RATE_LIMITED") {
-            errorEl.textContent = "رسائل كثيرة — انتظر دقيقة ثم أعد المحاولة.";
-          } else {
-            errorEl.textContent = "تحقق من بياناتك ثم حاول مرة أخرى.";
-          }
-          if (window.turnstile) window.turnstile.reset();
+          errorEl.textContent = "تحقق من بياناتك ثم حاول مرة أخرى.";
         } catch {
           errorEl.textContent = "حدث خطأ ما. حاول مرة أخرى.";
         } finally {

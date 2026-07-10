@@ -1,0 +1,14 @@
+{
+  "name": "switchboard-website",
+  "private": true,
+  "packageManager": "pnpm@11.8.0",
+  "scripts": {
+    "check": "pnpm check:format && pnpm check:site",
+    "check:format": "prettier --check \"*.html\" \"ar/*.html\" \"*.md\" \"assets/*.md\" \"scripts/*.mjs\" \"style.css\" \"*.json\"",
+    "check:site": "node scripts/bump-css-cache.mjs --check && node scripts/check-site.mjs",
+    "format": "prettier --write \"*.html\" \"ar/*.html\" \"*.md\" \"assets/*.md\" \"scripts/*.mjs\" \"style.css\" \"*.json\""
+  },
+  "devDependencies": {
+    "prettier": "3.8.4"
+  }
+}

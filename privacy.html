@@ -6,7 +6,7 @@
     <title>Privacy &amp; trust — Switchboard by Azzuwayed</title>
     <meta
       name="description"
-      content="What Switchboard does and does not do with your data: local app data stays on your Mac; update checks are anonymous; purchases and license activation send only the details needed to process and deliver the license."
+      content="How Switchboard keeps app data local while account, purchase, licensing, and support requests use only the information needed to provide those services."
     />
     <meta
       property="og:title"
@@ -47,7 +47,7 @@
       hreflang="x-default"
       href="https://switchboard.azzuwayed.com/privacy.html"
     />
-    <link rel="stylesheet" href="style.css?v=ae27d3deb2" />
+    <link rel="stylesheet" href="style.css?v=9336f87a5c" />
     <style>
       .doc-hero {
         padding: 64px 0 32px;
@@ -118,6 +118,7 @@
           <a href="./#use-cases">Use cases</a>
           <a href="./#pricing">Pricing</a>
           <a href="./#install">Install</a>
+          <a href="https://azzuwayed.com/en/account">Account</a>
           <a class="lang-switch" href="ar/privacy.html" hreflang="ar" lang="ar"
             >العربية</a
           >
@@ -133,11 +134,12 @@
           <p class="lede">
             Switchboard is a local-first macOS utility with no background HTTP
             server. Its update-count telemetry is anonymous and opt-out, while
-            license purchase, email delivery, and activation use only the
-            checkout and device details needed to process the license. This page
-            describes what the app and purchase flow read, write, and send.
+            optional account sign-in, purchases, licensing, and support use only
+            the information needed to provide those services. This page
+            describes what the app, account experience, and purchase flow read,
+            write, and send.
           </p>
-          <p class="doc-meta">Last updated: 2026-06-09.</p>
+          <p class="doc-meta">Last updated: 2026-07-13.</p>
         </div>
       </section>
 
@@ -152,29 +154,26 @@
               Privacy.
             </li>
             <li>
-              No user account or signup. Free use needs no license key; a
-              Switchboard Pro license activates by key only.
+              Free use needs no account or license key. An azzuwayed.com account
+              is required to buy Switchboard Pro and use account-backed billing,
+              purchase recovery, paid-access claiming, connected-Mac help, and
+              private priority support.
             </li>
             <li>No background server, no listening network port.</li>
             <li>
-              The installed app's routine outbound requests are update checks
-              and, for Switchboard Pro licenses, license activation/validation.
-              You can turn off update counting, update checks, or both.
+              The installed app contacts only the services needed for updates,
+              optional account sign-in, entitlement and license operations, and
+              support actions you start.
             </li>
             <li>
               All configuration, logs, and approval state are stored on your Mac
               under your home folder.
             </li>
             <li>
-              Buying a Switchboard Pro license on this website sends checkout
-              details to the license service, Paylink for card payments, and a
-              transactional email provider for order delivery.
-            </li>
-            <li>
-              Buying through azzuwayed.com instead keeps payment and order
-              records with your azzuwayed.com account; the license service
-              receives only what it needs to create and email your license
-              (name, email address, and an order reference).
+              Switchboard Pro purchases happen through your azzuwayed.com
+              account. Payment and order records stay with that account; the
+              license service receives only what it needs to issue, email,
+              activate, and validate the license.
             </li>
           </ul>
         </div>
@@ -184,19 +183,19 @@
         <div class="container">
           <h2>Buying and activating a license</h2>
           <p>
-            When you buy a Switchboard Pro license, the checkout form sends the
-            details needed to create and deliver the order: name, mobile number,
-            email address, locale, payment method, amount, and order references.
-            Card payments are completed on Paylink's hosted payment page. Bank
-            transfer orders stay pending until the transfer is confirmed.
+            Buying Switchboard Pro requires an azzuwayed.com account. Your
+            account keeps the identity, billing and access history, order
+            status, payment method, amount, locale, and order references needed
+            to complete and support the purchase. Card payments are completed on
+            Paylink's hosted payment page. Bank-transfer orders stay pending
+            until the transfer is confirmed.
           </p>
           <p>
-            Licenses can also be bought with an azzuwayed.com account at
-            azzuwayed.com/products/switchboard. For those orders, payment and
-            the order record live with your azzuwayed.com account under its own
-            privacy terms; the license service receives your name, email
-            address, and an order reference to create the license and email you
-            the key. Activation works the same either way.
+            After payment is confirmed, the license service receives your name,
+            email address, and an order reference so it can issue and email the
+            license. Sign in inside Switchboard to claim the paid access
+            associated with your account, or activate manually with the emailed
+            key.
           </p>
           <p>
             Transactional email is sent through an email service provider:
@@ -205,12 +204,12 @@
             and support, not marketing newsletters.
           </p>
           <p>
-            The license service keeps the order, license, email-delivery, and
-            activation records needed to deliver the license, support recovery
-            or refunds, and enforce the 3-Mac activation limit. Activating or
-            validating a Switchboard Pro license sends the license key and a
-            device hash to the license service. Your local services, logs, docs,
-            and command approvals are not sent.
+            The license service keeps the license, delivery, and activation
+            records needed to deliver paid access, support recovery or refunds,
+            and enforce the 3-Mac activation limit. Activating or validating a
+            Switchboard Pro license sends the license and a privacy-preserving
+            device identifier needed to manage that limit. Your local services,
+            logs, docs, and command approvals are not sent.
           </p>
         </div>
       </section>
@@ -220,18 +219,21 @@
           <h2>What the app does not do</h2>
           <ul>
             <li>
-              <strong>No crash reporting or behavioral tracking.</strong>
-              Switchboard does not send crash dumps, does not record which
-              features or services you use, attaches no user or machine
-              identifier, and uses no third-party analytics SDK. The one signal
-              it does send for update counting — an anonymous active-install
-              count — is described in <a href="#outbound">Outbound requests</a>
-              below.
+              <strong
+                >No automatic crash reporting or behavioral tracking.</strong
+              >
+              Switchboard does not send crash dumps automatically, does not
+              record which features or services you use, and uses no third-party
+              analytics SDK. A support report sends app/system metadata and only
+              the logs, service snapshot, or stack trace you explicitly select.
+              Anonymous update counting is described in
+              <a href="#outbound">Outbound requests</a> below.
             </li>
             <li>
-              <strong>No cloud sync of your data.</strong> Your configuration,
-              logs, and approval state stay on your Mac. The app does not upload
-              them anywhere.
+              <strong>No cloud sync of your app data.</strong> Your
+              configuration, logs, docs, and approval state stay on your Mac.
+              They are not synchronized to your account; selected support
+              attachments are sent only when you submit them.
             </li>
             <li>
               <strong>No background HTTP server.</strong> The app does not
@@ -265,36 +267,21 @@
               >~/Library/Application Support/com.azzuwayed.switchboard/</code
             >
           </p>
-          <p>That directory contains:</p>
-          <ul>
-            <li>
-              <code>services.yaml</code> — the services you have configured.
-            </li>
-            <li>
-              <code>commands.yaml</code> — the command definitions (allowlist)
-              behind each service action.
-            </li>
-            <li>
-              <code>settings.yaml</code> — app preferences (theme, language,
-              update-check toggle, poll intervals, autostart, etc.).
-            </li>
-            <li>
-              <code>approvals.json</code> — fingerprints of commands you have
-              approved to run.
-            </li>
-            <li>
-              <code>observer-state.json</code> — discovered services the
-              observer has remembered.
-            </li>
-            <li>
-              <code>activity.log</code> — local action log (start, stop,
-              restart, approval changes).
-            </li>
-            <li><code>backups/</code> — pre-write backups of the above.</li>
-          </ul>
           <p>
-            None of this leaves your Mac. There is no &ldquo;sync to
-            cloud&rdquo; setting because there is no cloud.
+            That directory contains your service configuration, local action
+            definitions, preferences, approval history, remembered Observer
+            findings, activity history, and automatic backups.
+          </p>
+          <p>
+            None of this is synchronized to your account. If you attach selected
+            diagnostics to a support report, only that submitted copy leaves the
+            Mac.
+          </p>
+          <p>
+            When you sign in, the long-lived account credential is stored in the
+            macOS Keychain rather than this folder. Short-lived access tokens
+            stay in memory. Signing out clears the local account session without
+            deleting your Switchboard configuration or license files.
           </p>
         </div>
       </section>
@@ -333,11 +320,25 @@
             or other local app data.
           </p>
           <p>
-            Website forms for key recovery, device reset, checkout, and contact
-            also call the license service. The contact form sends the name,
-            email address, topic, and message you enter so support can reply.
-            The contact form includes an abuse-prevention check, and support
-            replies are delivered through an email service provider.
+            If you choose to sign in, Switchboard opens the system browser for
+            azzuwayed.com authentication and uses the resulting account session
+            for entitlement checks, purchase claiming, and private support. The
+            app stores the refresh credential in the macOS Keychain and never
+            exposes tokens or license keys to its webview.
+          </p>
+          <p>
+            A signed-in support report sends its category, title, description,
+            app version, macOS version, selected language, and source. Recent
+            logs, cached service details, and a frontend stack trace are opt-in
+            attachments. Azzuwayed.com stores the resulting private ticket and
+            its replies on your account.
+          </p>
+          <p>
+            The website's guest contact form sends the name, email address,
+            locale, topic, and message you enter to azzuwayed.com so support can
+            reply. The form includes abuse-prevention controls. Purchase,
+            billing, recovery, connected-device help, and priority support
+            require signing in to your azzuwayed.com account.
           </p>
         </div>
       </section>
@@ -348,35 +349,22 @@
           <p>
             Switchboard manages local services by running real OS commands
             (Homebrew, Docker, launchctl, etc.). To keep that useful without
-            letting the UI become a remote shell, the boundary between webview
-            and operating system is intentionally narrow.
+            letting the interface become a remote shell, the boundary between
+            the visible app and operating system is intentionally narrow.
           </p>
           <ul>
             <li>
-              The webview sends only a <code>serviceId</code>, an
-              <code>action</code>, and explicit confirmation state.
+              The interface can request only a known action for the service you
+              selected; it cannot submit arbitrary shell text.
             </li>
             <li>
-              The Rust backend maps the action to an exact allowlisted
-              <code>cmd</code> + <code>args</code> definition. The webview
-              cannot pass an executable path, command string, environment
-              variable, or shell fragment.
+              The native app resolves that request to a reviewed local command
+              definition. Executable paths, arguments, and environment details
+              do not come from free-form interface input.
             </li>
             <li>
-              Every command runs through
-              <code>tokio::process::Command</code> with a sanitized environment
-              and a fixed <code>PATH</code> — never through <code>sh -c</code>.
-            </li>
-            <li>
-              Each command carries a risk level (safe, normal, destructive,
-              privileged, network-install). Anything above
-              <em>safe</em> requires an approval fingerprint, which is checked
-              against <code>approvals.json</code> before the command runs.
-            </li>
-            <li>
-              Imported templates and command definitions are previewed
-              command-by-command before they can run. New or changed definitions
-              stay <em>unapproved</em> until you review them.
+              Risky actions require confirmation. New, imported, or changed
+              command definitions must be reviewed before they can run.
             </li>
             <li>
               Command output is bounded; secret redaction defaults to
@@ -405,10 +393,10 @@
             and nothing on disk is replaced.
           </p>
           <p>
-            The private signing key never leaves a local keychain and CI secret
-            store. Release builds are also signed with an Apple Developer ID
-            certificate and notarized by Apple, so a freshly-installed update
-            opens normally.
+            The verification key bundled with Switchboard cannot create a valid
+            release signature. Release builds are also signed with an Apple
+            Developer ID certificate and notarized by Apple, so a
+            freshly-installed update opens normally.
           </p>
         </div>
       </section>
@@ -443,8 +431,9 @@
               >Abdullah Alzuwayed</a
             >, and the app itself is
             <em>&copy; 2026 Abdullah Alzuwayed. All rights reserved.</em>
-            Switchboard stays useful for free; Switchboard Pro licenses activate
-            by key and unlock the paid optional tools.
+            Switchboard stays useful for free without an account. Switchboard
+            Pro purchases use an azzuwayed.com account; paid access can be
+            claimed after sign-in or activated with the emailed key.
           </p>
         </div>
       </section>
@@ -456,8 +445,8 @@
             If a future release adds a new outbound request, a new on-disk
             artifact, or a new permission, this page is updated in the same
             release. The release&rsquo;s public changelog calls out the change.
-            Transactional purchase email may go only to customers who supplied
-            an email address during checkout.
+            Transactional purchase and support email goes only to the account or
+            contact address used for that request.
           </p>
         </div>
       </section>
@@ -467,7 +456,10 @@
           <h2>Contact</h2>
           <p>
             Questions or concerns about anything on this page? Use the
-            <a href="contact.html">contact form</a>.
+            <a href="contact.html">guest contact form</a>, or
+            <a href="https://azzuwayed.com/en/account/support/new"
+              >open private account support</a
+            >.
           </p>
         </div>
       </section>
@@ -489,18 +481,14 @@
           <a href="./#install">Install</a>
           <a href="./privacy.html">Privacy</a>
           <a href="./#faq">FAQ</a>
+          <a href="https://azzuwayed.com/en/account">Account</a>
           <a
             href="https://github.com/azzuwayed/switchboard-website/releases"
             rel="noopener"
             target="_blank"
             >Changelog</a
           >
-          <a
-            href="https://github.com/azzuwayed/switchboard-website/issues"
-            rel="noopener"
-            target="_blank"
-            >Support</a
-          >
+          <a href="contact.html">Support</a>
         </nav>
       </div>
     </footer>
