@@ -174,6 +174,36 @@ for (const [file, locale] of [
   }
 }
 
+const promoBanner = read(path.join(root, "promo-banner.js"));
+try {
+  new vm.Script(promoBanner, { filename: "promo-banner.js" });
+} catch (error) {
+  failures.push(`promo-banner.js: does not parse: ${error.message}`);
+}
+
+for (const [file, script] of [
+  ["index.html", "promo-banner.js"],
+  ["ar/index.html", "../promo-banner.js"],
+]) {
+  if (!read(path.join(root, file)).includes(`src="${script}"`)) {
+    failures.push(`${file}: featured-promo banner script is missing`);
+  }
+}
+
+for (const expected of [
+  "https://azzuwayed.com/api/v1/apps/switchboard/featured-promo",
+  "https://azzuwayed.com/en/products/switchboard",
+  "https://azzuwayed.com/ar/products/switchboard",
+  "encodeURIComponent(promo.code)",
+  "sb-promo-dismissed",
+]) {
+  if (!promoBanner.includes(expected)) {
+    failures.push(
+      `promo-banner.js: featured-promo integration is missing ${expected}`,
+    );
+  }
+}
+
 const activeCopy = [
   ...htmlFiles.map((file) => [relative(file), read(file)]),
   ["README.md", read(path.join(root, "README.md"))],
