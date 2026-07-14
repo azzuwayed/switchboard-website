@@ -10,6 +10,31 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.16.0] - 2026-07-14
+
+Switchboard 1.16.0 connects the app to your azzuwayed.com account, so a paid
+license activates itself — no key to copy, paste, or lose.
+
+### Added
+
+- **Sign in with your azzuwayed.com account** — sign-in opens in your browser
+  and hands back to the app; your session is stored in the macOS Keychain.
+- **One-click license claim** — if your account has Switchboard Pro, claim it
+  onto this Mac without typing a license key.
+- **Send Feedback files a real ticket** — signed-in reports become private
+  support tickets you can follow, with diagnostics attached only if you choose.
+
+### Changed
+
+- **One License & Access card** — account, license key, activated Macs,
+  purchase, recovery, and deactivation now live in a single place, and failed
+  claims explain exactly what went wrong and what to do next.
+
+### Fixed
+
+- License and claim errors now show a specific, actionable message instead of a
+  generic failure.
+
 ## [1.15.0] - 2026-07-09
 
 Switchboard 1.15.0 makes notifications actually useful — clicking one takes
