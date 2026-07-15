@@ -10,6 +10,30 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.17.0] - 2026-07-15
+
+Switchboard 1.17.0 stays quieter in the background, keeps live information
+fresher, and smooths out several dialogs and Numerics interactions.
+
+### Changed
+
+- **Lower background overhead with fresher live data** — Activity and service
+  counts update as changes arrive, while work that is not useful in a hidden
+  window pauses until Switchboard is visible again.
+- **More responsive large-log searches** — searching and filtering very large
+  log streams no longer blocks other interactions while results catch up.
+- **Clearer operational feedback** — empty, loading, copy, and error states are
+  more consistent, and failures during app-setting synchronization are shown
+  instead of disappearing silently.
+
+### Fixed
+
+- **Dialogs stay open around dropdowns** — choosing from a menu or Select inside
+  a dialog no longer dismisses the whole dialog, and the Numerics card editor
+  keeps a stable size when switching tabs.
+- **Numerics cards keep their shape while dragging** — mixed-size cards no
+  longer squash or stretch as they move between grid positions.
+
 ## [1.16.0] - 2026-07-14
 
 Switchboard 1.16.0 connects the app to your azzuwayed.com account, so a paid
