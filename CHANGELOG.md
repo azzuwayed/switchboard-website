@@ -10,6 +10,36 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.18.0] - 2026-07-17
+
+Switchboard 1.18.0 makes AI access a first-class part of the app, streamlines
+command approval review, and cuts background work across the main window.
+
+### Changed
+
+- **AI access has a dedicated home** — MCP now lives in permanent Overview and
+  Access views with guided client setup, a clear capability catalogue, and its
+  own activity history. Existing settings and configured clients continue to
+  work.
+- **Faster command review** — pending, approved, and combined views add focused
+  filtering, compact details, command diffs, friendlier service names, and
+  contextual approve or reject actions.
+- **Lighter, more responsive operation** — large Activity histories render only
+  what is visible, the main window uses native macOS chrome, English launches
+  without loading the Arabic catalogue, and shared live-data sources remove
+  duplicate background scans and refreshes.
+- **Safer AI-triggered maintenance** — app-wide data reset and settings-file
+  restore are now restricted to the Maintenance UI so an AI action cannot
+  disable its own active connection mid-operation.
+
+### Fixed
+
+- **Readable AI exposure totals** — capability token totals, visible and hidden
+  counts, and the largest contributor no longer disappear against the panel
+  background.
+- **More responsive Observer actions** — resolving a newly detected listener no
+  longer waits behind its process scan or reappears from stale scan results.
+
 ## [1.17.0] - 2026-07-15
 
 Switchboard 1.17.0 stays quieter in the background, keeps live information
