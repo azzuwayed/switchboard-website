@@ -189,6 +189,8 @@
                 />
               </div>
 
+              <div id="turnstile-slot"></div>
+
               <button class="btn btn-primary" id="contact-btn" type="submit">
                 <span id="contact-btn-label">أرسل</span>
               </button>
@@ -242,6 +244,11 @@
 
     <script>
       const CONTACT_API = "https://azzuwayed.com/api/v1/contact";
+      // Cloudflare Turnstile site key for the hub's `azzuwayed-public-forms`
+      // widget (azzuwayed.com root domain — this subdomain is covered).
+      // Leave empty until the widget exists; empty skips Turnstile and the
+      // hub accepts tokenless submissions during the rollout window only.
+      const TURNSTILE_SITE_KEY = "";
 
       const form = document.getElementById("contact-form");
       const btn = document.getElementById("contact-btn");
@@ -249,6 +256,50 @@
       const errorEl = document.getElementById("error");
       const doneSection = document.getElementById("done-section");
       const doneReference = document.getElementById("done-reference");
+
+      let turnstileWidgetId = null;
+      if (TURNSTILE_SITE_KEY) {
+        window.__renderTurnstile = () => {
+          turnstileWidgetId = window.turnstile.render(
+            document.getElementById("turnstile-slot"),
+            {
+              sitekey: TURNSTILE_SITE_KEY,
+              action: "contact_app",
+              language: "ar",
+              appearance: "interaction-only",
+            },
+          );
+        };
+        const turnstileScript = document.createElement("script");
+        turnstileScript.src =
+          "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=__renderTurnstile&render=explicit";
+        turnstileScript.async = true;
+        document.head.appendChild(turnstileScript);
+      }
+
+      // A fast submit must wait for the challenge instead of racing it —
+      // resolves with "" when Turnstile is disabled or the timeout elapses.
+      function waitForTurnstileToken(timeoutMs) {
+        return new Promise((resolve) => {
+          if (!TURNSTILE_SITE_KEY) {
+            resolve("");
+            return;
+          }
+          const started = Date.now();
+          const poll = () => {
+            const token =
+              turnstileWidgetId !== null
+                ? window.turnstile.getResponse(turnstileWidgetId) || ""
+                : "";
+            if (token || Date.now() - started >= timeoutMs) {
+              resolve(token);
+              return;
+            }
+            setTimeout(poll, 250);
+          };
+          poll();
+        });
+      }
 
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -268,6 +319,7 @@
         btn.disabled = true;
         btnLabel.textContent = "جارٍ الإرسال…";
         try {
+          const turnstileToken = await waitForTurnstileToken(8000);
           const res = await fetch(CONTACT_API, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -277,6 +329,7 @@
               message: `[${category}] ${message}`,
               locale: "ar",
               company_website: companyWebsite,
+              ...(turnstileToken ? { turnstileToken } : {}),
             }),
           });
           const data = await res.json().catch(() => ({}));
@@ -289,8 +342,18 @@
             doneSection.focus();
             return;
           }
-          errorEl.textContent = "تحقق من بياناتك ثم حاول مرة أخرى.";
+          // Tokens are single-use — issue a fresh one before any retry.
+          if (turnstileWidgetId !== null) {
+            window.turnstile.reset(turnstileWidgetId);
+          }
+          errorEl.textContent =
+            res.status === 403 && data.error === "bot_verification_failed"
+              ? "تعذّر التحقق من طلبك. يرجى المحاولة مرة أخرى."
+              : "تحقق من بياناتك ثم حاول مرة أخرى.";
         } catch {
+          if (turnstileWidgetId !== null) {
+            window.turnstile.reset(turnstileWidgetId);
+          }
           errorEl.textContent = "حدث خطأ ما. حاول مرة أخرى.";
         } finally {
           btn.disabled = false;
