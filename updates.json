@@ -1,50 +1,51 @@
 {
   "schemaVersion": 1,
-  "latest": "1.18.0",
-  "releasedAt": "2026-07-17T12:20:22.258Z",
+  "latest": "1.19.0",
+  "critical": false,
+  "releasedAt": "2026-07-23T16:03:34.321Z",
   "minimumSystemVersion": "12.0",
   "channel": "stable",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.18.0/Switchboard-v1.18.0-macos-universal.dmg",
-        "sha256": "ac54a0851ba305769a603e4d99b07d19df8b1dedaff8a0a442774cd54fe51d52",
-        "sizeBytes": 25356274
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.19.0/Switchboard-v1.19.0-macos-universal.dmg",
+        "sha256": "ffd30f4f353e35db65f7688d5c560af0cde52faf4927edd9464ec7eb15e23ecc",
+        "sizeBytes": 25394616
       }
     },
     "x86_64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.18.0/Switchboard-v1.18.0-macos-universal.dmg",
-        "sha256": "ac54a0851ba305769a603e4d99b07d19df8b1dedaff8a0a442774cd54fe51d52",
-        "sizeBytes": 25356274
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.19.0/Switchboard-v1.19.0-macos-universal.dmg",
+        "sha256": "ffd30f4f353e35db65f7688d5c560af0cde52faf4927edd9464ec7eb15e23ecc",
+        "sizeBytes": 25394616
       }
     },
     "universal": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.18.0/Switchboard-v1.18.0-macos-universal.dmg",
-        "sha256": "ac54a0851ba305769a603e4d99b07d19df8b1dedaff8a0a442774cd54fe51d52",
-        "sizeBytes": 25356274
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.19.0/Switchboard-v1.19.0-macos-universal.dmg",
+        "sha256": "ffd30f4f353e35db65f7688d5c560af0cde52faf4927edd9464ec7eb15e23ecc",
+        "sizeBytes": 25394616
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.18.0",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.19.0",
   "downloadPageUrl": "https://switchboard.azzuwayed.com/",
-  "notes": "Switchboard 1.18.0 — see release notes for details.",
+  "notes": "Switchboard 1.19.0 — see release notes for details.",
   "highlights": [
-    "AI access has a dedicated home — MCP now lives in permanent Overview and Access views with guided client setup, a clear capability catalogue, and its own activity history. Existing settings and configured clients continue to work.",
-    "Faster command review — pending, approved, and combined views add focused filtering, compact details, command diffs, friendlier service names, and contextual approve or reject actions.",
-    "Lighter, more responsive operation — large Activity histories render only what is visible, the main window uses native macOS chrome, English launches without loading the Arabic catalogue, and shared live-data sources remove duplicate background scans and refreshes."
+    "Save configuration exports — Maintenance can now save a portable YAML export through the native macOS save dialog, with clipboard copy still available.",
+    "Reset interface preferences separately — Maintenance can clear layout, filters, density, and other interface-only choices without deleting services or app data.",
+    "A useful MCP preview for everyone — free and expired installs can inspect Access profiles, method groups, saved choices, exclusions, and context-cost estimates while runtime controls remain locked to Pro."
   ],
-  "version": "1.18.0",
-  "pub_date": "2026-07-17T12:20:22.258Z",
+  "version": "1.19.0",
+  "pub_date": "2026-07-23T16:03:34.321Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTJqOGpkT2hmdUUzL1JmK1d5RFg3T1c5d2VNUHFER1EyeEFteW1xQjNKbUorOXpuTG5lTjRGalk3MURyTDd4UzRLVFYzaWFtaUx2UkZWQVQ1R09nSFFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MjkwNzM2CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negplZm00NUtsRFBTWnV4S2VweUx0eXorYjBrOE93U0tRWTM4NE9zTzdyRGZlNWhodklraXhFZHcyOWpUd3d3MkErOHFJSTllUHFVUVpRbDBjODNwWXpBUT09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.18.0/Switchboard-v1.18.0-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3US93a3pRbXFDRmJDUWhteDBwTHZKQlpVVG0rLys4elVObmRqQk0yZWVvREZsMFR4SVNVOGVYeVlReis3eDRBdHlrWUlyd0UrOExXNStlMlFsNWk2aVEwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0ODIyNDg3CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpIalNQS2VJdDUyWUhWUEg2ZDR5WXlQaXJwM0Joc0RsOXM2bHlNRExnMWxQTk1jVG0xVXdpR25YSVJkU2R4SDZ2NzdISWdLbmdxSTEyRjA3S0VvVDJEQT09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.19.0/Switchboard-v1.19.0-macos-universal.app.tar.gz"
     },
     "darwin-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTJqOGpkT2hmdUUzL1JmK1d5RFg3T1c5d2VNUHFER1EyeEFteW1xQjNKbUorOXpuTG5lTjRGalk3MURyTDd4UzRLVFYzaWFtaUx2UkZWQVQ1R09nSFFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MjkwNzM2CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negplZm00NUtsRFBTWnV4S2VweUx0eXorYjBrOE93U0tRWTM4NE9zTzdyRGZlNWhodklraXhFZHcyOWpUd3d3MkErOHFJSTllUHFVUVpRbDBjODNwWXpBUT09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.18.0/Switchboard-v1.18.0-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3US93a3pRbXFDRmJDUWhteDBwTHZKQlpVVG0rLys4elVObmRqQk0yZWVvREZsMFR4SVNVOGVYeVlReis3eDRBdHlrWUlyd0UrOExXNStlMlFsNWk2aVEwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0ODIyNDg3CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpIalNQS2VJdDUyWUhWUEg2ZDR5WXlQaXJwM0Joc0RsOXM2bHlNRExnMWxQTk1jVG0xVXdpR25YSVJkU2R4SDZ2NzdISWdLbmdxSTEyRjA3S0VvVDJEQT09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.19.0/Switchboard-v1.19.0-macos-universal.app.tar.gz"
     }
   }
 }
