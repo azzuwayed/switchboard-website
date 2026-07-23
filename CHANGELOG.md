@@ -10,6 +10,48 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.19.0] - 2026-07-23
+
+Switchboard 1.19.0 makes the free experience more capable, makes settings
+easier to understand and recover, and gives updates a quieter,
+urgency-aware path.
+
+### Added
+
+- **Save configuration exports** — Maintenance can now save a portable YAML
+  export through the native macOS save dialog, with clipboard copy still
+  available.
+- **Reset interface preferences separately** — Maintenance can clear layout,
+  filters, density, and other interface-only choices without deleting services
+  or app data.
+- **A useful MCP preview for everyone** — free and expired installs can inspect
+  Access profiles, method groups, saved choices, exclusions, and context-cost
+  estimates while runtime controls remain locked to Pro.
+
+### Changed
+
+- **More complete free tools** — Activity keeps its full timeline, Observer
+  includes continuous discovery, details, and actions, and Ports includes
+  intelligence, process actions, and the tray console without a Pro license.
+- **Settings preserve intent and explain pauses** — dependent controls keep
+  their saved values while disabled and name the setting or macOS permission
+  blocking them. Appearance has its own section, Support is easier to find, and
+  monitoring profiles no longer change Stream settings.
+- **Update prompts now match urgency** — patch releases stay quiet in Settings,
+  normal releases remain snoozable, and explicitly critical releases can show
+  a persistent prompt. Download, install, and restart remain user-controlled.
+- **Clearer tool configuration** — Resources shows the CPU and memory thresholds
+  behind each sensitivity level, and disabled tools explain that their settings
+  and data are preserved.
+
+### Fixed
+
+- **More reliable system-setting synchronization** — launch-at-login changes
+  roll back cleanly on failure, and valid external settings-file edits refresh
+  the app without overwriting newer state.
+- **Centered macOS window controls** — the native traffic lights stay vertically
+  centered in the main and About title bars at every display scale.
+
 ## [1.18.0] - 2026-07-17
 
 Switchboard 1.18.0 makes AI access a first-class part of the app, streamlines

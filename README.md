@@ -24,7 +24,7 @@ Switchboard is the thing I wanted: one place where every local service shows up,
 - **Risk-aware actions.** Every command is allowlisted and explicitly approved before it runs. No arbitrary shell from the UI.
 - **Local-first.** No background HTTP server. The only telemetry it sends is an anonymous active-install count over the update check — no identifiers, no raw IP stored, opt out in Settings → Privacy. Your config and logs live in `~/Library/Application Support/`.
 - **Templates that actually work.** Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx, and more — reviewed and ready out of the box.
-- **AI-agent setup help.** Switchboard Pro lets agents connect through MCP, run read-only guard checks, and create organized custom services from schemas and examples instead of ad-hoc shell commands.
+- **AI-agent setup help.** Everyone can preview MCP access profiles, methods, exclusions, and context cost; Switchboard Pro lets agents connect, run read-only guard checks, and create organized custom services from schemas and examples instead of ad-hoc shell commands.
 
 ## What's inside
 
@@ -49,9 +49,10 @@ macOS 12 (Monterey) or later on Apple Silicon or Intel Macs.
 Switchboard stays useful for free: unlimited services, safe start/stop,
 service-down alerts, new-arrival notifications, and complete free tools for
 Activity, Docs, Observer, Ports, and Maintenance. Fresh installs get a 7-day
-full-feature trial, then return to free use. A Switchboard Pro license
-($39, with promo codes from time to time) unlocks the paid tools — Stream,
-System Logs, Resources, and MCP — and activates up to 3 Macs. See
+full-feature trial, then return to free use. Free use also includes a read-only
+preview of MCP access profiles, methods, and context cost. A Switchboard Pro
+license ($39, with promo codes from time to time) unlocks Stream, System Logs,
+Resources, Uptime, Numerics, and the MCP runtime, and activates up to 3 Macs. See
 [pricing](https://azzuwayed.com/en/products/switchboard).
 
 Free use needs no account. Purchasing Pro requires an azzuwayed.com account,
