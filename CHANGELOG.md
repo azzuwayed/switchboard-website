@@ -10,6 +10,25 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.20.0] - 2026-07-24
+
+Switchboard 1.20.0 is a visual refresh — a new "Signal Blue" look with smoother
+motion, more depth, and a cleaner window frame.
+
+### Changed
+
+- **A refreshed Signal Blue look** — a cooler blue palette across light and dark,
+  smoother animations, frosted-glass chrome with a soft ambient glow, more depth on
+  cards, glossier primary buttons, and a clearer active navigation item.
+- **Cleaner window frames** — the title bars drop redundant labels for a simpler top edge,
+  and Approvals moves out of the sidebar (still available from the command palette and the
+  Home screen).
+
+### Fixed
+
+- **The tray matches your theme** — the menu-bar panel now follows light or dark mode
+  instead of always showing dark.
+
 ## [1.19.0] - 2026-07-23
 
 Switchboard 1.19.0 makes the free experience more capable, makes settings
