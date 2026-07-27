@@ -10,6 +10,29 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.21.0] - 2026-07-27
+
+Switchboard 1.21.0 adds azzuwayed Pro membership access alongside permanent
+Lifetime ownership.
+
+### Added
+
+- **Included with azzuwayed Pro** — an active Pro membership now unlocks every
+  paid Switchboard tool, including MCP runtime access, Resources, Stream, System
+  Logs, Uptime, and Numerics.
+- **Two ways to keep full access** — join azzuwayed Pro for Switchboard and
+  other apps marked “Included with Pro,” or buy a Switchboard Lifetime license
+  for permanent ownership of this app.
+
+### Changed
+
+- **Automatic access after sign-in** — Switchboard keeps or recovers an owned
+  Lifetime license first, then uses Pro membership access when no Lifetime
+  purchase is attached to the account.
+- **Clearer access status** — License & Access now distinguishes azzuwayed Pro,
+  Lifetime license, Trial, and Free, with the relevant membership,
+  device-management, purchase, recovery, and activation controls for each.
+
 ## [1.20.0] - 2026-07-24
 
 Switchboard 1.20.0 is a visual refresh — a new "Signal Blue" look with smoother
