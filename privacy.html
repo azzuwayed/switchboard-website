@@ -47,7 +47,7 @@
       hreflang="x-default"
       href="https://switchboard.azzuwayed.com/privacy.html"
     />
-    <link rel="stylesheet" href="style.css?v=2623f96b63" />
+    <link rel="stylesheet" href="style.css?v=5b9111f0cd" />
     <style>
       .doc-hero {
         padding: 64px 0 32px;
@@ -155,9 +155,9 @@
             </li>
             <li>
               Free use needs no account or license key. An azzuwayed.com account
-              is required to buy Switchboard Pro and use account-backed billing,
-              purchase recovery, paid-access claiming, connected-Mac help, and
-              private priority support.
+              is required to join azzuwayed Pro or buy a Switchboard Lifetime
+              license, and to use account-backed billing, purchase recovery,
+              registered-device help, and private priority support.
             </li>
             <li>No background server, no listening network port.</li>
             <li>
@@ -170,10 +170,10 @@
               under your home folder.
             </li>
             <li>
-              Switchboard Pro purchases happen through your azzuwayed.com
-              account. Payment and order records stay with that account; the
-              license service receives only what it needs to issue, email,
-              activate, and validate the license.
+              Pro membership and Lifetime purchases happen through your
+              azzuwayed.com account. Payment and order records stay with that
+              account; Switchboard receives only the membership or license data
+              needed to resolve paid access.
             </li>
           </ul>
         </div>
@@ -181,21 +181,20 @@
 
       <section class="doc-section">
         <div class="container">
-          <h2>Buying and activating a license</h2>
+          <h2>Membership and Lifetime access</h2>
           <p>
-            Buying Switchboard Pro requires an azzuwayed.com account. Your
-            account keeps the identity, billing and access history, order
-            status, payment method, amount, locale, and order references needed
-            to complete and support the purchase. Card payments are completed on
-            Paylink's hosted payment page. Bank-transfer orders stay pending
-            until the transfer is confirmed.
+            Joining azzuwayed Pro or buying a Switchboard Lifetime license
+            requires an azzuwayed.com account. Your account keeps the identity,
+            billing and access history, membership or order status, payment
+            method, amount, locale, and references needed to provide and support
+            that access.
           </p>
           <p>
-            After payment is confirmed, the license service receives your name,
-            email address, and an order reference so it can issue and email the
-            license. Sign in inside Switchboard to claim the paid access
-            associated with your account, or activate manually with the emailed
-            key.
+            After a Lifetime payment is confirmed, the license service receives
+            your name, email address, and an order reference so it can issue and
+            email the license. Sign in inside Switchboard to resolve membership
+            or recover a Lifetime purchase. Lifetime owners may also activate
+            manually with the emailed key.
           </p>
           <p>
             Transactional email is sent through an email service provider:
@@ -204,12 +203,14 @@
             and support, not marketing newsletters.
           </p>
           <p>
-            The license service keeps the license, delivery, and activation
-            records needed to deliver paid access, support recovery or refunds,
-            and enforce the 3-Mac activation limit. Activating or validating a
-            Switchboard Pro license sends the license and a privacy-preserving
-            device identifier needed to manage that limit. Your local services,
-            logs, docs, and command approvals are not sent.
+            Lifetime activation sends the license and a Switchboard-specific,
+            privacy-preserving device identifier needed to enforce its 3-Mac
+            limit. Pro membership uses a separate one-way identifier derived on
+            the Mac to manage the account's registered-device limit and obtain a
+            signed 24-hour local access lease. The raw hardware identifier,
+            account bearer credential, and signed lease are never exposed to the
+            webview or logs. Your local services, logs, docs, and command
+            approvals are not sent.
           </p>
         </div>
       </section>
@@ -314,17 +315,20 @@
             fetch when you press it.
           </p>
           <p>
-            Switchboard Pro license activation and validation contact the
-            license service to check the key status and device slot count. They
-            do not upload your service list, logs, command output, docs folders,
-            or other local app data.
+            Lifetime activation and validation contact the license service to
+            check the key status and device slot count. Pro lease refresh
+            contacts azzuwayed.com to check current membership and registered
+            device access. Neither uploads your service list, logs, command
+            output, docs folders, or other local app data.
           </p>
           <p>
             If you choose to sign in, Switchboard opens the system browser for
             azzuwayed.com authentication and uses the resulting account session
-            for entitlement checks, purchase claiming, and private support. The
+            for membership checks, purchase recovery, and private support. The
             app stores the refresh credential in the macOS Keychain and never
-            exposes tokens or license keys to its webview.
+            exposes tokens, signed leases, device proofs, or license keys to its
+            webview. Signing out clears the local membership lease without
+            deactivating an owned Lifetime license.
           </p>
           <p>
             A signed-in support report sends its category, title, description,
