@@ -9,6 +9,10 @@
       content="Switchboard is the Mac command center for AI developers: give your AI tools and yourself the local context macOS doesn't — services, ports, runtimes, stale sessions, and safe controls."
     />
     <meta
+      name="product-revision"
+      content="a412735dae025215b6d1da5823ab87396edf123c8a6518e6511853a66d8f591d"
+    />
+    <meta
       property="og:title"
       content="Switchboard — the Mac AI-dev command center"
     />
@@ -131,12 +135,13 @@
             <p class="eyebrow platform-eyebrow">
               macOS · Apple Silicon + Intel
             </p>
-            <h1>The Mac command center for AI developers.</h1>
-            <p class="lede">
-              Switchboard gives your AI tools and your own eyes the local
-              context macOS doesn't: services, ports, logs, resources, model
-              runtimes, stale sessions, and safe controls — all local-first, no
-              built-in AI assistant.
+            <h1 data-product-field="tag">
+              Run your Mac’s local services from one native control center.
+            </h1>
+            <p class="lede" data-product-field="overview">
+              Switchboard starts, stops, and monitors local services and
+              development tools from one focused macOS app, without juggling
+              terminal windows.
             </p>
             <div class="cta-row">
               <a class="btn btn-primary btn-mac" href="#pricing">Get It Now!</a>
@@ -420,10 +425,9 @@
       <section id="features" class="features">
         <div class="container">
           <h2>How Switchboard helps</h2>
-          <p class="features-lede">
-            Built to answer specific questions: which local service owns this
-            process, why is it still alive, what owns this port, and what can I
-            do next?
+          <p class="features-lede" data-product-field="audience">
+            Developers, engineers, and power users who run several local tools
+            throughout the day.
           </p>
           <div class="feature-grid">
             <article class="feature">
@@ -441,11 +445,8 @@
                 </svg>
               </span>
               <h3>It finds the things you forgot</h3>
-              <p>
-                Switchboard auto-detects dev servers (port observation),
-                Homebrew services, Docker containers, and launchd jobs — and
-                tags them <em>Discovered</em> so you can tell them apart from
-                services you set up by hand.
+              <p data-product-highlight="native">
+                A fast, lightweight native macOS control center.
               </p>
             </article>
             <article class="feature">
@@ -462,11 +463,9 @@
                 </svg>
               </span>
               <h3>A safer stop flow for orphan processes</h3>
-              <p>
-                When Switchboard finds a dev server still listening on a port
-                you forgot about, the detail panel shows a Stop button right
-                there. Confirm, and it sends <code>SIGTERM</code> to the right
-                PID. No <code>lsof</code>, no <code>kill -9</code> guessing.
+              <p data-product-highlight="status">
+                See service health and take action without hunting through
+                terminal windows.
               </p>
             </article>
             <article class="feature">
@@ -486,13 +485,9 @@
                 </svg>
               </span>
               <h3>A Command Center that leads with what needs attention</h3>
-              <p>
-                The home screen surfaces new arrivals, port conflicts, and
-                anything off-kilter first — with the same status vocabulary
-                (running, degraded, stopped, unknown) across Homebrew, dev
-                servers, launchd, and Docker. A Tools panel lets you switch on
-                just the modules you use, so the app stays as light or as
-                complete as your stack.
+              <p data-product-highlight="access">
+                Start free, use azzuwayed Pro, or keep a lifetime Switchboard
+                license.
               </p>
             </article>
             <article class="feature">

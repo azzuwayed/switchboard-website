@@ -77,3 +77,7 @@ This is a static GitHub Pages site. Install its pinned development dependency
 with `pnpm install --frozen-lockfile`, then run `pnpm check` before committing.
 The gate checks formatting, the stylesheet cache key, local links and assets,
 localized account handoffs, contact-form contracts, and retired references.
+`pnpm sync:product` renders the marked English and Arabic copy from
+`../switchboard/product/manifest.json` and writes `product.json` with the exact
+content revision. The desktop release cutter keeps its drafts unpublished until
+this revision and the Hub revision both match.

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "productId": "switchboard",
+  "contentRevision": "a412735dae025215b6d1da5823ab87396edf123c8a6518e6511853a66d8f591d",
+  "manifest": {
+    "schemaVersion": 1,
+    "productId": "switchboard",
+    "locales": {
+      "en": {
+        "tag": "Run your Mac’s local services from one native control center.",
+        "overview": "Switchboard starts, stops, and monitors local services and development tools from one focused macOS app, without juggling terminal windows.",
+        "audience": "Developers, engineers, and power users who run several local tools throughout the day.",
+        "accountSummary": "Control local Mac services from one native app.",
+        "heroAlt": "Switchboard macOS dashboard for controlling local development services.",
+        "highlights": [
+          {
+            "key": "native",
+            "text": "A fast, lightweight native macOS control center."
+          },
+          {
+            "key": "status",
+            "text": "See service health and take action without hunting through terminal windows."
+          },
+          {
+            "key": "access",
+            "text": "Start free, use azzuwayed Pro, or keep a lifetime Switchboard license."
+          }
+        ]
+      },
+      "ar": {
+        "tag": "تحكّم في خدمات Mac المحلية من مركز أصلي واحد.",
+        "overview": "يتيح لك Switchboard تشغيل الخدمات المحلية وأدوات التطوير وإيقافها ومتابعتها من تطبيق macOS مركّز، من دون التنقل بين نوافذ الطرفية.",
+        "audience": "المطورون والمهندسون والمستخدمون المتقدمون الذين يشغّلون عدة أدوات محلية خلال يومهم.",
+        "accountSummary": "تحكّم في خدمات Mac المحلية من تطبيق أصلي واحد.",
+        "heroAlt": "لوحة Switchboard على macOS للتحكم بخدمات التطوير المحلية.",
+        "highlights": [
+          {
+            "key": "native",
+            "text": "مركز تحكم أصلي لنظام macOS، سريع وخفيف."
+          },
+          {
+            "key": "status",
+            "text": "راقب حالة الخدمات واتخذ الإجراء من دون البحث بين نوافذ الطرفية."
+          },
+          {
+            "key": "access",
+            "text": "ابدأ مجانًا، أو استخدم عضوية azzuwayed Pro، أو احتفظ بترخيص Switchboard الدائم."
+          }
+        ]
+      }
+    },
+    "media": {
+      "hero": {
+        "path": "product/media/hero.webp",
+        "alt": {
+          "en": "Switchboard macOS dashboard for controlling local development services.",
+          "ar": "لوحة Switchboard على macOS للتحكم بخدمات التطوير المحلية."
+        }
+      },
+      "screenshots": []
+    },
+    "links": {
+      "website": {
+        "en": "https://switchboard.azzuwayed.com",
+        "ar": "https://switchboard.azzuwayed.com"
+      },
+      "releaseNotes": {
+        "en": "https://github.com/azzuwayed/switchboard-website/releases",
+        "ar": "https://github.com/azzuwayed/switchboard-website/releases"
+      },
+      "download": {
+        "manifestUrl": "https://switchboard.azzuwayed.com/updates.json",
+        "fallbackUrl": "https://switchboard.azzuwayed.com",
+        "allowedUrlPrefixes": [
+          "https://github.com/azzuwayed/switchboard-website/releases/download/"
+        ]
+      }
+    }
+  }
+}
