@@ -10,6 +10,28 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.21.1] - 2026-08-04
+
+Switchboard 1.21.1 keeps language choices consistent across the app, makes
+locked MCP connections quieter, and clarifies the tray command center.
+
+### Changed
+
+- **Clearer tray controls** — compact rows hide secondary port details, status
+  counters include their labels, mixed English and Arabic service details stay
+  readable, and stop actions distinguish configured services from processes.
+
+### Fixed
+
+- **Language stays synchronized everywhere** — saved English and Arabic choices
+  now propagate across every window, the tray command center, native tray menu,
+  and notification labels, including after valid external settings edits.
+- **Quiet MCP behavior while access is locked** — free and expired installs keep
+  MCP clients connected with empty tool, resource, and prompt catalogs instead
+  of reporting a startup failure. Catalogs refresh when access changes.
+- **Correct signed-out membership response** — membership checks made while
+  signed out now prompt authentication instead of reporting a Hub outage.
+
 ## [1.21.0] - 2026-07-27
 
 Switchboard 1.21.0 adds azzuwayed Pro membership access alongside permanent
