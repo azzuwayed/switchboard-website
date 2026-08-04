@@ -1,51 +1,51 @@
 {
   "schemaVersion": 1,
-  "latest": "1.21.0",
+  "latest": "1.21.1",
   "critical": false,
-  "releasedAt": "2026-07-27T11:04:36.740Z",
+  "releasedAt": "2026-08-04T07:27:48.681Z",
   "minimumSystemVersion": "12.0",
   "channel": "stable",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.0/Switchboard-v1.21.0-macos-universal.dmg",
-        "sha256": "dbe847dcd9cbd21d559080fe787516dcf3bdd5cebd70a9ea4fedbbef84d76777",
-        "sizeBytes": 25467627
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.1/Switchboard-v1.21.1-macos-universal.dmg",
+        "sha256": "3d4ccb787b7cc0f07933e962d79cecdaa5bd5ccecde303cea7adf128a3eb36c4",
+        "sizeBytes": 25474351
       }
     },
     "x86_64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.0/Switchboard-v1.21.0-macos-universal.dmg",
-        "sha256": "dbe847dcd9cbd21d559080fe787516dcf3bdd5cebd70a9ea4fedbbef84d76777",
-        "sizeBytes": 25467627
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.1/Switchboard-v1.21.1-macos-universal.dmg",
+        "sha256": "3d4ccb787b7cc0f07933e962d79cecdaa5bd5ccecde303cea7adf128a3eb36c4",
+        "sizeBytes": 25474351
       }
     },
     "universal": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.0/Switchboard-v1.21.0-macos-universal.dmg",
-        "sha256": "dbe847dcd9cbd21d559080fe787516dcf3bdd5cebd70a9ea4fedbbef84d76777",
-        "sizeBytes": 25467627
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.1/Switchboard-v1.21.1-macos-universal.dmg",
+        "sha256": "3d4ccb787b7cc0f07933e962d79cecdaa5bd5ccecde303cea7adf128a3eb36c4",
+        "sizeBytes": 25474351
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.21.0",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.21.1",
   "downloadPageUrl": "https://switchboard.azzuwayed.com/",
-  "notes": "Switchboard 1.21.0 adds azzuwayed Pro membership access alongside Lifetime ownership.",
+  "notes": "Switchboard 1.21.1 — see release notes for details.",
   "highlights": [
-    "Included with azzuwayed Pro — an active Pro membership now unlocks every paid Switchboard tool, including MCP runtime access, Resources, Stream, System Logs, Uptime, and Numerics.",
-    "Two ways to keep full access — join azzuwayed Pro for Switchboard and other apps marked “Included with Pro,” or buy a Switchboard Lifetime license for permanent ownership of this app.",
-    "Automatic access after sign-in — Switchboard keeps or recovers an owned Lifetime license first, then uses Pro membership access when no Lifetime purchase is attached to the account."
+    "Clearer tray controls — compact rows hide secondary port details, status counters include their labels, mixed English and Arabic service details stay readable, and stop actions distinguish configured services from processes.",
+    "Language stays synchronized everywhere — saved English and Arabic choices now propagate across every window, the tray command center, native tray menu, and notification labels, including after valid external settings edits.",
+    "Quiet MCP behavior while access is locked — free and expired installs keep MCP clients connected with empty tool, resource, and prompt catalogs instead of reporting a startup failure. Catalogs refresh when access changes."
   ],
-  "version": "1.21.0",
-  "pub_date": "2026-07-27T11:04:36.740Z",
+  "version": "1.21.1",
+  "pub_date": "2026-08-04T07:27:48.681Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXdVUHFpeTlwc2tmdGFQY3F4RjhML1dCS0x3YllRZWtjYjJpaGo0VEtNNk9VZVE4eEhuWEVrUFFVdCtWbWRiRGxUMGlwd2xIQisxWDJPaHlXUDlSOVFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1MTQ5NjQ1CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpzaFg0TnRTUDJLaHNvcnpkYk90R2RZYUNIOXorTFdNN0c1Zm9kSEE1a0lXNUg4dzZ0UTAva3VXaVpqR1JidW1nNXJpWTFWOUhidy9Mem1qd2pVOG1DUT09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.0/Switchboard-v1.21.0-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXdMZnlkTWRrdm1EOXI4ZEpkVjdJMmpnZEc3MThNb2kwdzVDeXliREU2NmhuQ2lPeWN4Z2FmaU9acnlQaldDVUJSQjMyYURQT24vUjRSVzBKbjcwYVFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1ODI4NDE4CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpYdkZSKzNTenpLd1h1QkRYbFN2K1NkbUNYSFRoM0JvQjBNTFhEMFJ3dnFCODBQSzZleGdJSVFMVGRWRmhPSTc2cmovc2pyQW55dm1KUmdGR3UrbGRBQT09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.1/Switchboard-v1.21.1-macos-universal.app.tar.gz"
     },
     "darwin-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXdVUHFpeTlwc2tmdGFQY3F4RjhML1dCS0x3YllRZWtjYjJpaGo0VEtNNk9VZVE4eEhuWEVrUFFVdCtWbWRiRGxUMGlwd2xIQisxWDJPaHlXUDlSOVFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1MTQ5NjQ1CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpzaFg0TnRTUDJLaHNvcnpkYk90R2RZYUNIOXorTFdNN0c1Zm9kSEE1a0lXNUg4dzZ0UTAva3VXaVpqR1JidW1nNXJpWTFWOUhidy9Mem1qd2pVOG1DUT09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.0/Switchboard-v1.21.0-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXdMZnlkTWRrdm1EOXI4ZEpkVjdJMmpnZEc3MThNb2kwdzVDeXliREU2NmhuQ2lPeWN4Z2FmaU9acnlQaldDVUJSQjMyYURQT24vUjRSVzBKbjcwYVFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1ODI4NDE4CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpYdkZSKzNTenpLd1h1QkRYbFN2K1NkbUNYSFRoM0JvQjBNTFhEMFJ3dnFCODBQSzZleGdJSVFMVGRWRmhPSTc2cmovc2pyQW55dm1KUmdGR3UrbGRBQT09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.1/Switchboard-v1.21.1-macos-universal.app.tar.gz"
     }
   }
 }
