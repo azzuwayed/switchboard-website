@@ -1,51 +1,51 @@
 {
   "schemaVersion": 1,
-  "latest": "1.21.1",
+  "latest": "1.22.0",
   "critical": false,
-  "releasedAt": "2026-08-04T07:27:48.681Z",
+  "releasedAt": "2026-08-07T04:54:24.336Z",
   "minimumSystemVersion": "12.0",
   "channel": "stable",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.1/Switchboard-v1.21.1-macos-universal.dmg",
-        "sha256": "3d4ccb787b7cc0f07933e962d79cecdaa5bd5ccecde303cea7adf128a3eb36c4",
-        "sizeBytes": 25474351
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.22.0/Switchboard-v1.22.0-macos-universal.dmg",
+        "sha256": "1c109397f9f15c4b769be6cefcc2ab08ca3d044d96de3976012160f605d95a4f",
+        "sizeBytes": 25836578
       }
     },
     "x86_64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.1/Switchboard-v1.21.1-macos-universal.dmg",
-        "sha256": "3d4ccb787b7cc0f07933e962d79cecdaa5bd5ccecde303cea7adf128a3eb36c4",
-        "sizeBytes": 25474351
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.22.0/Switchboard-v1.22.0-macos-universal.dmg",
+        "sha256": "1c109397f9f15c4b769be6cefcc2ab08ca3d044d96de3976012160f605d95a4f",
+        "sizeBytes": 25836578
       }
     },
     "universal": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.1/Switchboard-v1.21.1-macos-universal.dmg",
-        "sha256": "3d4ccb787b7cc0f07933e962d79cecdaa5bd5ccecde303cea7adf128a3eb36c4",
-        "sizeBytes": 25474351
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.22.0/Switchboard-v1.22.0-macos-universal.dmg",
+        "sha256": "1c109397f9f15c4b769be6cefcc2ab08ca3d044d96de3976012160f605d95a4f",
+        "sizeBytes": 25836578
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.21.1",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.22.0",
   "downloadPageUrl": "https://switchboard.azzuwayed.com/",
-  "notes": "Switchboard 1.21.1 — see release notes for details.",
+  "notes": "Switchboard 1.22.0 — see release notes for details.",
   "highlights": [
-    "Clearer tray controls — compact rows hide secondary port details, status counters include their labels, mixed English and Arabic service details stay readable, and stop actions distinguish configured services from processes.",
-    "Language stays synchronized everywhere — saved English and Arabic choices now propagate across every window, the tray command center, native tray menu, and notification labels, including after valid external settings edits.",
-    "Quiet MCP behavior while access is locked — free and expired installs keep MCP clients connected with empty tool, resource, and prompt catalogs instead of reporting a startup failure. Catalogs refresh when access changes."
+    "AI agents can inspect and control whole stacks — ask your agent to check the status of, start, or stop a group of related services in one request instead of one at a time.",
+    "Crash reports explain themselves — when macOS closes something because it ran out of memory, Switchboard now checks whether a leaked process group you're already seeing caused it, and flags the connection.",
+    "Clear out a leak in one action — dismiss or stop an entire incident (a family of related leaked processes) at once, with a preview of exactly what will be affected before you confirm."
   ],
-  "version": "1.21.1",
-  "pub_date": "2026-08-04T07:27:48.681Z",
+  "version": "1.22.0",
+  "pub_date": "2026-08-07T04:54:24.336Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXdMZnlkTWRrdm1EOXI4ZEpkVjdJMmpnZEc3MThNb2kwdzVDeXliREU2NmhuQ2lPeWN4Z2FmaU9acnlQaldDVUJSQjMyYURQT24vUjRSVzBKbjcwYVFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1ODI4NDE4CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpYdkZSKzNTenpLd1h1QkRYbFN2K1NkbUNYSFRoM0JvQjBNTFhEMFJ3dnFCODBQSzZleGdJSVFMVGRWRmhPSTc2cmovc2pyQW55dm1KUmdGR3UrbGRBQT09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.1/Switchboard-v1.21.1-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTdDS01PQW92NXBmVEhjdkhSZzk4aGh6dEFVSHFwTlVZS3d1ZGpJKy9IMUNabG0xTWpRVGtDR3FrQkFiaXVwSXZCTlJ3ajVFM0pncHV0RmtucHV6dHdFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2MDc4NDEzCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negowRHNveERlL3djRi94OWY5Nkpaa1pnK21IcUNVSzIyUm10dldrNGNKNmxzN0Rsc2FhQzZsL1VwQzd2SjdndFhwZzJpbm0rSC9pcGllYzhvMFpveDVEdz09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.22.0/Switchboard-v1.22.0-macos-universal.app.tar.gz"
     },
     "darwin-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXdMZnlkTWRrdm1EOXI4ZEpkVjdJMmpnZEc3MThNb2kwdzVDeXliREU2NmhuQ2lPeWN4Z2FmaU9acnlQaldDVUJSQjMyYURQT24vUjRSVzBKbjcwYVFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1ODI4NDE4CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpYdkZSKzNTenpLd1h1QkRYbFN2K1NkbUNYSFRoM0JvQjBNTFhEMFJ3dnFCODBQSzZleGdJSVFMVGRWRmhPSTc2cmovc2pyQW55dm1KUmdGR3UrbGRBQT09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.21.1/Switchboard-v1.21.1-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTdDS01PQW92NXBmVEhjdkhSZzk4aGh6dEFVSHFwTlVZS3d1ZGpJKy9IMUNabG0xTWpRVGtDR3FrQkFiaXVwSXZCTlJ3ajVFM0pncHV0RmtucHV6dHdFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2MDc4NDEzCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negowRHNveERlL3djRi94OWY5Nkpaa1pnK21IcUNVSzIyUm10dldrNGNKNmxzN0Rsc2FhQzZsL1VwQzd2SjdndFhwZzJpbm0rSC9pcGllYzhvMFpveDVEdz09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.22.0/Switchboard-v1.22.0-macos-universal.app.tar.gz"
     }
   }
 }
