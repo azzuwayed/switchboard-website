@@ -10,6 +10,37 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.22.0] - 2026-08-07
+
+Switchboard 1.22.0 lets your AI agent manage whole groups of services at
+once, connects crashes to the leaked processes behind them, and gives you
+one-click ways to clear out a leak.
+
+### Added
+
+- **AI agents can inspect and control whole stacks** — ask your agent to
+  check the status of, start, or stop a group of related services in one
+  request instead of one at a time.
+- **Crash reports explain themselves** — when macOS closes something because
+  it ran out of memory, Switchboard now checks whether a leaked process group
+  you're already seeing caused it, and flags the connection.
+- **Clear out a leak in one action** — dismiss or stop an entire incident (a
+  family of related leaked processes) at once, with a preview of exactly
+  what will be affected before you confirm.
+- **Incidents show their age** — leak cards now show how long they've been
+  running, so you can tell a stubborn leak from a busy moment.
+
+### Changed
+
+- **Attention counts make more sense** — a leak of hundreds of near-identical
+  processes now counts as one thing to look at, not hundreds.
+
+### Security
+
+- **Safer process stopping** — stop actions now re-verify the exact process
+  (not just its process ID) immediately before signaling it, closing a rare
+  edge case where a reused ID could target the wrong process.
+
 ## [1.21.1] - 2026-08-04
 
 Switchboard 1.21.1 keeps language choices consistent across the app, makes
