@@ -1,51 +1,51 @@
 {
   "schemaVersion": 1,
-  "latest": "1.22.0",
-  "critical": false,
-  "releasedAt": "2026-08-07T04:54:24.336Z",
+  "latest": "1.23.0",
+  "critical": true,
+  "releasedAt": "2026-08-12T21:39:36.034Z",
   "minimumSystemVersion": "12.0",
   "channel": "stable",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.22.0/Switchboard-v1.22.0-macos-universal.dmg",
-        "sha256": "1c109397f9f15c4b769be6cefcc2ab08ca3d044d96de3976012160f605d95a4f",
-        "sizeBytes": 25836578
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.23.0/Switchboard-v1.23.0-macos-universal.dmg",
+        "sha256": "6560c97960878046319b492c0a8b5cc9129795e2b8425f76d1ead387c167b8c0",
+        "sizeBytes": 28657696
       }
     },
     "x86_64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.22.0/Switchboard-v1.22.0-macos-universal.dmg",
-        "sha256": "1c109397f9f15c4b769be6cefcc2ab08ca3d044d96de3976012160f605d95a4f",
-        "sizeBytes": 25836578
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.23.0/Switchboard-v1.23.0-macos-universal.dmg",
+        "sha256": "6560c97960878046319b492c0a8b5cc9129795e2b8425f76d1ead387c167b8c0",
+        "sizeBytes": 28657696
       }
     },
     "universal": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.22.0/Switchboard-v1.22.0-macos-universal.dmg",
-        "sha256": "1c109397f9f15c4b769be6cefcc2ab08ca3d044d96de3976012160f605d95a4f",
-        "sizeBytes": 25836578
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.23.0/Switchboard-v1.23.0-macos-universal.dmg",
+        "sha256": "6560c97960878046319b492c0a8b5cc9129795e2b8425f76d1ead387c167b8c0",
+        "sizeBytes": 28657696
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.22.0",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.23.0",
   "downloadPageUrl": "https://switchboard.azzuwayed.com/",
-  "notes": "Switchboard 1.22.0 — see release notes for details.",
+  "notes": "Switchboard 1.23.0 — lower resource use, reliable logs, and safer configuration.",
   "highlights": [
-    "AI agents can inspect and control whole stacks — ask your agent to check the status of, start, or stop a group of related services in one request instead of one at a time.",
-    "Crash reports explain themselves — when macOS closes something because it ran out of memory, Switchboard now checks whether a leaked process group you're already seeing caused it, and flags the connection.",
-    "Clear out a leak in one action — dismiss or stop an entire incident (a family of related leaked processes) at once, with a preview of exactly what will be affected before you confirm."
+    "Pause service logs without losing your place — service-panel logs now have a Pause control that stops collection while keeping displayed lines, then resumes with bounded recent output.",
+    "Disabled tools are genuinely dormant — turning off a tool now stops its owned tasks and processes and unloads optional state, while hidden or inactive screens suspend work they do not currently need.",
+    "Faster large logs and route loading — large log timelines process updates more efficiently, and app surfaces load only when needed."
   ],
-  "version": "1.22.0",
-  "pub_date": "2026-08-07T04:54:24.336Z",
+  "version": "1.23.0",
+  "pub_date": "2026-08-12T21:39:36.034Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTdDS01PQW92NXBmVEhjdkhSZzk4aGh6dEFVSHFwTlVZS3d1ZGpJKy9IMUNabG0xTWpRVGtDR3FrQkFiaXVwSXZCTlJ3ajVFM0pncHV0RmtucHV6dHdFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2MDc4NDEzCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negowRHNveERlL3djRi94OWY5Nkpaa1pnK21IcUNVSzIyUm10dldrNGNKNmxzN0Rsc2FhQzZsL1VwQzd2SjdndFhwZzJpbm0rSC9pcGllYzhvMFpveDVEdz09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.22.0/Switchboard-v1.22.0-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXkvMDBoZGh6ZXlSVkZwWEZsUGRWcGZMbVRyNklBZGJZblA2YmpmajZsbTZOMmVPaVljZkQwUDNwN0xrbHJYQ2R1YWh2azVyR1IxUTQvcmE0dW01YlFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NTcwNzI1CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpFb244T0NQeXFBcHpHOWUyTExUa25ZWEtQc201bmtBOEdnRWV5MFVzeXBYZjMwMkQwZWpWQUsvYSt3SSt5SzNkOFNXL0J4VmlpTEZ1Z0JnSzJsRkFEQT09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.23.0/Switchboard-v1.23.0-macos-universal.app.tar.gz"
     },
     "darwin-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTdDS01PQW92NXBmVEhjdkhSZzk4aGh6dEFVSHFwTlVZS3d1ZGpJKy9IMUNabG0xTWpRVGtDR3FrQkFiaXVwSXZCTlJ3ajVFM0pncHV0RmtucHV6dHdFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2MDc4NDEzCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negowRHNveERlL3djRi94OWY5Nkpaa1pnK21IcUNVSzIyUm10dldrNGNKNmxzN0Rsc2FhQzZsL1VwQzd2SjdndFhwZzJpbm0rSC9pcGllYzhvMFpveDVEdz09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.22.0/Switchboard-v1.22.0-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UXkvMDBoZGh6ZXlSVkZwWEZsUGRWcGZMbVRyNklBZGJZblA2YmpmajZsbTZOMmVPaVljZkQwUDNwN0xrbHJYQ2R1YWh2azVyR1IxUTQvcmE0dW01YlFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NTcwNzI1CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negpFb244T0NQeXFBcHpHOWUyTExUa25ZWEtQc201bmtBOEdnRWV5MFVzeXBYZjMwMkQwZWpWQUsvYSt3SSt5SzNkOFNXL0J4VmlpTEZ1Z0JnSzJsRkFEQT09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.23.0/Switchboard-v1.23.0-macos-universal.app.tar.gz"
     }
   }
 }
