@@ -10,6 +10,52 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.23.0] - 2026-08-12
+
+Switchboard 1.23.0 cuts background work, makes service logs reliable and
+controllable, and hardens configuration and AI connections.
+
+### Added
+
+- **Pause service logs without losing your place** — service-panel logs now
+  have a Pause control that stops collection while keeping displayed lines,
+  then resumes with bounded recent output.
+
+### Changed
+
+- **Disabled tools are genuinely dormant** — turning off a tool now stops its
+  owned tasks and processes and unloads optional state, while hidden or inactive
+  screens suspend work they do not currently need.
+- **Faster large logs and route loading** — large log timelines process updates
+  more efficiently, and app surfaces load only when needed.
+- **Lighter, fresher AI connections** — AI clients use a lightweight bundled
+  relay and receive capability-catalog changes when the app's available tools
+  change instead of repeatedly polling for them.
+
+### Fixed
+
+- **Reliable service log sessions** — service panels no longer duplicate,
+  mix, or miss output when switching services, pausing, closing, or reopening
+  the view.
+- **Safer service discovery** — Switchboard no longer sends HTTP probes to
+  Redis or unknown ports during discovery.
+- **Accurate Docker services and logs** — stopped containers retain the right
+  status, log timestamps stay ordered correctly, and unavailable actions are
+  disabled instead of appearing usable.
+- **Correct Numerics collection and alerts** — dashboards poll only when their
+  active/background settings require it, and alerts name the configured
+  threshold that was crossed.
+- **All-or-nothing configuration changes** — settings, stacks, presets, resets,
+  and restores now leave both saved data and live state unchanged if any part
+  of persistence fails.
+
+### Security
+
+- **Exhaustive capability ownership and safer diagnostics** — every backend
+  capability now has an authoritative owner, and copied diagnostics redact
+  secrets and local paths. This is a critical release because disabled
+  capabilities could previously retain optional background work.
+
 ## [1.22.0] - 2026-08-07
 
 Switchboard 1.22.0 lets your AI agent manage whole groups of services at
