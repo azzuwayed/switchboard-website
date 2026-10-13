@@ -1,6 +1,6 @@
 # Switchboard by Azzuwayed
 
-**The local service monitor for Mac developers.** One menu-bar app for forgotten dev servers, Homebrew services, Docker containers, launchd agents, HTTP endpoints, local AI tools, ports, and logs.
+**The Mac command center for AI agents and developers.** One native menu-bar app for local services, ports, AI runtimes, background items, logs, and reviewed controls.
 
 [**Download for macOS →**](https://switchboard.azzuwayed.com/) · [Changelog](https://github.com/azzuwayed/switchboard-website/releases) · [Support](https://switchboard.azzuwayed.com/contact.html)
 
@@ -22,9 +22,9 @@ Switchboard is the thing I wanted: one place where every local service shows up,
 - **A memory layer for the messy local machine.** Discovered, adopted, snoozed, ignored, resolved, and still-suspicious findings survive beyond one terminal session.
 - **Port context Activity Monitor does not have.** Connect `node`, `python`, `docker`, or `ollama` to the service, port, logs, and safe next action.
 - **Risk-aware actions.** Every command is allowlisted and explicitly approved before it runs. No arbitrary shell from the UI.
-- **Local-first.** No background HTTP server. The only telemetry it sends is an anonymous active-install count over the update check — no identifiers, no raw IP stored, opt out in Settings → Privacy. Your config and logs live in `~/Library/Application Support/`.
+- **Local-first control.** Service discovery and control run on your Mac with no inbound network listener. Automatic update checks can include an anonymous aggregate active-install signal; optional account, licensing, support, configured probes, and Uptime features use their stated destinations. Your config and logs live in `~/Library/Application Support/`.
 - **Templates that actually work.** Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx, and more — reviewed and ready out of the box.
-- **AI-agent setup help.** Everyone can preview MCP access profiles, methods, exclusions, and context cost; azzuwayed Pro or a Switchboard Lifetime license lets agents connect, run read-only guard checks, and create organized custom services from schemas and examples instead of ad-hoc shell commands.
+- **Guarded AI-agent context.** Everyone can preview MCP access profiles, methods, exclusions, and context cost; azzuwayed Pro, a Switchboard Lifetime license, or the full-feature trial lets supported agents use structured context and reviewed actions instead of a raw shell.
 
 ## What's inside
 
@@ -33,7 +33,7 @@ Switchboard is the thing I wanted: one place where every local service shows up,
 - Port inspector with conflict detection and service linking — no more `lsof`.
 - Live log viewer for file and command-backed logs.
 - Markdown docs viewer for your local runbooks.
-- MCP integration for AI agents, including service inspection/control, docs lookup, guard reports, and custom-service creation helpers.
+- Guarded MCP integration for supported external AI agents, including service inspection/control, docs lookup, guard reports, and custom-service creation helpers. MCP is unlocked by Pro, Lifetime, or the full-feature trial.
 - First-run onboarding that detects what's already running on your machine.
 
 ## System requirements
@@ -75,9 +75,18 @@ Lifetime owners may also activate manually with the emailed license key.
 
 This is a static GitHub Pages site. Install its pinned development dependency
 with `pnpm install --frozen-lockfile`, then run `pnpm check` before committing.
-The gate checks formatting, the stylesheet cache key, local links and assets,
-localized account handoffs, contact-form contracts, and retired references.
-`pnpm sync:product` renders the marked English and Arabic copy from
-`../switchboard/product/manifest.json` and writes `product.json` with the exact
-content revision. The desktop release cutter keeps its drafts unpublished until
-this revision and the Hub revision both match.
+The gate validates the committed publication without requiring a private sibling
+checkout: formatting, revisioned media, localized SEO and JSON-LD, the stylesheet
+cache key, trusted download discovery, local links, handoffs, contact contracts,
+and updater boundaries.
+
+`pnpm sync:product` accepts manifest schemas 1–3 from
+`../switchboard/product/manifest.json`, copies accepted media into
+`assets/product/<content-revision>/`, renders both landing pages from the shared
+product model, and writes the schema-1 `product.json` publication envelope.
+Schema 3 owns localized public names, SEO fields, social cards, and gallery
+media. Run `pnpm check:product:source` only when explicit source parity with the
+sibling checkout is required. `node scripts/sync-product.mjs --dry-run` renders
+and verifies both pages from the source manifest without writing anything; the
+desktop release cutter runs it before its tag publishes the manifest. The desktop release cutter keeps its drafts
+unpublished until the website and Hub revisions both match.

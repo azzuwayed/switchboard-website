@@ -1,63 +1,154 @@
 {
   "schemaVersion": 1,
   "productId": "switchboard",
-  "contentRevision": "a412735dae025215b6d1da5823ab87396edf123c8a6518e6511853a66d8f591d",
+  "contentRevision": "78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e",
   "manifest": {
-    "schemaVersion": 1,
+    "schemaVersion": 3,
     "productId": "switchboard",
     "locales": {
       "en": {
-        "tag": "Run your Mac’s local services from one native control center.",
-        "overview": "Switchboard starts, stops, and monitors local services and development tools from one focused macOS app, without juggling terminal windows.",
+        "displayName": "Switchboard",
+        "seo": {
+          "title": "Switchboard — Mac command center for AI agents and developers",
+          "description": "Switchboard is the Mac command center for AI agents and developers: see local services, ports, runtimes, logs, and safe controls before you or an agent acts."
+        },
+        "tag": "The Mac command center for AI agents and developers.",
+        "overview": "Switchboard identifies local services, ports, AI runtimes, background items, and stale sessions, then brings their health, logs, and safe controls into one native menu-bar app. Download it free for core service management. MCP is a Pro feature, also unlocked by a Lifetime license or during the full-feature trial.",
         "audience": "Developers, engineers, and power users who run several local tools throughout the day.",
-        "accountSummary": "Control local Mac services from one native app.",
-        "heroAlt": "Switchboard macOS dashboard for controlling local development services.",
+        "accountSummary": "The Mac command center for local services, ports, logs, and guarded AI-agent context.",
+        "heroAlt": "Stylized illustration of Switchboard: local service rows linked to health charts, a guarded actions panel, and connected AI agents.",
         "highlights": [
           {
-            "key": "native",
-            "text": "A fast, lightweight native macOS control center."
+            "key": "context",
+            "text": "Resolve generic processes such as node, python, and ollama into service, project, port, and resource context."
           },
           {
-            "key": "status",
-            "text": "See service health and take action without hunting through terminal windows."
+            "key": "actions",
+            "text": "Review exact-argument service actions without exposing a raw shell."
           },
           {
-            "key": "access",
-            "text": "Start free, use azzuwayed Pro, or keep a lifetime Switchboard license."
+            "key": "mcp",
+            "text": "With Pro, Lifetime, or the full-feature trial, supported AI agents get guarded MCP context and actions."
           }
         ]
       },
       "ar": {
-        "tag": "تحكّم في خدمات Mac المحلية من مركز أصلي واحد.",
-        "overview": "يتيح لك Switchboard تشغيل الخدمات المحلية وأدوات التطوير وإيقافها ومتابعتها من تطبيق macOS مركّز، من دون التنقل بين نوافذ الطرفية.",
+        "displayName": "سويتش بورد",
+        "seo": {
+          "title": "سويتش بورد — مركز تحكم Mac لوكلاء الذكاء الاصطناعي والمطورين",
+          "description": "سويتش بورد هو مركز تحكم Mac لوكلاء الذكاء الاصطناعي والمطورين: اعرف الخدمات والمنافذ وبيئات التشغيل والسجلات والإجراءات الآمنة قبل أن تتصرف أنت أو أي وكيل."
+        },
+        "tag": "مركز تحكم Mac لوكلاء الذكاء الاصطناعي والمطورين.",
+        "overview": "يتعرّف سويتش بورد على الخدمات والمنافذ وبيئات تشغيل الذكاء الاصطناعي وعناصر الخلفية والجلسات القديمة، ثم يجمع حالتها وسجلاتها وإجراءات التحكم الآمنة في تطبيق أصلي واحد على شريط القوائم. نزّله مجانًا لإدارة الخدمات الأساسية. MCP ميزة ضمن Pro، وتتوافر أيضًا مع ترخيص Lifetime أو خلال التجربة الكاملة.",
         "audience": "المطورون والمهندسون والمستخدمون المتقدمون الذين يشغّلون عدة أدوات محلية خلال يومهم.",
-        "accountSummary": "تحكّم في خدمات Mac المحلية من تطبيق أصلي واحد.",
-        "heroAlt": "لوحة Switchboard على macOS للتحكم بخدمات التطوير المحلية.",
+        "accountSummary": "مركز تحكم Mac للخدمات المحلية والمنافذ والسجلات وسياق وكلاء الذكاء الاصطناعي المحمي.",
+        "heroAlt": "رسم توضيحي لسويتش بورد: صفوف خدمات محلية مرتبطة بمخططات حالة، ولوحة إجراءات محمية، ووكلاء ذكاء اصطناعي متصلين.",
         "highlights": [
           {
-            "key": "native",
-            "text": "مركز تحكم أصلي لنظام macOS، سريع وخفيف."
+            "key": "context",
+            "text": "اربط عمليات عامة مثل node وpython وollama بالخدمة والمشروع والمنفذ والموارد."
           },
           {
-            "key": "status",
-            "text": "راقب حالة الخدمات واتخذ الإجراء من دون البحث بين نوافذ الطرفية."
+            "key": "actions",
+            "text": "راجع إجراءات الخدمات ومعاملاتها الدقيقة من دون فتح سطر أوامر حر."
           },
           {
-            "key": "access",
-            "text": "ابدأ مجانًا، أو استخدم عضوية azzuwayed Pro، أو احتفظ بترخيص Switchboard الدائم."
+            "key": "mcp",
+            "text": "مع Pro أو Lifetime أو التجربة الكاملة، تحصل وكلاء الذكاء الاصطناعي المدعومة على سياق MCP وإجراءاته المحمية."
           }
         ]
       }
     },
     "media": {
       "hero": {
-        "path": "product/media/hero.webp",
+        "key": "hero",
+        "paths": {
+          "default": "product/media/hero.webp"
+        },
         "alt": {
-          "en": "Switchboard macOS dashboard for controlling local development services.",
-          "ar": "لوحة Switchboard على macOS للتحكم بخدمات التطوير المحلية."
+          "en": "Stylized illustration of Switchboard: local service rows linked to health charts, a guarded actions panel, and connected AI agents.",
+          "ar": "رسم توضيحي لسويتش بورد: صفوف خدمات محلية مرتبطة بمخططات حالة، ولوحة إجراءات محمية، ووكلاء ذكاء اصطناعي متصلين."
         }
       },
-      "screenshots": []
+      "socialCard": {
+        "key": "social-card",
+        "paths": {
+          "default": "product/media/social-card-en.webp",
+          "ar": "product/media/social-card-ar.webp"
+        },
+        "alt": {
+          "en": "Switchboard social card reading “The Mac command center for AI agents and developers,” with a free macOS download and MCP with Pro.",
+          "ar": "بطاقة سويتش بورد وفيها «مركز تحكم Mac لوكلاء الذكاء الاصطناعي والمطورين»، مع تنزيل مجاني لـ macOS وMCP مع Pro."
+        }
+      },
+      "screenshots": [
+        {
+          "key": "services",
+          "paths": {
+            "default": "product/media/screenshots/en/services.webp",
+            "ar": "product/media/screenshots/ar/services.webp"
+          },
+          "alt": {
+            "en": "Switchboard services dashboard with running, stopped, and missing local services.",
+            "ar": "لوحة خدمات سويتش بورد وفيها خدمات محلية تعمل ومتوقفة ومفقودة."
+          }
+        },
+        {
+          "key": "background-items",
+          "paths": {
+            "default": "product/media/screenshots/en/background-items.webp",
+            "ar": "product/media/screenshots/ar/background-items.webp"
+          },
+          "alt": {
+            "en": "Switchboard Background Items view with fictional login items and LaunchAgents.",
+            "ar": "شاشة عناصر الخلفية في سويتش بورد مع عناصر دخول وLaunchAgents خيالية."
+          }
+        },
+        {
+          "key": "agent-briefing",
+          "paths": {
+            "default": "product/media/screenshots/en/agent-briefing.webp",
+            "ar": "product/media/screenshots/ar/agent-briefing.webp"
+          },
+          "alt": {
+            "en": "Switchboard MCP briefing with structured local context for a supported AI agent.",
+            "ar": "إحاطة MCP في سويتش بورد وتعرض سياقًا محليًا منظمًا لوكيل ذكاء اصطناعي مدعوم."
+          }
+        },
+        {
+          "key": "observer",
+          "paths": {
+            "default": "product/media/screenshots/en/observer.webp",
+            "ar": "product/media/screenshots/ar/observer.webp"
+          },
+          "alt": {
+            "en": "Switchboard Observer showing newly discovered fictional development servers.",
+            "ar": "شاشة المراقب في سويتش بورد وتعرض مستمعين وخوادم تطوير خيالية مكتشفة حديثًا."
+          }
+        },
+        {
+          "key": "ports",
+          "paths": {
+            "default": "product/media/screenshots/en/ports.webp",
+            "ar": "product/media/screenshots/ar/ports.webp"
+          },
+          "alt": {
+            "en": "Switchboard Ports view connecting fictional listeners to services and projects.",
+            "ar": "شاشة المنافذ في سويتش بورد وتربط مستمعين خياليين بالخدمات والمشاريع."
+          }
+        },
+        {
+          "key": "stream",
+          "paths": {
+            "default": "product/media/screenshots/en/stream.webp",
+            "ar": "product/media/screenshots/ar/stream.webp"
+          },
+          "alt": {
+            "en": "Switchboard Stream following fictional service logs in one timeline.",
+            "ar": "بث سويتش بورد وهو يتابع سجلات خدمات خيالية في خط زمني واحد."
+          }
+        }
+      ]
     },
     "links": {
       "website": {

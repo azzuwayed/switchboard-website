@@ -17,6 +17,12 @@
       content="What Switchboard does and does not do with your data."
     />
     <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://switchboard.azzuwayed.com/privacy.html"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_SA" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
     <link
       rel="icon"
@@ -31,7 +37,14 @@
       href="assets/icon-256.png"
     />
     <link rel="apple-touch-icon" sizes="256x256" href="assets/icon-256.png" />
-    <meta property="og:image" content="assets/icon-256.png" />
+    <meta
+      property="og:image"
+      content="https://switchboard.azzuwayed.com/assets/icon-256.png"
+    />
+    <link
+      rel="canonical"
+      href="https://switchboard.azzuwayed.com/privacy.html"
+    />
     <link
       rel="alternate"
       hreflang="en"
@@ -47,7 +60,7 @@
       hreflang="x-default"
       href="https://switchboard.azzuwayed.com/privacy.html"
     />
-    <link rel="stylesheet" href="style.css?v=5b9111f0cd" />
+    <link rel="stylesheet" href="style.css?v=474702650a" />
     <style>
       .doc-hero {
         padding: 64px 0 32px;
@@ -132,14 +145,14 @@
           <p class="eyebrow">Privacy &amp; trust</p>
           <h1>Your app data stays on your Mac.</h1>
           <p class="lede">
-            Switchboard is a local-first macOS utility with no background HTTP
-            server. Its update-count telemetry is anonymous and opt-out, while
+            Switchboard is a local-first macOS utility with no inbound network
+            listener. Its update-count telemetry is anonymous and opt-out, while
             optional account sign-in, purchases, licensing, and support use only
             the information needed to provide those services. This page
             describes what the app, account experience, and purchase flow read,
             write, and send.
           </p>
-          <p class="doc-meta">Last updated: 2026-07-13.</p>
+          <p class="doc-meta">Last updated: 2026-10-12.</p>
         </div>
       </section>
 
@@ -159,11 +172,12 @@
               license, and to use account-backed billing, purchase recovery,
               registered-device help, and private priority support.
             </li>
-            <li>No background server, no listening network port.</li>
+            <li>No inbound network listener.</li>
             <li>
-              The installed app contacts only the services needed for updates,
-              optional account sign-in, entitlement and license operations, and
-              support actions you start.
+              Outbound requests cover updates, optional account sign-in,
+              entitlement and license operations, support actions you start,
+              configured health probes, and, with Pro, Uptime checks and
+              Numerics cards.
             </li>
             <li>
               All configuration, logs, and approval state are stored on your Mac
@@ -237,9 +251,9 @@
               attachments are sent only when you submit them.
             </li>
             <li>
-              <strong>No background HTTP server.</strong> The app does not
-              listen on any network port. Other processes cannot connect to
-              Switchboard.
+              <strong>No inbound network listener.</strong> The app does not
+              accept inbound network connections. Guarded MCP access for
+              supported AI tools uses local inter-process communication.
             </li>
             <li>
               <strong>No arbitrary shell access from the UI.</strong> The

@@ -23,26 +23,21 @@ cp ../switchboard/src-tauri/icons/128x128.png    assets/icon-128.png
 cp ../switchboard/src-tauri/icons/128x128@2x.png assets/icon-256.png
 ```
 
-## Screenshots
+## Product media
 
-Website screenshots live in `assets/screenshots/`. Each capture is stored as a
-real PNG source plus a WebP sibling used by the landing pages through
-`<picture>`:
+The app repository owns the hero, localized social cards, and localized gallery
+captures in `product/media/`. `pnpm sync:product` validates their manifest,
+copies the accepted bytes into `assets/product/<content-revision>/`, and points
+the English and Arabic pages at those immutable paths. Revision directories are
+script-owned and must not be edited by hand.
 
-| File                      | Use                                     |
-| ------------------------- | --------------------------------------- |
-| `services-dashboard.webp` | Hero product screenshot                 |
-| `install-dmg.webp`        | First-time install screenshot           |
-| `observer-inbox.webp`     | Screenshot gallery: discovered services |
-| `ports-inspector.webp`    | Screenshot gallery: port/process view   |
-| `logs-viewer.webp`        | Screenshot gallery: unified logs        |
+The gallery contract uses these fixed keys: `services`, `background-items`,
+`agent-briefing`, `observer`, `ports`, and `stream`. The app's capture command
+produces the final 3084×1968 WebP for each locale. Product media must contain
+only fictional services, paths, ports, logs, and account details; `agent-briefing`
+and `stream` visibly identify Pro access.
 
-Regenerate from the PNG sources after recapturing:
-
-```sh
-for f in assets/screenshots/*.png; do
-  base=$(basename "$f" .png)
-  magick "$f" -auto-orient -strip -colorspace sRGB -depth 8 "$f"
-  magick "$f" -quality 86 "assets/screenshots/$base.webp"
-done
-```
+`assets/screenshots/install-dmg.png` and its WebP sibling remain static because
+the installer walkthrough is not product-manifest media. The legacy stable
+product screenshots remain only until the first schema-3 sync, which removes
+them after both pages and `product.json` point at the complete revisioned set.

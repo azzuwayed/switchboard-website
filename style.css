@@ -692,6 +692,19 @@ h2 {
   white-space: nowrap;
 }
 
+.pro-label {
+  display: inline-block;
+  margin-inline-start: 0.35rem;
+  padding: 0.08rem 0.42rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.68em;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  vertical-align: 0.12em;
+}
+
 .screenshot-card span {
   min-width: 0;
 }
