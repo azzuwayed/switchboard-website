@@ -10,6 +10,105 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.24.0] - 2026-10-12
+
+Switchboard 1.24.0 shows what macOS runs in the background, calls out
+services that no longer exist, and makes updates verified and upfront about
+password prompts.
+
+### Added
+
+- **See what macOS runs in the background** — Services adds a Background view
+  of third-party LaunchAgents, LaunchDaemons, and login items, showing each
+  one's permission, startup setting, and running state. It is part of the free
+  Observer tool: turn Observer on in Tools to see it.
+- **Missing services are called out** — a service whose Docker container,
+  Homebrew formula, or launchd job no longer exists now reads Missing instead
+  of Stopped, with a Missing filter and a Remove service action. Quitting
+  Docker Desktop never marks a service Missing.
+- **Background items you can act on** — an item that reliably matches one of
+  your services shows that service's controls in the list; others offer
+  Review & add or Manage in macOS. Items group by developer, and AI agents can
+  read the same inventory.
+- **LaunchAgent controls that stick** — Start, Stop, and Restart on a
+  LaunchAgent added from discovery now also set whether it runs at your next
+  login, so a stopped agent stays stopped after you log back in. Switchboard's
+  own login item stays with the Launch at login setting.
+- **Starting and Warming up** — services show Starting while a start or
+  restart command runs, then Warming up until their configured readiness check
+  passes, across the app, tray, stacks, and AI actions. Resource monitoring
+  and alerts stay active meanwhile.
+- **One-click update for older AI client setups** — the MCP page spots client
+  configurations that still use the legacy compatibility command or point at a
+  moved copy of Switchboard, and Update all switches them to the bundled
+  helper. Your other servers and settings are kept, with a backup beside each
+  changed file. VS Code Insiders is now supported, and VS Code profiles are
+  recognized.
+
+### Changed
+
+- **Updates tell you before macOS asks for a password** — when installing will
+  bring up the macOS administrator prompt (for example, because another
+  account installed Switchboard), the update card says so, the button reads
+  Install & restart…, and automatic installs wait for you. Switchboard itself
+  never asks for the password. A cancelled prompt explains what happened and
+  offers Download instead, a copy running from a disk image or temporary
+  location offers Download new version, and Settings → Updates shows how
+  updates install on this Mac.
+- **Sign in in your language, or with another account** — azzuwayed.com
+  sign-in now opens in the app's language, and License & Access adds Use
+  another account instead of silently reusing the last one.
+- **Clearer stack controls** — saved stacks show member names, links to their
+  apps, and only the actions that fit their current state. Starting a stack
+  leaves members that are already running alone, stopping shows progress and
+  continues past a member that fails, and a failed member offers Retry
+  startup, Retry stop, or View service with the failure details.
+- **On-demand launchd jobs read as running** — a loaded LaunchAgent that is
+  idle between scheduled or on-demand runs now shows Running instead of
+  Stopped; one that crashed, or should stay resident but isn't, still shows
+  Stopped.
+- **AI clients learn why tools are locked** — while MCP access is locked,
+  connected AI clients are told why their tool list is empty.
+- **Focus outlines for the keyboard only** — clicking with the mouse no longer
+  leaves focus rings on menus, dialogs, and hover actions, while keyboard
+  navigation gets a consistent outline everywhere.
+
+### Fixed
+
+- **Startup checks no longer count as failures** — services that were already
+  stopped when Switchboard launched are no longer marked Failed in Activity or
+  reported to AI clients as recent failures. Existing history is kept and now
+  reads correctly.
+- **Services and Ports agree about ports** — a port held by a process that
+  doesn't speak HTTP now reads "Endpoint did not respond" instead of claiming
+  nothing is listening.
+- **Less repetition across Home and Observer** — identical idle agent sessions
+  merge into one row, rows you can't open no longer look clickable, findings
+  outside a developer group sit under their own heading, one developer no
+  longer appears under several names, and the port details drawer states each
+  fact once.
+- **Stack cards no longer get stuck** — a stack started or stopped while you
+  were on another screen no longer leaves its card busy, and its controls
+  return only after member statuses refresh.
+- **Arabic reads correctly in technical lines** — check results and other
+  technical details on service cards no longer show Arabic as disconnected
+  letters.
+- **AI client configs keep their comments** — adding, updating, repairing, or
+  removing Switchboard's entry in an AI client's configuration, Codex
+  included, now keeps your comments and key order, and an unreadable VS Code
+  or Cursor configuration is repaired in place instead of reopening the
+  install link.
+
+### Security
+
+- **Verified update information** — from this version on, Switchboard checks a
+  signature on the update details it receives, including the version, release
+  notes, download links, and urgency, before offering an update. A withdrawn
+  release, or one that needs a newer macOS, is no longer offered, and Settings
+  → Updates notes when update information hasn't been refreshed recently.
+- **Sign-ins expire** — a browser sign-in left unfinished for more than 10
+  minutes no longer completes; start a new one from the app.
+
 ## [1.23.0] - 2026-08-12
 
 Switchboard 1.23.0 cuts background work, makes service logs reliable and
