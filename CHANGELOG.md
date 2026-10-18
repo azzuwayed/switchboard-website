@@ -10,6 +10,117 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.25.0] - 2026-10-18
+
+Switchboard 1.25.0 adds linked stacks that switch safely between run modes,
+keeps Switchboard responsive when many AI agents are connected, and makes AI
+answers and command checks clearer and stricter.
+
+### Added
+
+- **Link stacks that can't run together** — give alternative stacks the same
+  Exclusive group, such as a live-reloading dev server and a production build
+  on one port, and Switchboard treats them as one choice. Services listed in
+  both stacks are shared and keep running. A stack that would clash reads
+  Blocked with the reason, and Switch to … stops the running mode's own
+  services, starts the other, and waits until it is ready. A shared service
+  such as a scheduler can pause during the switch, and Switchboard never stops
+  a process it didn't start.
+- **Stays responsive with many AI agents connected, and tells you when it
+  can't** — each AI session now takes far less of Switchboard's capacity, so a
+  pile of idle Codex or Claude sessions can no longer leave every AI client
+  without Switchboard tools. If Switchboard ever does fill up, the MCP page
+  shows an amber At capacity status beside its title, and AI clients are told
+  how to free room.
+- **Disconnect only Switchboard's helpers** — Agent sessions on the MCP page
+  now recognize shared AI app hosts such as the Codex app and Claude desktop,
+  show how many Switchboard helpers each group holds, and list the biggest
+  holders first. Disconnect Switchboard helpers frees room without quitting
+  the AI app or touching other MCP servers (under a shared host, only
+  long-running helpers are taken). Stop session stays for apps that run one
+  conversation per process, and now says it ends that conversation.
+- **Linked stacks guard every way to start** — Start and Restart in Services,
+  the tray, custom actions, and AI requests all respect linked stacks, with
+  the reason shown beside the disabled control. A failed switch names the
+  failing service, shows what was left running, and offers Retry switch or
+  Switch back to …. When two stacks run different services on one port, the
+  Stacks view offers Link as …. Groups, shared services, and pause settings
+  travel with exported and imported config, and the import preview shows them.
+- **Spot sessions on the fallback bridge** — an AI helper that started while
+  Switchboard was closed or relaunching is labelled Compatibility fallback,
+  with a hint to restart that agent session. The MCP setup panel counts these
+  sessions without treating them as out of date.
+
+### Changed
+
+- **AI clients get readable failures and compact answers** — when a tool runs
+  but fails (a stack conflict, a disabled tool, an unknown id), the assistant
+  now receives the reason and a hint it can act on instead of a bare protocol
+  error. Results are more compact, and long lists such as detected services,
+  docs, and Observer findings arrive in pages, so responses stay within AI
+  clients' size limits.
+- **AI clients are told what blocks a tool** — recommendations in the guard
+  report and briefing that name a tool the client can't call now say why and
+  how to unlock it, and "why isn't this available?" answers list the first
+  blocker and every step to clear it (profile, Custom method, Tool switch,
+  dependency, or access). The reasons given are now accurate, and Switchboard's
+  guidance names only tools the client can actually call.
+- **Background view refreshes lighter** — macOS's slow background-item listing
+  is shared between refreshes and AI requests instead of re-run every time, so
+  macOS permission and ownership details can be up to two minutes old (they
+  are re-read on every refresh for a while after you open Login Items settings
+  from Switchboard). Runtime and startup state stay live, and Switchboard
+  waits longer for macOS before falling back to a reduced view.
+- **Update progress shows only real progress** — the bar appears only while a
+  download has a known size. Checking, installing, and downloads of unknown
+  size are shown by the status icon instead of a placeholder bar.
+
+### Fixed
+
+- **AI clients no longer stay at zero tools** — a client whose tool list failed
+  to load, or that missed a change notice, is now told to refresh once the
+  list can be read again, and a failed notice is retried instead of counted as
+  delivered.
+- **AI reads of services and prompts work** — reading a single service from an
+  AI client used to fail with a misleading access error; services, docs, and
+  stacks can now be read one at a time and are discoverable by clients that
+  browse resources. Prompts render completely: a missing required detail is
+  reported with a clear message instead of leaving placeholder text behind,
+  and optional details use defaults.
+- **Incident snoozes read clearly in Activity** — entries now show Incident
+  snoozed and Incident unsnoozed (Arabic included) instead of a raw label.
+- **Retitled processes show their real names** — servers that rename
+  themselves, such as Next.js dev servers, no longer appear in Observer and
+  briefings under a fragment like "(v16".
+- **Observer and Ports see every running process** — on a Mac running many
+  processes, the process list was cut off, so recently started dev servers
+  could be missing from Observer findings and Ports names. The whole list is
+  now read.
+- **Switching back after a failed switch shows its progress** — recovering from
+  a failed stack switch no longer leaves the stacks looking idle while the
+  switch back is running.
+- **Docs search stays steady** — the list no longer flashes "No docs match"
+  while a search is still running; it keeps its contents until results arrive.
+- **Quieter diagnostics** — AI sessions that close before they finish
+  connecting no longer fill the log with warnings that could push out useful
+  entries.
+- **AI service edits are validated** — a service's health and log settings sent
+  by an AI client are checked against the documented options, and unknown
+  types are rejected instead of saved.
+
+### Security
+
+- **Stricter command checks** — commands started through everyday launch
+  helpers are now judged as the program they actually run, so a command that
+  is refused or rated risky when run directly is treated the same way behind a
+  helper. A saved service that starts a shell this way may now be refused;
+  point its command at the program itself.
+- **AI changes are attributed to the AI** — dismissing, snoozing, or
+  unsnoozing Observer findings through an AI client now shows the AI badge and
+  the client's name in Activity instead of looking like your own action, and
+  the name always comes from the connected AI app, never from the assistant's
+  own requests.
+
 ## [1.24.0] - 2026-10-12
 
 Switchboard 1.24.0 shows what macOS runs in the background, calls out
