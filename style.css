@@ -927,10 +927,6 @@ h2 {
   color: inherit;
 }
 
-.footer-author:hover {
-  color: var(--fg);
-}
-
 /* Pricing and checkout */
 
 .page-hero {
@@ -952,7 +948,7 @@ h2 {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
   margin: 30px 0 18px;
   align-items: stretch;
@@ -1106,6 +1102,60 @@ h2 {
 
 .price-card .pricing-note {
   margin: 0.75rem 0 0;
+}
+
+.plan-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.plan-toggle {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  padding: 4px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+}
+
+.plan-toggle label {
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--fg-muted);
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.plan-toggle label:hover {
+  color: var(--fg);
+}
+
+#plan-pro:checked ~ .plan-toggle label[for="plan-pro"],
+#plan-lifetime:checked ~ .plan-toggle label[for="plan-lifetime"] {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+#plan-pro:focus-visible ~ .plan-toggle label[for="plan-pro"],
+#plan-lifetime:focus-visible ~ .plan-toggle label[for="plan-lifetime"] {
+  outline: 2px solid color-mix(in srgb, var(--accent) 70%, transparent);
+  outline-offset: 2px;
+}
+
+#plan-pro:checked ~ .plan-lifetime-only,
+#plan-lifetime:checked ~ .plan-pro-only {
+  display: none;
 }
 
 .pricing-note-grid {

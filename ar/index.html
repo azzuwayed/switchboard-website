@@ -91,7 +91,7 @@
       hreflang="x-default"
       href="https://switchboard.azzuwayed.com/"
     />
-    <link rel="stylesheet" href="../style.css?v=6744633294" />
+    <link rel="stylesheet" href="../style.css?v=a7d059582f" />
     <script src="../promo-banner.js" defer></script>
     <script src="../download.js" defer></script>
     <script type="application/ld+json" data-product-json-ld>
@@ -787,8 +787,30 @@
               >
             </div>
 
-            <div class="price-card featured">
-              <div class="price-head">
+            <div
+              class="price-card featured plan-card"
+              role="radiogroup"
+              aria-label="اختر الخطة المدفوعة"
+            >
+              <input
+                class="plan-radio"
+                type="radio"
+                name="paid-plan"
+                id="plan-pro"
+                checked
+              />
+              <input
+                class="plan-radio"
+                type="radio"
+                name="paid-plan"
+                id="plan-lifetime"
+              />
+              <div class="plan-toggle">
+                <label for="plan-pro">Pro</label>
+                <label for="plan-lifetime">مدى الحياة</label>
+              </div>
+
+              <div class="price-head plan-pro-only">
                 <span class="price-tier pro-tier">
                   <span class="pro-tier-crown" aria-hidden="true">
                     <svg viewBox="0 0 24 24" focusable="false">
@@ -804,24 +826,10 @@
                   شهرياً · أو <span dir="ltr">299.99 ريالاً</span> سنوياً
                 </p>
                 <p class="price-fit">
-                  Switchboard مع كل تطبيق يحمل علامة «مشمول مع Pro»، ما دامت
-                  العضوية نشطة.
+                  ادفع شهرياً أو سنوياً. يستمر الوصول ما دامت العضوية نشطة.
                 </p>
               </div>
-              <ul class="price-features">
-                <li>
-                  كل ما في الاستخدام المجاني، مع MCP والموارد والبث وسجلات
-                  النظام ووقت التشغيل والقياسات
-                </li>
-                <li>كل تطبيق يحمل علامة «مشمول مع Pro»</li>
-              </ul>
-              <a class="btn btn-primary" href="https://azzuwayed.com/ar/pricing"
-                >انضم إلى azzuwayed Pro</a
-              >
-            </div>
-
-            <div class="price-card">
-              <div class="price-head">
+              <div class="price-head plan-lifetime-only">
                 <span class="price-tier">ترخيص Switchboard مدى الحياة</span>
                 <div class="price-amount">
                   <span dir="ltr" data-sb-price="sar">146.25 ريالاً</span>
@@ -832,20 +840,48 @@
                   أي عضوية.
                 </p>
               </div>
+
               <ul class="price-features">
+                <li>كل ما في الاستخدام المجاني</li>
                 <li>
-                  كل ما في الاستخدام المجاني، مع MCP والموارد والبث وسجلات
-                  النظام ووقت التشغيل والقياسات
+                  <strong>MCP</strong> — وصّل Claude Code وCursor وCodex وClaude
+                  Desktop وGemini CLI وغيرها عبر خادم محلي محمي
+                </li>
+                <li>
+                  <strong>الموارد</strong> — ضغط المعالج والذاكرة على مستوى
+                  الجهاز مع اكتشاف الشذوذات
+                </li>
+                <li>
+                  <strong>البث</strong> — سجلات الخدمات والأوامر والملفات ونشاط
+                  التطبيق في خط زمني مباشر واحد
+                </li>
+                <li>
+                  <strong>سجلات النظام</strong> — تقارير الأعطال وفرز سجلات
+                  الجهاز
+                </li>
+                <li>
+                  <strong>وقت التشغيل</strong> — مراقبة المواقع ونقاط النهاية
+                  الخارجية مع سجل التوفّر
+                </li>
+                <li>
+                  <strong>القياسات</strong> — لوحات مباشرة من نقاط نهاية JSON مع
+                  حدود وتنبيهات
                 </li>
               </ul>
+
               <a
-                class="btn btn-secondary"
+                class="btn btn-primary plan-pro-only"
+                href="https://azzuwayed.com/ar/pricing"
+                >انضم إلى azzuwayed Pro</a
+              >
+              <a
+                class="btn btn-primary plan-lifetime-only"
                 id="buy-cta"
                 href="https://azzuwayed.com/ar/products/switchboard"
                 >شراء ترخيص مدى الحياة</a
               >
               <p
-                class="pricing-note"
+                class="pricing-note plan-lifetime-only"
                 id="purchase-paused"
                 role="status"
                 hidden
@@ -894,13 +930,7 @@
             </p>
             <p class="story-founder">
               بنى Switchboard عبدالله الزويد كمطور مستقل. أبقيته محلياً لأنني
-              أردت هذه الأداة على جهازي. يمكنك التحقق من المطوّر عبر
-              <a
-                href="https://www.linkedin.com/in/abdullah-alzuwayed/"
-                rel="me noopener noreferrer"
-                target="_blank"
-                >LinkedIn</a
-              >.
+              أردت هذه الأداة على جهازي.
             </p>
           </div>
           <aside
@@ -1130,13 +1160,7 @@
       <div class="container footer-inner">
         <p>
           © 2026
-          <a
-            class="footer-author"
-            href="https://www.linkedin.com/in/abdullah-alzuwayed/"
-            rel="me noopener noreferrer"
-            target="_blank"
-            >عبدالله الزويد</a
-          >. جميع الحقوق محفوظة.
+          <span class="footer-author">عبدالله الزويد</span>. جميع الحقوق محفوظة.
         </p>
         <nav class="footer-nav" aria-label="تذييل">
           <a href="#install">التثبيت</a>

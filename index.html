@@ -82,7 +82,7 @@
       hreflang="x-default"
       href="https://switchboard.azzuwayed.com/"
     />
-    <link rel="stylesheet" href="style.css?v=6744633294" />
+    <link rel="stylesheet" href="style.css?v=a7d059582f" />
     <script src="promo-banner.js" defer></script>
     <script src="download.js" defer></script>
     <script type="application/ld+json" data-product-json-ld>
@@ -797,8 +797,30 @@
               >
             </div>
 
-            <div class="price-card featured">
-              <div class="price-head">
+            <div
+              class="price-card featured plan-card"
+              role="radiogroup"
+              aria-label="Choose a paid plan"
+            >
+              <input
+                class="plan-radio"
+                type="radio"
+                name="paid-plan"
+                id="plan-pro"
+                checked
+              />
+              <input
+                class="plan-radio"
+                type="radio"
+                name="paid-plan"
+                id="plan-lifetime"
+              />
+              <div class="plan-toggle">
+                <label for="plan-pro">Pro</label>
+                <label for="plan-lifetime">Lifetime</label>
+              </div>
+
+              <div class="price-head plan-pro-only">
                 <span class="price-tier pro-tier">
                   <span class="pro-tier-crown" aria-hidden="true">
                     <svg viewBox="0 0 24 24" focusable="false">
@@ -810,24 +832,11 @@
                 <div class="price-amount">29.99 SAR</div>
                 <p class="price-sub">monthly · or 299.99 SAR yearly</p>
                 <p class="price-fit">
-                  Switchboard plus every app marked Included with Pro, while
-                  your membership is active.
+                  Pay monthly or yearly. Access lasts while your membership is
+                  active.
                 </p>
               </div>
-              <ul class="price-features">
-                <li>
-                  Everything in Free, plus MCP, Resources, Stream, System Logs,
-                  Uptime, and Numerics
-                </li>
-                <li>Every app marked Included with Pro</li>
-              </ul>
-              <a class="btn btn-primary" href="https://azzuwayed.com/en/pricing"
-                >Join azzuwayed Pro</a
-              >
-            </div>
-
-            <div class="price-card">
-              <div class="price-head">
+              <div class="price-head plan-lifetime-only">
                 <span class="price-tier">Switchboard Lifetime license</span>
                 <div class="price-amount">
                   <span data-sb-price="sar">146.25 SAR</span>
@@ -838,20 +847,49 @@
                   membership.
                 </p>
               </div>
+
               <ul class="price-features">
+                <li>Everything in Free</li>
                 <li>
-                  Everything in Free, plus MCP, Resources, Stream, System Logs,
-                  Uptime, and Numerics
+                  <strong>MCP</strong> — connect Claude Code, Cursor, Codex,
+                  Claude Desktop, Gemini CLI, and other agents through a guarded
+                  local server
+                </li>
+                <li>
+                  <strong>Resources</strong> — machine-wide CPU, memory, and
+                  runtime pressure with anomaly detection
+                </li>
+                <li>
+                  <strong>Stream</strong> — service, command, and file logs plus
+                  activity in one live timeline
+                </li>
+                <li>
+                  <strong>System Logs</strong> — crash reports and machine log
+                  triage
+                </li>
+                <li>
+                  <strong>Uptime</strong> — external website and endpoint
+                  monitoring with availability history
+                </li>
+                <li>
+                  <strong>Numerics</strong> — live JSON-endpoint dashboards with
+                  thresholds and notifications
                 </li>
               </ul>
+
               <a
-                class="btn btn-primary"
+                class="btn btn-primary plan-pro-only"
+                href="https://azzuwayed.com/en/pricing"
+                >Join azzuwayed Pro</a
+              >
+              <a
+                class="btn btn-primary plan-lifetime-only"
                 id="buy-cta"
                 href="https://azzuwayed.com/en/products/switchboard"
                 >Buy Lifetime license</a
               >
               <p
-                class="pricing-note"
+                class="pricing-note plan-lifetime-only"
                 id="purchase-paused"
                 role="status"
                 hidden
@@ -904,13 +942,7 @@
             <p class="story-founder">
               Switchboard is built by Abdullah Alzuwayed, an independent
               developer. I keep it local-first because it is the tool I wanted
-              on my own Mac. You can verify the builder on
-              <a
-                href="https://www.linkedin.com/in/abdullah-alzuwayed/"
-                rel="me noopener noreferrer"
-                target="_blank"
-                >LinkedIn</a
-              >.
+              on my own Mac.
             </p>
           </div>
           <aside
@@ -1153,13 +1185,8 @@
       <div class="container footer-inner">
         <p>
           © 2026
-          <a
-            class="footer-author"
-            href="https://www.linkedin.com/in/abdullah-alzuwayed/"
-            rel="me noopener noreferrer"
-            target="_blank"
-            >Abdullah Alzuwayed</a
-          >. All rights reserved.
+          <span class="footer-author">Abdullah Alzuwayed</span>. All rights
+          reserved.
         </p>
         <nav class="footer-nav" aria-label="Footer">
           <a href="#install">Install</a>
