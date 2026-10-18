@@ -82,7 +82,7 @@
       hreflang="x-default"
       href="https://switchboard.azzuwayed.com/"
     />
-    <link rel="stylesheet" href="style.css?v=474702650a" />
+    <link rel="stylesheet" href="style.css?v=6744633294" />
     <script src="promo-banner.js" defer></script>
     <script src="download.js" defer></script>
     <script type="application/ld+json" data-product-json-ld>
@@ -245,9 +245,9 @@
           <p class="eyebrow">AI-dev command center</p>
           <h2>Every AI session starts with local awareness.</h2>
           <p class="features-lede">
-            Before an agent acts on your Mac, Switchboard can tell it — and you
-            — what is running, what is hot, what is stale, what owns each port,
-            and what local stack it is about to touch.
+            Before an agent acts on your Mac, Switchboard tells it — and you —
+            what is running, what is hot, what is stale, and what owns each
+            port.
           </p>
           <div class="feature-grid">
             <article class="feature">
@@ -268,10 +268,10 @@
               </span>
               <h3>Environment briefing</h3>
               <p>
-                One structured read covers current time and timezone, memory and
-                CPU pressure, hot local AI runtimes, stale coding-agent
-                sessions, port attention, and recent service failures. Agents
-                can call it at session start and know what they're walking into.
+                One structured read covers local time and timezone, memory and
+                CPU pressure, hot AI runtimes, stale agent sessions, port
+                conflicts, and recent service failures — so an agent knows what
+                it's walking into at session start.
               </p>
             </article>
             <article class="feature">
@@ -291,10 +291,10 @@
               </span>
               <h3>AI runtime inventory</h3>
               <p>
-                Switchboard detects Ollama, LM Studio, llama.cpp, MLX model
-                servers, and coding-agent helpers like Claude Code, Cursor,
-                Codex, and VS Code — with ports, CPU/memory, and project path
-                attached.
+                Detects Ollama, LM Studio, llama.cpp, MLX servers, and
+                coding-agent helpers like Claude Code, Cursor, and Codex — with
+                ports, CPU/memory, and project path, so an agent doesn't start a
+                duplicate.
               </p>
             </article>
             <article class="feature">
@@ -313,15 +313,11 @@
                   <line x1="12" y1="20" x2="12.01" y2="20" />
                 </svg>
               </span>
-              <h3>MCP runtime (Pro, Lifetime, or trial)</h3>
+              <h3>Guarded MCP access</h3>
               <p>
                 Connect Claude Code, Cursor, Codex, Claude Desktop, Gemini CLI,
-                Qwen Code, OpenCode, and others through guarded local MCP
-                access. Supported agents get read-only environment context,
-                service controls, port inspection, and workspace groups through
-                structured actions instead of a raw shell. Free use includes a
-                read-only preview of profiles, methods, exclusions, and
-                context-cost estimates.
+                and others through guarded local MCP — structured actions
+                instead of a raw shell. Free includes a read-only preview.
               </p>
             </article>
             <article class="feature">
@@ -341,112 +337,9 @@
               </span>
               <h3>Workspace map</h3>
               <p>
-                Services, ports, logs, runtimes, and agent sessions are grouped
-                by project path into workspace stacks — so you and your agent
-                both see what belongs to the same codebase right now, not just a
-                flat process list.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="agent-sees" class="features">
-        <div class="container">
-          <p class="eyebrow">Local context</p>
-          <h2>Your agent can see what it usually misses.</h2>
-          <p class="features-lede">
-            Without Switchboard, AI clients start blind — no idea what time it
-            is locally, what owns port 3000, whether a model runtime is already
-            running, or whether a service from yesterday is still holding
-            resources.
-          </p>
-          <div class="feature-grid">
-            <article class="feature">
-              <span class="feature-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 7v5l3 3" />
-                </svg>
-              </span>
-              <h3>Local time and timezone</h3>
-              <p>
-                Agents always know the local date, time, and timezone — so log
-                timestamps, cron schedules, and "run this now" make sense
-                without guessing.
-              </p>
-            </article>
-            <article class="feature">
-              <span class="feature-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <path d="M8 21h8M12 17v4" />
-                  <path d="M6 8h4M6 11h6" />
-                </svg>
-              </span>
-              <h3>Model runtimes already running</h3>
-              <p>
-                Ollama, LM Studio, llama.cpp, and MLX servers are identified
-                before an agent tries to spin up a duplicate — saving memory and
-                avoiding port collisions.
-              </p>
-            </article>
-            <article class="feature">
-              <span class="feature-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path
-                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"
-                  />
-                  <circle cx="12" cy="12" r="4" />
-                </svg>
-              </span>
-              <h3>Port conflicts before they happen</h3>
-              <p>
-                Port attention items — blocked ports, drifted listeners, and
-                duplicate dev servers — surface in the briefing so agents check
-                before starting anything new.
-              </p>
-            </article>
-            <article class="feature">
-              <span class="feature-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M3 3v18h18" />
-                  <path d="M7 16l4-4 4 4 4-6" />
-                </svg>
-              </span>
-              <h3>Resource pressure</h3>
-              <p>
-                CPU load, memory pressure, swap use, and battery state are
-                included — so an agent knows whether the machine can handle
-                another build or model inference before it tries.
+                Services, ports, logs, runtimes, and agent sessions grouped by
+                project — so you and your agent see what belongs to the same
+                codebase, not a flat process list.
               </p>
             </article>
           </div>
@@ -540,9 +433,9 @@
               </span>
               <h3>Port inspector that names the process</h3>
               <p>
-                Every listening port, with the actual process and project name
+                Every listening port, with the actual process and project
                 attached — not just <code>node 41327</code>. Conflicts are
-                flagged where two things claim the same port.
+                flagged when two things claim one port.
               </p>
             </article>
             <article class="feature">
@@ -560,10 +453,9 @@
               </span>
               <h3>Live health checks per service</h3>
               <p>
-                Homebrew, Docker, HTTP, or any command you trust. Switchboard
-                polls each one on its own cadence and shows you the rolling
-                stopped / degraded / unknown breakdown — not a single misleading
-                "100% errors" number.
+                Homebrew, Docker, HTTP, or any command you trust, each polled on
+                its own cadence, with a rolling stopped / degraded / unknown
+                breakdown instead of one misleading "100% errors" number.
               </p>
             </article>
             <article class="feature">
@@ -586,84 +478,9 @@
               </span>
               <h3>Logs without three Terminal tabs</h3>
               <p>
-                Launchd plist <code>StandardOutPath</code> /
-                <code>StandardErrorPath</code>, Docker logs, command output,
-                service log files, command output, and Switchboard activity —
-                all merged into one live timeline with the optional Stream tool,
-                including arbitrary manual log files.
-              </p>
-            </article>
-            <article class="feature">
-              <span class="feature-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M12 3 2 8l10 5 10-5-10-5z" />
-                  <path d="m2 17 10 5 10-5" />
-                  <path d="m2 12 10 5 10-5" />
-                </svg>
-              </span>
-              <h3>Templates for the usual suspects</h3>
-              <p>
-                Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx,
-                generic HTTP + command. Every preset's commands are reviewed and
-                approved — no shell magic, no surprises.
-              </p>
-            </article>
-            <article class="feature">
-              <span class="feature-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5l-8-3z" />
-                  <path d="m9 12 2 2 4-4" />
-                </svg>
-              </span>
-              <h3>Safe by construction</h3>
-              <p>
-                Switchboard never executes a shell string from the UI. Every
-                action maps to an exact allowlisted <code>cmd</code> +
-                <code>args</code>. Destructive ones (delete, force-stop, install
-                from network) require an explicit per-command approval the first
-                time.
-              </p>
-            </article>
-            <article class="feature">
-              <span class="feature-icon" aria-hidden="true">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="3" y="4" width="18" height="16" rx="2" />
-                  <path d="M3 10h18" />
-                  <circle cx="7" cy="7" r="0.5" fill="currentColor" />
-                </svg>
-              </span>
-              <h3>Local-first</h3>
-              <p>
-                No inbound network listener. Your config and logs live under
-                <code>~/Library/Application Support/</code> and stay on your
-                Mac. Automatic update checks count toward an anonymous,
-                aggregate active-install total, with no identifier or raw IP
-                stored. The count is on by default; turn it off with one toggle
-                in Settings → Privacy. Other outbound requests cover update
-                downloads, optional sign-in, licensing, support you start,
-                health probes you configure, and, with Pro, Uptime checks and
-                Numerics cards.
+                Launchd, Docker, command, and file logs, plus Switchboard
+                activity, merged into one live timeline with the optional Stream
+                tool.
               </p>
             </article>
           </div>
@@ -896,9 +713,8 @@
           <h2>For the Mac that runs your whole AI-dev stack.</h2>
           <p class="features-lede">
             Activity Monitor says <code>node</code>. Switchboard says which
-            service and port are involved, how long the process has been
-            running, what safe action exists, and the related project or session
-            when evidence is available.
+            service and port, how long it has been running, and what safe action
+            exists.
           </p>
           <div class="use-case-grid">
             <article class="use-case-card">
@@ -925,29 +741,6 @@
                 logs without reverse-engineering the setup again.
               </p>
             </article>
-            <article class="use-case-card">
-              <h3>Debugging a blocked port</h3>
-              <p>
-                Inspect listeners, link them to services, reveal or stop the
-                owning process, and adopt useful discoveries as monitor-only
-                services.
-              </p>
-            </article>
-            <article class="use-case-card">
-              <h3>Running a local AI stack</h3>
-              <p>
-                Keep Ollama, LM Studio, OpenClaw, vector stores, model servers,
-                API shims, dashboards, logs, and resource usage in one place.
-              </p>
-            </article>
-            <article class="use-case-card">
-              <h3>Letting your agent organize services</h3>
-              <p>
-                Ask your AI assistant to create clean Switchboard entries for
-                dev servers, Docker containers, Compose stacks, and Homebrew
-                services with actions, links, logs, and resource hints.
-              </p>
-            </article>
           </div>
         </div>
       </section>
@@ -957,15 +750,14 @@
           <p class="eyebrow">Pricing</p>
           <h2>Join Pro or own Switchboard for life.</h2>
           <p class="features-lede">
-            Switchboard stays useful for free. Get the complete AI-dev command
-            center through azzuwayed Pro while your membership is active, or buy
-            a Lifetime license for permanent Switchboard ownership.
+            Free covers the essentials. Pro and Lifetime unlock the same paid
+            tools.
           </p>
           <div class="pricing-grid">
             <div class="price-card">
               <div class="price-head">
                 <span class="price-tier">Free</span>
-                <div class="price-amount">$0</div>
+                <div class="price-amount">0 SAR</div>
                 <p class="price-sub">No account. No key. Forever.</p>
                 <p class="price-fit">
                   Keep your own services visible and under control.
@@ -1015,29 +807,19 @@
                   </span>
                   <span>azzuwayed Pro</span>
                 </span>
-                <div class="price-amount">29.95 SAR</div>
-                <p class="price-sub">
-                  monthly · or 287.52 SAR yearly · up to 3 devices
-                </p>
+                <div class="price-amount">29.99 SAR</div>
+                <p class="price-sub">monthly · or 299.99 SAR yearly</p>
                 <p class="price-fit">
-                  One membership for Switchboard and every app marked Included
-                  with Pro. Access lasts while your membership is active.
+                  Switchboard plus every app marked Included with Pro, while
+                  your membership is active.
                 </p>
               </div>
               <ul class="price-features">
-                <li>Everything in Free, plus every paid Switchboard tool</li>
                 <li>
-                  Full MCP, Resources, Stream, System Logs, Uptime, and Numerics
+                  Everything in Free, plus MCP, Resources, Stream, System Logs,
+                  Uptime, and Numerics
                 </li>
-                <li>Every current Switchboard version while Pro is active</li>
-                <li>All apps marked Included with Pro</li>
-                <li>Up to 3 registered devices shared across included apps</li>
-                <li>
-                  2,000 AI Units refreshed monthly for included AI features
-                </li>
-                <li>
-                  Membership, billing, and device management on azzuwayed.com
-                </li>
+                <li>Every app marked Included with Pro</li>
               </ul>
               <a class="btn btn-primary" href="https://azzuwayed.com/en/pricing"
                 >Join azzuwayed Pro</a
@@ -1048,50 +830,18 @@
               <div class="price-head">
                 <span class="price-tier">Switchboard Lifetime license</span>
                 <div class="price-amount">
-                  <span data-sb-price="usd">$39</span>
+                  <span data-sb-price="sar">146.25 SAR</span>
                 </div>
-                <p class="price-sub">
-                  ≈ <span data-sb-price="sar">146.25 SAR</span> · one-time ·
-                  lifetime license · up to 3 Macs
-                </p>
+                <p class="price-sub">one-time · yours for good</p>
                 <p class="price-fit">
-                  Permanent Switchboard ownership, independent of membership.
-                  Includes all Switchboard 1.x updates and account-backed
-                  support for at least 2 years.
+                  Switchboard only, with every future update, independent of any
+                  membership.
                 </p>
               </div>
               <ul class="price-features">
-                <li>Everything in Free, plus paid tools</li>
                 <li>
-                  MCP — connect Claude Code, Cursor, Codex, Claude Desktop,
-                  Gemini CLI, Qwen Code, OpenCode, and others via a private
-                  local MCP server; agents get environment briefing, service
-                  control, port inspection, and workspace context
-                </li>
-                <li>
-                  Resources — machine-level CPU, memory, and runtime pressure
-                  with anomaly detection for AI-dev workloads
-                </li>
-                <li>
-                  Stream — service logs, command logs, manual files, and
-                  activity overlay in one timeline
-                </li>
-                <li>System Logs — crash reports and machine log triage</li>
-                <li>
-                  Uptime — external website and endpoint monitoring with
-                  availability history
-                </li>
-                <li>
-                  Numerics — live JSON-endpoint dashboards with thresholds and
-                  notifications
-                </li>
-                <li>
-                  Account experience — billing history, purchase recovery,
-                  paid-access claiming, connected-Mac help, and private priority
-                  support
-                </li>
-                <li>
-                  Switchboard 1.x updates and support for at least 2 years
+                  Everything in Free, plus MCP, Resources, Stream, System Logs,
+                  Uptime, and Numerics
                 </li>
               </ul>
               <a
@@ -1111,27 +861,12 @@
 
           <div class="pricing-note-grid" aria-label="License details">
             <div class="pricing-note-card">
-              <strong>Promo codes</strong>
+              <strong>Buying</strong>
               <p>
-                A Switchboard Lifetime license is
-                <span data-sb-price="usd">$39</span>, charged in SAR through
-                Paylink as a one-time purchase. Got a promo code? Enter it at
-                checkout to get the discount. Purchase requires an azzuwayed.com
-                account at
-                <a href="https://azzuwayed.com/en/products/switchboard"
-                  >azzuwayed.com</a
-                >
-                — your billing and access history stay with your account, and
-                the key is emailed once payment is confirmed.
-              </p>
-            </div>
-            <div class="pricing-note-card">
-              <strong>One account for customer care</strong>
-              <p>
-                Free use still needs no account. Sign in to use azzuwayed Pro,
-                recover a Lifetime purchase, review billing, manage registered
-                devices, and use private priority support. Manual Lifetime-key
-                activation remains available.
+                Prices are in SAR, charged through Paylink. Lifetime is about
+                <span data-sb-price="usd">$39</span> USD. Purchase needs an
+                azzuwayed.com account, and your key is emailed once payment is
+                confirmed. Got a promo code? Enter it at checkout.
               </p>
             </div>
             <div class="pricing-note-card">
@@ -1152,35 +887,19 @@
             <h2>I kept losing track of the things I'd started.</h2>
             <p class="story-lede">
               A dev server here, a database there, a tunnel for some experiment
-              — half of them still running days later, none of them stopped, all
-              of them quietly using CPU and battery I didn't have to spare.
-              macOS doesn't tell you about this. Activity Monitor will list the
-              processes if you go looking, but it won't connect
-              <code>node</code> to <em>the dev server I started last week</em>.
+              — half of them still running days later, quietly using CPU and
+              battery. macOS doesn't tell you. Activity Monitor lists the
+              processes, but it won't connect <code>node</code> to
+              <em>the dev server I started last week</em>.
             </p>
             <p class="story-lede">
-              The problem got worse when I started building with AI coding tools
-              — Cursor, Claude Code, VS Code, the whole crowd. They're great at
-              spinning up dev servers; they're not always great at stopping the
-              previous one before starting the next. Sometimes the agent is
-              smart enough to free the port it needs — sometimes it just walks
-              to the next available one. After a few hours of iteration you can
-              end up with six copies of the same Vite server competing for
-              memory, the laptop running hot, the battery draining fast, and
-              nothing in macOS surfacing any of it.
-            </p>
-            <p class="story-lede">
-              You know roughly what you run — you just lose track of what's
-              still running. The fan spins up, the battery drops, and nothing in
-              macOS connects it back to that dev server, worker, or model you
-              started days ago and forgot about.
-            </p>
-            <p class="story-lede">
-              Switchboard is the thing I wanted: one place where every local
-              service shows up, every forgotten process gets surfaced, every
-              port flood gets named with its actual cause, and every AI tool I
-              use can read the local context before it acts. The OS won't tell
-              you. The AI tools won't ask. This will.
+              AI coding tools made it worse: they're great at starting dev
+              servers and not always at stopping the last one, so you end up
+              with six copies of the same Vite server and a hot laptop.
+              Switchboard is the thing I wanted — every local service in one
+              place, every forgotten process surfaced, every port flood named,
+              and every AI tool able to read the local context before it acts.
+              The OS won't tell you. The AI tools won't ask. This will.
             </p>
             <p class="story-founder">
               Switchboard is built by Abdullah Alzuwayed, an independent
@@ -1204,25 +923,18 @@
                 <span class="story-list-dot" aria-hidden="true"></span>
                 <span
                   ><strong>Forgotten services</strong> still running days after
-                  you stopped paying attention.</span
+                  you stopped paying attention — including orphans that survive
+                  sleep, IDE quits, and terminal closes.</span
                 >
               </li>
               <li>
                 <span class="story-list-dot" aria-hidden="true"></span>
                 <span
-                  ><strong
-                    >Dev servers left behind after AI-assisted work</strong
-                  >
-                  — Switchboard finds the process and gives you a clear review
-                  and stop flow without claiming which tool started it.</span
-                >
-              </li>
-              <li>
-                <span class="story-list-dot" aria-hidden="true"></span>
-                <span
-                  ><strong>Port-fighting dev servers</strong> — multiple copies
-                  of the same tool on consecutive ports, competing for
-                  resources.</span
+                  ><strong>Dev servers left behind</strong> after AI-assisted
+                  work, and port-fighting copies of the same tool on consecutive
+                  ports. Switchboard finds the process and gives you a clear
+                  review and stop flow without claiming which tool started
+                  it.</span
                 >
               </li>
               <li>
@@ -1230,16 +942,6 @@
                 <span
                   ><strong>Resource spikes</strong> macOS doesn't alarm about:
                   heat, fan, battery drain attributed to nothing specific.</span
-                >
-              </li>
-              <li>
-                <span class="story-list-dot" aria-hidden="true"></span>
-                <span
-                  ><strong
-                    >Orphans that survive sleep, IDE quits, and terminal
-                    closes</strong
-                  >
-                  — processes you have no easy way to find again.</span
                 >
               </li>
             </ul>
@@ -1257,22 +959,16 @@
           </p>
           <ul class="trust-list">
             <li>
-              Service discovery and control run on your Mac. There is no inbound
-              network listener.
-            </li>
-            <li>Your configuration and logs stay on your Mac.</li>
-            <li>No arbitrary shell from the UI or from MCP clients.</li>
-            <li>
-              Service actions use reviewed local command definitions. Risky,
-              imported, or changed actions require your review before they can
-              run.
+              No inbound network listener. Service discovery, control,
+              configuration, and logs stay on your Mac.
             </li>
             <li>
-              AI clients connected through MCP get the same structured actions
-              and safeguards as the app; they cannot execute arbitrary commands.
+              No arbitrary shell from the UI or from MCP clients. Actions use
+              reviewed local command definitions; risky, imported, or changed
+              ones need your review first.
             </li>
             <li>
-              MCP stays local to your Mac and does not open a network port. Its
+              MCP stays on a private local socket, never a network port, and its
               actions appear in Switchboard's Activity history.
             </li>
             <li>
@@ -1296,109 +992,55 @@
               <summary>Is Switchboard free?</summary>
               <div class="faq-body">
                 <p>
-                  Yes — Switchboard stays useful for free: manage unlimited
-                  services (start/stop/restart/update with approval review), use
-                  the complete Activity, Docs, Observer, Ports, and Maintenance
-                  tools, preview MCP Access profiles and methods, and get
-                  service-down plus new-arrival notifications. No account, no
-                  card, no ads. New installs get a 7-day full-feature trial,
-                  then return to free use.
+                  Yes. Free covers unlimited services, the complete Activity,
+                  Docs, Observer, Ports, and Maintenance tools, a read-only MCP
+                  preview, and service-down and new-arrival notifications — no
+                  account, no card, no ads. New installs also get a 7-day
+                  full-feature trial.
                 </p>
                 <p>
-                  Paid access comes with an active
-                  <strong>azzuwayed Pro</strong> membership or a
-                  <strong>Switchboard Lifetime license</strong>. Both unlock
-                  Stream, System Logs, Resources, Uptime, Numerics, and the MCP
-                  runtime. Pro includes every app marked “Included with Pro”;
-                  the <span data-sb-price="usd">$39</span> Lifetime license
-                  permanently owns Switchboard on up to 3 Macs. See
+                  <strong>azzuwayed Pro</strong> and the
+                  <strong>Switchboard Lifetime license</strong> unlock Stream,
+                  System Logs, Resources, Uptime, Numerics, and the MCP runtime.
+                  Buying either needs an azzuwayed.com account: sign in inside
+                  Switchboard to use it, or paste an emailed Lifetime key in
+                  <em>Settings → License &amp; Access</em>. See
                   <a href="./#pricing">pricing</a>.
                 </p>
               </div>
             </details>
 
             <details>
-              <summary>How many Macs can I use?</summary>
+              <summary>How do licenses and Macs work?</summary>
               <div class="faq-body">
                 <p>
-                  A <strong>Switchboard Lifetime license</strong> activates up
-                  to 3 Macs at once. azzuwayed Pro also supports up to 3
-                  registered devices shared across Included with Pro apps.
-                  Lifetime purchases can be recovered after signing in or
-                  activated manually with the emailed license key.
-                </p>
-              </div>
-            </details>
-
-            <details>
-              <summary>
-                I sold, lost, or wiped a Mac — how do I free its slot?
-              </summary>
-              <div class="faq-body">
-                <p>
-                  If you still have the Mac, free its slot from the app:
-                  <strong>Settings → License &amp; Access → Deactivate</strong>.
-                  Then activate on the new Mac.
+                  A Lifetime license activates up to 3 Macs at once. azzuwayed
+                  Pro devices are managed on your azzuwayed.com account.
                 </p>
                 <p>
-                  If you can't get to that Mac, sign in and
+                  To move to a new Mac, deactivate the old one (<strong
+                    >Settings → License &amp; Access → Deactivate</strong
+                  >), then sign in or enter your key on the new one. If the old
+                  Mac is sold, lost, or wiped,
                   <a href="https://azzuwayed.com/en/account/support/new"
                     >open a private support request</a
                   >
-                  so the connected-device slots can be verified and reset
-                  safely.
+                  and its slot will be verified and reset.
                 </p>
               </div>
             </details>
 
             <details>
-              <summary>How do I move my license to a new Mac?</summary>
+              <summary>How do I get help or report a bug?</summary>
               <div class="faq-body">
                 <p>
-                  Deactivate on the old Mac (<strong
-                    >Settings → License &amp; Access → Deactivate</strong
-                  >), then sign in inside Switchboard on the new Mac and claim
-                  your paid access. You can also enter the emailed key manually.
-                  If the old Mac is unavailable, use
+                  Use <strong>Send Feedback</strong> inside Switchboard — it
+                  includes your app version and only the diagnostics you choose.
+                  Signed-in customers can also
                   <a href="https://azzuwayed.com/en/account/support/new"
-                    >private account support</a
-                  >.
-                </p>
-              </div>
-            </details>
-
-            <details>
-              <summary>How do I get help or reach support?</summary>
-              <div class="faq-body">
-                <p>
-                  Pro customers can sign in for
-                  <a href="https://azzuwayed.com/en/account/support/new"
-                    >private priority support</a
-                  >. For bugs and suggestions,
-                  <strong>Send Feedback</strong> inside Switchboard includes the
-                  app version and only the diagnostics you choose. If you cannot
-                  sign in or have a general question, use the
+                    >open private support</a
+                  >; if you cannot sign in, use the
                   <a href="contact.html">guest contact form</a>.
-                </p>
-              </div>
-            </details>
-
-            <details>
-              <summary>Do I need to be a developer to use this?</summary>
-              <div class="faq-body">
-                <p>
-                  Switchboard is built first for developer-ish workflows:
-                  projects, local databases, dev servers, containers, local AI
-                  tools, and ports. You do not need to be a command-line expert,
-                  but it helps if you are trying to understand what your machine
-                  is running.
-                </p>
-                <p>
-                  Installing is just drag-to-Applications and open — no Terminal
-                  steps, since the app is notarized. Past that you drive
-                  Switchboard from its interface, but getting real value out of
-                  it assumes you're comfortable with the services, commands, and
-                  ports you run on your machine.
                 </p>
               </div>
             </details>
@@ -1409,27 +1051,18 @@
               </summary>
               <div class="faq-body">
                 <p>
-                  Yes on two levels. First, Switchboard is agnostic about what
-                  started a process — it watches ports and processes directly,
-                  so when your AI coding tool spawns a Vite dev server (or a
-                  FastAPI server, or anything else listening locally),
-                  Switchboard auto-detects it, tags it <em>Discovered</em>, and
-                  gives you a Stop button with confirmation. When process or
-                  project evidence is available, Switchboard shows that context
-                  without guessing which tool launched it.
+                  Yes. Switchboard watches ports and processes directly, so when
+                  an AI coding tool spawns a Vite or FastAPI server, it is
+                  auto-detected, tagged <em>Discovered</em>, and gets a Stop
+                  button with confirmation — without guessing which tool
+                  launched it.
                 </p>
                 <p>
-                  Second, everyone can preview MCP Access profiles, methods,
-                  exclusions, and context-cost estimates inside Switchboard.
-                  With azzuwayed Pro or a Switchboard Lifetime license, those
-                  same AI tools can connect to the MCP runtime. Supported
-                  clients include Claude Code, Cursor, VS Code, Codex, Claude
-                  Desktop, Gemini CLI, Qwen Code, OpenCode, and any
-                  MCP-compatible harness. They get an environment briefing,
-                  service inspection and control, port details, AI runtime
-                  inventory, workspace groupings, and structured service
-                  creation — all through a private local socket, never a network
-                  port.
+                  With Pro or Lifetime, those tools can also connect over MCP —
+                  Claude Code, Cursor, VS Code, Codex, Claude Desktop, Gemini
+                  CLI, and any MCP-compatible client — through a private local
+                  socket, never a network port. Everyone can preview MCP
+                  profiles and methods.
                 </p>
               </div>
             </details>
@@ -1441,38 +1074,13 @@
               </summary>
               <div class="faq-body">
                 <p>
-                  Switchboard isn't a port pre-assignment tool. Port managers
-                  and named-URL routers help an agent pick a free port
+                  Port managers help an agent pick a free port
                   <em>before</em> it starts a server; killing a port is a
                   one-off. Switchboard gives you the standing, machine-wide
                   picture — what's running, what's draining battery and CPU,
-                  what owns each port — plus a safe stop / restart flow,
-                  including the long-running local AI tools (Ollama, LM Studio,
-                  self-hosted agents) that pile up between sessions. Use them
-                  together: coordination decides where things start, Switchboard
-                  shows you everything that ends up running.
-                </p>
-              </div>
-            </details>
-
-            <details>
-              <summary>Do I need an account or license key?</summary>
-              <div class="faq-body">
-                <p>
-                  Not for using the app. Download the <code>.dmg</code>, drag
-                  <code>Switchboard.app</code> into <code>/Applications</code>,
-                  and launch it — free use needs nothing to sign up for.
-                </p>
-                <p>
-                  Joining azzuwayed Pro or buying a Switchboard Lifetime license
-                  requires an azzuwayed.com account. Sign in inside Switchboard
-                  to use membership access or recover a Lifetime purchase. A
-                  Lifetime owner can also paste the emailed key into
-                  <em>Settings → License &amp; Access</em>. Manage access
-                  through
-                  <a href="https://azzuwayed.com/en/products/switchboard"
-                    >azzuwayed.com</a
-                  >.
+                  what owns each port — plus a safe stop and restart flow. Use
+                  them together: coordination decides where things start,
+                  Switchboard shows what ends up running.
                 </p>
               </div>
             </details>
@@ -1482,56 +1090,40 @@
               <div class="faq-body">
                 <p>
                   Service configuration, logs, docs, and approvals stay on your
-                  Mac. Automatic update checks can include an anonymous,
-                  aggregate active-install signal with no account, machine, or
-                  installation identifier and no raw IP stored. Optional account
+                  Mac. Update checks can include an anonymous, aggregate
+                  active-install signal with no account, machine, or
+                  installation identifier and no raw IP stored. Optional
                   sign-in, licensing, support, configured probes, and Uptime
                   requests use their stated destinations. The app has no inbound
                   network listener.
                 </p>
                 <p>
-                  Everything else stays on your Mac under
-                  <code
-                    >~/Library/Application
-                    Support/com.azzuwayed.switchboard/</code
-                  >. Turn the stats off with one toggle in Settings → Privacy
-                  (updates keep working), or disable update checks entirely.
+                  Turn the stats off in Settings → Privacy (updates keep
+                  working), or disable update checks entirely. Switchboard is
+                  proprietary; the source is not public.
                 </p>
               </div>
             </details>
 
             <details>
-              <summary>Does it work on Intel Macs?</summary>
+              <summary>Which Macs are supported?</summary>
               <div class="faq-body">
                 <p>
-                  Yes. Direct Switchboard releases are universal macOS builds
-                  for Apple Silicon and Intel Macs.
+                  macOS 12 (Monterey) or newer, on Apple Silicon and Intel.
+                  Direct releases are universal builds.
                 </p>
               </div>
             </details>
 
             <details>
-              <summary>What macOS versions are supported?</summary>
-              <div class="faq-body">
-                <p>
-                  macOS 12 (Monterey) or newer on Apple Silicon or Intel Macs.
-                </p>
-              </div>
-            </details>
-
-            <details>
-              <summary>How do updates work?</summary>
+              <summary>How do updates and uninstall work?</summary>
               <div class="faq-body">
                 <p>
                   The app checks the public updates manifest once a day and
-                  shows a non-intrusive banner in the app shell when a new
-                  release is available. The in-app flow downloads the update,
-                  installs it, and then asks you to restart — the new bundle's
-                  minisign signature is verified against the public key compiled
-                  into the running app before it swaps.
-                </p>
-                <p>
-                  Prefer to install manually? Disable
+                  shows a banner when a release is ready. It downloads the
+                  update, verifies its minisign signature against the key
+                  compiled into the app, installs, and asks you to restart.
+                  Prefer manual? Turn off
                   <em>Check for updates automatically</em> in Settings and grab
                   the <code>.dmg</code> from the
                   <a
@@ -1539,48 +1131,16 @@
                     rel="noopener noreferrer"
                     target="_blank"
                     >releases page</a
-                  >
-                  on your own schedule.
+                  >.
                 </p>
-              </div>
-            </details>
-
-            <details>
-              <summary>How do I uninstall?</summary>
-              <div class="faq-body">
                 <p>
-                  Quit Switchboard from the menu bar, drag
-                  <code>Switchboard.app</code> to the Trash, and — if you also
-                  want to delete your services configuration — remove
+                  To uninstall, quit Switchboard from the menu bar and drag
+                  <code>Switchboard.app</code> to the Trash. Remove
                   <code
                     >~/Library/Application
                     Support/com.azzuwayed.switchboard/</code
-                  >. No system-wide installer to undo.
-                </p>
-              </div>
-            </details>
-
-            <details>
-              <summary>Is the source available?</summary>
-              <div class="faq-body">
-                <p>
-                  No. Switchboard is proprietary software, and the source
-                  repository is not planned to be public.
-                </p>
-              </div>
-            </details>
-
-            <details>
-              <summary>Where do I report bugs or request features?</summary>
-              <div class="faq-body">
-                <p>
-                  Use <strong>Send Feedback</strong> inside Switchboard to open
-                  a private support thread with your app version and the
-                  diagnostics you choose. You can also
-                  <a href="https://azzuwayed.com/en/account/support/new"
-                    >open priority support on your account</a
-                  >, or use the <a href="contact.html">guest contact form</a> if
-                  you cannot sign in.
+                  >
+                  too if you want your configuration gone.
                 </p>
               </div>
             </details>

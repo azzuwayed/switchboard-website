@@ -51,8 +51,9 @@ service-down alerts, new-arrival notifications, and complete free tools for
 Activity, Docs, Observer, Ports, and Maintenance. Fresh installs get a 7-day
 full-feature trial, then return to free use. Free use also includes a read-only
 preview of MCP access profiles, methods, and context cost. Paid access is
-available through azzuwayed Pro (29.95 SAR monthly or 287.52 SAR yearly) or a
-Switchboard Lifetime license ($39, with promo codes from time to time). Both
+available through azzuwayed Pro (29.99 SAR monthly or 299.99 SAR yearly) or a
+Switchboard Lifetime license (146.25 SAR, about $39, with promo codes from time
+to time). Both
 unlock Stream, System Logs, Resources, Uptime, Numerics, and the MCP runtime.
 Pro includes apps marked “Included with Pro”; a Lifetime license permanently
 owns Switchboard and activates up to 3 Macs. See
