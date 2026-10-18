@@ -471,7 +471,7 @@ export function buildPageModel(product, media, locale) {
       offers: {
         "@type": "Offer",
         price: "0",
-        priceCurrency: "USD",
+        priceCurrency: "SAR",
         availability: "https://schema.org/InStock",
         url: config.canonical,
       },
