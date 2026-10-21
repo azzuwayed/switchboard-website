@@ -10,6 +10,47 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.26.0] - 2026-10-21
+
+Switchboard 1.26.0 improves menu-bar controls and AI-client setup, restores
+Claude Code tools and macOS 27 tray clicks, and removes Lifetime update and
+support end dates.
+
+### Added
+
+- **Set up Antigravity** — Switchboard detects the Antigravity app and CLI,
+  installs its MCP connection, and provides a manual setup snippet. Update all
+  and Remove handle every existing configuration location, so an older
+  connection is not left behind.
+- **More useful controls in the native tray menu** — right-click the menu-bar
+  icon for Quick Access to services that need attention and those already
+  running. Your monitored-service selection can include stopped services too.
+  View All Services shows the total configured count and opens the full list,
+  including missing services. Service submenus offer approved Start actions
+  for stopped services and Stop/Restart for running or degraded services, and
+  Settings is available directly from the menu.
+
+### Changed
+
+- **Lifetime updates and support have no end date** — Lifetime licenses now
+  include ongoing updates and support without an expiry date.
+- **Devin Desktop is recognized** — MCP setup detects the renamed Windsurf app
+  and its commands while continuing to recognize existing Windsurf installs.
+- **Support comes before Updates in Settings** — the navigation and page
+  sections now use the same order.
+
+### Fixed
+
+- **Claude Code loads Switchboard tools again** — a successful connection no
+  longer leaves Claude Code without the Switchboard tools it needs.
+- **Tray clicks work on macOS 27** — left-click opens the command center
+  again, while right-click keeps the native menu.
+
+### Security
+
+- **TLS certificate validation** — secure connections and update downloads
+  now reject affected distrusted certificate chains.
+
 ## [1.25.0] - 2026-10-18
 
 Switchboard 1.25.0 adds linked stacks that switch safely between run modes,
