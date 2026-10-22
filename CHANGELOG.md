@@ -10,6 +10,54 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.27.0] - 2026-10-22
+
+Switchboard 1.27.0 brings issues into one consistent view, helps AI clients
+preview fixes and follow their outcomes, and keeps service health and update
+checks current.
+
+### Added
+
+- **One view of what needs attention** — Command Center, Services, Observer,
+  and the tray share issue classifications and counts. Service health,
+  discoveries, approvals, and configuration problems appear together, with
+  actionable issues separated from information, deferred work, and choices
+  that need your preference. AI clients with MCP access can inspect the same
+  issues, preview concrete fixes, and follow each step's outcome.
+- **Tell Switchboard when a service should run** — choose Run when needed or
+  Expected to stay running in Service Detail or the service editor. Deliberate
+  stops are remembered across app restarts, so an intentionally stopped
+  service is not treated as an outage.
+
+### Changed
+
+- **AI clients get clearer starting guidance** — assistants receive concise
+  setup guidance and workflows that match their current access. They can find
+  relevant capabilities more easily, request a fresh discovery scan, and see
+  whether the information they receive is current or incomplete.
+
+### Fixed
+
+- **AI connections recover across Switchboard restarts** — current helper
+  sessions keep their connection to the AI client and refresh available tools
+  when Switchboard returns. Tracked service actions retain their outcomes
+  across interrupted calls, including whether the service became ready, so an
+  assistant can check what happened before retrying. Restart existing AI
+  sessions after updating to use the current helper.
+- **Recovered services stop looking broken** — findings clear after reliable
+  refreshes, and recovered action failures leave the attention list while
+  remaining in Activity history. Managed Docker containers are recognized as
+  part of their configured service, and inactive linked stacks no longer show
+  a port conflict when the active alternative owns the port. Manual discovery
+  refresh works even when automatic discovery is off.
+- **Update checks start promptly and recover from failures** — automatic
+  checks begin when Switchboard is ready, retry after failures, and refresh
+  overdue results when you reopen or return to the app. Manual and automatic
+  checks share a request already in progress.
+- **Settings sections line up consistently** — sidebar and compact-picker
+  navigation reach the same top position, including the final section, and
+  keep the selected section in sync as you scroll or resize the window.
+
 ## [1.26.0] - 2026-10-21
 
 Switchboard 1.26.0 improves menu-bar controls and AI-client setup, restores
