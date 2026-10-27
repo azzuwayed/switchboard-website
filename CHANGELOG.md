@@ -10,6 +10,47 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.28.0] - 2026-10-27
+
+Switchboard 1.28.0 gives AI clients more focused service checks, makes partial
+service outcomes clearer, and fixes Add Service editor and import flows.
+
+### Added
+
+- **Check one service without waiting for a full refresh** — AI clients can
+  read the latest collected status or request a fresh check of one service,
+  with clear information about when it was collected and whether an action
+  reached readiness.
+- **Adopt discoveries as monitors** — keep a discovered service visible from
+  an issue without adding start or stop controls. Memory findings now account
+  for known runtime limits and pressure on your Mac, and loaded but idle
+  background jobs have a distinct status.
+
+### Changed
+
+- **AI workflows spend less time polling** — clients can wait for tracked
+  actions and fixes to change, inspect concise repair previews, and get
+  starting guidance that matches their available tools and access.
+
+### Fixed
+
+- **Partial service outcomes stay visible** — configured partial starts are
+  accepted only after a fresh health check confirms the service is running.
+  Stacks retain their warnings, and disabled services awaiting a reboot show
+  the reboot requirement without repeatedly attempting to stop them. Controls
+  return when fresh status confirms recovery.
+- **Add Service keeps the next step open** — custom services, presets, and
+  listening-port review open their editor correctly, and YAML import keeps
+  its preview available through completion. Saving preserves the destination
+  screen and service health settings.
+- **Views stay current and responsive** — service and stack views reflect
+  configuration changes made by AI clients, leaving Docs stays responsive,
+  and listeners already owned by a managed service avoid false port-conflict
+  findings.
+- **Sign-in recovery gives clearer next steps** — expired sessions are
+  distinguished from temporary connection or secure-storage problems, while
+  recoverable sign-in state is preserved.
+
 ## [1.27.0] - 2026-10-22
 
 Switchboard 1.27.0 brings issues into one consistent view, helps AI clients
