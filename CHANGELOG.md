@@ -51,6 +51,11 @@ service outcomes clearer, and fixes Add Service editor and import flows.
   distinguished from temporary connection or secure-storage problems, while
   recoverable sign-in state is preserved.
 
+### Security
+
+- **Stronger handling of untrusted content** — updated validation and diagram
+  sanitization protect against malformed input and excessive memory use.
+
 ## [1.27.0] - 2026-10-22
 
 Switchboard 1.27.0 brings issues into one consistent view, helps AI clients
