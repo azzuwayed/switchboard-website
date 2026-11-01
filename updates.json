@@ -1,55 +1,55 @@
 {
   "schemaVersion": 1,
-  "latest": "1.28.0",
+  "latest": "1.29.0",
   "critical": false,
-  "releasedAt": "2026-10-27T13:23:03.499Z",
+  "releasedAt": "2026-11-01T05:19:55.789Z",
   "minimumSystemVersion": "12.0",
   "channel": "stable",
   "macos": {
     "arm64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.28.0/Switchboard-v1.28.0-macos-universal.dmg",
-        "sha256": "a547db0e9b8ad7917ef98543827943555bd57820c526ff07821db18476deba71",
-        "sizeBytes": 34972689
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.29.0/Switchboard-v1.29.0-macos-universal.dmg",
+        "sha256": "787f0dfe584e98086ebcf6d0d79e01e7838a8fc32d1fea9346311045df3790fa",
+        "sizeBytes": 36172966
       }
     },
     "x86_64": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.28.0/Switchboard-v1.28.0-macos-universal.dmg",
-        "sha256": "a547db0e9b8ad7917ef98543827943555bd57820c526ff07821db18476deba71",
-        "sizeBytes": 34972689
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.29.0/Switchboard-v1.29.0-macos-universal.dmg",
+        "sha256": "787f0dfe584e98086ebcf6d0d79e01e7838a8fc32d1fea9346311045df3790fa",
+        "sizeBytes": 36172966
       }
     },
     "universal": {
       "dmg": {
-        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.28.0/Switchboard-v1.28.0-macos-universal.dmg",
-        "sha256": "a547db0e9b8ad7917ef98543827943555bd57820c526ff07821db18476deba71",
-        "sizeBytes": 34972689
+        "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.29.0/Switchboard-v1.29.0-macos-universal.dmg",
+        "sha256": "787f0dfe584e98086ebcf6d0d79e01e7838a8fc32d1fea9346311045df3790fa",
+        "sizeBytes": 36172966
       }
     }
   },
-  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.28.0",
+  "releaseNotesUrl": "https://github.com/azzuwayed/switchboard-website/releases/tag/v1.29.0",
   "downloadPageUrl": "https://switchboard.azzuwayed.com/",
-  "notes": "Switchboard 1.28.0 — see release notes for details.",
+  "notes": "Switchboard 1.29.0 — see release notes for details.",
   "highlights": [
-    "Check one service without waiting for a full refresh — AI clients can read the latest collected status or request a fresh check of one service, with clear information about when it was collected and whether an action reached readiness.",
-    "Adopt discoveries as monitors — keep a discovered service visible from an issue without adding start or stop controls. Memory findings now account for known runtime limits and pressure on your Mac, and loaded but idle background jobs have a distinct status.",
-    "AI workflows spend less time polling — clients can wait for tracked actions and fixes to change, inspect concise repair previews, and get starting guidance that matches their available tools and access."
+    "Checkup page — one place that groups everything Switchboard noticed into services, commands, crashes, processes, AI agents and configuration, with a clear status for each area and a \"Not checked\" state when an area was skipped.",
+    "Suggestions that explain the fix — Home points out repeated crashes, services running under an outdated Node or Homebrew version, logs written to temporary folders, services that keep going down, forgotten processes, and services whose project folder no longer exists, each with one next step.",
+    "Stack launcher in the menu bar — left-click the menu-bar icon to stop active stacks or start and switch recently used ones. The icon shows a dot when something needs your attention."
   ],
-  "version": "1.28.0",
-  "pub_date": "2026-10-27T13:23:03.499Z",
+  "version": "1.29.0",
+  "pub_date": "2026-11-01T05:19:55.789Z",
   "platforms": {
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTNVemRwN0JXOTA5NE9CNTQweFZUV2tiSUJidzBsTlhsbFJZaUVHQjZyeDZXL2E1c0UvK2lsSS9GbmxFVFNqcGlnVmFwRG1MWS9lZzRJSDQ4eE9tRUFBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMTA3MjI2CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negl2ZXJzaW9uOjEuMjguMAovaTVFSzhYUDY4UGxuc3hReDJMZTBaeTRESVVucFZGNUVmQWZ6ZGl6WEN4MVRKbVhKWUFtL0hoeUczbWF3ZEduUXZncVlFTGR2ZHIzVXJ5OUIrVTJCUT09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.28.0/Switchboard-v1.28.0-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3USt3NmpUNFNsaHdXR1RYbC8rSTFWb3JmM3BBMXZWVlhia0NQWndiNGNTQWpDb3VHR2JPaEV4M1Zpa3I3M0RTWXVGdGdLZVFlTWNja01SSlowak1UZVE0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNTEwMzQyCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negl2ZXJzaW9uOjEuMjkuMApsODFZL2FySnp6bUY4aUczYzR1MDFWTmN2b0ZlMDN1QWlJOThRRVZxTFpmSFZ5eEJPdGgyTVpyLzhROUpGTlJ6djEzVmZCbVpIZ2hmRnJDanJCMGFEQT09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.29.0/Switchboard-v1.29.0-macos-universal.app.tar.gz"
     },
     "darwin-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UTNVemRwN0JXOTA5NE9CNTQweFZUV2tiSUJidzBsTlhsbFJZaUVHQjZyeDZXL2E1c0UvK2lsSS9GbmxFVFNqcGlnVmFwRG1MWS9lZzRJSDQ4eE9tRUFBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMTA3MjI2CWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negl2ZXJzaW9uOjEuMjguMAovaTVFSzhYUDY4UGxuc3hReDJMZTBaeTRESVVucFZGNUVmQWZ6ZGl6WEN4MVRKbVhKWUFtL0hoeUczbWF3ZEduUXZncVlFTGR2ZHIzVXJ5OUIrVTJCUT09Cg==",
-      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.28.0/Switchboard-v1.28.0-macos-universal.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3USt3NmpUNFNsaHdXR1RYbC8rSTFWb3JmM3BBMXZWVlhia0NQWndiNGNTQWpDb3VHR2JPaEV4M1Zpa3I3M0RTWXVGdGdLZVFlTWNja01SSlowak1UZVE0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNTEwMzQyCWZpbGU6U3dpdGNoYm9hcmQuYXBwLnRhci5negl2ZXJzaW9uOjEuMjkuMApsODFZL2FySnp6bUY4aUczYzR1MDFWTmN2b0ZlMDN1QWlJOThRRVZxTFpmSFZ5eEJPdGgyTVpyLzhROUpGTlJ6djEzVmZCbVpIZ2hmRnJDanJCMGFEQT09Cg==",
+      "url": "https://github.com/azzuwayed/switchboard-website/releases/download/v1.29.0/Switchboard-v1.29.0-macos-universal.app.tar.gz"
     }
   },
   "switchboard": {
-    "payloadBase64": "eyJzY2hlbWFWZXJzaW9uIjoyLCJyZXZpc2lvbiI6NSwiY2hhbm5lbCI6InN0YWJsZSIsInZlcnNpb24iOiIxLjI4LjAiLCJwdWJsaXNoZWRBdCI6IjIwMjYtMTAtMjdUMTM6MjM6MDMuNDk5WiIsImV4cGlyZXNBdCI6IjIwMjctMDEtMjVUMTM6MjM6MDMuNDk5WiIsImVuYWJsZWQiOnRydWUsImNyaXRpY2FsIjpmYWxzZSwibWluaW11bU1hY29zIjoiMTIuMCIsImFyY2hpdmUiOnsidXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2F6enV3YXllZC9zd2l0Y2hib2FyZC13ZWJzaXRlL3JlbGVhc2VzL2Rvd25sb2FkL3YxLjI4LjAvU3dpdGNoYm9hcmQtdjEuMjguMC1tYWNvcy11bml2ZXJzYWwuYXBwLnRhci5neiIsInNpZ25hdHVyZSI6ImRXNTBjblZ6ZEdWa0lHTnZiVzFsYm5RNklITnBaMjVoZEhWeVpTQm1jbTl0SUhSaGRYSnBJSE5sWTNKbGRDQnJaWGtLVWxWVE1GRkhPVVppZEhoM1VUTlZlbVJ3TjBKWE9UQTVORTlDTlRRd2VGWlVWMnRpU1VKaWR6QnNUbGhzYkZKWmFVVkhRalp5ZURaWEwyRTFjMFV2SzJsc1NTOUdibXhGVkZOcWNHbG5WbUZ3UkcxTVdTOWxaelJKU0RRNGVFOXRSVUZCUFFwMGNuVnpkR1ZrSUdOdmJXMWxiblE2SUhScGJXVnpkR0Z0Y0RveE56a3pNVEEzTWpJMkNXWnBiR1U2VTNkcGRHTm9ZbTloY21RdVlYQndMblJoY2k1bmVnbDJaWEp6YVc5dU9qRXVNamd1TUFvdmFUVkZTemhZVURZNFVHeHVjM2hSZURKTVpUQmFlVFJFU1ZWdWNGWkdOVVZtUVdaNlpHbDZXRU40TVZSS2JWaEtXVUZ0TDBob2VVY3piV0YzWkVkdVVYWm5jVmxGVEdSMlpISXpWWEo1T1VJclZUSkNVVDA5Q2c9PSJ9LCJkbWciOnsidXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2F6enV3YXllZC9zd2l0Y2hib2FyZC13ZWJzaXRlL3JlbGVhc2VzL2Rvd25sb2FkL3YxLjI4LjAvU3dpdGNoYm9hcmQtdjEuMjguMC1tYWNvcy11bml2ZXJzYWwuZG1nIiwic2hhMjU2IjoiYTU0N2RiMGU5YjhhZDc5MTdlZjk4NTQzODI3OTQzNTU1YmQ1NzgyMGM1MjZmZjA3ODIxZGIxODQ3NmRlYmE3MSIsInNpemVCeXRlcyI6MzQ5NzI2ODl9LCJyZWxlYXNlTm90ZXNVcmwiOiJodHRwczovL2dpdGh1Yi5jb20vYXp6dXdheWVkL3N3aXRjaGJvYXJkLXdlYnNpdGUvcmVsZWFzZXMvdGFnL3YxLjI4LjAiLCJkb3dubG9hZFBhZ2VVcmwiOiJodHRwczovL3N3aXRjaGJvYXJkLmF6enV3YXllZC5jb20vIiwibm90ZXMiOiJTd2l0Y2hib2FyZCAxLjI4LjAg4oCUIHNlZSByZWxlYXNlIG5vdGVzIGZvciBkZXRhaWxzLiIsImhpZ2hsaWdodHMiOlsiQ2hlY2sgb25lIHNlcnZpY2Ugd2l0aG91dCB3YWl0aW5nIGZvciBhIGZ1bGwgcmVmcmVzaCDigJQgQUkgY2xpZW50cyBjYW4gcmVhZCB0aGUgbGF0ZXN0IGNvbGxlY3RlZCBzdGF0dXMgb3IgcmVxdWVzdCBhIGZyZXNoIGNoZWNrIG9mIG9uZSBzZXJ2aWNlLCB3aXRoIGNsZWFyIGluZm9ybWF0aW9uIGFib3V0IHdoZW4gaXQgd2FzIGNvbGxlY3RlZCBhbmQgd2hldGhlciBhbiBhY3Rpb24gcmVhY2hlZCByZWFkaW5lc3MuIiwiQWRvcHQgZGlzY292ZXJpZXMgYXMgbW9uaXRvcnMg4oCUIGtlZXAgYSBkaXNjb3ZlcmVkIHNlcnZpY2UgdmlzaWJsZSBmcm9tIGFuIGlzc3VlIHdpdGhvdXQgYWRkaW5nIHN0YXJ0IG9yIHN0b3AgY29udHJvbHMuIE1lbW9yeSBmaW5kaW5ncyBub3cgYWNjb3VudCBmb3Iga25vd24gcnVudGltZSBsaW1pdHMgYW5kIHByZXNzdXJlIG9uIHlvdXIgTWFjLCBhbmQgbG9hZGVkIGJ1dCBpZGxlIGJhY2tncm91bmQgam9icyBoYXZlIGEgZGlzdGluY3Qgc3RhdHVzLiIsIkFJIHdvcmtmbG93cyBzcGVuZCBsZXNzIHRpbWUgcG9sbGluZyDigJQgY2xpZW50cyBjYW4gd2FpdCBmb3IgdHJhY2tlZCBhY3Rpb25zIGFuZCBmaXhlcyB0byBjaGFuZ2UsIGluc3BlY3QgY29uY2lzZSByZXBhaXIgcHJldmlld3MsIGFuZCBnZXQgc3RhcnRpbmcgZ3VpZGFuY2UgdGhhdCBtYXRjaGVzIHRoZWlyIGF2YWlsYWJsZSB0b29scyBhbmQgYWNjZXNzLiJdfQ==",
-    "payloadSignature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3UThyUkNoUUwrV0Nmc0xWMldCSk5sbmJpZTdpUHR2aEttUTVMYzR2RkZVaGM3d2pTdS9jNE9vU3o3ZFY3WFVYc012RmJ2aU5ZQ0VVcWZxcDRObThjclFvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMTA3MzgzCWZpbGU6dXBkYXRlcy1mZWVkLXYxLjI4LjAucGF5bG9hZC5qc29uCmZoTXZmSjFJK0syODA5TC9hNzBlUmVhVnRBK3JIU0ppK0pEaVNNQ2Zjc0hxQ0QyeFFqSUlmN05XVWFaVTdVSFNzaWNaeVFYYVBoNEFKMkFLNnFRQ0RnPT0K"
+    "payloadBase64": "eyJzY2hlbWFWZXJzaW9uIjoyLCJyZXZpc2lvbiI6NiwiY2hhbm5lbCI6InN0YWJsZSIsInZlcnNpb24iOiIxLjI5LjAiLCJwdWJsaXNoZWRBdCI6IjIwMjYtMTEtMDFUMDU6MTk6NTUuNzg5WiIsImV4cGlyZXNBdCI6IjIwMjctMDEtMzBUMDU6MTk6NTUuNzg5WiIsImVuYWJsZWQiOnRydWUsImNyaXRpY2FsIjpmYWxzZSwibWluaW11bU1hY29zIjoiMTIuMCIsImFyY2hpdmUiOnsidXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2F6enV3YXllZC9zd2l0Y2hib2FyZC13ZWJzaXRlL3JlbGVhc2VzL2Rvd25sb2FkL3YxLjI5LjAvU3dpdGNoYm9hcmQtdjEuMjkuMC1tYWNvcy11bml2ZXJzYWwuYXBwLnRhci5neiIsInNpZ25hdHVyZSI6ImRXNTBjblZ6ZEdWa0lHTnZiVzFsYm5RNklITnBaMjVoZEhWeVpTQm1jbTl0SUhSaGRYSnBJSE5sWTNKbGRDQnJaWGtLVWxWVE1GRkhPVVppZEhoM1VTdDNObXBVTkZOc2FIZFhSMVJZYkM4clNURldiM0ptTTNCQk1YWldWbGhpYTBOUVduZGlOR05UUVdwRGIzVkhSMkpQYUVWNE0xWnBhM0kzTTBSVFdYVkdkR2RMWlZGbFRXTmphMDFTU2xvd2FrMVVaVkUwUFFwMGNuVnpkR1ZrSUdOdmJXMWxiblE2SUhScGJXVnpkR0Z0Y0RveE56a3pOVEV3TXpReUNXWnBiR1U2VTNkcGRHTm9ZbTloY21RdVlYQndMblJoY2k1bmVnbDJaWEp6YVc5dU9qRXVNamt1TUFwc09ERlpMMkZ5U25wNmJVWTRhVWN6WXpSMU1ERldUbU4yYjBabE1ETjFRV2xKT1RoUlJWWnhURnBtU0ZaNWVFSlBkR2d5VFZweUx6aFJPVXBHVGxKNmRqRXpWbVpDYlZwSVoyaG1SbkpEYW5KQ01HRkVRVDA5Q2c9PSJ9LCJkbWciOnsidXJsIjoiaHR0cHM6Ly9naXRodWIuY29tL2F6enV3YXllZC9zd2l0Y2hib2FyZC13ZWJzaXRlL3JlbGVhc2VzL2Rvd25sb2FkL3YxLjI5LjAvU3dpdGNoYm9hcmQtdjEuMjkuMC1tYWNvcy11bml2ZXJzYWwuZG1nIiwic2hhMjU2IjoiNzg3ZjBkZmU1ODRlOTgwODZlYmNmNmQwZDc5ZTAxZTc4MzhhOGZjMzJkMWZlYTkzNDYzMTEwNDVkZjM3OTBmYSIsInNpemVCeXRlcyI6MzYxNzI5NjZ9LCJyZWxlYXNlTm90ZXNVcmwiOiJodHRwczovL2dpdGh1Yi5jb20vYXp6dXdheWVkL3N3aXRjaGJvYXJkLXdlYnNpdGUvcmVsZWFzZXMvdGFnL3YxLjI5LjAiLCJkb3dubG9hZFBhZ2VVcmwiOiJodHRwczovL3N3aXRjaGJvYXJkLmF6enV3YXllZC5jb20vIiwibm90ZXMiOiJTd2l0Y2hib2FyZCAxLjI5LjAg4oCUIHNlZSByZWxlYXNlIG5vdGVzIGZvciBkZXRhaWxzLiIsImhpZ2hsaWdodHMiOlsiQ2hlY2t1cCBwYWdlIOKAlCBvbmUgcGxhY2UgdGhhdCBncm91cHMgZXZlcnl0aGluZyBTd2l0Y2hib2FyZCBub3RpY2VkIGludG8gc2VydmljZXMsIGNvbW1hbmRzLCBjcmFzaGVzLCBwcm9jZXNzZXMsIEFJIGFnZW50cyBhbmQgY29uZmlndXJhdGlvbiwgd2l0aCBhIGNsZWFyIHN0YXR1cyBmb3IgZWFjaCBhcmVhIGFuZCBhIFwiTm90IGNoZWNrZWRcIiBzdGF0ZSB3aGVuIGFuIGFyZWEgd2FzIHNraXBwZWQuIiwiU3VnZ2VzdGlvbnMgdGhhdCBleHBsYWluIHRoZSBmaXgg4oCUIEhvbWUgcG9pbnRzIG91dCByZXBlYXRlZCBjcmFzaGVzLCBzZXJ2aWNlcyBydW5uaW5nIHVuZGVyIGFuIG91dGRhdGVkIE5vZGUgb3IgSG9tZWJyZXcgdmVyc2lvbiwgbG9ncyB3cml0dGVuIHRvIHRlbXBvcmFyeSBmb2xkZXJzLCBzZXJ2aWNlcyB0aGF0IGtlZXAgZ29pbmcgZG93biwgZm9yZ290dGVuIHByb2Nlc3NlcywgYW5kIHNlcnZpY2VzIHdob3NlIHByb2plY3QgZm9sZGVyIG5vIGxvbmdlciBleGlzdHMsIGVhY2ggd2l0aCBvbmUgbmV4dCBzdGVwLiIsIlN0YWNrIGxhdW5jaGVyIGluIHRoZSBtZW51IGJhciDigJQgbGVmdC1jbGljayB0aGUgbWVudS1iYXIgaWNvbiB0byBzdG9wIGFjdGl2ZSBzdGFja3Mgb3Igc3RhcnQgYW5kIHN3aXRjaCByZWNlbnRseSB1c2VkIG9uZXMuIFRoZSBpY29uIHNob3dzIGEgZG90IHdoZW4gc29tZXRoaW5nIG5lZWRzIHlvdXIgYXR0ZW50aW9uLiJdfQ==",
+    "payloadSignature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTMFFHOUZidHh3US9aRzgyL1VKNklCdFVNQU1RcXJPcjJVYmErcnZvMit6ZHY0aTBXcXBvb1JHdEN4QlROTVVuZTlkUVRPZmNGMEZaUXU4emNzREJxSVduZFlUUFNSeVFnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzNTEwMzk2CWZpbGU6dXBkYXRlcy1mZWVkLXYxLjI5LjAucGF5bG9hZC5qc29uCjVVYU4vQlB6dHFXMG9SNVR1ME9zd3labjRpazBzSXFIN01vRC83ait5MG9vaUx2Z0NQeCt6clNPdWwrVDQwK1V2UTYyZWUza3RUcVlnSWF5NC9qcEFRPT0K"
   }
 }
