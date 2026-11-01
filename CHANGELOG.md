@@ -10,6 +10,59 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.29.0] - 2026-11-01
+
+Switchboard 1.29.0 adds a Checkup page and Home suggestions that explain
+common Mac problems, a stack launcher in the menu bar, and a more secure
+Hub sign-in.
+
+### Added
+
+- **Checkup page** — one place that groups everything Switchboard noticed
+  into services, commands, crashes, processes, AI agents and configuration,
+  with a clear status for each area and a "Not checked" state when an area
+  was skipped.
+- **Suggestions that explain the fix** — Home points out repeated crashes,
+  services running under an outdated Node or Homebrew version, logs written
+  to temporary folders, services that keep going down, forgotten processes,
+  and services whose project folder no longer exists, each with one next step.
+- **Stack launcher in the menu bar** — left-click the menu-bar icon to stop
+  active stacks or start and switch recently used ones. The icon shows a dot
+  when something needs your attention.
+- **Link Docker Compose containers to services** — a container that clearly
+  belongs to one of your services offers to link to it.
+
+### Changed
+
+- **One attention list everywhere** — Home, the menu bar and AI clients show
+  the same issues. Approvals has its own sidebar entry, and snoozed Observer
+  findings move to a Snoozed view you can undo.
+- **Smoother windows** — file, process and configuration work no longer
+  blocks the app window.
+
+### Fixed
+
+- **The service editor keeps your edits** — settings you added by hand to a
+  service's health or log configuration, including health checks of a type
+  the editor doesn't know, are no longer lost on save.
+- **Crash alerts arrive once** — the same crash report no longer alerts
+  repeatedly, memory-pressure reports don't alert, and iOS Simulator crashes
+  are labeled instead of alerting.
+- **Accurate ports and logs** — local addresses such as `[::1]` and `0.0.0.0`
+  match their ports, large Docker and Homebrew setups no longer show Unknown
+  status, error counts ignore lines like "0 failed", and System Logs no longer
+  lists the same file twice.
+- **Backups keep the snapshots you labeled.**
+- **Views stay current** — stack cards, service details, ports and resources
+  follow live state, names link to their service or port, errors can be
+  copied with a Retry, and stopping a process or signing out asks first.
+
+### Security
+
+- **More secure Hub sign-in** — signing in uses restricted, app-specific Hub
+  sessions that can't access the rest of your account. You will need to sign
+  in again once after updating; manual licenses and guest use are unaffected.
+
 ## [1.28.0] - 2026-10-27
 
 Switchboard 1.28.0 gives AI clients more focused service checks, makes partial
