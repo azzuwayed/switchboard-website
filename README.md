@@ -24,7 +24,7 @@ Switchboard is the thing I wanted: one place where every local service shows up,
 - **Risk-aware actions.** Every command is allowlisted and explicitly approved before it runs. No arbitrary shell from the UI.
 - **Local-first control.** Service discovery and control run on your Mac with no inbound network listener. Automatic update checks can include an anonymous aggregate active-install signal; optional account, licensing, support, configured probes, and Uptime features use their stated destinations. Your config and logs live in `~/Library/Application Support/`.
 - **Templates that actually work.** Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx, and more — reviewed and ready out of the box.
-- **Guarded AI-agent context.** Everyone can preview MCP access profiles, methods, exclusions, and context cost; azzuwayed Pro, a Switchboard Lifetime license, or the full-feature trial lets supported agents use structured context and reviewed actions instead of a raw shell.
+- **Guarded AI-agent context.** Everyone can preview MCP access profiles, methods, exclusions, and context cost; Azzuwayed Pro, a Switchboard Lifetime license, or the full-feature trial lets supported agents use structured context and reviewed actions instead of a raw shell.
 
 ## What's inside
 
@@ -51,7 +51,7 @@ service-down alerts, new-arrival notifications, and complete free tools for
 Activity, Docs, Observer, Ports, and Maintenance. Fresh installs get a 7-day
 full-feature trial, then return to free use. Free use also includes a read-only
 preview of MCP access profiles, methods, and context cost. Paid access is
-available through azzuwayed Pro (29.99 SAR monthly or 299.99 SAR yearly) or a
+available through Azzuwayed Pro (29.99 SAR monthly or 299.99 SAR yearly) or a
 Switchboard Lifetime license (146.25 SAR, about $39, with promo codes from time
 to time). Both
 unlock Stream, System Logs, Resources, Uptime, Numerics, and the MCP runtime.
@@ -59,8 +59,8 @@ Pro includes apps marked “Included with Pro”; a Lifetime license permanently
 owns Switchboard and activates up to 3 Macs. See
 [pricing](https://azzuwayed.com/en/products/switchboard).
 
-Free use needs no account. Joining azzuwayed Pro or purchasing a Lifetime
-license requires an azzuwayed.com account, which provides billing and access
+Free use needs no account. Joining Azzuwayed Pro or purchasing a Lifetime
+license requires an Azzuwayed Platform account, which provides billing and access
 history, purchase recovery, registered-device help, and private priority
 support. Sign in inside Switchboard to resolve membership or owned access.
 Lifetime owners may also activate manually with the emailed license key.
@@ -91,3 +91,10 @@ sibling checkout is required. `node scripts/sync-product.mjs --dry-run` renders
 and verifies both pages from the source manifest without writing anything; the
 desktop release cutter runs it before its tag publishes the manifest. The desktop release cutter keeps its drafts
 unpublished until the website and Hub revisions both match.
+
+## Platform naming
+
+Shared accounts and services use **Azzuwayed Platform** / **منصة الزويد**.
+Membership uses **Azzuwayed Pro** / **الزويد Pro**; the umbrella brand is
+**Azzuwayed** / **الزويد**. Product names, actual URLs, identifiers, and legal
+owner names stay unchanged. Engineering titles appear only in prose about a person.
