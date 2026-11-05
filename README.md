@@ -22,7 +22,7 @@ Switchboard is the thing I wanted: one place where every local service shows up,
 - **A memory layer for the messy local machine.** Discovered, adopted, snoozed, ignored, resolved, and still-suspicious findings survive beyond one terminal session.
 - **Port context Activity Monitor does not have.** Connect `node`, `python`, `docker`, or `ollama` to the service, port, logs, and safe next action.
 - **Risk-aware actions.** Every command is allowlisted and explicitly approved before it runs. No arbitrary shell from the UI.
-- **Local-first control.** Service discovery and control run on your Mac with no inbound network listener. Automatic update checks can include an anonymous aggregate active-install signal; optional account, licensing, support, configured probes, and Uptime features use their stated destinations. Your config and logs live in `~/Library/Application Support/`.
+- **Local-first control.** Service discovery and control run on your Mac with no inbound network listener. The app collects limited usage data to count active installs and improve the product; see the [privacy statement](https://switchboard.azzuwayed.com/privacy.html). Your config and logs live in `~/Library/Application Support/`.
 - **Templates that actually work.** Postgres, MySQL, MongoDB, Redis, Docker Compose, Ollama, nginx, and more — reviewed and ready out of the box.
 - **Guarded AI-agent context.** Everyone can preview MCP access profiles, methods, exclusions, and context cost; Azzuwayed Pro, a Switchboard Lifetime license, or the full-feature trial lets supported agents use structured context and reviewed actions instead of a raw shell.
 
