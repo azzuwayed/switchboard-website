@@ -10,6 +10,49 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.30.0] - 2026-11-05
+
+Switchboard 1.30.0 protects unsaved edits, adds reviewed bulk actions, makes
+Home and Ports easier to read, and simplifies how usage data is handled.
+
+### Added
+
+- **Unsaved changes are protected** — closing a service or stack editor with
+  unsaved changes, or quitting the app, asks first.
+- **Reviewed bulk actions** — starting or stopping several services shows the
+  plan first, including shared dependencies, then reports progress one step
+  at a time.
+- **Undo and restore dismissals** — a dismissed finding can be undone right
+  away or restored later from its history.
+- **What changed since your last review** — Home shows what is new since you
+  last reviewed it.
+- **Find runtimes from the command palette** — search for a known runtime
+  and jump straight to it.
+
+### Changed
+
+- **Calmer attention** — Home, Checkup and Observer agree on what is a real
+  problem. Newly discovered services go to a neutral review list instead of
+  being flagged as problems.
+- **Clearer Services and Ports** — Services has a pinned tab row and a compact
+  summary, Ports shares the guided health-check chooser with Add Service and
+  opens details in a side panel, and status no longer relies on color alone.
+- **Simpler usage data** — Switchboard sends limited usage data once a day,
+  and update checks are no longer counted. It never includes your files,
+  services or commands. The usage statistics switch is removed; About and
+  Settings → Privacy link to the
+  [privacy statement](https://switchboard.azzuwayed.com/privacy.html).
+- **New loading indicator** across the app.
+
+### Fixed
+
+- **Hub sessions stay signed in** — a temporary Hub error or rate limit no
+  longer signs you out.
+- **Status stays current** — a slow status read can no longer replace newer
+  information.
+- **Checkup polish** — page titles, button labels and text contrast are
+  corrected.
+
 ## [1.29.0] - 2026-11-01
 
 Switchboard 1.29.0 adds a Checkup page and Home suggestions that explain
