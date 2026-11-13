@@ -44,6 +44,12 @@ macOS 12 (Monterey) or later on Apple Silicon or Intel Macs.
 
 → [**switchboard.azzuwayed.com**](https://switchboard.azzuwayed.com/)
 
+## Monitoring integrations
+
+Run the [signed webhook receiver example](examples/monitoring-webhook/README.md)
+on your own infrastructure to collect Switchboard monitoring events and forward
+them to the channel you choose. [الدليل بالعربية](examples/monitoring-webhook/README.ar.md)
+
 ## Pricing
 
 Switchboard stays useful for free: unlimited services, safe start/stop,
