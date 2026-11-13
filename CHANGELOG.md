@@ -10,6 +10,37 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.31.0] - 2026-11-13
+
+Switchboard 1.31.0 makes local monitoring easier to trust, brings hosted
+check results into Uptime, and can send alerts to a webhook you run.
+
+### Added
+
+- **Hosted checks in Uptime.** Connect a read-only HTTPS JSON provider, or use
+  a cron-job.org or Healthchecks.io preset. See coverage and the age of each
+  result. Configure alerts with the provider to receive them while your Mac
+  is off.
+- **Signed webhook alerts.** Send Uptime and Numerics incident and recovery
+  alerts to your own HTTPS endpoint. Send a test and see whether the endpoint
+  accepted it. [Receiver example and setup guide](https://github.com/azzuwayed/switchboard-website/tree/main/examples/monitoring-webhook)
+- **Project monitoring setup.** Preview and apply monitoring templates from
+  Workspaces or through MCP while preserving existing check history.
+- **More ways to configure checks.** Uptime can check values and freshness in
+  JSON responses. Numerics can share one source across cards and alert when
+  source data is stale. Pin a Numerics dashboard to keep it polling in the
+  background.
+
+### Fixed
+
+- **Clearer monitoring status.** Confirmed incidents survive app restarts,
+  Uptime marks gaps in observation, and Numerics distinguishes stale readings,
+  missing data, and source errors. A test alert shows whether macOS accepted
+  it and whether you clicked it.
+- **Start stays primary for stacks with only shared services running.**
+  A stack whose shared dependencies are already up still shows **Start stack**
+  as its main action.
+
 ## [1.30.0] - 2026-11-05
 
 Switchboard 1.30.0 protects unsaved edits, adds reviewed bulk actions, makes
