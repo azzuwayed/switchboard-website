@@ -81,11 +81,12 @@ Lifetime owners may also activate manually with the emailed license key.
 ## Website development
 
 This is a static GitHub Pages site. Install its pinned development dependency
-with `pnpm install --frozen-lockfile`, then run `pnpm check` before committing.
-The gate validates the committed publication without requiring a private sibling
-checkout: formatting, revisioned media, localized SEO and JSON-LD, the stylesheet
-cache key, trusted download discovery, local links, handoffs, contact contracts,
-and updater boundaries.
+with `pnpm install --frozen-lockfile`, then run `pnpm check` with Node.js 24
+before committing. The gate checks formatting, the signed webhook receiver,
+revisioned media, localized SEO and JSON-LD, the stylesheet cache key, trusted
+download discovery, local links, handoffs, contact contracts, and updater
+boundaries. It runs independently of the private sibling checkout. Use
+`pnpm check:examples` to run the receiver tests on their own.
 
 `pnpm sync:product` accepts manifest schemas 1–3 from
 `../switchboard/product/manifest.json`, copies accepted media into
