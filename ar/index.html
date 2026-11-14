@@ -91,7 +91,7 @@
       hreflang="x-default"
       href="https://switchboard.azzuwayed.com/"
     />
-    <link rel="stylesheet" href="../style.css?v=a7d059582f" />
+    <link rel="stylesheet" href="../style.css?v=385ac477e2" />
     <script src="../promo-banner.js" defer></script>
     <script src="../download.js" defer></script>
     <script type="application/ld+json" data-product-json-ld>
@@ -147,7 +147,9 @@
           <a href="#use-cases">متى أستخدمه</a>
           <a href="#pricing">الأسعار</a>
           <a href="#install">التثبيت</a>
-          <a href="https://azzuwayed.com/ar/account">الحساب</a>
+          <a href="https://azzuwayed.com/ar/account/apps/switchboard"
+            >إدارة الوصول</a
+          >
           <a class="lang-switch" href="../" hreflang="en" lang="en">English</a>
         </nav>
       </div>
@@ -157,9 +159,7 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow platform-eyebrow">
-              macOS · Apple Silicon + Intel
-            </p>
+            <p class="eyebrow platform-eyebrow">تطبيق أصلي لأجهزة Mac</p>
             <h1 data-product-field="tag">
               مركز تحكم Mac لوكلاء الذكاء الاصطناعي والمطورين.
             </h1>
@@ -177,45 +177,56 @@
                 rel="noopener"
                 data-switchboard-download
                 data-updates-url="../updates.json"
-                >حمّل مجانًا</a
+                >نزّل التطبيق مجانًا لـ macOS</a
               >
-              <span class="promo-badge">
-                <span class="promo-free">مجاني للاستخدام</span>
-                <span class="promo-note">موثّق من Apple</span>
-              </span>
+              <a class="btn btn-secondary" href="#install">دليل التثبيت</a>
             </div>
+            <p class="download-details">
+              <span>بدون حساب</span>
+              <span>macOS 12 أو أحدث</span>
+              <span dir="ltr">Apple Silicon + Intel</span>
+              <span
+                data-version-chip
+                class="version-chip"
+                dir="ltr"
+                hidden
+              ></span>
+            </p>
           </div>
-          <div class="hero-art">
+          <figure class="hero-art">
             <button
               type="button"
               class="screenshot-button"
-              data-product-lightbox="hero"
-              data-lightbox-src="../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp"
-              data-lightbox-fallback="../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp"
-              data-lightbox-alt="رسم توضيحي لسويتش بورد: صفوف خدمات محلية مرتبطة بمخططات حالة، ولوحة إجراءات محمية، ووكلاء ذكاء اصطناعي متصلين."
-              data-lightbox-caption="سويتش بورد — خدماتك المحلية وحالتها، مع إجراءات محمية ووكلاء ذكاء اصطناعي متصلين."
-              aria-label="فتح الرسم التوضيحي لسويتش بورد"
+              data-product-lightbox="services"
+              data-lightbox-src="../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/screenshots/ar/services.webp"
+              data-lightbox-alt="لوحة خدمات سويتش بورد وفيها خدمات محلية تعمل ومتوقفة ومفقودة."
+              data-lightbox-caption="الخدمات — بيئتك المحلية وحالتها الحالية."
+              aria-label="فتح لقطة الخدمات"
             >
               <picture>
                 <source
-                  data-product-source="hero"
+                  data-product-source="services"
                   srcset="
-                    ../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp
+                    ../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/screenshots/ar/services.webp
                   "
                   type="image/webp"
                 />
                 <img
-                  class="product-shot hero-shot"
-                  data-product-media="hero"
-                  src="../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp"
-                  alt="رسم توضيحي لسويتش بورد: صفوف خدمات محلية مرتبطة بمخططات حالة، ولوحة إجراءات محمية، ووكلاء ذكاء اصطناعي متصلين."
-                  width="1600"
-                  height="1000"
+                  data-product-media="services"
+                  src="../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/screenshots/ar/services.webp"
+                  alt="لوحة خدمات سويتش بورد وفيها خدمات محلية تعمل ومتوقفة ومفقودة."
+                  width="3084"
+                  height="1968"
                   fetchpriority="high"
+                  class="product-shot"
                 />
               </picture>
             </button>
-          </div>
+            <figcaption>
+              اعرف الخدمات التي تعمل وراجع الإجراءات قبل إيقافها أو إعادة
+              تشغيلها.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -507,33 +518,37 @@
               <button
                 type="button"
                 class="screenshot-button"
-                data-product-lightbox="services"
-                data-lightbox-src="../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/screenshots/ar/services.webp"
-                data-lightbox-alt="لوحة خدمات سويتش بورد وفيها خدمات محلية تعمل ومتوقفة ومفقودة."
-                data-lightbox-caption="الخدمات — بيئتك المحلية وحالتها الحالية."
-                aria-label="فتح لقطة الخدمات"
+                data-product-lightbox="hero"
+                data-lightbox-src="../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp"
+                data-lightbox-fallback="../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp"
+                data-lightbox-alt="رسم توضيحي لسويتش بورد: صفوف خدمات محلية مرتبطة بمخططات حالة، ولوحة إجراءات محمية، ووكلاء ذكاء اصطناعي متصلين."
+                data-lightbox-caption="سويتش بورد — خدماتك المحلية وحالتها، مع إجراءات محمية ووكلاء ذكاء اصطناعي متصلين."
+                aria-label="فتح الرسم التوضيحي لسويتش بورد"
               >
                 <picture>
                   <source
-                    data-product-source="services"
+                    data-product-source="hero"
                     srcset="
-                      ../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/screenshots/ar/services.webp
+                      ../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp
                     "
                     type="image/webp"
                   />
                   <img
-                    data-product-media="services"
-                    src="../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/screenshots/ar/services.webp"
-                    alt="لوحة خدمات سويتش بورد وفيها خدمات محلية تعمل ومتوقفة ومفقودة."
-                    width="3084"
-                    height="1968"
+                    data-product-media="hero"
+                    src="../assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp"
+                    alt="رسم توضيحي لسويتش بورد: صفوف خدمات محلية مرتبطة بمخططات حالة، ولوحة إجراءات محمية، ووكلاء ذكاء اصطناعي متصلين."
+                    width="1600"
+                    height="1000"
                     loading="lazy"
                   />
                 </picture>
               </button>
               <figcaption>
-                <strong>الخدمات</strong>
-                <span>اعرف ما يعمل وما توقف وما فقد من لمحة واحدة.</span>
+                <strong>نظرة على سويتش بورد</strong>
+                <span
+                  >رسم يوضّح كيف يجمع التطبيق الخدمات والسجلات ووكلاء الذكاء
+                  الاصطناعي.</span
+                >
               </figcaption>
             </figure>
             <figure class="screenshot-card">
@@ -744,166 +759,90 @@
       <section id="pricing" class="pricing-band">
         <div class="container">
           <p class="eyebrow">الأسعار</p>
-          <h2>انضم إلى Pro أو امتلك Switchboard مدى الحياة.</h2>
+          <h2>ابدأ مجانًا واختر ما يناسبك</h2>
           <p class="features-lede">
-            المجاني يكفي للأساسيات. وPro ومدى الحياة يفتحان الأدوات المدفوعة
-            نفسها.
+            جرّب كل المزايا لمدة 7 أيام عند تثبيت التطبيق لأول مرة، ثم واصل
+            استخدام الخطة المجانية بدون حساب.
           </p>
           <div class="pricing-grid">
-            <div class="price-card">
+            <article class="price-card" id="free">
               <div class="price-head">
-                <span class="price-tier">مجاني</span>
-                <div class="price-amount"><span dir="ltr">0 ريال</span></div>
-                <p class="price-sub">بدون حساب. بدون مفتاح. بشكل دائم.</p>
-                <p class="price-fit">لإبقاء خدماتك ظاهرة وتحت السيطرة.</p>
+                <h3 class="price-tier">مجاني</h3>
+                <div class="price-amount"><bdi>0 ر.س.</bdi></div>
+                <p class="price-sub">بدون حساب أو بطاقة</p>
               </div>
-              <ul class="price-features">
-                <li>
-                  خدمات غير محدودة — تشغيل وإيقاف وإعادة تشغيل وتحديث مع مراجعة
-                  الموافقات
-                </li>
-                <li>
-                  أدوات مجانية كاملة: النشاط، والمستندات، والمراقب، والمنافذ،
-                  والصيانة
-                </li>
-                <li>
-                  تنبيه للخدمات الجديدة والخدمات التي نسيتها مع إجراءات المراقب
-                </li>
-                <li>منافذ وتفاصيل وإجراءات عمليات ضمن أداة المنافذ المجانية</li>
-                <li>
-                  معاينة MCP للقراءة فقط مع الملفات والأساليب وتقديرات تكلفة
-                  السياق
-                </li>
-                <li>تنبيهات عند توقّف الخدمات وعند ظهور منفذ جديد</li>
-              </ul>
+              <p class="price-fit">
+                شغّل خدماتك المحلية وأوقفها وأعد تشغيلها. افحص المنافذ وتلقّ
+                التنبيهات وعاين خيارات MCP.
+              </p>
               <a
-                class="btn btn-secondary"
+                class="btn btn-primary"
                 id="download-btn"
                 href="https://github.com/azzuwayed/switchboard-website/releases/latest"
                 rel="noopener noreferrer"
                 data-switchboard-download
                 data-updates-url="../updates.json"
-                >حمّل مجانًا</a
+                >نزّل مجانًا</a
               >
-            </div>
-
-            <div
-              class="price-card featured plan-card"
-              role="radiogroup"
-              aria-label="اختر الخطة المدفوعة"
-            >
-              <input
-                class="plan-radio"
-                type="radio"
-                name="paid-plan"
-                id="plan-pro"
-                checked
-              />
-              <input
-                class="plan-radio"
-                type="radio"
-                name="paid-plan"
-                id="plan-lifetime"
-              />
-              <div class="plan-toggle">
-                <label for="plan-pro">Pro</label>
-                <label for="plan-lifetime">مدى الحياة</label>
+            </article>
+            <article class="price-card" id="lifetime">
+              <div class="price-head">
+                <h3 class="price-tier">ترخيص مدى الحياة</h3>
+                <div class="price-amount"><bdi>146.25 ر.س.</bdi></div>
+                <p class="price-sub">دفعة واحدة</p>
               </div>
-
-              <div class="price-head plan-pro-only">
-                <span class="price-tier pro-tier">
-                  <span class="pro-tier-crown" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                      <path d="m2 7 5 5 5-9 5 9 5-5-2 13H4L2 7Z" />
-                    </svg>
-                  </span>
-                  <span>الزويد Pro</span>
-                </span>
-                <div class="price-amount">
-                  <span dir="ltr">29.99 ريالاً</span>
-                </div>
-                <p class="price-sub">
-                  شهرياً · أو <span dir="ltr">299.99 ريالاً</span> سنوياً
-                </p>
-                <p class="price-fit">
-                  ادفع شهرياً أو سنوياً. يستمر الوصول ما دامت العضوية نشطة.
-                </p>
-              </div>
-              <div class="price-head plan-lifetime-only">
-                <span class="price-tier">ترخيص Switchboard مدى الحياة</span>
-                <div class="price-amount">
-                  <span dir="ltr" data-sb-price="sar">146.25 ريالاً</span>
-                </div>
-                <p class="price-sub">دفعة واحدة · ملكية دائمة</p>
-                <p class="price-fit">
-                  لـ Switchboard فقط، مع كل التحديثات المستقبلية، بصرف النظر عن
-                  أي عضوية.
-                </p>
-              </div>
-
-              <ul class="price-features">
-                <li>كل ما في الاستخدام المجاني</li>
-                <li>
-                  <strong>MCP</strong> — وصّل Claude Code وCursor وCodex وClaude
-                  Desktop وGemini CLI وغيرها عبر خادم محلي محمي
-                </li>
-                <li>
-                  <strong>الموارد</strong> — ضغط المعالج والذاكرة على مستوى
-                  الجهاز مع اكتشاف الشذوذات
-                </li>
-                <li>
-                  <strong>البث</strong> — سجلات الخدمات والأوامر والملفات ونشاط
-                  التطبيق في خط زمني مباشر واحد
-                </li>
-                <li>
-                  <strong>سجلات النظام</strong> — تقارير الأعطال وفرز سجلات
-                  الجهاز
-                </li>
-                <li>
-                  <strong>وقت التشغيل</strong> — مراقبة المواقع ونقاط النهاية
-                  الخارجية مع سجل التوفّر
-                </li>
-                <li>
-                  <strong>القياسات</strong> — لوحات مباشرة من نقاط نهاية JSON مع
-                  حدود وتنبيهات
-                </li>
-              </ul>
-
+              <p class="price-fit">
+                امتلك سويتش بورد واستخدم كل أدواته المدفوعة على ما يصل إلى 3
+                أجهزة Mac.
+              </p>
               <a
-                class="btn btn-primary plan-pro-only"
-                href="https://azzuwayed.com/ar/pricing"
-                >انضم إلى الزويد Pro</a
-              >
-              <a
-                class="btn btn-primary plan-lifetime-only"
+                class="btn btn-secondary"
                 id="buy-cta"
-                href="https://azzuwayed.com/ar/products/switchboard"
+                href="https://azzuwayed.com/ar/products/switchboard#lifetime"
                 >شراء ترخيص مدى الحياة</a
               >
-              <p
-                class="pricing-note plan-lifetime-only"
-                id="purchase-paused"
-                role="status"
-                hidden
-              ></p>
-            </div>
+            </article>
+            <article class="price-card" id="pro">
+              <div class="price-head">
+                <h3 class="price-tier">الزويد Pro</h3>
+                <div class="price-amount"><bdi>29.99 ر.س.</bdi></div>
+                <p class="price-sub">شهريًا أو 299.99 ر.س. سنويًا</p>
+              </div>
+              <p class="price-fit">
+                استخدم أدوات سويتش بورد المدفوعة والتطبيقات المشمولة ما دامت
+                عضويتك نشطة.
+              </p>
+              <a
+                class="btn btn-secondary"
+                href="https://azzuwayed.com/ar/pricing"
+                >أسعار الزويد Pro</a
+              >
+            </article>
           </div>
-
-          <div class="pricing-note-grid" aria-label="تفاصيل الترخيص">
+          <p class="paid-tools">
+            <strong>الأدوات المشمولة في العضوية والترخيص</strong>
+            <span
+              >تشغيل MCP، والموارد، والبث، وسجلات النظام، ومراقبة التوفر،
+              والقياسات.</span
+            >
+          </p>
+          <div class="pricing-note-grid">
             <div class="pricing-note-card">
-              <strong>الشراء</strong>
+              <strong>الشراء وإدارة الوصول</strong>
               <p>
-                الأسعار بالريال السعودي وتُدفع عبر Paylink. ترخيص مدى الحياة
-                يعادل حوالي <span dir="ltr" data-sb-price="usd">$39</span>
-                دولار. يتطلب الشراء حساباً في منصة الزويد، ويصلك المفتاح بالبريد
-                بعد تأكيد الدفع. لديك كود خصم؟ أدخله عند الدفع.
+                يتطلب الشراء حسابًا في منصة الزويد. يمكنك إدخال رمز الخصم عند
+                الدفع. يصلك مفتاح ترخيص مدى الحياة بالبريد بعد تأكيد الدفع.
+                <a href="https://azzuwayed.com/ar/account/apps/switchboard"
+                  >إدارة الوصول إلى سويتش بورد</a
+                >
               </p>
             </div>
             <div class="pricing-note-card">
-              <strong>يعمل دون اتصال</strong>
+              <strong>العمل دون اتصال</strong>
               <p>
-                يستمر جهاز Mac المفعّل بالعمل دون اتصال حتى 30 يوماً. إذا انتهت
-                الترخيص، يعود Switchboard ببساطة إلى الاستخدام المجاني.
+                يعمل ترخيص مدى الحياة دون اتصال لمدة تصل إلى 30 يومًا بعد التحقق
+                منه. تتطلب عضوية الزويد Pro الاتصال مرة كل 24 ساعة على الأقل.
+                إذا انتهت صلاحية الوصول المدفوع، يمكنك مواصلة الاستخدام مجانًا.
               </p>
             </div>
           </div>
@@ -1033,11 +972,14 @@
                   للانتقال إلى جهاز Mac جديد، ألغِ التفعيل على القديم (<strong
                     >الإعدادات ← الترخيص والوصول ← إلغاء التفعيل</strong
                   >)، ثم سجّل الدخول أو أدخل مفتاحك على الجديد. وإن بعتَ الجهاز
-                  القديم أو فقدته أو مسحته،
-                  <a href="https://azzuwayed.com/ar/account/support/new"
-                    >افتح طلب دعم خاصاً</a
-                  >
-                  ليتم التحقق من مكانه وإعادة تعيينه.
+                  القديم أو فقدته أو مسحته، يمكنك
+                  <a href="https://azzuwayed.com/ar/account/apps/switchboard"
+                    >إدارة الترخيص وأجهزة Mac</a
+                  >. إذا أردت إخلاء مقعد لجهاز واحد وتعذّر الوصول إلى الجهاز،
+                  <a
+                    href="https://azzuwayed.com/ar/account/support/new?app=switchboard"
+                    >افتح طلب دعم خاصًا</a
+                  >.
                 </p>
               </div>
             </details>
@@ -1049,7 +991,8 @@
                   استخدم <strong>إرسال ملاحظات</strong> داخل Switchboard — يرفق
                   نسخة التطبيق والتشخيصات التي تختارها فقط. ويستطيع العملاء
                   المسجّلون أيضاً
-                  <a href="https://azzuwayed.com/ar/account/support/new"
+                  <a
+                    href="https://azzuwayed.com/ar/account/support/new?app=switchboard"
                     >فتح دعم خاص</a
                   >؛ وإن لم تستطع تسجيل الدخول فاستخدم
                   <a href="contact.html">نموذج الزوار</a>.
@@ -1160,7 +1103,9 @@
           <a href="privacy.html">الخصوصية</a>
           <a href="#faq">الأسئلة الشائعة</a>
           <a href="contact.html">تواصل معنا</a>
-          <a href="https://azzuwayed.com/ar/account">الحساب</a>
+          <a href="https://azzuwayed.com/ar/account/apps/switchboard"
+            >إدارة الوصول</a
+          >
           <a
             href="https://github.com/azzuwayed/switchboard-website/releases"
             rel="noopener noreferrer"

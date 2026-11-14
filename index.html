@@ -82,7 +82,7 @@
       hreflang="x-default"
       href="https://switchboard.azzuwayed.com/"
     />
-    <link rel="stylesheet" href="style.css?v=a7d059582f" />
+    <link rel="stylesheet" href="style.css?v=385ac477e2" />
     <script src="promo-banner.js" defer></script>
     <script src="download.js" defer></script>
     <script type="application/ld+json" data-product-json-ld>
@@ -138,7 +138,9 @@
           <a href="#use-cases">Use cases</a>
           <a href="#pricing">Pricing</a>
           <a href="#install">Install</a>
-          <a href="https://azzuwayed.com/en/account">Account</a>
+          <a href="https://azzuwayed.com/en/account/apps/switchboard"
+            >Manage access</a
+          >
           <a class="lang-switch" href="ar/" hreflang="ar" lang="ar">العربية</a>
         </nav>
       </div>
@@ -148,9 +150,7 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow platform-eyebrow">
-              macOS · Apple Silicon + Intel
-            </p>
+            <p class="eyebrow platform-eyebrow">Native Mac app</p>
             <h1 data-product-field="tag">
               The Mac command center for AI agents and developers.
             </h1>
@@ -168,45 +168,58 @@
                 rel="noopener"
                 data-switchboard-download
                 data-updates-url="updates.json"
-                >Download free</a
+                >Download free for macOS</a
               >
-              <span class="promo-badge">
-                <span class="promo-free">Free to use</span>
-                <span class="promo-note">Apple notarized</span>
-              </span>
+              <a class="btn btn-secondary" href="#install"
+                >Installation guide</a
+              >
             </div>
+            <p class="download-details">
+              <span>No account needed</span>
+              <span>macOS 12 or later</span>
+              <span dir="ltr">Apple Silicon + Intel</span>
+              <span
+                data-version-chip
+                class="version-chip"
+                dir="ltr"
+                hidden
+              ></span>
+            </p>
           </div>
-          <div class="hero-art">
+          <figure class="hero-art">
             <button
               type="button"
               class="screenshot-button"
-              data-product-lightbox="hero"
-              data-lightbox-src="assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp"
-              data-lightbox-fallback="assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp"
-              data-lightbox-alt="Stylized illustration of Switchboard: local service rows linked to health charts, a guarded actions panel, and connected AI agents."
-              data-lightbox-caption="Switchboard — local services and their health, guarded actions, and connected AI agents."
-              aria-label="Open Switchboard illustration"
+              data-product-lightbox="services"
+              data-lightbox-src="assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/screenshots/en/services.webp"
+              data-lightbox-alt="Switchboard services dashboard with running, stopped, and missing local services."
+              data-lightbox-caption="Services — your local stack and its current state."
+              aria-label="Open Services screenshot"
             >
               <picture>
                 <source
-                  data-product-source="hero"
+                  data-product-source="services"
                   srcset="
-                    assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp
+                    assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/screenshots/en/services.webp
                   "
                   type="image/webp"
                 />
                 <img
-                  class="product-shot hero-shot"
-                  data-product-media="hero"
-                  src="assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp"
-                  alt="Stylized illustration of Switchboard: local service rows linked to health charts, a guarded actions panel, and connected AI agents."
-                  width="1600"
-                  height="1000"
+                  data-product-media="services"
+                  src="assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/screenshots/en/services.webp"
+                  alt="Switchboard services dashboard with running, stopped, and missing local services."
+                  width="3084"
+                  height="1968"
                   fetchpriority="high"
+                  class="product-shot"
                 />
               </picture>
             </button>
-          </div>
+            <figcaption>
+              See which services are running and review actions before you stop
+              or restart them.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -500,33 +513,37 @@
               <button
                 type="button"
                 class="screenshot-button"
-                data-product-lightbox="services"
-                data-lightbox-src="assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/screenshots/en/services.webp"
-                data-lightbox-alt="Switchboard services dashboard with running, stopped, and missing local services."
-                data-lightbox-caption="Services — your local stack and its current state."
-                aria-label="Open Services screenshot"
+                data-product-lightbox="hero"
+                data-lightbox-src="assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp"
+                data-lightbox-fallback="assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp"
+                data-lightbox-alt="Stylized illustration of Switchboard: local service rows linked to health charts, a guarded actions panel, and connected AI agents."
+                data-lightbox-caption="Switchboard — local services and their health, guarded actions, and connected AI agents."
+                aria-label="Open Switchboard illustration"
               >
                 <picture>
                   <source
-                    data-product-source="services"
+                    data-product-source="hero"
                     srcset="
-                      assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/screenshots/en/services.webp
+                      assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp
                     "
                     type="image/webp"
                   />
                   <img
-                    data-product-media="services"
-                    src="assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/screenshots/en/services.webp"
-                    alt="Switchboard services dashboard with running, stopped, and missing local services."
-                    width="3084"
-                    height="1968"
+                    data-product-media="hero"
+                    src="assets/product/78d4cff2b30cfdef1b6ef8ada76d0e56287c3888e08d9084103cabb0954a945e/hero.webp"
+                    alt="Stylized illustration of Switchboard: local service rows linked to health charts, a guarded actions panel, and connected AI agents."
+                    width="1600"
+                    height="1000"
                     loading="lazy"
                   />
                 </picture>
               </button>
               <figcaption>
-                <strong>Services</strong>
-                <span>Running, stopped, and missing services at a glance.</span>
+                <strong>Switchboard overview</strong>
+                <span
+                  >An illustration of services, logs, and AI agents in one
+                  workspace.</span
+                >
               </figcaption>
             </figure>
             <figure class="screenshot-card">
@@ -748,46 +765,24 @@
       <section id="pricing" class="pricing-band">
         <div class="container">
           <p class="eyebrow">Pricing</p>
-          <h2>Join Pro or own Switchboard for life.</h2>
+          <h2>Start free and choose what fits</h2>
           <p class="features-lede">
-            Free covers the essentials. Pro and Lifetime unlock the same paid
-            tools.
+            New installs get a 7-day trial of all features. After the trial,
+            keep using Free without an account.
           </p>
           <div class="pricing-grid">
-            <div class="price-card">
+            <article class="price-card" id="free">
               <div class="price-head">
-                <span class="price-tier">Free</span>
-                <div class="price-amount">0 SAR</div>
-                <p class="price-sub">No account. No key. Forever.</p>
-                <p class="price-fit">
-                  Keep your own services visible and under control.
-                </p>
+                <h3 class="price-tier">Free</h3>
+                <div class="price-amount"><bdi>0 SAR</bdi></div>
+                <p class="price-sub">No account or card needed</p>
               </div>
-              <ul class="price-features">
-                <li>
-                  Unlimited services — start, stop, restart, and update with
-                  approval review
-                </li>
-                <li>
-                  Complete free tools: Activity, Docs, Observer, Ports, and
-                  Maintenance
-                </li>
-                <li>
-                  New-arrival and forgotten-service awareness with Observer
-                  actions
-                </li>
-                <li>
-                  Full port intelligence, process details, and confirmed process
-                  actions
-                </li>
-                <li>
-                  Read-only MCP Access preview with profiles, methods, and
-                  context-cost estimates
-                </li>
-                <li>Service-down and new-arrival notifications</li>
-              </ul>
+              <p class="price-fit">
+                Start, stop, and restart local services. Inspect ports, get
+                alerts, and preview MCP access.
+              </p>
               <a
-                class="btn btn-secondary"
+                class="btn btn-primary"
                 id="download-btn"
                 href="https://github.com/azzuwayed/switchboard-website/releases/latest"
                 rel="noopener noreferrer"
@@ -795,123 +790,65 @@
                 data-updates-url="updates.json"
                 >Download free</a
               >
-            </div>
-
-            <div
-              class="price-card featured plan-card"
-              role="radiogroup"
-              aria-label="Choose a paid plan"
-            >
-              <input
-                class="plan-radio"
-                type="radio"
-                name="paid-plan"
-                id="plan-pro"
-                checked
-              />
-              <input
-                class="plan-radio"
-                type="radio"
-                name="paid-plan"
-                id="plan-lifetime"
-              />
-              <div class="plan-toggle">
-                <label for="plan-pro">Pro</label>
-                <label for="plan-lifetime">Lifetime</label>
+            </article>
+            <article class="price-card" id="lifetime">
+              <div class="price-head">
+                <h3 class="price-tier">Lifetime license</h3>
+                <div class="price-amount"><bdi>146.25 SAR</bdi></div>
+                <p class="price-sub">One-time purchase</p>
               </div>
-
-              <div class="price-head plan-pro-only">
-                <span class="price-tier pro-tier">
-                  <span class="pro-tier-crown" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                      <path d="m2 7 5 5 5-9 5 9 5-5-2 13H4L2 7Z" />
-                    </svg>
-                  </span>
-                  <span>Azzuwayed Pro</span>
-                </span>
-                <div class="price-amount">29.99 SAR</div>
-                <p class="price-sub">monthly · or 299.99 SAR yearly</p>
-                <p class="price-fit">
-                  Pay monthly or yearly. Access lasts while your membership is
-                  active.
-                </p>
-              </div>
-              <div class="price-head plan-lifetime-only">
-                <span class="price-tier">Switchboard Lifetime license</span>
-                <div class="price-amount">
-                  <span data-sb-price="sar">146.25 SAR</span>
-                </div>
-                <p class="price-sub">one-time · yours for good</p>
-                <p class="price-fit">
-                  Switchboard only, with every future update, independent of any
-                  membership.
-                </p>
-              </div>
-
-              <ul class="price-features">
-                <li>Everything in Free</li>
-                <li>
-                  <strong>MCP</strong> — connect Claude Code, Cursor, Codex,
-                  Claude Desktop, Gemini CLI, and other agents through a guarded
-                  local server
-                </li>
-                <li>
-                  <strong>Resources</strong> — machine-wide CPU, memory, and
-                  runtime pressure with anomaly detection
-                </li>
-                <li>
-                  <strong>Stream</strong> — service, command, and file logs plus
-                  activity in one live timeline
-                </li>
-                <li>
-                  <strong>System Logs</strong> — crash reports and machine log
-                  triage
-                </li>
-                <li>
-                  <strong>Uptime</strong> — external website and endpoint
-                  monitoring with availability history
-                </li>
-                <li>
-                  <strong>Numerics</strong> — live JSON-endpoint dashboards with
-                  thresholds and notifications
-                </li>
-              </ul>
-
+              <p class="price-fit">
+                Own Switchboard and use all its paid tools on up to 3 Macs.
+              </p>
               <a
-                class="btn btn-primary plan-pro-only"
-                href="https://azzuwayed.com/en/pricing"
-                >Join Azzuwayed Pro</a
-              >
-              <a
-                class="btn btn-primary plan-lifetime-only"
+                class="btn btn-secondary"
                 id="buy-cta"
-                href="https://azzuwayed.com/en/products/switchboard"
+                href="https://azzuwayed.com/en/products/switchboard#lifetime"
                 >Buy Lifetime license</a
               >
-              <p
-                class="pricing-note plan-lifetime-only"
-                id="purchase-paused"
-                role="status"
-                hidden
-              ></p>
-            </div>
+            </article>
+            <article class="price-card" id="pro">
+              <div class="price-head">
+                <h3 class="price-tier">Azzuwayed Pro</h3>
+                <div class="price-amount"><bdi>29.99 SAR</bdi></div>
+                <p class="price-sub">Monthly or 299.99 SAR yearly</p>
+              </div>
+              <p class="price-fit">
+                Use Switchboard’s paid tools and other included apps while your
+                membership is active.
+              </p>
+              <a
+                class="btn btn-secondary"
+                href="https://azzuwayed.com/en/pricing"
+                >See Pro pricing</a
+              >
+            </article>
           </div>
-
-          <div class="pricing-note-grid" aria-label="License details">
+          <p class="paid-tools">
+            <strong>Tools included with Pro and Lifetime</strong>
+            <span
+              >MCP runtime, Resources, Stream, System Logs, Uptime, and
+              Numerics.</span
+            >
+          </p>
+          <div class="pricing-note-grid">
             <div class="pricing-note-card">
-              <strong>Buying</strong>
+              <strong>Buying and managing access</strong>
               <p>
-                Prices are in SAR, charged through Paylink. Lifetime is about
-                <span data-sb-price="usd">$39</span> USD. Purchase needs an
-                Azzuwayed Platform account, and your key is emailed once payment
-                is confirmed. Got a promo code? Enter it at checkout.
+                Purchases require an Azzuwayed Platform account. Enter a promo
+                code at checkout. Your Lifetime key arrives by email once
+                payment is confirmed.
+                <a href="https://azzuwayed.com/en/account/apps/switchboard"
+                  >Manage Switchboard access</a
+                >
               </p>
             </div>
             <div class="pricing-note-card">
-              <strong>Offline-friendly</strong>
+              <strong>Using Switchboard offline</strong>
               <p>
-                Licensed Macs keep working offline for up to 30 days. If access
-                lapses, Switchboard simply returns to Free.
+                Lifetime works offline for up to 30 days after validation. Pro
+                needs to reconnect at least every 24 hours. If paid access
+                expires, you can keep using Free.
               </p>
             </div>
           </div>
@@ -1053,11 +990,15 @@
                   To move to a new Mac, deactivate the old one (<strong
                     >Settings → License &amp; Access → Deactivate</strong
                   >), then sign in or enter your key on the new one. If the old
-                  Mac is sold, lost, or wiped,
-                  <a href="https://azzuwayed.com/en/account/support/new"
+                  Mac is sold, lost, or wiped, you can
+                  <a href="https://azzuwayed.com/en/account/apps/switchboard"
+                    >manage your license and Macs</a
+                  >. If you only need to free one slot and can't access that
+                  Mac,
+                  <a
+                    href="https://azzuwayed.com/en/account/support/new?app=switchboard"
                     >open a private support request</a
-                  >
-                  and its slot will be verified and reset.
+                  >.
                 </p>
               </div>
             </details>
@@ -1069,7 +1010,8 @@
                   Use <strong>Send Feedback</strong> inside Switchboard — it
                   includes your app version and only the diagnostics you choose.
                   Signed-in customers can also
-                  <a href="https://azzuwayed.com/en/account/support/new"
+                  <a
+                    href="https://azzuwayed.com/en/account/support/new?app=switchboard"
                     >open private support</a
                   >; if you cannot sign in, use the
                   <a href="contact.html">guest contact form</a>.
@@ -1186,8 +1128,9 @@
           <a href="#install">Install</a>
           <a href="privacy.html">Privacy</a>
           <a href="#faq">FAQ</a>
-          <a href="contact.html">Contact</a>
-          <a href="https://azzuwayed.com/en/account">Account</a>
+          <a href="https://azzuwayed.com/en/account/apps/switchboard"
+            >Manage access</a
+          >
           <a
             href="https://github.com/azzuwayed/switchboard-website/releases"
             rel="noopener noreferrer"

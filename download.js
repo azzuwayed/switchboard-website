@@ -1,6 +1,7 @@
 (() => {
   const allowedPrefix =
     "https://github.com/azzuwayed/switchboard-website/releases/download/";
+  const requests = new Map();
 
   function resolveDmg(manifest) {
     const version = manifest?.version;
@@ -27,15 +28,21 @@
 
   async function hydrateDownload(link) {
     try {
-      const response = await fetch(link.dataset.updatesUrl, {
-        cache: "no-store",
-      });
-      if (!response.ok) return;
-      const resolved = resolveDmg(await response.json());
+      const url = link.dataset.updatesUrl;
+      if (!requests.has(url)) {
+        requests.set(
+          url,
+          fetch(url, { cache: "no-store" }).then(async (response) =>
+            response.ok ? resolveDmg(await response.json()) : null,
+          ),
+        );
+      }
+      const resolved = await requests.get(url);
       if (!resolved) return;
       link.href = resolved.url;
       for (const chip of document.querySelectorAll("[data-version-chip]")) {
         chip.textContent = `v${resolved.version}`;
+        chip.hidden = false;
       }
     } catch {
       // Keep the latest-release fallback already rendered in the page.

@@ -89,7 +89,8 @@
     message.appendChild(code);
 
     var link = document.createElement("a");
-    link.href = productUrl + "?promo=" + encodeURIComponent(promo.code);
+    link.href =
+      productUrl + "?promo=" + encodeURIComponent(promo.code) + "#lifetime";
     link.textContent = STR.useIt;
 
     var close = document.createElement("button");

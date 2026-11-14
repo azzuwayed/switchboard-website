@@ -47,7 +47,7 @@
       hreflang="x-default"
       href="https://switchboard.azzuwayed.com/contact.html"
     />
-    <link rel="stylesheet" href="style.css?v=a7d059582f" />
+    <link rel="stylesheet" href="style.css?v=385ac477e2" />
     <style>
       .result-card {
         max-width: 560px;
@@ -55,6 +55,12 @@
         border-radius: 14px;
         padding: 24px;
         background: var(--bg-elev, rgba(255, 255, 255, 0.02));
+      }
+      #contact-fields {
+        border: 0;
+        margin: 0;
+        min-inline-size: 0;
+        padding: 0;
       }
       .checkout-field textarea,
       .checkout-field select {
@@ -130,7 +136,7 @@
           <p>
             <a
               class="btn btn-secondary"
-              href="https://azzuwayed.com/en/account/support/new"
+              href="https://azzuwayed.com/en/account/support/new?app=switchboard"
               >Open priority support</a
             >
           </p>
@@ -140,68 +146,70 @@
           </p>
 
           <div class="result-card">
-            <form id="contact-form" novalidate>
-              <div class="checkout-field">
-                <label for="name">Name</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  autocomplete="name"
-                  maxlength="200"
-                  required
-                />
-              </div>
-              <div class="checkout-field">
-                <label for="email">Email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autocomplete="email"
-                  maxlength="320"
-                  required
-                />
-              </div>
-              <div class="checkout-field">
-                <label for="category">Topic</label>
-                <select id="category" name="category" required>
-                  <option value="General question">General question</option>
-                  <option value="License / activation">
-                    License / activation
-                  </option>
-                  <option value="Billing / payment">Billing / payment</option>
-                  <option value="Bug report">Bug report</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-              <div class="checkout-field">
-                <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  minlength="10"
-                  maxlength="4800"
-                ></textarea>
-              </div>
+            <form id="contact-form" method="post" novalidate hidden>
+              <fieldset id="contact-fields" disabled>
+                <div class="checkout-field">
+                  <label for="name">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    maxlength="200"
+                    required
+                  />
+                </div>
+                <div class="checkout-field">
+                  <label for="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    maxlength="320"
+                    required
+                  />
+                </div>
+                <div class="checkout-field">
+                  <label for="category">Topic</label>
+                  <select id="category" name="category" required>
+                    <option value="General question">General question</option>
+                    <option value="License / activation">
+                      License / activation
+                    </option>
+                    <option value="Billing / payment">Billing / payment</option>
+                    <option value="Bug report">Bug report</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="checkout-field">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    minlength="10"
+                    maxlength="4800"
+                  ></textarea>
+                </div>
 
-              <div class="hp-field" aria-hidden="true">
-                <label for="company_website">Company website</label>
-                <input
-                  id="company_website"
-                  name="company_website"
-                  type="text"
-                  tabindex="-1"
-                  autocomplete="off"
-                />
-              </div>
+                <div class="hp-field" aria-hidden="true">
+                  <label for="company_website">Company website</label>
+                  <input
+                    id="company_website"
+                    name="company_website"
+                    type="text"
+                    tabindex="-1"
+                    autocomplete="off"
+                  />
+                </div>
 
-              <div id="turnstile-slot"></div>
+                <div id="turnstile-slot"></div>
 
-              <button class="btn btn-primary" id="contact-btn" type="submit">
-                <span id="contact-btn-label">Send message</span>
-              </button>
+                <button class="btn btn-primary" id="contact-btn" type="submit">
+                  <span id="contact-btn-label">Send message</span>
+                </button>
+              </fieldset>
               <p
                 class="checkout-error"
                 id="error"
@@ -209,6 +217,16 @@
                 aria-live="polite"
               ></p>
             </form>
+
+            <p class="how-to" id="contact-fallback">
+              If you can't send your message here, use the
+              <a
+                href="https://azzuwayed.com/en/contact?type=support&amp;app=switchboard"
+                >Azzuwayed Platform support form</a
+              >
+              or email
+              <a href="mailto:support@azzuwayed.com">support@azzuwayed.com</a>.
+            </p>
 
             <div
               id="done-section"
@@ -245,125 +263,6 @@
       </div>
     </footer>
 
-    <script>
-      const CONTACT_API = "https://azzuwayed.com/api/v1/contact";
-      // Cloudflare Turnstile site key for the hub's `azzuwayed-public-forms`
-      // widget (azzuwayed.com root domain — this subdomain is covered).
-      // Leave empty until the widget exists; empty skips Turnstile and the
-      // hub accepts tokenless submissions during the rollout window only.
-      const TURNSTILE_SITE_KEY = "0x4AAAAAAD56o6T3o4lvLj3N";
-
-      const form = document.getElementById("contact-form");
-      const btn = document.getElementById("contact-btn");
-      const btnLabel = document.getElementById("contact-btn-label");
-      const errorEl = document.getElementById("error");
-      const doneSection = document.getElementById("done-section");
-      const doneReference = document.getElementById("done-reference");
-
-      let turnstileWidgetId = null;
-      if (TURNSTILE_SITE_KEY) {
-        window.__renderTurnstile = () => {
-          turnstileWidgetId = window.turnstile.render(
-            document.getElementById("turnstile-slot"),
-            {
-              sitekey: TURNSTILE_SITE_KEY,
-              action: "contact_app",
-              language: "en",
-              appearance: "interaction-only",
-            },
-          );
-        };
-        const turnstileScript = document.createElement("script");
-        turnstileScript.src =
-          "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=__renderTurnstile&render=explicit";
-        turnstileScript.async = true;
-        document.head.appendChild(turnstileScript);
-      }
-
-      // A fast submit must wait for the challenge instead of racing it —
-      // resolves with "" when Turnstile is disabled or the timeout elapses.
-      function waitForTurnstileToken(timeoutMs) {
-        return new Promise((resolve) => {
-          if (!TURNSTILE_SITE_KEY) {
-            resolve("");
-            return;
-          }
-          const started = Date.now();
-          const poll = () => {
-            const token =
-              turnstileWidgetId !== null
-                ? window.turnstile.getResponse(turnstileWidgetId) || ""
-                : "";
-            if (token || Date.now() - started >= timeoutMs) {
-              resolve(token);
-              return;
-            }
-            setTimeout(poll, 250);
-          };
-          poll();
-        });
-      }
-
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        errorEl.textContent = "";
-
-        const name = document.getElementById("name").value.trim();
-        const emailInput = document.getElementById("email");
-        const email = emailInput.value.trim();
-        const category = document.getElementById("category").value;
-        const message = document.getElementById("message").value.trim();
-        const companyWebsite = document.getElementById("company_website").value;
-        if (!name || !emailInput.validity.valid || message.length < 10) {
-          errorEl.textContent =
-            "Please add your name, email, and a short message.";
-          return;
-        }
-
-        btn.disabled = true;
-        btnLabel.textContent = "Sending…";
-        try {
-          const turnstileToken = await waitForTurnstileToken(8000);
-          const res = await fetch(CONTACT_API, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              name,
-              email,
-              message: `[${category}] ${message}`,
-              locale: "en",
-              company_website: companyWebsite,
-              ...(turnstileToken ? { turnstileToken } : {}),
-            }),
-          });
-          const data = await res.json().catch(() => ({}));
-          const reference =
-            typeof data.reference === "string" ? data.reference.trim() : "";
-          if (res.status === 201 && data.status === "sent" && reference) {
-            doneReference.textContent = `Reference: ${reference}`;
-            form.hidden = true;
-            doneSection.hidden = false;
-            doneSection.focus();
-            return;
-          }
-          // Tokens are single-use — issue a fresh one before any retry.
-          if (turnstileWidgetId !== null) {
-            window.turnstile.reset(turnstileWidgetId);
-          }
-          errorEl.textContent =
-            res.status === 403 && data.error === "bot_verification_failed"
-              ? "We couldn't verify your request. Please try again."
-              : "Please check your details and try again.";
-        } catch {
-          if (turnstileWidgetId !== null) {
-            window.turnstile.reset(turnstileWidgetId);
-          }
-          errorEl.textContent = "Something went wrong. Please try again.";
-        } finally {
-          btn.disabled = false;
-          btnLabel.textContent = "Send message";
-        }
-      });
-    </script>
+    <script src="contact.js" defer></script>
   </body>
 </html>

@@ -75,8 +75,10 @@ Lifetime owners may also activate manually with the emailed license key.
 
 - **Releases** — [Changelog](https://github.com/azzuwayed/switchboard-website/releases). The app also checks once a day and shows an in-app banner when a new release is available.
 - **Bugs and ideas** — use **Send Feedback** inside Switchboard, open
-  [private account support](https://azzuwayed.com/en/account/support/new), or
+  [private Switchboard support](https://azzuwayed.com/en/account/support/new?app=switchboard), or
   use the [guest contact form](https://switchboard.azzuwayed.com/contact.html).
+- **License and devices** — [manage Switchboard access](https://azzuwayed.com/en/account/apps/switchboard)
+  to find your Lifetime purchase or manage Pro membership and devices.
 
 ## Website development
 

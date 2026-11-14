@@ -4,6 +4,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 
+import { checkContact } from "./check-contact.mjs";
 import {
   contentRevisionInput,
   escapeRegExp,
@@ -154,21 +155,25 @@ function validUpdater(manifest) {
 async function resolvedDownload(script, updater) {
   const fallback =
     "https://github.com/azzuwayed/switchboard-website/releases/latest";
-  const link = {
+  const links = Array.from({ length: 2 }, () => ({
     dataset: { updatesUrl: "updates.json" },
     href: fallback,
-  };
-  const chip = { textContent: "" };
+  }));
+  const chip = { textContent: "", hidden: true };
+  let requests = 0;
   const document = {
     querySelectorAll: (selector) =>
-      selector === "[data-switchboard-download]" ? [link] : [chip],
+      selector === "[data-switchboard-download]" ? links : [chip],
   };
   new vm.Script(script, { filename: "download.js" }).runInNewContext({
     document,
-    fetch: async () => ({ ok: true, json: async () => updater }),
+    fetch: async () => {
+      requests += 1;
+      return { ok: true, json: async () => updater };
+    },
   });
   await new Promise((resolve) => setImmediate(resolve));
-  return { href: link.href, chip: chip.textContent };
+  return { hrefs: links.map((link) => link.href), chip, requests };
 }
 
 let product;
@@ -316,14 +321,14 @@ for (const [file, expected] of Object.entries(publicMetadata)) {
 }
 
 const handoffs = {
-  "checkout.html": "https://azzuwayed.com/en/products/switchboard",
+  "checkout.html": "https://azzuwayed.com/en/products/switchboard#lifetime",
   "success.html": "https://azzuwayed.com/en/account/billing",
-  "recover.html": "https://azzuwayed.com/en/account/billing",
-  "reset.html": "https://azzuwayed.com/en/account/support/new",
-  "ar/checkout.html": "https://azzuwayed.com/ar/products/switchboard",
+  "recover.html": "https://azzuwayed.com/en/account/apps/switchboard",
+  "reset.html": "https://azzuwayed.com/en/account/apps/switchboard",
+  "ar/checkout.html": "https://azzuwayed.com/ar/products/switchboard#lifetime",
   "ar/success.html": "https://azzuwayed.com/ar/account/billing",
-  "ar/recover.html": "https://azzuwayed.com/ar/account/billing",
-  "ar/reset.html": "https://azzuwayed.com/ar/account/support/new",
+  "ar/recover.html": "https://azzuwayed.com/ar/account/apps/switchboard",
+  "ar/reset.html": "https://azzuwayed.com/ar/account/apps/switchboard",
 };
 for (const [file, expected] of Object.entries(handoffs)) {
   const html = read(path.join(root, file));
@@ -350,33 +355,14 @@ for (const file of ["pricing.html", "ar/pricing.html"]) {
   }
 }
 
+const contactScript = read(path.join(root, "contact.js"));
 for (const [file, locale] of [
   ["contact.html", "en"],
   ["ar/contact.html", "ar"],
 ]) {
   const html = read(path.join(root, file));
-  const scripts = [
-    ...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi),
-  ].map((match) => match[1]);
-  try {
-    for (const source of scripts) new vm.Script(source, { filename: file });
-  } catch (error) {
-    failures.push(`${file}: inline script does not parse: ${error.message}`);
-  }
-  if (!html.includes(`locale: "${locale}"`)) {
-    failures.push(`${file}: contact payload does not send locale ${locale}`);
-  }
-  for (const expected of [
-    'name="name"',
-    'maxlength="200"',
-    'name="email"',
-    'maxlength="320"',
-    'typeof data.reference === "string"',
-    "doneSection.focus()",
-  ]) {
-    if (!html.includes(expected))
-      failures.push(`${file}: contact contract is missing ${expected}`);
-  }
+  const problems = await checkContact({ html, script: contactScript, locale });
+  failures.push(...problems.map((problem) => `${file}: ${problem}`));
 }
 
 const promoBanner = read(path.join(root, "promo-banner.js"));
@@ -400,6 +386,7 @@ for (const expected of [
   "https://azzuwayed.com/en/products/switchboard",
   "https://azzuwayed.com/ar/products/switchboard",
   "encodeURIComponent(promo.code)",
+  "#lifetime",
   "sb-promo-dismissed",
 ]) {
   if (!promoBanner.includes(expected)) {
@@ -427,8 +414,12 @@ if (!fs.existsSync(downloadScriptPath)) {
     new vm.Script(script, { filename: "download.js" });
     const accepted = await resolvedDownload(script, updater);
     if (
-      accepted.href !== updater.macos.universal.dmg.url ||
-      accepted.chip !== `v${updater.version}`
+      !accepted.hrefs.every(
+        (href) => href === updater.macos.universal.dmg.url,
+      ) ||
+      accepted.chip.textContent !== `v${updater.version}` ||
+      accepted.chip.hidden ||
+      accepted.requests !== 1
     ) {
       failures.push("download.js: did not resolve the trusted updater DMG");
     }
@@ -445,8 +436,12 @@ if (!fs.existsSync(downloadScriptPath)) {
       },
     });
     if (
-      rejected.href !==
-      "https://github.com/azzuwayed/switchboard-website/releases/latest"
+      !rejected.hrefs.every(
+        (href) =>
+          href ===
+          "https://github.com/azzuwayed/switchboard-website/releases/latest",
+      ) ||
+      !rejected.chip.hidden
     ) {
       failures.push(
         "download.js: did not retain fallback for an untrusted URL",
@@ -462,6 +457,18 @@ for (const [file, prefix] of [
   ["ar/index.html", "../"],
 ]) {
   const html = read(path.join(root, file));
+  const locale = prefix ? "ar" : "en";
+  const hub = `https://azzuwayed.com/${locale}`;
+  for (const target of [
+    `${hub}/products/switchboard#lifetime`,
+    `${hub}/account/apps/switchboard`,
+    `${hub}/account/support/new?app=switchboard`,
+    `${hub}/pricing`,
+  ]) {
+    if (!html.includes(`href="${target}"`)) {
+      failures.push(`${file}: missing localized handoff to ${target}`);
+    }
+  }
   const links = [...html.matchAll(/<a\b[^>]*data-switchboard-download[^>]*>/g)];
   if (links.length < 2)
     failures.push(`${file}: expected primary and pricing download CTAs`);
