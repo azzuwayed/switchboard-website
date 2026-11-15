@@ -10,6 +10,44 @@ release; the `1.0.0-beta.<n>` entries below it are the pre-stable line.
 
 ## [Unreleased]
 
+## [1.32.0] - 2026-11-15
+
+### Added
+
+- **Reviewed service and stack rebuilds.** See which services will change,
+  which shared dependencies will stay running, and what could block the
+  rebuild. Follow progress and see where it stopped if a step fails. You can
+  reopen the operation record after a disconnect or app restart. Supported
+  MCP clients can review and follow the same operations.
+- **Search and filter saved stacks.** Find stacks by name, service, or linked
+  group. Filter by status or sort by name, recent use, or which stacks need
+  attention.
+
+### Changed
+
+- **Faster stack controls.** Linked modes appear together in the menu bar.
+  Switching opens the desktop review when needed. Stack cards keep actions
+  visible and group launch links by service.
+- **Clearer MCP access and activity.** See which methods your profile
+  exposes, what contributes to its estimated context cost, and how many
+  helpers are eligible for disconnection. Expand groups of repeated
+  successful runs to see each run.
+- **Clearer monitoring.** Numerics shows reading freshness and neutral
+  trends against the previous valid sample. Uptime separates the latest
+  result from the 24-hour check pass rate and shows the last recorded
+  failure and gaps in coverage.
+- **Simpler purchase and recovery.** Compare Free, Lifetime, and Pro on the
+  website. Open the right account page to buy Lifetime, recover a key, or
+  manage your Macs. If guest contact verification fails, the form keeps
+  your message and offers another way to get help.
+
+### Fixed
+
+- **Status remains useful during a refresh.** If a status check is busy,
+  Switchboard can show the last matching sample with its original age.
+- **Missing measurements no longer hide AI runtimes.** Switchboard keeps
+  the last successful inventory visible if a refresh fails.
+
 ## [1.31.0] - 2026-11-13
 
 Switchboard 1.31.0 makes local monitoring easier to trust, brings hosted
